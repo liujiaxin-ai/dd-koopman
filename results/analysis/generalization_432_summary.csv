@@ -1,0 +1,7 @@
+model,params,nmse_432,published_432,paired_diff,ci_low,ci_high,ci_excludes_zero,source
+"ours, seed 42 (reported)",173190,0.2685,0.2872,-0.0187,-0.0283,-0.0095,True,results/run_csv/CAPNOAUX600_gen_gen.csv
+"ours, seed 43",173190,0.2767,0.2872,-0.0105,-0.0194,-0.0022,True,results/run_csv/CAPNOAUXS43_gen_gen.csv
+"ours, seed 44",173190,0.2695,0.2872,-0.0177,-0.0273,-0.0086,True,results/run_csv/CAPNOAUXS44_gen_gen.csv
+"CSI-4CAST shrunk (91k, converged)",91410,0.3039,0.2872,0.0167,0.0033,0.0289,True,results/run_csv/P3CONV_gen_gen.csv
+MambaCSP port (8 ep),881604,0.3246,0.2872,0.0374,0.0257,0.0481,True,results/run_csv/MAMBA64_432_gen.csv
+capacity-matched Transformer,149560,0.3427,0.2872,0.0555,0.0407,0.0708,True,results/run_csv/TRANSMATCHED_432_gen.csv

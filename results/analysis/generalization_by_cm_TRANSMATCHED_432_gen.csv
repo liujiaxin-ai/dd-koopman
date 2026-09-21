@@ -1,0 +1,7 @@
+slice,cells,ours,published,rel_diff,paired_mean_diff,ci_low,ci_high,favour_cells,sign_p,source
+all,72,0.3427,0.2872,0.193,0.0555,0.0407,0.0708,7/72,0.0,"results/run_csv/TRANSMATCHED_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmB,36,0.6062,0.5291,0.146,0.0771,0.0481,0.1041,7/36,0.0003,"results/run_csv/TRANSMATCHED_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmE,36,0.0793,0.0453,0.751,0.034,0.0307,0.037,0/36,0.0,"results/run_csv/TRANSMATCHED_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+le10ms,18,0.1547,0.0832,0.859,0.0716,0.0445,0.1022,0/18,0.0,"results/run_csv/TRANSMATCHED_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+gt30ms,18,0.4912,0.4877,0.007,0.0035,-0.0231,0.0273,6/18,0.2379,"results/run_csv/TRANSMATCHED_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+eqweight-relative,72,,,0.449,,,,7/72,,"results/run_csv/TRANSMATCHED_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization); mean of the cmB and cmE rel_diff values"

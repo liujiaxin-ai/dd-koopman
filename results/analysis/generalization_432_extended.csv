@@ -1,0 +1,19 @@
+model,params,nmse_BE,published_BE,paired_diff,ci_low,ci_high,cells_better,n_cells,sign_p,source
+grid-constrained retrain seed 43,173190,0.2678,0.2872,-0.0194,-0.029,-0.0103,40,72,0.4095793959270717,results/run_csv/GRIDFIX_S43_gen_gen.csv
+grid-constrained retrain seed 42,173190,0.268,0.2872,-0.0192,-0.0292,-0.0098,42,72,0.19450516586739908,results/run_csv/GRIDFIX_S42_gen_gen.csv
+ours seed 42 (reported),173190,0.2685,0.2872,-0.0187,-0.0283,-0.0095,44,72,0.07636915467183139,results/run_csv/CAPNOAUX600_gen_gen.csv
+ours seed 44,173190,0.2695,0.2872,-0.0177,-0.0273,-0.0086,44,72,0.07636915467183139,results/run_csv/CAPNOAUXS44_gen_gen.csv
+grid-constrained retrain seed 44,173190,0.2705,0.2872,-0.0166,-0.0263,-0.0076,41,72,0.28878428041410487,results/run_csv/GRIDFIX_S44_gen_gen.csv
+ours 75% data,173190,0.2729,0.2872,-0.0143,-0.024,-0.0052,38,72,0.723948145746914,results/run_csv/DATAFRAC75_gen_BE.csv
+77k variant seed 44,77110,0.2741,0.2872,-0.013,-0.0222,-0.0043,36,72,1.0,results/run_csv/XS_S44_gen_BE.csv
+77k variant seed 43,77110,0.2752,0.2872,-0.0119,-0.0227,-0.0014,38,72,0.723948145746914,results/run_csv/XS_S43_gen_BE.csv
+77k variant seed 42,77110,0.2753,0.2872,-0.0119,-0.023,-0.0005,40,72,0.4095793959270717,results/run_csv/XS42_gen_BE.csv
+ours seed 43,173190,0.2767,0.2872,-0.0105,-0.0194,-0.0022,35,72,0.9062943247030809,results/run_csv/CAPNOAUXS43_gen_gen.csv
+MambaCSP trained to plateau,881604,0.2796,0.2872,-0.0076,-0.0178,0.0019,27,72,0.04437092000802569,results/run_csv/MAMBA64CONV_C_gen.csv
+ours 50% data,173190,0.2863,0.2872,-0.0009,-0.009,0.0068,27,72,0.04437092000802569,results/run_csv/DATAFRAC50_gen_BE.csv
+ours 25% data,173190,0.294,0.2872,0.0068,-0.0015,0.0153,23,72,0.002942760530124976,results/run_csv/DATAFRAC25_gen_BE.csv
+published-architecture 91k,91410,0.3039,0.2872,0.0167,0.0033,0.0289,15,72,6.539968221733264e-07,results/run_csv/P3CONV_gen_gen.csv
+"intervention: reported model, delta=0",173190,0.316,0.2872,0.0288,0.0174,0.0395,21,72,0.0005349642016498918,results/run_csv/SNAP0_gen_BE.csv
+MambaCSP port (8 epochs),881604,0.3246,0.2872,0.0374,0.0257,0.0481,12,72,8.055498526741105e-09,results/run_csv/MAMBA64_432_gen.csv
+capacity-matched transformer,149560,0.3427,0.2872,0.0555,0.0407,0.0708,7,72,6.9644370929921e-13,results/run_csv/TRANSMATCHED_432_gen.csv
+"intervention: 77k variant, delta=0",77110,0.3438,0.2872,0.0567,0.043,0.07,16,72,2.397319809534421e-06,results/run_csv/XS_snap0_gen_BE.csv

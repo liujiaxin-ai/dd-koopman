@@ -1,0 +1,13 @@
+model,snr_db,nmse
+ours-seed42,0.0,0.1817
+ours-seed42,5.0,0.1481
+ours-seed42,10.0,0.1322
+ours-seed42,15.0,0.1254
+ours-seed42,20.0,0.1225
+ours-seed42,25.0,0.1213
+published,0.0,0.1672
+published,5.0,0.1307
+published,10.0,0.1172
+published,15.0,0.1121
+published,20.0,0.1106
+published,25.0,0.11

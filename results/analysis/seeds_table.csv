@@ -1,0 +1,9 @@
+family,seed,schedule_epochs,spectral_loss,nmse,source
+ours-reported,42,600,False,0.1385,results/run_csv/CAPNOAUX600_full162.csv
+ours-reported,43,600,False,0.1442,results/run_csv/CAPNOAUXS43_full162.csv
+ours-reported,44,600,False,0.1378,results/run_csv/HEADNOAUXS44_full162.csv
+ours-reported,42,240,False,0.1401,results/run_csv/ABLNOAUX_full162.csv
+ours-with-loss,42,600,True,0.1478,results/run_csv/LONGFULL_full162.csv
+ours-with-loss,43,600,True,0.1528,results/run_csv/SEED43_full162.csv
+ours-with-loss,42,240,True,0.156,results/run_csv/S49K_full162.csv
+ours-with-loss,43,240,True,0.1489,results/run_csv/S49KS43_full162.csv

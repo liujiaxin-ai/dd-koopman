@@ -1,0 +1,13 @@
+# Efficiency profile on the evaluation GPU.
+# Generated: 2026-09-14T15:59:18Z
+# device: NVIDIA GeForce RTX 4090 D
+# driver: 580.119.02
+# batch: one 32-antenna scene = 32 rows, history 16, features 600
+# protocol: eval mode, 3 warm-up calls, 12 timed repeats, forward only,
+#           torch.cuda.synchronize between calls; identical script and
+#           identical protocol to results/analysis/profiles_local_5060.txt
+batch = one scene = 32 antennas, history 16, 600 features
+CAPLONG          params=   173,190  MACs/sample=     6,514,464  median=   2.23 ms  mean=   2.24 ms  std=  0.05 ms  p90=   2.28 ms  n=12  device=NVIDIA GeForce RTX 4090 D
+OFFICIAL         params=21,913,750  MACs/sample=   804,901,376  median=  11.14 ms  mean=  11.15 ms  std=  0.02 ms  p90=  11.17 ms  n=12  device=NVIDIA GeForce RTX 4090 D
+MAMBA64          params=   881,604  MACs/sample= 2,856,963,584  median=   9.89 ms  mean=   9.88 ms  std=  0.01 ms  p90=   9.89 ms  n=12  device=NVIDIA GeForce RTX 4090 D
+TRANSFORMERS     params=   149,560  MACs/sample=       480,000  median=   0.39 ms  mean=   0.40 ms  std=  0.01 ms  p90=   0.40 ms  n=12  device=NVIDIA GeForce RTX 4090 D

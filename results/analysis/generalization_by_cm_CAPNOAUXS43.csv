@@ -1,0 +1,7 @@
+slice,cells,ours,published,rel_diff,paired_mean_diff,ci_low,ci_high,favour_cells,sign_p,source
+all,72,0.2767,0.2872,-0.037,-0.0105,-0.0194,-0.0022,35/72,0.9063,"results/run_csv/CAPNOAUXS43_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmB,36,0.4971,0.5291,-0.06,-0.032,-0.0447,-0.0189,26/36,0.0113,"results/run_csv/CAPNOAUXS43_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmE,36,0.0564,0.0453,0.245,0.0111,0.0069,0.0155,9/36,0.0039,"results/run_csv/CAPNOAUXS43_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+le10ms,18,0.0688,0.0832,-0.173,-0.0143,-0.0313,-0.0004,12/18,0.2379,"results/run_csv/CAPNOAUXS43_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+gt30ms,18,0.4936,0.4877,0.012,0.0059,-0.0093,0.0196,6/18,0.2379,"results/run_csv/CAPNOAUXS43_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+eqweight-relative,72,,,0.092,,,,35/72,,"results/run_csv/CAPNOAUXS43_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization); mean of the cmB and cmE rel_diff values"

@@ -1,0 +1,328 @@
+% Bibliography for the ICASSP 2027 submission.
+% Metadata verification log:
+%   2026-09-15 overnight run — csi4cast_2025 (arXiv 2510.12996 fetched), llm4cp_2024
+%   (arXiv 2406.14440), fredf_2025 (arXiv 2402.02399),
+%   patchtst/itransformer/timemixer/tsmixer/mamba (arXiv/OpenReview), cpmamba,
+%   mambacsp, channelkan, pcgae, csibert2, lightweight_gru, continual (refs/pdf first pages).
+%   2026-09-15 evening expansion — wen2018csinet (IEEE Xplore 8320791),
+%   lu2020crnet (Crossref 10.1109/ICC40277.2020.9149229, ICC 2020; corrected 2026-09-15),
+%   koopman1931 (PNAS 17.5.315), mezic2005
+%   (Springer 11071-005-1592-z), lusch2018 (Nat Commun 9:4950),
+%   li2021fno (OpenReview c8P9NQVtmnO),
+%   gu2022s4 (arXiv 2111.00396), vaswani2017/cho2014 (canonical),
+%   zeng2023 (arXiv 2205.13504), wu2021autoformer (arXiv 2106.13008),
+%   hadani2017otfs (DOI 10.1109/WCNC.2017.7925924), oshea2017 (IEEE Xplore 8054694),
+%   zhou2021informer (arXiv 2012.07436).
+%   2026-09-15 v3 trim — removed background-only entries jiang2019fading,
+%   williams2015koopman, pathak2018reservoir, lu2021deeponet, hochreiter1997lstm.
+
+% ---------- benchmark, competitors, baselines used in the paper ----------
+
+@article{csi4cast_2025,
+  title        = {{CSI-4CAST}: A Hybrid Deep Learning Model for {CSI} Prediction with Comprehensive Robustness and Generalization Testing},
+  author       = {Cheng, S. and Zandehshahvar, R. and Zhao, H. and others},
+  journal      = {IEEE Transactions on Machine Learning in Communications and Networking},
+  volume       = {4},
+  pages        = {882--912},
+  year         = {2026},
+  note         = {{\href{https://arxiv.org/abs/2510.12996}{arXiv:2510.12996}}}
+}
+
+@article{llm4cp_2024,
+  title        = {{LLM4CP}: Adapting Large Language Models for Channel Prediction},
+  author       = {Liu, B. and Liu, X. and Gao, S. and Cheng, X. and Yang, L.},
+  journal      = {Journal of Communications and Information Networks},
+  volume       = {9},
+  number       = {2},
+  pages        = {113--125},
+  year         = {2024},
+  note         = {{\href{https://arxiv.org/abs/2406.14440}{arXiv:2406.14440}}}
+}
+
+@inproceedings{fredf_2025,
+  title        = {{FreDF}: Learning to Forecast in the Frequency Domain},
+  author       = {Wang, H. and Pan, L. and Shen, Y. and others},
+  booktitle    = {Proc. ICLR},
+  year         = {2025}
+}
+
+@inproceedings{patchtst_2023,
+  title        = {A Time Series is Worth 64 Words: Long-term Forecasting with Transformers},
+  author       = {Nie, Y. and Nguyen, N. H. and Sinthong, P. and Kalagnanam, J.},
+  booktitle    = {Proc. ICLR},
+  year         = {2023}
+}
+
+@inproceedings{itransformer_2024,
+  title        = {{iTransformer}: Inverted Transformers Are Effective for Time Series Forecasting},
+  author       = {Liu, Y. and Hu, T. and Zhang, H. and others},
+  booktitle    = {Proc. ICLR},
+  year         = {2024}
+}
+
+@inproceedings{timemixer_2024,
+  title        = {{TimeMixer}: Decomposable Multiscale Mixing for Time Series Forecasting},
+  author       = {Wang, S. and Wu, H. and Shi, X. and others},
+  booktitle    = {Proc. ICLR},
+  year         = {2024}
+}
+
+@article{tsmixer_2023,
+  title        = {{TSMixer}: An All-{MLP} Architecture for Time Series Forecasting},
+  author       = {Chen, S.-A. and Li, C.-L. and Yoder, N. and Arik, S. O. and Pfister, T.},
+  journal      = {Transactions on Machine Learning Research},
+  year         = {2023},
+  note         = {{\href{https://arxiv.org/abs/2303.06053}{arXiv:2303.06053}}}
+}
+
+@misc{mamba_2023,
+  title        = {{Mamba}: Linear-Time Sequence Modeling with Selective State Spaces},
+  author       = {Gu, A. and Dao, T.},
+  year         = {2023},
+  note         = {{\href{https://arxiv.org/abs/2312.00752}{arXiv:2312.00752}}}
+}
+
+@inproceedings{mambacsp_2026,
+  title        = {{MambaCSP}: Hybrid-Attention State Space Models for Hardware-Efficient Channel State Prediction},
+  author       = {Djuhera, A. and Gacanin, H. and Boche, H.},
+  booktitle    = {Proc. IEEE Global Communications Conference (GLOBECOM)},
+  year         = {2026},
+  note         = {{\href{https://arxiv.org/abs/2604.21957}{arXiv:2604.21957}}}
+}
+
+@article{cpmamba_2025,
+  title        = {{CPMamba}: Selective State Space Models for {MIMO} Channel Prediction in High-Mobility Environments},
+  author       = {Luo, S. and Xie, J. and Che, Y. and others},
+  journal      = {IEEE Transactions on Mobile Computing},
+  pages        = {1--14},
+  year         = {2026},
+  note         = {early access; {\href{https://arxiv.org/abs/2512.16315}{arXiv:2512.16315}}}
+}
+
+@misc{channelkan_2026,
+  title        = {{ChannelKAN}: Multi-Scale Dual-Domain Channel Prediction via Hybrid {CNN}-{KAN} Architecture},
+  author       = {Jiang, N. and Song, Z. and Guo, T. and Zhao, X. and Xu, Y.},
+  year         = {2026},
+  note         = {{\href{https://arxiv.org/abs/2605.12553}{arXiv:2605.12553}}}
+}
+
+@misc{pcgae_2026,
+  title        = {Lightweight {PCGAE}-Net: Parallel {CrossGate} Attention and Bottleneck {AutoEncoder} for Efficient {5G} Channel Prediction},
+  author       = {Godavarti, U. K. and Giridhar, K. and Dharmendrabhai, V. P. and Panday, A. and Kanagarathinam, M. R.},
+  year         = {2026},
+  note         = {{\href{https://arxiv.org/abs/2606.25401}{arXiv:2606.25401}}}
+}
+
+@article{csibert2_2024,
+  title        = {{CSI-BERT2}: A {BERT}-inspired Framework for Efficient {CSI} Prediction and Classification in Wireless Communication and Sensing},
+  author       = {Zhao, Z. and Meng, F. and Lyu, Z. and Li, H. and Li, X. and Zhu, G.},
+  journal      = {IEEE Transactions on Mobile Computing},
+  volume       = {25},
+  number       = {5},
+  pages        = {7241--7257},
+  year         = {2026},
+  note         = {{\href{https://arxiv.org/abs/2412.06861}{arXiv:2412.06861}}}
+}
+
+
+
+% ---------- physical layer and channel prediction ----------
+
+@article{oshea2017physical,
+  title   = {An Introduction to Deep Learning for the Physical Layer},
+  author  = {O'Shea, T. J. and Hoydis, J.},
+  journal = {IEEE Trans. Cognitive Communications and Networking},
+  volume  = {3},
+  number  = {4},
+  pages   = {563--575},
+  year    = {2017}
+}
+
+@article{wen2018csinet,
+  title   = {Deep Learning for Massive {MIMO} {CSI} Feedback},
+  author  = {Wen, C.-K. and Shih, W.-T. and Jin, S.},
+  journal = {IEEE Wireless Communications Letters},
+  volume  = {7},
+  number  = {5},
+  pages   = {748--751},
+  year    = {2018}
+}
+
+@inproceedings{lu2020crnet,
+  title     = {Multi-resolution {CSI} Feedback with Deep Learning in Massive {MIMO} System},
+  author    = {Lu, Z. and Wang, J. and Song, J.},
+  booktitle = {Proc. IEEE International Conference on Communications (ICC)},
+  year      = {2020},
+  pages     = {1--6},
+  note      = {{\href{https://arxiv.org/abs/1910.14322}{arXiv:1910.14322}}}
+}
+
+% ---------- delay-Doppler representation ----------
+
+@inproceedings{hadani2017otfs,
+  title     = {Orthogonal Time Frequency Space Modulation},
+  author    = {Hadani, R. and Rakib, S. and Tsatsanis, M. and others},
+  booktitle = {Proc. IEEE WCNC},
+  year      = {2017},
+  pages     = {1--6}
+}
+
+% ---------- Koopman / operator learning ----------
+
+@article{koopman1931,
+  title   = {Hamiltonian Systems and Transformation in Hilbert Space},
+  author  = {Koopman, B. O.},
+  journal = {Proc. National Academy of Sciences},
+  volume  = {17},
+  number  = {5},
+  pages   = {315--318},
+  year    = {1931}
+}
+
+@article{mezic2005,
+  title   = {Spectral Properties of Dynamical Systems, Model Reduction and Decompositions},
+  author  = {Mezi{\'c}, I.},
+  journal = {Nonlinear Dynamics},
+  volume  = {41},
+  number  = {1--3},
+  pages   = {309--325},
+  year    = {2005}
+}
+
+@article{lusch2018koopman,
+  title   = {Deep Learning for Universal Linear Embeddings of Nonlinear Dynamics},
+  author  = {Lusch, B. and Kutz, J. N. and Brunton, S. L.},
+  journal = {Nature Communications},
+  volume  = {9},
+  pages   = {4950},
+  year    = {2018}
+}
+
+@inproceedings{li2021fno,
+  title     = {Fourier Neural Operator for Parametric Partial Differential Equations},
+  author    = {Li, Z. and Kovachki, N. and Azizzadenesheli, K. and others},
+  booktitle = {Proc. ICLR},
+  year      = {2021}
+}
+
+% ---------- sequence models and forecasting baselines ----------
+
+@inproceedings{vaswani2017attention,
+  title     = {Attention is All You Need},
+  author    = {Vaswani, A. and Shazeer, N. and Parmar, N. and others},
+  booktitle = {Proc. NeurIPS},
+  year      = {2017}
+}
+
+% zhou2021informer (AAAI 2021) dropped 2026-09-19: no longer cited in the text.
+@inproceedings{gu2022s4,
+  title     = {Efficiently Modeling Long Sequences with Structured State Spaces},
+  author    = {Gu, A. and Goel, K. and R{\'e}, C.},
+  booktitle = {Proc. ICLR},
+  year      = {2022}
+}
+
+@inproceedings{wu2021autoformer,
+  title     = {{Autoformer}: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting},
+  author    = {Wu, H. and Xu, J. and Wang, J. and Long, M.},
+  booktitle = {Proc. NeurIPS},
+  year      = {2021},
+  volume    = {34},
+  pages     = {22419--22430}
+}
+
+@inproceedings{zeng2023dlinear,
+  title     = {Are Transformers Effective for Time Series Forecasting?},
+  author    = {Zeng, A. and Chen, M. and Zhang, L. and Xu, Q.},
+  booktitle = {Proc. AAAI},
+  year      = {2023},
+  volume    = {37},
+  pages     = {11121--11128}
+}
+
+@inproceedings{cho2014gru,
+  title     = {Learning Phrase Representations using {RNN} Encoder--Decoder for Statistical Machine Translation},
+  author    = {Cho, K. and van Merri{\"e}nboer, B. and Gulcehre, C. and others},
+  booktitle = {Proc. EMNLP},
+  year      = {2014},
+  pages     = {1724--1734}
+}
+
+
+% ---------- 2026-09-20 R10 restore+expand (page-5 fill, author request) ------
+% Restored from the 2026-09-15 v3 trim (previously verified): williams2015koopman
+%   (JNS 25:1307), lu2021deeponet (Nat Mach Intell 3:218), hochreiter1997lstm
+%   (canonical), zhou2021informer (arXiv 2012.07436; AAAI 35:11106).
+% Newly added, author will verify on Google Scholar: brunton2017havok
+%   (Nat Commun 8:19), gu2020hippo (NeurIPS 33), smith2023s5 (ICLR 2023),
+%   orvieto2023lru (ICML 2023), oreshkin2020nbeats (ICLR 2020),
+%   kingma2015adam (ICLR 2015), efron1979bootstrap (Ann Stat 7(1):1--26).
+
+@article{williams2015koopman,
+  title   = {A Data-Driven Approximation of the {Koopman} Operator: Extending Dynamic Mode Decomposition},
+  author  = {Williams, M. O. and Kevrekidis, I. G. and Rowley, C. W.},
+  journal = {Journal of Nonlinear Science},
+  volume  = {25},
+  number  = {5},
+  pages   = {1307--1346},
+  year    = {2015}
+}
+@article{brunton2017havok,
+  title   = {Chaos as an Intermittently Forced Linear System},
+  author  = {Brunton, S. L. and Brunton, B. W. and Proctor, J. L. and Kaiser, E. and Kutz, J. N.},
+  journal = {Nature Communications},
+  volume  = {8},
+  number  = {1},
+  pages   = {19},
+  year    = {2017}
+}
+@article{lu2021deeponet,
+  title   = {Learning Nonlinear Operators via {DeepONet} based on the Universal Approximation Theorem of Operators},
+  author  = {Lu, L. and Jin, P. and Pang, G. and Zhang, Z. and Karniadakis, G. E.},
+  journal = {Nature Machine Intelligence},
+  volume  = {3},
+  pages   = {218--229},
+  year    = {2021}
+}
+@article{hochreiter1997lstm,
+  title   = {Long Short-Term Memory},
+  author  = {Hochreiter, S. and Schmidhuber, J.},
+  journal = {Neural Computation},
+  volume  = {9},
+  number  = {8},
+  pages   = {1735--1780},
+  year    = {1997}
+}
+@inproceedings{zhou2021informer,
+  title     = {{Informer}: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting},
+  author    = {Zhou, H. and Zhang, S. and Peng, J. and others},
+  booktitle = {Proc. AAAI},
+  year      = {2021},
+  volume    = {35},
+  pages     = {11106--11115}
+}
+@inproceedings{oreshkin2020nbeats,
+  title     = {{N-BEATS}: Neural Basis Expansion Analysis for Interpretable Time Series Forecasting},
+  author    = {Oreshkin, B. N. and Carpov, D. and Chapados, N. and Bengio, Y.},
+  booktitle = {Proc. ICLR},
+  year      = {2020}
+}
+@inproceedings{kingma2015adam,
+  title     = {Adam: A Method for Stochastic Optimization},
+  author    = {Kingma, D. P. and Ba, J.},
+  booktitle = {Proc. ICLR},
+  year      = {2015}
+}
+@inproceedings{smith2023s5,
+  title     = {Simplified State Space Layers for Sequence Modeling},
+  author    = {Smith, J. T. H. and Warrington, A. and Linderman, S. W.},
+  booktitle = {Proc. ICLR},
+  year      = {2023}
+}
+@inproceedings{orvieto2023lru,
+  title     = {Resurrecting Recurrent Neural Networks for Long Sequences},
+  author    = {Orvieto, A. and Smith, S. L. and Gu, A. and Fernando, A. and Gulcehre, C. and Pascanu, R. and De, S.},
+  booktitle = {Proc. ICML},
+  year      = {2023},
+  pages     = {26670--26698}
+}

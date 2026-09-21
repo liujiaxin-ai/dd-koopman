@@ -1,0 +1,29 @@
+
+W0914 23:33:03.261000 32856 site-packages\torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+CAPLONG          params=   173,190  MACs/sample=     6,514,464  median=   3.98 ms  p90=   4.73 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+OFFICIAL         params=21,913,750  MACs/sample=   804,901,376  median=  40.37 ms  p90=  40.91 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+O93K             params=    91,410  MACs/sample=    15,484,416  median=   4.13 ms  p90=   4.35 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MAMBA64          params=   881,604  MACs/sample= 2,856,963,584  median=  42.53 ms  p90=  42.84 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MAMBA64F         params=   881,604  MACs/sample= 2,856,963,584  median=  42.23 ms  p90=  43.19 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MAMBA32F         params=   264,644  MACs/sample=   720,513,024  median=  15.95 ms  p90=  16.37 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TIMEMIXERS       params=     4,557  MACs/sample=     2,611,200  median=   0.97 ms  p90=   1.25 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TIMEMIXERM       params=    42,065  MACs/sample=    24,768,000  median=   1.15 ms  p90=   1.19 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TIMEMIXERL       params=   157,841  MACs/sample=    93,772,800  median=   2.36 ms  p90=   3.45 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TSMIXERS         params=    10,722  MACs/sample=     4,953,600  median=   0.62 ms  p90=   0.65 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TSMIXERM         params=    26,850  MACs/sample=    14,784,000  median=   0.85 ms  p90=   0.92 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TSMIXERL         params=   124,337  MACs/sample=    73,766,400  median=   5.87 ms  p90=   6.00 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+ITRANSFORMERS    params=    19,016  MACs/sample=       107,520  median=   0.73 ms  p90=   0.96 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+ITRANSFORMERM    params=   103,192  MACs/sample=       256,000  median=   0.94 ms  p90=   1.16 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+ITRANSFORMERL    params=   302,900  MACs/sample=       414,720  median=   1.36 ms  p90=   1.38 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MAMBALITES       params=    91,154  MACs/sample=       257,920  median=   1.46 ms  p90=   1.67 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MAMBALITEM       params=   135,898  MACs/sample=       393,024  median=   1.88 ms  p90=   1.91 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MAMBALITEL       params=   180,898  MACs/sample=       532,224  median=   1.76 ms  p90=   2.32 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TRANSFORMER      params=   262,432  MACs/sample=       768,000  median=   0.66 ms  p90=   0.73 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TRANSFORMERS     params=   149,560  MACs/sample=       480,000  median=   1.22 ms  p90=   1.24 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+PATCHTST         params=   616,560  MACs/sample=       921,600  median=   0.90 ms  p90=   1.08 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+PATCHTSTS        params=   198,928  MACs/sample=       307,200  median=   1.03 ms  p90=   1.37 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+GRU              params=   283,872  MACs/sample=       153,600  median=   0.30 ms  p90=   0.31 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+TCN              params=   295,968  MACs/sample=     2,866,176  median=   0.37 ms  p90=   0.41 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+MLP              params=   580,800  MACs/sample=       578,304  median=   0.30 ms  p90=   0.44 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+DLINEAR          params=        68  MACs/sample=        38,400  median=   0.08 ms  p90=   0.11 ms  device=NVIDIA GeForce RTX 5060 Laptop GPU
+

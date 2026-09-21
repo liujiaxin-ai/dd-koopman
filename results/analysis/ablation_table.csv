@@ -1,0 +1,11 @@
+cell,denoiser,delay_decomposition,conditioned_poles,spectral_loss,nmse,delta_vs_reference,relative_vs_reference,nmse_30ms,source
+ABLREF,True,True,True,True,0.1496,0.0,+0.0%,0.3532,results/run_csv/ABLREF_full162.csv
+no-denoiser,False,True,True,True,0.195,0.0454,+30.3%,0.4532,results/run_csv/ABL1_full162.csv
+no-decomposition,True,False,True,True,0.1517,0.002,+1.3%,0.3526,results/run_csv/ABL2_full162.csv
+no-conditioned-poles,True,True,False,True,0.1532,0.0036,+2.4%,0.3607,results/run_csv/ABL3_full162.csv
+no-denoiser-decomposition,False,False,True,True,0.1992,0.0496,+33.1%,0.4602,results/run_csv/ABL12_full162.csv
+no-denoiser-poles,False,True,False,True,0.2075,0.0578,+38.6%,0.4768,results/run_csv/ABL13_full162.csv
+no-decomposition-poles,True,False,False,True,0.1505,0.0009,+0.6%,0.3553,results/run_csv/ABL23_full162.csv
+no-denoiser-decomposition-poles,False,False,False,True,0.2205,0.0708,+47.3%,0.5076,results/run_csv/ABL123_full162.csv
+no-spectral-loss,True,True,True,False,0.1401,-0.0095,-6.4%,0.3236,results/run_csv/ABLNOAUX_full162.csv
+no-spectral-loss-no-poles,True,True,False,False,0.1484,-0.0012,-0.8%,0.3407,results/run_csv/REDUND2_full162.csv

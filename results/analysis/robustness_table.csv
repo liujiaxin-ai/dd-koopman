@@ -1,0 +1,11 @@
+label,status,rows,nmse,source
+ours-reported-seed42,ok,486,0.1772,results/run_csv/CAPNOAUX600_robust486.csv
+ours-reported-seed43,ok,486,0.1735,results/run_csv/CAPNOAUXS43_robust486.csv
+ours-reported-seed44,ok,486,0.1777,results/run_csv/HEADNOAUXS44_robust486.csv
+ours-with-loss-seed43,ok,486,0.1962,results/run_csv/SEED43_full162_robust486.csv
+ours-with-loss-240ep-seed43,ok,486,0.1954,results/run_csv/S49K_robust486.csv
+ours-T300C64,ok,486,0.1943,results/run_csv/T300C64_robust486.csv
+capacity-matched-transformer,ok,486,0.2272,results/run_csv/ROBUST_TRANSMATCHED.csv
+patchtst-617k,ok,486,0.2349,results/run_csv/ROBUST_PATCHTST.csv
+mambacsp-plateau,ok,486,0.1805,results/run_csv/MAMBA64CONV_C_robust486.csv
+CSI-4CAST-published,ok,486,0.1623,"results/reference/official_per_setting.csv (MODEL, TDD, robustness)"

@@ -1,0 +1,7 @@
+slice,cells,ours,published,rel_diff,paired_mean_diff,ci_low,ci_high,favour_cells,sign_p,source
+all,72,0.3039,0.2872,0.058,0.0167,0.0033,0.0289,15/72,0.0,"results/run_csv/P3CONV_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmB,36,0.5205,0.5291,-0.016,-0.0086,-0.032,0.0124,15/36,0.405,"results/run_csv/P3CONV_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmE,36,0.0874,0.0453,0.929,0.0421,0.0389,0.0457,0/36,0.0,"results/run_csv/P3CONV_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+le10ms,18,0.1273,0.0832,0.53,0.0441,0.0358,0.0537,0/18,0.0,"results/run_csv/P3CONV_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+gt30ms,18,0.4643,0.4877,-0.048,-0.0234,-0.0622,0.0146,9/18,1.0,"results/run_csv/P3CONV_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+eqweight-relative,72,,,0.457,,,,15/72,,"results/run_csv/P3CONV_gen_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization); mean of the cmB and cmE rel_diff values"

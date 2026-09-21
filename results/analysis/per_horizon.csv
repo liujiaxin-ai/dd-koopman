@@ -1,0 +1,9 @@
+split,model,h1,h2,h3,h4,source
+regular,ours-seed42,0.0539,0.1124,0.1665,0.2213,results/run_csv/CAPNOAUX600_full162.csv
+regular,published,0.0417,0.0933,0.1508,0.2127,results/reference/official_per_setting.csv
+regular,wiener,0.6495,0.8077,0.9087,0.9284,results/reference/official_per_setting.csv
+robustness,ours-seed42,0.0894,0.1496,0.2089,0.2611,results/run_csv/CAPNOAUX600_robust486.csv
+robustness,published,0.0827,0.1308,0.1882,0.2473,results/reference/official_per_setting.csv
+generalization-432,ours-seed42,0.1276,0.2472,0.3194,0.3799,results/run_csv/CAPNOAUX600_gen_gen.csv
+generalization-432,published,0.1468,0.2563,0.3412,0.4044,results/reference/official_per_setting.csv
+generalization-432,wiener,0.9511,1.1309,1.1239,1.139,results/reference/official_per_setting.csv

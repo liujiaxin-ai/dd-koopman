@@ -1,0 +1,217 @@
+\begin{thebibliography}{10}
+
+\bibitem{csi4cast_2025}
+S.~Cheng, R.~Zandehshahvar, H.~Zhao, et~al.,
+\newblock ``{CSI-4CAST}: A hybrid deep learning model for {CSI} prediction with
+  comprehensive robustness and generalization testing,''
+\newblock {\em IEEE Transactions on Machine Learning in Communications and
+  Networking}, vol. 4, pp. 882--912, 2026,
+\newblock {\href{https://arxiv.org/abs/2510.12996}{arXiv:2510.12996}}.
+
+\bibitem{llm4cp_2024}
+B.~Liu, X.~Liu, S.~Gao, X.~Cheng, and L.~Yang,
+\newblock ``{LLM4CP}: Adapting large language models for channel prediction,''
+\newblock {\em Journal of Communications and Information Networks}, vol. 9, no.
+  2, pp. 113--125, 2024,
+\newblock {\href{https://arxiv.org/abs/2406.14440}{arXiv:2406.14440}}.
+
+\bibitem{oshea2017physical}
+T.~J. O'Shea and J.~Hoydis,
+\newblock ``An introduction to deep learning for the physical layer,''
+\newblock {\em IEEE Trans. Cognitive Communications and Networking}, vol. 3,
+  no. 4, pp. 563--575, 2017.
+
+\bibitem{wen2018csinet}
+C.-K. Wen, W.-T. Shih, and S.~Jin,
+\newblock ``Deep learning for massive {MIMO} {CSI} feedback,''
+\newblock {\em IEEE Wireless Communications Letters}, vol. 7, no. 5, pp.
+  748--751, 2018.
+
+\bibitem{lu2020crnet}
+Z.~Lu, J.~Wang, and J.~Song,
+\newblock ``Multi-resolution {CSI} feedback with deep learning in massive
+  {MIMO} system,''
+\newblock in {\em Proc. IEEE International Conference on Communications (ICC)},
+  2020, pp. 1--6,
+\newblock {\href{https://arxiv.org/abs/1910.14322}{arXiv:1910.14322}}.
+
+\bibitem{hadani2017otfs}
+R.~Hadani, S.~Rakib, M.~Tsatsanis, et~al.,
+\newblock ``Orthogonal time frequency space modulation,''
+\newblock in {\em Proc. IEEE WCNC}, 2017, pp. 1--6.
+
+\bibitem{channelkan_2026}
+N.~Jiang, Z.~Song, T.~Guo, X.~Zhao, and Y.~Xu,
+\newblock ``{ChannelKAN}: Multi-scale dual-domain channel prediction via hybrid
+  {CNN}-{KAN} architecture,'' 2026,
+\newblock {\href{https://arxiv.org/abs/2605.12553}{arXiv:2605.12553}}.
+
+\bibitem{mambacsp_2026}
+A.~Djuhera, H.~Gacanin, and H.~Boche,
+\newblock ``{MambaCSP}: Hybrid-attention state space models for
+  hardware-efficient channel state prediction,''
+\newblock in {\em Proc. IEEE Global Communications Conference (GLOBECOM)},
+  2026,
+\newblock {\href{https://arxiv.org/abs/2604.21957}{arXiv:2604.21957}}.
+
+\bibitem{pcgae_2026}
+U.~K. Godavarti, K.~Giridhar, V.~P. Dharmendrabhai, A.~Panday, and M.~R.
+  Kanagarathinam,
+\newblock ``Lightweight {PCGAE}-net: Parallel {CrossGate} attention and
+  bottleneck {AutoEncoder} for efficient {5G} channel prediction,'' 2026,
+\newblock {\href{https://arxiv.org/abs/2606.25401}{arXiv:2606.25401}}.
+
+\bibitem{csibert2_2024}
+Z.~Zhao, F.~Meng, Z.~Lyu, H.~Li, X.~Li, and G.~Zhu,
+\newblock ``{CSI-BERT2}: A {BERT}-inspired framework for efficient {CSI}
+  prediction and classification in wireless communication and sensing,''
+\newblock {\em IEEE Transactions on Mobile Computing}, vol. 25, no. 5, pp.
+  7241--7257, 2026,
+\newblock {\href{https://arxiv.org/abs/2412.06861}{arXiv:2412.06861}}.
+
+\bibitem{koopman1931}
+B.~O. Koopman,
+\newblock ``Hamiltonian systems and transformation in hilbert space,''
+\newblock {\em Proc. National Academy of Sciences}, vol. 17, no. 5, pp.
+  315--318, 1931.
+
+\bibitem{mezic2005}
+I.~Mezi{\'c},
+\newblock ``Spectral properties of dynamical systems, model reduction and
+  decompositions,''
+\newblock {\em Nonlinear Dynamics}, vol. 41, no. 1--3, pp. 309--325, 2005.
+
+\bibitem{brunton2017havok}
+S.~L. Brunton, B.~W. Brunton, J.~L. Proctor, E.~Kaiser, and J.~N. Kutz,
+\newblock ``Chaos as an intermittently forced linear system,''
+\newblock {\em Nature Communications}, vol. 8, no. 1, pp. 19, 2017.
+
+\bibitem{williams2015koopman}
+M.~O. Williams, I.~G. Kevrekidis, and C.~W. Rowley,
+\newblock ``A data-driven approximation of the {Koopman} operator: Extending
+  dynamic mode decomposition,''
+\newblock {\em Journal of Nonlinear Science}, vol. 25, no. 5, pp. 1307--1346,
+  2015.
+
+\bibitem{lusch2018koopman}
+B.~Lusch, J.~N. Kutz, and S.~L. Brunton,
+\newblock ``Deep learning for universal linear embeddings of nonlinear
+  dynamics,''
+\newblock {\em Nature Communications}, vol. 9, pp. 4950, 2018.
+
+\bibitem{lu2021deeponet}
+L.~Lu, P.~Jin, G.~Pang, Z.~Zhang, and G.~E. Karniadakis,
+\newblock ``Learning nonlinear operators via {DeepONet} based on the universal
+  approximation theorem of operators,''
+\newblock {\em Nature Machine Intelligence}, vol. 3, pp. 218--229, 2021.
+
+\bibitem{li2021fno}
+Z.~Li, N.~Kovachki, K.~Azizzadenesheli, et~al.,
+\newblock ``Fourier neural operator for parametric partial differential
+  equations,''
+\newblock in {\em Proc. ICLR}, 2021.
+
+\bibitem{gu2022s4}
+A.~Gu, K.~Goel, and C.~R{\'e},
+\newblock ``Efficiently modeling long sequences with structured state spaces,''
+\newblock in {\em Proc. ICLR}, 2022.
+
+\bibitem{smith2023s5}
+J.~T.~H. Smith, A.~Warrington, and S.~W. Linderman,
+\newblock ``Simplified state space layers for sequence modeling,''
+\newblock in {\em Proc. ICLR}, 2023.
+
+\bibitem{mamba_2023}
+A.~Gu and T.~Dao,
+\newblock ``{Mamba}: Linear-time sequence modeling with selective state
+  spaces,'' 2023,
+\newblock {\href{https://arxiv.org/abs/2312.00752}{arXiv:2312.00752}}.
+
+\bibitem{orvieto2023lru}
+A.~Orvieto, S.~L. Smith, A.~Gu, A.~Fernando, C.~Gulcehre, R.~Pascanu, and
+  S.~De,
+\newblock ``Resurrecting recurrent neural networks for long sequences,''
+\newblock in {\em Proc. ICML}, 2023, pp. 26670--26698.
+
+\bibitem{cpmamba_2025}
+S.~Luo, J.~Xie, Y.~Che, et~al.,
+\newblock ``{CPMamba}: Selective state space models for {MIMO} channel
+  prediction in high-mobility environments,''
+\newblock {\em IEEE Transactions on Mobile Computing}, pp. 1--14, 2026,
+\newblock early access;
+  {\href{https://arxiv.org/abs/2512.16315}{arXiv:2512.16315}}.
+
+\bibitem{patchtst_2023}
+Y.~Nie, N.~H. Nguyen, P.~Sinthong, and J.~Kalagnanam,
+\newblock ``A time series is worth 64 words: Long-term forecasting with
+  transformers,''
+\newblock in {\em Proc. ICLR}, 2023.
+
+\bibitem{itransformer_2024}
+Y.~Liu, T.~Hu, H.~Zhang, et~al.,
+\newblock ``{iTransformer}: Inverted transformers are effective for time series
+  forecasting,''
+\newblock in {\em Proc. ICLR}, 2024.
+
+\bibitem{timemixer_2024}
+S.~Wang, H.~Wu, X.~Shi, et~al.,
+\newblock ``{TimeMixer}: Decomposable multiscale mixing for time series
+  forecasting,''
+\newblock in {\em Proc. ICLR}, 2024.
+
+\bibitem{tsmixer_2023}
+S.-A. Chen, C.-L. Li, N.~Yoder, S.~O. Arik, and T.~Pfister,
+\newblock ``{TSMixer}: An all-{MLP} architecture for time series forecasting,''
+\newblock {\em Transactions on Machine Learning Research}, 2023,
+\newblock {\href{https://arxiv.org/abs/2303.06053}{arXiv:2303.06053}}.
+
+\bibitem{zhou2021informer}
+H.~Zhou, S.~Zhang, J.~Peng, et~al.,
+\newblock ``{Informer}: Beyond efficient transformer for long sequence
+  time-series forecasting,''
+\newblock in {\em Proc. AAAI}, 2021, vol.~35, pp. 11106--11115.
+
+\bibitem{oreshkin2020nbeats}
+B.~N. Oreshkin, D.~Carpov, N.~Chapados, and Y.~Bengio,
+\newblock ``{N-BEATS}: Neural basis expansion analysis for interpretable time
+  series forecasting,''
+\newblock in {\em Proc. ICLR}, 2020.
+
+\bibitem{vaswani2017attention}
+A.~Vaswani, N.~Shazeer, N.~Parmar, et~al.,
+\newblock ``Attention is all you need,''
+\newblock in {\em Proc. NeurIPS}, 2017.
+
+\bibitem{hochreiter1997lstm}
+S.~Hochreiter and J.~Schmidhuber,
+\newblock ``Long short-term memory,''
+\newblock {\em Neural Computation}, vol. 9, no. 8, pp. 1735--1780, 1997.
+
+\bibitem{cho2014gru}
+K.~Cho, B.~van Merri{\"e}nboer, C.~Gulcehre, et~al.,
+\newblock ``Learning phrase representations using {RNN} encoder--decoder for
+  statistical machine translation,''
+\newblock in {\em Proc. EMNLP}, 2014, pp. 1724--1734.
+
+\bibitem{zeng2023dlinear}
+A.~Zeng, M.~Chen, L.~Zhang, and Q.~Xu,
+\newblock ``Are transformers effective for time series forecasting?,''
+\newblock in {\em Proc. AAAI}, 2023, vol.~37, pp. 11121--11128.
+
+\bibitem{wu2021autoformer}
+H.~Wu, J.~Xu, J.~Wang, and M.~Long,
+\newblock ``{Autoformer}: Decomposition transformers with auto-correlation for
+  long-term series forecasting,''
+\newblock in {\em Proc. NeurIPS}, 2021, vol.~34, pp. 22419--22430.
+
+\bibitem{kingma2015adam}
+D.~P. Kingma and J.~Ba,
+\newblock ``Adam: A method for stochastic optimization,''
+\newblock in {\em Proc. ICLR}, 2015.
+
+\bibitem{fredf_2025}
+H.~Wang, L.~Pan, Y.~Shen, et~al.,
+\newblock ``{FreDF}: Learning to forecast in the frequency domain,''
+\newblock in {\em Proc. ICLR}, 2025.
+
+\end{thebibliography}

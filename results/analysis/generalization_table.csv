@@ -1,0 +1,6 @@
+label,status,settings,cells,ours_nmse,published_nmse,ratio,paired_mean_diff,ci_low,ci_high,ours_10ms_or_less,published_10ms_or_less,source
+ours-reported-seed42,ok,432,72,0.2685,0.2872,0.935,-0.0187,-0.0283,-0.0095,0.0601,0.0832,results/run_csv/CAPNOAUX600_gen_gen.csv
+ours-with-loss-seed42,ok,432,72,0.2951,0.2872,1.028,0.0079,-0.0083,0.0268,0.0563,0.0832,results/run_csv/LONGFULL72_gen.csv
+ours-with-loss-36combo-slice,ok,216,36,0.2582,0.2603,0.992,-0.0021,-0.0213,0.0202,0.0581,0.0843,results/run_csv/LONGFULL_gen.csv
+mambacsp-2026-882k,ok,216,36,0.3018,0.2603,1.16,0.0416,0.0285,0.0543,0.1329,0.0843,results/run_csv/MAMBA64_gen.csv
+capacity-matched-transformer,ok,216,36,0.3203,0.2603,1.231,0.0601,0.0392,0.0816,0.1556,0.0843,results/run_csv/TRANSMATCHED_gen.csv

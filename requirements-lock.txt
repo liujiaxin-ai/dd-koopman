@@ -1,0 +1,10 @@
+# Verified analysis stack (the environment that regenerates every table and
+# figure from the shipped CSVs). Python 3.10.9.
+# torch: the verification machine ran a cu128 build (2.12.0.dev20260408+cu128);
+# any stable torch>=2.1 wheel runs every analysis entry point (CPU is enough).
+numpy==1.26.4
+pandas==2.3.3
+PyYAML==6.0.3
+lightning==2.6.6
+matplotlib==3.10.9
+scipy==1.15.3

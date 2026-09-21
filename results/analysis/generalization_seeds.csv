@@ -1,0 +1,13 @@
+slice,cells,ours,published,rel_diff,paired_mean_diff,ci_low,ci_high,favour_cells,ties,n_effective,sign_p,ci_excludes_zero,ours_better,seed,source
+all-seed42,72,0.2685,0.2872,-0.065,-0.0187,-0.0283,-0.0095,44/72,0,72,0.0764,True,True,42,results/run_csv/CAPNOAUX600_gen_gen.csv
+all-seed43,72,0.2767,0.2872,-0.036,-0.0105,-0.0194,-0.0022,35/72,0,72,0.9063,True,True,43,results/run_csv/CAPNOAUXS43_gen_gen.csv
+all-seed44,72,0.2695,0.2872,-0.062,-0.0177,-0.0273,-0.0086,44/72,0,72,0.0764,True,True,44,results/run_csv/CAPNOAUXS44_gen_gen.csv
+cmB-seed42,36,0.483,0.5291,-0.087,-0.046,-0.0589,-0.0332,33/36,0,36,0.0,True,True,42,results/run_csv/CAPNOAUX600_gen_gen.csv
+cmB-seed43,36,0.4971,0.5291,-0.06,-0.032,-0.0452,-0.0191,26/36,0,36,0.0113,True,True,43,results/run_csv/CAPNOAUXS43_gen_gen.csv
+cmB-seed44,36,0.487,0.5291,-0.079,-0.042,-0.0557,-0.0277,32/36,0,36,0.0,True,True,44,results/run_csv/CAPNOAUXS44_gen_gen.csv
+cmE-seed42,36,0.054,0.0453,0.192,0.0087,0.0043,0.0133,11/36,0,36,0.0288,True,False,42,results/run_csv/CAPNOAUX600_gen_gen.csv
+cmE-seed43,36,0.0564,0.0453,0.244,0.0111,0.0068,0.0154,9/36,0,36,0.0039,True,False,43,results/run_csv/CAPNOAUXS43_gen_gen.csv
+cmE-seed44,36,0.0519,0.0453,0.147,0.0067,0.0025,0.011,12/36,0,36,0.0652,True,False,44,results/run_csv/CAPNOAUXS44_gen_gen.csv
+all-seedmean,72,0.2716,0.2872,-0.054,-0.0156,-0.025,-0.007,40/72,0,72,0.4096,True,True,"mean(42,43,44)",results/run_csv/CAPNOAUX600_gen_gen.csv; results/run_csv/CAPNOAUXS43_gen_gen.csv; results/run_csv/CAPNOAUXS44_gen_gen.csv
+cmB-seedmean,36,0.489,0.5291,-0.076,-0.04,-0.0531,-0.0271,30/36,0,36,0.0001,True,True,"mean(42,43,44)",results/run_csv/CAPNOAUX600_gen_gen.csv; results/run_csv/CAPNOAUXS43_gen_gen.csv; results/run_csv/CAPNOAUXS44_gen_gen.csv
+cmE-seedmean,36,0.0541,0.0453,0.194,0.0088,0.0046,0.0132,10/36,0,36,0.0113,True,False,"mean(42,43,44)",results/run_csv/CAPNOAUX600_gen_gen.csv; results/run_csv/CAPNOAUXS43_gen_gen.csv; results/run_csv/CAPNOAUXS44_gen_gen.csv

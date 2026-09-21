@@ -1,0 +1,5 @@
+model,params,nmse,published,paired_diff,ci_low,ci_high,cells_better,n_cells,sign_p,source
+ours seed 44,173190,0.1984,0.2182,-0.0198,-0.0306,-0.0097,59,108,0.38657260898826085,results/run_csv/HEADNOAUXS44_gen_acd.csv
+ours seed 42 (reported),173190,0.2016,0.2182,-0.0166,-0.0274,-0.0066,54,108,1.0,results/run_csv/CAPNOAUX600_gen_acd.csv
+ours seed 43,173190,0.2092,0.2182,-0.0089,-0.0191,0.0004,44,108,0.06701041475229508,results/run_csv/CAPNOAUXS43_gen_acd.csv
+"intervention: reported model, delta=0",173190,0.2621,0.2182,0.0439,0.0319,0.0549,16,108,3.77738189059387e-14,results/run_csv/SNAP0_gen_ACD.csv

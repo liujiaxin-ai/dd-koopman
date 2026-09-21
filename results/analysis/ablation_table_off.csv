@@ -1,0 +1,9 @@
+cell,denoiser,delay_decomposition,conditioned_poles,spectral_loss,nmse,delta_vs_reference,relative_vs_reference,nmse_30ms,source,status
+ABLOFF_REF,True,True,True,False,0.1397,0.0,+0.0%,0.3232,results/run_csv/ABLOFF_REF_full162.csv,ok
+ABLOFF_NODENO,False,True,True,False,0.1779,0.0382,+27.3%,0.4015,results/run_csv/ABLOFF_NODENO_full162.csv,ok
+ABLOFF_NODECOMP,True,False,True,False,0.1425,0.0027,+2.0%,0.3274,results/run_csv/ABLOFF_NODECOMP_full162.csv,ok
+ABLOFF_NOPOLE,True,True,False,False,0.1408,0.0011,+0.8%,0.3251,results/run_csv/ABLOFF_NOPOLE_full162.csv,ok
+ABLOFF_NODENO_DECOMP,False,False,True,False,0.1968,0.057,+40.8%,0.4451,results/run_csv/ABLOFF_NODENO_DECOMP_full162.csv,ok
+ABLOFF_NODENO_POLE,False,True,False,False,0.1853,0.0456,+32.6%,0.4173,results/run_csv/ABLOFF_NODENO_POLE_full162.csv,ok
+ABLOFF_NODECOMP_POLE,True,False,False,False,0.1458,0.006,+4.3%,0.3321,results/run_csv/ABLOFF_NODECOMP_POLE_full162.csv,ok
+ABLOFF_NODENO_DECOMP_POLE,False,False,False,False,0.1862,0.0464,+33.2%,0.4188,results/run_csv/ABLOFF_NODENO_DECOMP_POLE_full162.csv,ok

@@ -1,0 +1,7 @@
+slice,cells,ours,published,rel_diff,paired_mean_diff,ci_low,ci_high,favour_cells,sign_p,source
+all,72,0.3246,0.2872,0.13,0.0374,0.0257,0.0481,12/72,0.0,"results/run_csv/MAMBA64_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmB,36,0.5506,0.5291,0.041,0.0216,0.0012,0.0408,12/36,0.0652,"results/run_csv/MAMBA64_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+cmE,36,0.0985,0.0453,1.174,0.0532,0.0473,0.059,0/36,0.0,"results/run_csv/MAMBA64_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+le10ms,18,0.1306,0.0832,0.57,0.0475,0.0361,0.0602,0/18,0.0,"results/run_csv/MAMBA64_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+gt30ms,18,0.4913,0.4877,0.007,0.0037,-0.0299,0.0365,9/18,1.0,"results/run_csv/MAMBA64_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization)"
+eqweight-relative,72,,,0.607,,,,12/72,,"results/run_csv/MAMBA64_432_gen.csv + results/reference/official_per_setting.csv (MODEL, TDD, generalization); mean of the cmB and cmE rel_diff values"

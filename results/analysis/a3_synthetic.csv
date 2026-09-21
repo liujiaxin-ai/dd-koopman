@@ -1,0 +1,17 @@
+delta_bin,snr_db,scenes,model,nmse
+0.0,20.0,32,ours,0.4602
+0.0,20.0,32,published,0.8607
+0.0,20.0,32,dftgrid,0.2477
+0.0,20.0,32,persistence,3.117
+0.1,20.0,32,ours,0.5595
+0.1,20.0,32,published,0.8388
+0.1,20.0,32,dftgrid,0.4297
+0.1,20.0,32,persistence,3.035
+0.25,20.0,32,ours,0.4522
+0.25,20.0,32,published,0.8368
+0.25,20.0,32,dftgrid,1.2351
+0.25,20.0,32,persistence,2.7975
+0.4,20.0,32,ours,0.5313
+0.4,20.0,32,published,0.8297
+0.4,20.0,32,dftgrid,2.0921
+0.4,20.0,32,persistence,2.846

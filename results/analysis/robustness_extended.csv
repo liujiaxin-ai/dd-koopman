@@ -1,0 +1,6 @@
+model,params,nmse,published,paired_diff,ci_low,ci_high,cells_better,n_cells,sign_p,source
+ours seed 43,173190,0.1735,0.1623,0.0112,0.0001,0.0232,11,27,0.44206833839416504,results/run_csv/CAPNOAUXS43_robust486.csv
+ours seed 42 (reported),173190,0.1772,0.1623,0.015,0.0028,0.0279,9,27,0.12207812070846558,results/run_csv/CAPNOAUX600_robust486.csv
+ours seed 44,173190,0.1777,0.1623,0.0154,0.003,0.0288,9,27,0.12207812070846558,results/run_csv/HEADNOAUXS44_robust486.csv
+MambaCSP trained to plateau,881604,0.1805,0.1623,0.0182,0.0072,0.0318,4,27,0.000310748815536499,results/run_csv/MAMBA64CONV_C_robust486.csv
+"intervention: reported model, delta=0",173190,0.2314,0.1623,0.0691,0.0556,0.0826,0,27,1.4901161193847656e-08,results/run_csv/SNAP0_robust486.csv

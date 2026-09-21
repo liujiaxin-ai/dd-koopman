@@ -1,0 +1,4 @@
+published-model reproduction through the official harness
+  our fresh run (results/reference/repro_MODEL_TDD_regular.csv): 0.124480
+  official shipped reference on the same 162 settings:          0.124611
+  relative deviation: -0.105%

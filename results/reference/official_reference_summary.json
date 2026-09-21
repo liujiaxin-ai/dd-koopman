@@ -1,0 +1,364 @@
+{
+  "summary": {
+    "splits": {
+      "AR|TDD|generalization": {
+        "settings": 3060,
+        "mean": 1.0434030428880718
+      },
+      "AR|TDD|regular": {
+        "settings": 162,
+        "mean": 0.787432789382716
+      },
+      "AR|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.7692428465226337
+      },
+      "CNN|FDD|generalization": {
+        "settings": 3060,
+        "mean": 0.7447055360416667
+      },
+      "CNN|FDD|regular": {
+        "settings": 162,
+        "mean": 0.6799442187962963
+      },
+      "CNN|FDD|robustness": {
+        "settings": 486,
+        "mean": 0.6417558068415637
+      },
+      "CNN|TDD|generalization": {
+        "settings": 3060,
+        "mean": 0.32926735555555553
+      },
+      "CNN|TDD|regular": {
+        "settings": 162,
+        "mean": 0.20934524331790125
+      },
+      "CNN|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.20404288984053498
+      },
+      "LLM4CP|FDD|generalization": {
+        "settings": 3060,
+        "mean": 0.6837713104754902
+      },
+      "LLM4CP|FDD|regular": {
+        "settings": 162,
+        "mean": 0.3143137689351852
+      },
+      "LLM4CP|FDD|robustness": {
+        "settings": 486,
+        "mean": 0.3076637442695473
+      },
+      "LLM4CP|TDD|generalization": {
+        "settings": 3060,
+        "mean": 0.2619053372165033
+      },
+      "LLM4CP|TDD|regular": {
+        "settings": 162,
+        "mean": 0.1412983824228395
+      },
+      "LLM4CP|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.1796510862808642
+      },
+      "MODEL|FDD|generalization": {
+        "settings": 3060,
+        "mean": 0.6727584069599674
+      },
+      "MODEL|FDD|regular": {
+        "settings": 162,
+        "mean": 0.26915441444444443
+      },
+      "MODEL|FDD|robustness": {
+        "settings": 486,
+        "mean": 0.27621614524691357
+      },
+      "MODEL|TDD|generalization": {
+        "settings": 3060,
+        "mean": 0.2598210327581699
+      },
+      "MODEL|TDD|regular": {
+        "settings": 162,
+        "mean": 0.12461109390432099
+      },
+      "MODEL|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.16226206736625515
+      },
+      "NP|FDD|generalization": {
+        "settings": 3060,
+        "mean": 2.6817707669109474
+      },
+      "NP|FDD|regular": {
+        "settings": 162,
+        "mean": 2.73667964662037
+      },
+      "NP|FDD|robustness": {
+        "settings": 486,
+        "mean": 2.2279659390329214
+      },
+      "NP|TDD|generalization": {
+        "settings": 3060,
+        "mean": 2.220453587881536
+      },
+      "NP|TDD|regular": {
+        "settings": 162,
+        "mean": 1.80807279029321
+      },
+      "NP|TDD|robustness": {
+        "settings": 486,
+        "mean": 1.3075644256687242
+      },
+      "PAD|TDD|generalization": {
+        "settings": 3060,
+        "mean": 0.33539274914787587
+      },
+      "PAD|TDD|regular": {
+        "settings": 162,
+        "mean": 0.22997257180555558
+      },
+      "PAD|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.6052268931946749
+      },
+      "RNN|FDD|generalization": {
+        "settings": 3060,
+        "mean": 0.6393044947598039
+      },
+      "RNN|FDD|regular": {
+        "settings": 162,
+        "mean": 0.2795570689506173
+      },
+      "RNN|FDD|robustness": {
+        "settings": 486,
+        "mean": 0.2892989736574074
+      },
+      "RNN|TDD|generalization": {
+        "settings": 3060,
+        "mean": 0.30747148445261435
+      },
+      "RNN|TDD|regular": {
+        "settings": 162,
+        "mean": 0.16400844641975307
+      },
+      "RNN|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.19689493766975308
+      },
+      "STEMGNN|FDD|generalization": {
+        "settings": 3060,
+        "mean": 0.6464075667973856
+      },
+      "STEMGNN|FDD|regular": {
+        "settings": 162,
+        "mean": 0.5242783264197531
+      },
+      "STEMGNN|FDD|robustness": {
+        "settings": 486,
+        "mean": 0.5211890186419753
+      },
+      "STEMGNN|TDD|generalization": {
+        "settings": 3060,
+        "mean": 0.3420836338316994
+      },
+      "STEMGNN|TDD|regular": {
+        "settings": 162,
+        "mean": 0.220865635
+      },
+      "STEMGNN|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.2153440770113169
+      },
+      "WIENER|FDD|generalization": {
+        "settings": 3060,
+        "mean": 1.094638544508987
+      },
+      "WIENER|FDD|regular": {
+        "settings": 162,
+        "mean": 1.0497003581944444
+      },
+      "WIENER|FDD|robustness": {
+        "settings": 486,
+        "mean": 0.9948015344958847
+      },
+      "WIENER|TDD|generalization": {
+        "settings": 3060,
+        "mean": 1.0861133473104574
+      },
+      "WIENER|TDD|regular": {
+        "settings": 162,
+        "mean": 0.8235837724228394
+      },
+      "WIENER|TDD|robustness": {
+        "settings": 486,
+        "mean": 0.7733896184156379
+      }
+    },
+    "models": {
+      "AR": {
+        "generalization": {
+          "settings": 3060,
+          "mean": 1.0434030428880718
+        },
+        "regular": {
+          "settings": 162,
+          "mean": 0.787432789382716
+        },
+        "robustness": {
+          "settings": 486,
+          "mean": 0.7692428465226337
+        },
+        "all_splits": {
+          "settings": 3708,
+          "mean": 0.996286258502562
+        }
+      },
+      "CNN": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 0.5369864457986111
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 0.44464473105709873
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 0.4228993483410494
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 0.5179989357790588
+        }
+      },
+      "LLM4CP": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 0.4728383238459968
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 0.22780607567901234
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 0.24365741527520576
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 0.4320947570260248
+        }
+      },
+      "MODEL": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 0.4662897198590686
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 0.19688275417438272
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 0.21923910630658439
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 0.4221390923975189
+        }
+      },
+      "NP": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 2.451112177396242
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 2.27237621845679
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 1.7677651823508231
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 2.3537384274123516
+        }
+      },
+      "PAD": {
+        "generalization": {
+          "settings": 3060,
+          "mean": 0.33539274914787587
+        },
+        "regular": {
+          "settings": 162,
+          "mean": 0.22997257180555558
+        },
+        "robustness": {
+          "settings": 486,
+          "mean": 0.6052268931946749
+        },
+        "all_splits": {
+          "settings": 3708,
+          "mean": 0.36615362435750054
+        }
+      },
+      "RNN": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 0.47338798960620915
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 0.2217827576851852
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 0.24309695566358025
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 0.4322117517239752
+        }
+      },
+      "STEMGNN": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 0.49424560031454245
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 0.37257198070987657
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 0.3682665478266461
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 0.47241794500573087
+        }
+      },
+      "WIENER": {
+        "generalization": {
+          "settings": 6120,
+          "mean": 1.0903759459097222
+        },
+        "regular": {
+          "settings": 324,
+          "mean": 0.9366420653086419
+        },
+        "robustness": {
+          "settings": 972,
+          "mean": 0.8840955764557613
+        },
+        "all_splits": {
+          "settings": 7416,
+          "mean": 1.0566226696928938
+        }
+      }
+    }
+  },
+  "notes": [],
+  "deduped": 81
+}
