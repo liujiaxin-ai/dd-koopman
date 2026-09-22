@@ -1,0 +1,873 @@
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/opt/conda/lib/python3.11/site-packages/optuna/integration/pytorch_lightning.py:14: `optuna.integration.pytorch_lightning` has been deprecated in v4.9.0. This feature will be removed in v6.0.0. See https://github.com/optuna/optuna/releases/tag/v4.9.0. Use `optuna_integration.pytorch_lightning` instead.
+[repro] model=DFTGRID duplex=TDD split=generalization
+[repro] device=cpu batch_size=1 cwd=<harness-root>
+[repro] evaluating 432 combinations
+[repro] model loaded: name=DFTGRID separate_antennas=False
+[repro] 1/432 cm=B ds=5e-08 ms=3 noise=vanilla deg=0  8.8s
+[repro] 2/432 cm=B ds=5e-08 ms=6 noise=vanilla deg=0  8.0s
+[repro] 3/432 cm=B ds=5e-08 ms=9 noise=vanilla deg=0  8.2s
+[repro] 4/432 cm=B ds=5e-08 ms=12 noise=vanilla deg=0  8.4s
+[repro] 5/432 cm=B ds=5e-08 ms=15 noise=vanilla deg=0  8.5s
+[repro] 6/432 cm=B ds=5e-08 ms=18 noise=vanilla deg=0  8.5s
+[repro] 7/432 cm=B ds=5e-08 ms=21 noise=vanilla deg=0  10.2s
+[repro] 8/432 cm=B ds=5e-08 ms=24 noise=vanilla deg=0  9.1s
+[repro] 9/432 cm=B ds=5e-08 ms=27 noise=vanilla deg=0  9.5s
+[repro] 10/432 cm=B ds=5e-08 ms=33 noise=vanilla deg=0  9.7s
+[repro] 11/432 cm=B ds=5e-08 ms=36 noise=vanilla deg=0  9.4s
+[repro] 12/432 cm=B ds=5e-08 ms=42 noise=vanilla deg=0  9.4s
+[repro] 13/432 cm=B ds=2e-07 ms=3 noise=vanilla deg=0  9.6s
+[repro] 14/432 cm=B ds=2e-07 ms=6 noise=vanilla deg=0  9.1s
+[repro] 15/432 cm=B ds=2e-07 ms=9 noise=vanilla deg=0  10.0s
+[repro] 16/432 cm=B ds=2e-07 ms=12 noise=vanilla deg=0  9.1s
+[repro] 17/432 cm=B ds=2e-07 ms=15 noise=vanilla deg=0  9.3s
+[repro] 18/432 cm=B ds=2e-07 ms=18 noise=vanilla deg=0  9.3s
+[repro] 19/432 cm=B ds=2e-07 ms=21 noise=vanilla deg=0  9.1s
+[repro] 20/432 cm=B ds=2e-07 ms=24 noise=vanilla deg=0  9.8s
+[repro] 21/432 cm=B ds=2e-07 ms=27 noise=vanilla deg=0  9.1s
+[repro] 22/432 cm=B ds=2e-07 ms=33 noise=vanilla deg=0  9.6s
+[repro] 23/432 cm=B ds=2e-07 ms=36 noise=vanilla deg=0  10.6s
+[repro] 24/432 cm=B ds=2e-07 ms=42 noise=vanilla deg=0  9.4s
+[repro] 25/432 cm=B ds=4e-07 ms=3 noise=vanilla deg=0  8.8s
+[repro] 26/432 cm=B ds=4e-07 ms=6 noise=vanilla deg=0  9.1s
+[repro] 27/432 cm=B ds=4e-07 ms=9 noise=vanilla deg=0  9.7s
+[repro] 28/432 cm=B ds=4e-07 ms=12 noise=vanilla deg=0  10.0s
+[repro] 29/432 cm=B ds=4e-07 ms=15 noise=vanilla deg=0  9.9s
+[repro] 30/432 cm=B ds=4e-07 ms=18 noise=vanilla deg=0  10.0s
+[repro] 31/432 cm=B ds=4e-07 ms=21 noise=vanilla deg=0  9.7s
+[repro] 32/432 cm=B ds=4e-07 ms=24 noise=vanilla deg=0  9.0s
+[repro] 33/432 cm=B ds=4e-07 ms=27 noise=vanilla deg=0  10.0s
+[repro] 34/432 cm=B ds=4e-07 ms=33 noise=vanilla deg=0  10.0s
+[repro] 35/432 cm=B ds=4e-07 ms=36 noise=vanilla deg=0  10.2s
+[repro] 36/432 cm=B ds=4e-07 ms=42 noise=vanilla deg=0  10.1s
+[repro] 37/432 cm=E ds=5e-08 ms=3 noise=vanilla deg=0  10.3s
+[repro] 38/432 cm=E ds=5e-08 ms=6 noise=vanilla deg=0  10.3s
+[repro] 39/432 cm=E ds=5e-08 ms=9 noise=vanilla deg=0  10.2s
+[repro] 40/432 cm=E ds=5e-08 ms=12 noise=vanilla deg=0  9.7s
+[repro] 41/432 cm=E ds=5e-08 ms=15 noise=vanilla deg=0  9.0s
+[repro] 42/432 cm=E ds=5e-08 ms=18 noise=vanilla deg=0  9.8s
+[repro] 43/432 cm=E ds=5e-08 ms=21 noise=vanilla deg=0  9.9s
+[repro] 44/432 cm=E ds=5e-08 ms=24 noise=vanilla deg=0  9.8s
+[repro] 45/432 cm=E ds=5e-08 ms=27 noise=vanilla deg=0  10.2s
+[repro] 46/432 cm=E ds=5e-08 ms=33 noise=vanilla deg=0  9.9s
+[repro] 47/432 cm=E ds=5e-08 ms=36 noise=vanilla deg=0  9.4s
+[repro] 48/432 cm=E ds=5e-08 ms=42 noise=vanilla deg=0  10.1s
+[repro] 49/432 cm=E ds=2e-07 ms=3 noise=vanilla deg=0  8.0s
+[repro] 50/432 cm=E ds=2e-07 ms=6 noise=vanilla deg=0  9.0s
+[repro] 51/432 cm=E ds=2e-07 ms=9 noise=vanilla deg=0  9.9s
+[repro] 52/432 cm=E ds=2e-07 ms=12 noise=vanilla deg=0  7.9s
+[repro] 53/432 cm=E ds=2e-07 ms=15 noise=vanilla deg=0  7.8s
+[repro] 54/432 cm=E ds=2e-07 ms=18 noise=vanilla deg=0  8.5s
+[repro] 55/432 cm=E ds=2e-07 ms=21 noise=vanilla deg=0  8.3s
+[repro] 56/432 cm=E ds=2e-07 ms=24 noise=vanilla deg=0  8.0s
+[repro] 57/432 cm=E ds=2e-07 ms=27 noise=vanilla deg=0  9.0s
+[repro] 58/432 cm=E ds=2e-07 ms=33 noise=vanilla deg=0  9.1s
+[repro] 59/432 cm=E ds=2e-07 ms=36 noise=vanilla deg=0  9.7s
+[repro] 60/432 cm=E ds=2e-07 ms=42 noise=vanilla deg=0  8.2s
+[repro] 61/432 cm=E ds=4e-07 ms=3 noise=vanilla deg=0  9.6s
+[repro] 62/432 cm=E ds=4e-07 ms=6 noise=vanilla deg=0  10.5s
+[repro] 63/432 cm=E ds=4e-07 ms=9 noise=vanilla deg=0  8.7s
+[repro] 64/432 cm=E ds=4e-07 ms=12 noise=vanilla deg=0  7.9s
+[repro] 65/432 cm=E ds=4e-07 ms=15 noise=vanilla deg=0  9.4s
+[repro] 66/432 cm=E ds=4e-07 ms=18 noise=vanilla deg=0  7.5s
+[repro] 67/432 cm=E ds=4e-07 ms=21 noise=vanilla deg=0  8.9s
+[repro] 68/432 cm=E ds=4e-07 ms=24 noise=vanilla deg=0  8.6s
+[repro] 69/432 cm=E ds=4e-07 ms=27 noise=vanilla deg=0  9.0s
+[repro] 70/432 cm=E ds=4e-07 ms=33 noise=vanilla deg=0  10.2s
+[repro] 71/432 cm=E ds=4e-07 ms=36 noise=vanilla deg=0  9.4s
+[repro] 72/432 cm=E ds=4e-07 ms=42 noise=vanilla deg=0  8.7s
+[repro] 73/432 cm=B ds=5e-08 ms=3 noise=vanilla deg=5  10.8s
+[repro] 74/432 cm=B ds=5e-08 ms=6 noise=vanilla deg=5  9.3s
+[repro] 75/432 cm=B ds=5e-08 ms=9 noise=vanilla deg=5  9.7s
+[repro] 76/432 cm=B ds=5e-08 ms=12 noise=vanilla deg=5  9.1s
+[repro] 77/432 cm=B ds=5e-08 ms=15 noise=vanilla deg=5  9.5s
+[repro] 78/432 cm=B ds=5e-08 ms=18 noise=vanilla deg=5  9.8s
+[repro] 79/432 cm=B ds=5e-08 ms=21 noise=vanilla deg=5  7.5s
+[repro] 80/432 cm=B ds=5e-08 ms=24 noise=vanilla deg=5  8.0s
+[repro] 81/432 cm=B ds=5e-08 ms=27 noise=vanilla deg=5  9.6s
+[repro] 82/432 cm=B ds=5e-08 ms=33 noise=vanilla deg=5  7.4s
+[repro] 83/432 cm=B ds=5e-08 ms=36 noise=vanilla deg=5  7.9s
+[repro] 84/432 cm=B ds=5e-08 ms=42 noise=vanilla deg=5  8.4s
+[repro] 85/432 cm=B ds=2e-07 ms=3 noise=vanilla deg=5  9.1s
+[repro] 86/432 cm=B ds=2e-07 ms=6 noise=vanilla deg=5  8.6s
+[repro] 87/432 cm=B ds=2e-07 ms=9 noise=vanilla deg=5  10.4s
+[repro] 88/432 cm=B ds=2e-07 ms=12 noise=vanilla deg=5  10.8s
+[repro] 89/432 cm=B ds=2e-07 ms=15 noise=vanilla deg=5  11.6s
+[repro] 90/432 cm=B ds=2e-07 ms=18 noise=vanilla deg=5  8.8s
+[repro] 91/432 cm=B ds=2e-07 ms=21 noise=vanilla deg=5  8.5s
+[repro] 92/432 cm=B ds=2e-07 ms=24 noise=vanilla deg=5  9.2s
+[repro] 93/432 cm=B ds=2e-07 ms=27 noise=vanilla deg=5  7.7s
+[repro] 94/432 cm=B ds=2e-07 ms=33 noise=vanilla deg=5  8.4s
+[repro] 95/432 cm=B ds=2e-07 ms=36 noise=vanilla deg=5  8.5s
+[repro] 96/432 cm=B ds=2e-07 ms=42 noise=vanilla deg=5  7.3s
+[repro] 97/432 cm=B ds=4e-07 ms=3 noise=vanilla deg=5  8.0s
+[repro] 98/432 cm=B ds=4e-07 ms=6 noise=vanilla deg=5  7.5s
+[repro] 99/432 cm=B ds=4e-07 ms=9 noise=vanilla deg=5  7.1s
+[repro] 100/432 cm=B ds=4e-07 ms=12 noise=vanilla deg=5  8.2s
+[repro] 101/432 cm=B ds=4e-07 ms=15 noise=vanilla deg=5  8.1s
+[repro] 102/432 cm=B ds=4e-07 ms=18 noise=vanilla deg=5  8.7s
+[repro] 103/432 cm=B ds=4e-07 ms=21 noise=vanilla deg=5  9.3s
+[repro] 104/432 cm=B ds=4e-07 ms=24 noise=vanilla deg=5  8.5s
+[repro] 105/432 cm=B ds=4e-07 ms=27 noise=vanilla deg=5  9.0s
+[repro] 106/432 cm=B ds=4e-07 ms=33 noise=vanilla deg=5  12.2s
+[repro] 107/432 cm=B ds=4e-07 ms=36 noise=vanilla deg=5  8.0s
+[repro] 108/432 cm=B ds=4e-07 ms=42 noise=vanilla deg=5  7.7s
+[repro] 109/432 cm=E ds=5e-08 ms=3 noise=vanilla deg=5  8.3s
+[repro] 110/432 cm=E ds=5e-08 ms=6 noise=vanilla deg=5  8.1s
+[repro] 111/432 cm=E ds=5e-08 ms=9 noise=vanilla deg=5  7.7s
+[repro] 112/432 cm=E ds=5e-08 ms=12 noise=vanilla deg=5  8.6s
+[repro] 113/432 cm=E ds=5e-08 ms=15 noise=vanilla deg=5  8.8s
+[repro] 114/432 cm=E ds=5e-08 ms=18 noise=vanilla deg=5  8.2s
+[repro] 115/432 cm=E ds=5e-08 ms=21 noise=vanilla deg=5  8.9s
+[repro] 116/432 cm=E ds=5e-08 ms=24 noise=vanilla deg=5  8.9s
+[repro] 117/432 cm=E ds=5e-08 ms=27 noise=vanilla deg=5  9.7s
+[repro] 118/432 cm=E ds=5e-08 ms=33 noise=vanilla deg=5  8.4s
+[repro] 119/432 cm=E ds=5e-08 ms=36 noise=vanilla deg=5  9.4s
+[repro] 120/432 cm=E ds=5e-08 ms=42 noise=vanilla deg=5  9.6s
+[repro] 121/432 cm=E ds=2e-07 ms=3 noise=vanilla deg=5  8.2s
+[repro] 122/432 cm=E ds=2e-07 ms=6 noise=vanilla deg=5  8.1s
+[repro] 123/432 cm=E ds=2e-07 ms=9 noise=vanilla deg=5  9.5s
+[repro] 124/432 cm=E ds=2e-07 ms=12 noise=vanilla deg=5  9.3s
+[repro] 125/432 cm=E ds=2e-07 ms=15 noise=vanilla deg=5  8.1s
+[repro] 126/432 cm=E ds=2e-07 ms=18 noise=vanilla deg=5  8.1s
+[repro] 127/432 cm=E ds=2e-07 ms=21 noise=vanilla deg=5  9.5s
+[repro] 128/432 cm=E ds=2e-07 ms=24 noise=vanilla deg=5  8.2s
+[repro] 129/432 cm=E ds=2e-07 ms=27 noise=vanilla deg=5  7.8s
+[repro] 130/432 cm=E ds=2e-07 ms=33 noise=vanilla deg=5  7.7s
+[repro] 131/432 cm=E ds=2e-07 ms=36 noise=vanilla deg=5  8.9s
+[repro] 132/432 cm=E ds=2e-07 ms=42 noise=vanilla deg=5  8.4s
+[repro] 133/432 cm=E ds=4e-07 ms=3 noise=vanilla deg=5  8.3s
+[repro] 134/432 cm=E ds=4e-07 ms=6 noise=vanilla deg=5  8.6s
+[repro] 135/432 cm=E ds=4e-07 ms=9 noise=vanilla deg=5  7.7s
+[repro] 136/432 cm=E ds=4e-07 ms=12 noise=vanilla deg=5  7.9s
+[repro] 137/432 cm=E ds=4e-07 ms=15 noise=vanilla deg=5  9.5s
+[repro] 138/432 cm=E ds=4e-07 ms=18 noise=vanilla deg=5  7.8s
+[repro] 139/432 cm=E ds=4e-07 ms=21 noise=vanilla deg=5  7.2s
+[repro] 140/432 cm=E ds=4e-07 ms=24 noise=vanilla deg=5  8.3s
+[repro] 141/432 cm=E ds=4e-07 ms=27 noise=vanilla deg=5  8.0s
+[repro] 142/432 cm=E ds=4e-07 ms=33 noise=vanilla deg=5  7.0s
+[repro] 143/432 cm=E ds=4e-07 ms=36 noise=vanilla deg=5  6.8s
+[repro] 144/432 cm=E ds=4e-07 ms=42 noise=vanilla deg=5  7.0s
+[repro] 145/432 cm=B ds=5e-08 ms=3 noise=vanilla deg=10  7.2s
+[repro] 146/432 cm=B ds=5e-08 ms=6 noise=vanilla deg=10  7.3s
+[repro] 147/432 cm=B ds=5e-08 ms=9 noise=vanilla deg=10  7.5s
+[repro] 148/432 cm=B ds=5e-08 ms=12 noise=vanilla deg=10  7.8s
+[repro] 149/432 cm=B ds=5e-08 ms=15 noise=vanilla deg=10  7.4s
+[repro] 150/432 cm=B ds=5e-08 ms=18 noise=vanilla deg=10  8.4s
+[repro] 151/432 cm=B ds=5e-08 ms=21 noise=vanilla deg=10  7.6s
+[repro] 152/432 cm=B ds=5e-08 ms=24 noise=vanilla deg=10  7.2s
+[repro] 153/432 cm=B ds=5e-08 ms=27 noise=vanilla deg=10  8.3s
+[repro] 154/432 cm=B ds=5e-08 ms=33 noise=vanilla deg=10  5.6s
+[repro] 155/432 cm=B ds=5e-08 ms=36 noise=vanilla deg=10  4.6s
+[repro] 156/432 cm=B ds=5e-08 ms=42 noise=vanilla deg=10  4.6s
+[repro] 157/432 cm=B ds=2e-07 ms=3 noise=vanilla deg=10  4.5s
+[repro] 158/432 cm=B ds=2e-07 ms=6 noise=vanilla deg=10  4.5s
+[repro] 159/432 cm=B ds=2e-07 ms=9 noise=vanilla deg=10  4.9s
+[repro] 160/432 cm=B ds=2e-07 ms=12 noise=vanilla deg=10  5.2s
+[repro] 161/432 cm=B ds=2e-07 ms=15 noise=vanilla deg=10  4.7s
+[repro] 162/432 cm=B ds=2e-07 ms=18 noise=vanilla deg=10  4.6s
+[repro] 163/432 cm=B ds=2e-07 ms=21 noise=vanilla deg=10  4.5s
+[repro] 164/432 cm=B ds=2e-07 ms=24 noise=vanilla deg=10  4.7s
+[repro] 165/432 cm=B ds=2e-07 ms=27 noise=vanilla deg=10  5.0s
+[repro] 166/432 cm=B ds=2e-07 ms=33 noise=vanilla deg=10  4.6s
+[repro] 167/432 cm=B ds=2e-07 ms=36 noise=vanilla deg=10  4.7s
+[repro] 168/432 cm=B ds=2e-07 ms=42 noise=vanilla deg=10  6.2s
+[repro] 169/432 cm=B ds=4e-07 ms=3 noise=vanilla deg=10  6.5s
+[repro] 170/432 cm=B ds=4e-07 ms=6 noise=vanilla deg=10  6.1s
+[repro] 171/432 cm=B ds=4e-07 ms=9 noise=vanilla deg=10  5.4s
+[repro] 172/432 cm=B ds=4e-07 ms=12 noise=vanilla deg=10  4.9s
+[repro] 173/432 cm=B ds=4e-07 ms=15 noise=vanilla deg=10  6.2s
+[repro] 174/432 cm=B ds=4e-07 ms=18 noise=vanilla deg=10  4.9s
+[repro] 175/432 cm=B ds=4e-07 ms=21 noise=vanilla deg=10  4.9s
+[repro] 176/432 cm=B ds=4e-07 ms=24 noise=vanilla deg=10  4.7s
+[repro] 177/432 cm=B ds=4e-07 ms=27 noise=vanilla deg=10  4.8s
+[repro] 178/432 cm=B ds=4e-07 ms=33 noise=vanilla deg=10  5.0s
+[repro] 179/432 cm=B ds=4e-07 ms=36 noise=vanilla deg=10  4.6s
+[repro] 180/432 cm=B ds=4e-07 ms=42 noise=vanilla deg=10  4.5s
+[repro] 181/432 cm=E ds=5e-08 ms=3 noise=vanilla deg=10  6.1s
+[repro] 182/432 cm=E ds=5e-08 ms=6 noise=vanilla deg=10  4.8s
+[repro] 183/432 cm=E ds=5e-08 ms=9 noise=vanilla deg=10  5.0s
+[repro] 184/432 cm=E ds=5e-08 ms=12 noise=vanilla deg=10  5.0s
+[repro] 185/432 cm=E ds=5e-08 ms=15 noise=vanilla deg=10  4.6s
+[repro] 186/432 cm=E ds=5e-08 ms=18 noise=vanilla deg=10  4.9s
+[repro] 187/432 cm=E ds=5e-08 ms=21 noise=vanilla deg=10  4.6s
+[repro] 188/432 cm=E ds=5e-08 ms=24 noise=vanilla deg=10  5.3s
+[repro] 189/432 cm=E ds=5e-08 ms=27 noise=vanilla deg=10  4.8s
+[repro] 190/432 cm=E ds=5e-08 ms=33 noise=vanilla deg=10  4.7s
+[repro] 191/432 cm=E ds=5e-08 ms=36 noise=vanilla deg=10  4.7s
+[repro] 192/432 cm=E ds=5e-08 ms=42 noise=vanilla deg=10  4.7s
+[repro] 193/432 cm=E ds=2e-07 ms=3 noise=vanilla deg=10  4.8s
+[repro] 194/432 cm=E ds=2e-07 ms=6 noise=vanilla deg=10  4.9s
+[repro] 195/432 cm=E ds=2e-07 ms=9 noise=vanilla deg=10  4.8s
+[repro] 196/432 cm=E ds=2e-07 ms=12 noise=vanilla deg=10  5.2s
+[repro] 197/432 cm=E ds=2e-07 ms=15 noise=vanilla deg=10  5.3s
+[repro] 198/432 cm=E ds=2e-07 ms=18 noise=vanilla deg=10  5.0s
+[repro] 199/432 cm=E ds=2e-07 ms=21 noise=vanilla deg=10  4.7s
+[repro] 200/432 cm=E ds=2e-07 ms=24 noise=vanilla deg=10  4.8s
+[repro] 201/432 cm=E ds=2e-07 ms=27 noise=vanilla deg=10  4.9s
+[repro] 202/432 cm=E ds=2e-07 ms=33 noise=vanilla deg=10  4.6s
+[repro] 203/432 cm=E ds=2e-07 ms=36 noise=vanilla deg=10  6.1s
+[repro] 204/432 cm=E ds=2e-07 ms=42 noise=vanilla deg=10  5.5s
+[repro] 205/432 cm=E ds=4e-07 ms=3 noise=vanilla deg=10  4.7s
+[repro] 206/432 cm=E ds=4e-07 ms=6 noise=vanilla deg=10  4.8s
+[repro] 207/432 cm=E ds=4e-07 ms=9 noise=vanilla deg=10  4.7s
+[repro] 208/432 cm=E ds=4e-07 ms=12 noise=vanilla deg=10  5.0s
+[repro] 209/432 cm=E ds=4e-07 ms=15 noise=vanilla deg=10  5.4s
+[repro] 210/432 cm=E ds=4e-07 ms=18 noise=vanilla deg=10  5.8s
+[repro] 211/432 cm=E ds=4e-07 ms=21 noise=vanilla deg=10  4.9s
+[repro] 212/432 cm=E ds=4e-07 ms=24 noise=vanilla deg=10  5.1s
+[repro] 213/432 cm=E ds=4e-07 ms=27 noise=vanilla deg=10  5.0s
+[repro] 214/432 cm=E ds=4e-07 ms=33 noise=vanilla deg=10  4.7s
+[repro] 215/432 cm=E ds=4e-07 ms=36 noise=vanilla deg=10  5.2s
+[repro] 216/432 cm=E ds=4e-07 ms=42 noise=vanilla deg=10  5.1s
+[repro] 217/432 cm=B ds=5e-08 ms=3 noise=vanilla deg=15  5.5s
+[repro] 218/432 cm=B ds=5e-08 ms=6 noise=vanilla deg=15  4.8s
+[repro] 219/432 cm=B ds=5e-08 ms=9 noise=vanilla deg=15  6.2s
+[repro] 220/432 cm=B ds=5e-08 ms=12 noise=vanilla deg=15  5.1s
+[repro] 221/432 cm=B ds=5e-08 ms=15 noise=vanilla deg=15  5.1s
+[repro] 222/432 cm=B ds=5e-08 ms=18 noise=vanilla deg=15  4.8s
+[repro] 223/432 cm=B ds=5e-08 ms=21 noise=vanilla deg=15  5.4s
+[repro] 224/432 cm=B ds=5e-08 ms=24 noise=vanilla deg=15  4.3s
+[repro] 225/432 cm=B ds=5e-08 ms=27 noise=vanilla deg=15  4.5s
+[repro] 226/432 cm=B ds=5e-08 ms=33 noise=vanilla deg=15  4.4s
+[repro] 227/432 cm=B ds=5e-08 ms=36 noise=vanilla deg=15  4.6s
+[repro] 228/432 cm=B ds=5e-08 ms=42 noise=vanilla deg=15  4.9s
+[repro] 229/432 cm=B ds=2e-07 ms=3 noise=vanilla deg=15  5.6s
+[repro] 230/432 cm=B ds=2e-07 ms=6 noise=vanilla deg=15  4.6s
+[repro] 231/432 cm=B ds=2e-07 ms=9 noise=vanilla deg=15  4.6s
+[repro] 232/432 cm=B ds=2e-07 ms=12 noise=vanilla deg=15  4.5s
+[repro] 233/432 cm=B ds=2e-07 ms=15 noise=vanilla deg=15  6.4s
+[repro] 234/432 cm=B ds=2e-07 ms=18 noise=vanilla deg=15  4.6s
+[repro] 235/432 cm=B ds=2e-07 ms=21 noise=vanilla deg=15  4.3s
+[repro] 236/432 cm=B ds=2e-07 ms=24 noise=vanilla deg=15  4.6s
+[repro] 237/432 cm=B ds=2e-07 ms=27 noise=vanilla deg=15  4.7s
+[repro] 238/432 cm=B ds=2e-07 ms=33 noise=vanilla deg=15  4.7s
+[repro] 239/432 cm=B ds=2e-07 ms=36 noise=vanilla deg=15  5.0s
+[repro] 240/432 cm=B ds=2e-07 ms=42 noise=vanilla deg=15  4.7s
+[repro] 241/432 cm=B ds=4e-07 ms=3 noise=vanilla deg=15  4.7s
+[repro] 242/432 cm=B ds=4e-07 ms=6 noise=vanilla deg=15  5.3s
+[repro] 243/432 cm=B ds=4e-07 ms=9 noise=vanilla deg=15  4.7s
+[repro] 244/432 cm=B ds=4e-07 ms=12 noise=vanilla deg=15  5.0s
+[repro] 245/432 cm=B ds=4e-07 ms=15 noise=vanilla deg=15  4.7s
+[repro] 246/432 cm=B ds=4e-07 ms=18 noise=vanilla deg=15  4.8s
+[repro] 247/432 cm=B ds=4e-07 ms=21 noise=vanilla deg=15  5.9s
+[repro] 248/432 cm=B ds=4e-07 ms=24 noise=vanilla deg=15  4.6s
+[repro] 249/432 cm=B ds=4e-07 ms=27 noise=vanilla deg=15  4.7s
+[repro] 250/432 cm=B ds=4e-07 ms=33 noise=vanilla deg=15  4.5s
+[repro] 251/432 cm=B ds=4e-07 ms=36 noise=vanilla deg=15  5.4s
+[repro] 252/432 cm=B ds=4e-07 ms=42 noise=vanilla deg=15  4.4s
+[repro] 253/432 cm=E ds=5e-08 ms=3 noise=vanilla deg=15  4.7s
+[repro] 254/432 cm=E ds=5e-08 ms=6 noise=vanilla deg=15  4.3s
+[repro] 255/432 cm=E ds=5e-08 ms=9 noise=vanilla deg=15  4.5s
+[repro] 256/432 cm=E ds=5e-08 ms=12 noise=vanilla deg=15  4.6s
+[repro] 257/432 cm=E ds=5e-08 ms=15 noise=vanilla deg=15  5.7s
+[repro] 258/432 cm=E ds=5e-08 ms=18 noise=vanilla deg=15  4.7s
+[repro] 259/432 cm=E ds=5e-08 ms=21 noise=vanilla deg=15  5.0s
+[repro] 260/432 cm=E ds=5e-08 ms=24 noise=vanilla deg=15  5.0s
+[repro] 261/432 cm=E ds=5e-08 ms=27 noise=vanilla deg=15  4.7s
+[repro] 262/432 cm=E ds=5e-08 ms=33 noise=vanilla deg=15  5.1s
+[repro] 263/432 cm=E ds=5e-08 ms=36 noise=vanilla deg=15  4.9s
+[repro] 264/432 cm=E ds=5e-08 ms=42 noise=vanilla deg=15  4.5s
+[repro] 265/432 cm=E ds=2e-07 ms=3 noise=vanilla deg=15  4.8s
+[repro] 266/432 cm=E ds=2e-07 ms=6 noise=vanilla deg=15  5.1s
+[repro] 267/432 cm=E ds=2e-07 ms=9 noise=vanilla deg=15  5.6s
+[repro] 268/432 cm=E ds=2e-07 ms=12 noise=vanilla deg=15  4.8s
+[repro] 269/432 cm=E ds=2e-07 ms=15 noise=vanilla deg=15  4.6s
+[repro] 270/432 cm=E ds=2e-07 ms=18 noise=vanilla deg=15  4.8s
+[repro] 271/432 cm=E ds=2e-07 ms=21 noise=vanilla deg=15  5.5s
+[repro] 272/432 cm=E ds=2e-07 ms=24 noise=vanilla deg=15  4.9s
+[repro] 273/432 cm=E ds=2e-07 ms=27 noise=vanilla deg=15  4.5s
+[repro] 274/432 cm=E ds=2e-07 ms=33 noise=vanilla deg=15  6.6s
+[repro] 275/432 cm=E ds=2e-07 ms=36 noise=vanilla deg=15  5.3s
+[repro] 276/432 cm=E ds=2e-07 ms=42 noise=vanilla deg=15  4.5s
+[repro] 277/432 cm=E ds=4e-07 ms=3 noise=vanilla deg=15  4.7s
+[repro] 278/432 cm=E ds=4e-07 ms=6 noise=vanilla deg=15  4.7s
+[repro] 279/432 cm=E ds=4e-07 ms=9 noise=vanilla deg=15  4.7s
+[repro] 280/432 cm=E ds=4e-07 ms=12 noise=vanilla deg=15  4.5s
+[repro] 281/432 cm=E ds=4e-07 ms=15 noise=vanilla deg=15  4.6s
+[repro] 282/432 cm=E ds=4e-07 ms=18 noise=vanilla deg=15  5.0s
+[repro] 283/432 cm=E ds=4e-07 ms=21 noise=vanilla deg=15  4.7s
+[repro] 284/432 cm=E ds=4e-07 ms=24 noise=vanilla deg=15  5.0s
+[repro] 285/432 cm=E ds=4e-07 ms=27 noise=vanilla deg=15  4.8s
+[repro] 286/432 cm=E ds=4e-07 ms=33 noise=vanilla deg=15  5.1s
+[repro] 287/432 cm=E ds=4e-07 ms=36 noise=vanilla deg=15  4.7s
+[repro] 288/432 cm=E ds=4e-07 ms=42 noise=vanilla deg=15  4.8s
+[repro] 289/432 cm=B ds=5e-08 ms=3 noise=vanilla deg=20  5.7s
+[repro] 290/432 cm=B ds=5e-08 ms=6 noise=vanilla deg=20  5.4s
+[repro] 291/432 cm=B ds=5e-08 ms=9 noise=vanilla deg=20  5.5s
+[repro] 292/432 cm=B ds=5e-08 ms=12 noise=vanilla deg=20  5.9s
+[repro] 293/432 cm=B ds=5e-08 ms=15 noise=vanilla deg=20  6.3s
+[repro] 294/432 cm=B ds=5e-08 ms=18 noise=vanilla deg=20  5.9s
+[repro] 295/432 cm=B ds=5e-08 ms=21 noise=vanilla deg=20  4.8s
+[repro] 296/432 cm=B ds=5e-08 ms=24 noise=vanilla deg=20  5.5s
+[repro] 297/432 cm=B ds=5e-08 ms=27 noise=vanilla deg=20  4.6s
+[repro] 298/432 cm=B ds=5e-08 ms=33 noise=vanilla deg=20  5.1s
+[repro] 299/432 cm=B ds=5e-08 ms=36 noise=vanilla deg=20  4.8s
+[repro] 300/432 cm=B ds=5e-08 ms=42 noise=vanilla deg=20  4.6s
+[repro] 301/432 cm=B ds=2e-07 ms=3 noise=vanilla deg=20  4.8s
+[repro] 302/432 cm=B ds=2e-07 ms=6 noise=vanilla deg=20  4.6s
+[repro] 303/432 cm=B ds=2e-07 ms=9 noise=vanilla deg=20  5.2s
+[repro] 304/432 cm=B ds=2e-07 ms=12 noise=vanilla deg=20  5.7s
+[repro] 305/432 cm=B ds=2e-07 ms=15 noise=vanilla deg=20  4.8s
+[repro] 306/432 cm=B ds=2e-07 ms=18 noise=vanilla deg=20  4.7s
+[repro] 307/432 cm=B ds=2e-07 ms=21 noise=vanilla deg=20  4.9s
+[repro] 308/432 cm=B ds=2e-07 ms=24 noise=vanilla deg=20  4.8s
+[repro] 309/432 cm=B ds=2e-07 ms=27 noise=vanilla deg=20  4.8s
+[repro] 310/432 cm=B ds=2e-07 ms=33 noise=vanilla deg=20  5.1s
+[repro] 311/432 cm=B ds=2e-07 ms=36 noise=vanilla deg=20  6.2s
+[repro] 312/432 cm=B ds=2e-07 ms=42 noise=vanilla deg=20  4.9s
+[repro] 313/432 cm=B ds=4e-07 ms=3 noise=vanilla deg=20  4.4s
+[repro] 314/432 cm=B ds=4e-07 ms=6 noise=vanilla deg=20  5.3s
+[repro] 315/432 cm=B ds=4e-07 ms=9 noise=vanilla deg=20  4.5s
+[repro] 316/432 cm=B ds=4e-07 ms=12 noise=vanilla deg=20  4.8s
+[repro] 317/432 cm=B ds=4e-07 ms=15 noise=vanilla deg=20  5.0s
+[repro] 318/432 cm=B ds=4e-07 ms=18 noise=vanilla deg=20  5.3s
+[repro] 319/432 cm=B ds=4e-07 ms=21 noise=vanilla deg=20  5.6s
+[repro] 320/432 cm=B ds=4e-07 ms=24 noise=vanilla deg=20  5.1s
+[repro] 321/432 cm=B ds=4e-07 ms=27 noise=vanilla deg=20  5.2s
+[repro] 322/432 cm=B ds=4e-07 ms=33 noise=vanilla deg=20  6.1s
+[repro] 323/432 cm=B ds=4e-07 ms=36 noise=vanilla deg=20  5.2s
+[repro] 324/432 cm=B ds=4e-07 ms=42 noise=vanilla deg=20  5.3s
+[repro] 325/432 cm=E ds=5e-08 ms=3 noise=vanilla deg=20  5.9s
+[repro] 326/432 cm=E ds=5e-08 ms=6 noise=vanilla deg=20  6.0s
+[repro] 327/432 cm=E ds=5e-08 ms=9 noise=vanilla deg=20  4.8s
+[repro] 328/432 cm=E ds=5e-08 ms=12 noise=vanilla deg=20  5.2s
+[repro] 329/432 cm=E ds=5e-08 ms=15 noise=vanilla deg=20  4.9s
+[repro] 330/432 cm=E ds=5e-08 ms=18 noise=vanilla deg=20  5.0s
+[repro] 331/432 cm=E ds=5e-08 ms=21 noise=vanilla deg=20  4.8s
+[repro] 332/432 cm=E ds=5e-08 ms=24 noise=vanilla deg=20  5.3s
+[repro] 333/432 cm=E ds=5e-08 ms=27 noise=vanilla deg=20  5.0s
+[repro] 334/432 cm=E ds=5e-08 ms=33 noise=vanilla deg=20  5.1s
+[repro] 335/432 cm=E ds=5e-08 ms=36 noise=vanilla deg=20  5.4s
+[repro] 336/432 cm=E ds=5e-08 ms=42 noise=vanilla deg=20  5.7s
+[repro] 337/432 cm=E ds=2e-07 ms=3 noise=vanilla deg=20  5.1s
+[repro] 338/432 cm=E ds=2e-07 ms=6 noise=vanilla deg=20  5.0s
+[repro] 339/432 cm=E ds=2e-07 ms=9 noise=vanilla deg=20  4.9s
+[repro] 340/432 cm=E ds=2e-07 ms=12 noise=vanilla deg=20  5.0s
+[repro] 341/432 cm=E ds=2e-07 ms=15 noise=vanilla deg=20  4.9s
+[repro] 342/432 cm=E ds=2e-07 ms=18 noise=vanilla deg=20  4.9s
+[repro] 343/432 cm=E ds=2e-07 ms=21 noise=vanilla deg=20  5.0s
+[repro] 344/432 cm=E ds=2e-07 ms=24 noise=vanilla deg=20  5.6s
+[repro] 345/432 cm=E ds=2e-07 ms=27 noise=vanilla deg=20  4.6s
+[repro] 346/432 cm=E ds=2e-07 ms=33 noise=vanilla deg=20  5.1s
+[repro] 347/432 cm=E ds=2e-07 ms=36 noise=vanilla deg=20  5.4s
+[repro] 348/432 cm=E ds=2e-07 ms=42 noise=vanilla deg=20  5.5s
+[repro] 349/432 cm=E ds=4e-07 ms=3 noise=vanilla deg=20  4.8s
+[repro] 350/432 cm=E ds=4e-07 ms=6 noise=vanilla deg=20  4.5s
+[repro] 351/432 cm=E ds=4e-07 ms=9 noise=vanilla deg=20  4.8s
+[repro] 352/432 cm=E ds=4e-07 ms=12 noise=vanilla deg=20  4.5s
+[repro] 353/432 cm=E ds=4e-07 ms=15 noise=vanilla deg=20  4.6s
+[repro] 354/432 cm=E ds=4e-07 ms=18 noise=vanilla deg=20  4.6s
+[repro] 355/432 cm=E ds=4e-07 ms=21 noise=vanilla deg=20  5.4s
+[repro] 356/432 cm=E ds=4e-07 ms=24 noise=vanilla deg=20  5.7s
+[repro] 357/432 cm=E ds=4e-07 ms=27 noise=vanilla deg=20  4.8s
+[repro] 358/432 cm=E ds=4e-07 ms=33 noise=vanilla deg=20  4.6s
+[repro] 359/432 cm=E ds=4e-07 ms=36 noise=vanilla deg=20  4.8s
+[repro] 360/432 cm=E ds=4e-07 ms=42 noise=vanilla deg=20  4.9s
+[repro] 361/432 cm=B ds=5e-08 ms=3 noise=vanilla deg=25  4.8s
+[repro] 362/432 cm=B ds=5e-08 ms=6 noise=vanilla deg=25  4.6s
+[repro] 363/432 cm=B ds=5e-08 ms=9 noise=vanilla deg=25  4.7s
+[repro] 364/432 cm=B ds=5e-08 ms=12 noise=vanilla deg=25  5.1s
+[repro] 365/432 cm=B ds=5e-08 ms=15 noise=vanilla deg=25  4.9s
+[repro] 366/432 cm=B ds=5e-08 ms=18 noise=vanilla deg=25  5.7s
+[repro] 367/432 cm=B ds=5e-08 ms=21 noise=vanilla deg=25  5.5s
+[repro] 368/432 cm=B ds=5e-08 ms=24 noise=vanilla deg=25  5.6s
+[repro] 369/432 cm=B ds=5e-08 ms=27 noise=vanilla deg=25  5.4s
+[repro] 370/432 cm=B ds=5e-08 ms=33 noise=vanilla deg=25  5.2s
+[repro] 371/432 cm=B ds=5e-08 ms=36 noise=vanilla deg=25  5.1s
+[repro] 372/432 cm=B ds=5e-08 ms=42 noise=vanilla deg=25  5.7s
+[repro] 373/432 cm=B ds=2e-07 ms=3 noise=vanilla deg=25  5.8s
+[repro] 374/432 cm=B ds=2e-07 ms=6 noise=vanilla deg=25  5.7s
+[repro] 375/432 cm=B ds=2e-07 ms=9 noise=vanilla deg=25  5.2s
+[repro] 376/432 cm=B ds=2e-07 ms=12 noise=vanilla deg=25  5.8s
+[repro] 377/432 cm=B ds=2e-07 ms=15 noise=vanilla deg=25  5.0s
+[repro] 378/432 cm=B ds=2e-07 ms=18 noise=vanilla deg=25  5.4s
+[repro] 379/432 cm=B ds=2e-07 ms=21 noise=vanilla deg=25  5.5s
+[repro] 380/432 cm=B ds=2e-07 ms=24 noise=vanilla deg=25  5.6s
+[repro] 381/432 cm=B ds=2e-07 ms=27 noise=vanilla deg=25  5.3s
+[repro] 382/432 cm=B ds=2e-07 ms=33 noise=vanilla deg=25  4.6s
+[repro] 383/432 cm=B ds=2e-07 ms=36 noise=vanilla deg=25  4.4s
+[repro] 384/432 cm=B ds=2e-07 ms=42 noise=vanilla deg=25  4.6s
+[repro] 385/432 cm=B ds=4e-07 ms=3 noise=vanilla deg=25  5.0s
+[repro] 386/432 cm=B ds=4e-07 ms=6 noise=vanilla deg=25  4.8s
+[repro] 387/432 cm=B ds=4e-07 ms=9 noise=vanilla deg=25  4.9s
+[repro] 388/432 cm=B ds=4e-07 ms=12 noise=vanilla deg=25  4.6s
+[repro] 389/432 cm=B ds=4e-07 ms=15 noise=vanilla deg=25  4.8s
+[repro] 390/432 cm=B ds=4e-07 ms=18 noise=vanilla deg=25  5.1s
+[repro] 391/432 cm=B ds=4e-07 ms=21 noise=vanilla deg=25  5.6s
+[repro] 392/432 cm=B ds=4e-07 ms=24 noise=vanilla deg=25  6.4s
+[repro] 393/432 cm=B ds=4e-07 ms=27 noise=vanilla deg=25  5.4s
+[repro] 394/432 cm=B ds=4e-07 ms=33 noise=vanilla deg=25  5.5s
+[repro] 395/432 cm=B ds=4e-07 ms=36 noise=vanilla deg=25  5.0s
+[repro] 396/432 cm=B ds=4e-07 ms=42 noise=vanilla deg=25  5.3s
+[repro] 397/432 cm=E ds=5e-08 ms=3 noise=vanilla deg=25  6.5s
+[repro] 398/432 cm=E ds=5e-08 ms=6 noise=vanilla deg=25  4.8s
+[repro] 399/432 cm=E ds=5e-08 ms=9 noise=vanilla deg=25  4.6s
+[repro] 400/432 cm=E ds=5e-08 ms=12 noise=vanilla deg=25  4.3s
+[repro] 401/432 cm=E ds=5e-08 ms=15 noise=vanilla deg=25  5.2s
+[repro] 402/432 cm=E ds=5e-08 ms=18 noise=vanilla deg=25  4.8s
+[repro] 403/432 cm=E ds=5e-08 ms=21 noise=vanilla deg=25  4.8s
+[repro] 404/432 cm=E ds=5e-08 ms=24 noise=vanilla deg=25  4.6s
+[repro] 405/432 cm=E ds=5e-08 ms=27 noise=vanilla deg=25  4.6s
+[repro] 406/432 cm=E ds=5e-08 ms=33 noise=vanilla deg=25  5.7s
+[repro] 407/432 cm=E ds=5e-08 ms=36 noise=vanilla deg=25  5.7s
+[repro] 408/432 cm=E ds=5e-08 ms=42 noise=vanilla deg=25  5.0s
+[repro] 409/432 cm=E ds=2e-07 ms=3 noise=vanilla deg=25  4.5s
+[repro] 410/432 cm=E ds=2e-07 ms=6 noise=vanilla deg=25  5.2s
+[repro] 411/432 cm=E ds=2e-07 ms=9 noise=vanilla deg=25  4.8s
+[repro] 412/432 cm=E ds=2e-07 ms=12 noise=vanilla deg=25  4.5s
+[repro] 413/432 cm=E ds=2e-07 ms=15 noise=vanilla deg=25  4.6s
+[repro] 414/432 cm=E ds=2e-07 ms=18 noise=vanilla deg=25  4.4s
+[repro] 415/432 cm=E ds=2e-07 ms=21 noise=vanilla deg=25  5.0s
+[repro] 416/432 cm=E ds=2e-07 ms=24 noise=vanilla deg=25  4.6s
+[repro] 417/432 cm=E ds=2e-07 ms=27 noise=vanilla deg=25  5.5s
+[repro] 418/432 cm=E ds=2e-07 ms=33 noise=vanilla deg=25  5.4s
+[repro] 419/432 cm=E ds=2e-07 ms=36 noise=vanilla deg=25  5.0s
+[repro] 420/432 cm=E ds=2e-07 ms=42 noise=vanilla deg=25  4.8s
+[repro] 421/432 cm=E ds=4e-07 ms=3 noise=vanilla deg=25  5.7s
+[repro] 422/432 cm=E ds=4e-07 ms=6 noise=vanilla deg=25  4.9s
+[repro] 423/432 cm=E ds=4e-07 ms=9 noise=vanilla deg=25  4.4s
+[repro] 424/432 cm=E ds=4e-07 ms=12 noise=vanilla deg=25  4.9s
+[repro] 425/432 cm=E ds=4e-07 ms=15 noise=vanilla deg=25  4.7s
+[repro] 426/432 cm=E ds=4e-07 ms=18 noise=vanilla deg=25  5.7s
+[repro] 427/432 cm=E ds=4e-07 ms=21 noise=vanilla deg=25  4.8s
+[repro] 428/432 cm=E ds=4e-07 ms=24 noise=vanilla deg=25  4.6s
+[repro] 429/432 cm=E ds=4e-07 ms=27 noise=vanilla deg=25  4.6s
+[repro] 430/432 cm=E ds=4e-07 ms=33 noise=vanilla deg=25  5.1s
+[repro] 431/432 cm=E ds=4e-07 ms=36 noise=vanilla deg=25  4.7s
+[repro] 432/432 cm=E ds=4e-07 ms=42 noise=vanilla deg=25  4.5s
+[repro] wrote 432 rows to <ladder-out>/out/DFTGRID_K16_gen432.csv in 2760.6s
+  model cm           ds  ms noise_type  noise_degree                                 nmse_mean
+DFTGRID  B 5.000000e-08   3    vanilla             0 [4.688859  4.708891  4.789148  4.8333025]
+DFTGRID  B 5.000000e-08   6    vanilla             0 [5.6887536 5.7635126 5.553278  5.497229 ]
+DFTGRID  B 5.000000e-08   9    vanilla             0 [5.4026756 5.4222584 5.480755  5.597543 ]
+DFTGRID  B 5.000000e-08  12    vanilla             0 [5.8810673 6.101876  5.851731  5.6500335]
+DFTGRID  B 5.000000e-08  15    vanilla             0 [4.9860263 4.9003353 4.9732614 5.047117 ]
+DFTGRID  B 5.000000e-08  18    vanilla             0 [6.135368  6.1337056 5.8524694 5.917025 ]
+DFTGRID  B 5.000000e-08  21    vanilla             0 [5.3821697 5.794643  5.9885063 5.766968 ]
+DFTGRID  B 5.000000e-08  24    vanilla             0 [5.1694613 5.4021087 5.3389916 5.157754 ]
+DFTGRID  B 5.000000e-08  27    vanilla             0 [6.078875  6.2810516 6.169414  6.10867  ]
+DFTGRID  B 5.000000e-08  33    vanilla             0 [5.586373  5.912039  5.6570983 5.710825 ]
+DFTGRID  B 5.000000e-08  36    vanilla             0 [6.16958   6.2783113 6.0221605 6.0617085]
+DFTGRID  B 5.000000e-08  42    vanilla             0 [6.1868334 5.808624  5.756811  5.769612 ]
+DFTGRID  B 2.000000e-07   3    vanilla             0 [3.4002776 3.402318  3.397439  3.3885174]
+DFTGRID  B 2.000000e-07   6    vanilla             0 [4.2518606 4.2692957 4.2803874 4.2744193]
+DFTGRID  B 2.000000e-07   9    vanilla             0 [4.002843  4.012879  4.011768  4.0381613]
+DFTGRID  B 2.000000e-07  12    vanilla             0 [4.3597    4.39198   4.4521923 4.478424 ]
+DFTGRID  B 2.000000e-07  15    vanilla             0 [4.1677136 4.204497  4.276063  4.275313 ]
+DFTGRID  B 2.000000e-07  18    vanilla             0 [4.2832637 4.3239684 4.3405786 4.338863 ]
+DFTGRID  B 2.000000e-07  21    vanilla             0     [4.187214 4.220658 4.255191 4.267199]
+DFTGRID  B 2.000000e-07  24    vanilla             0 [4.0550694 4.1371784 4.1533914 4.1016035]
+DFTGRID  B 2.000000e-07  27    vanilla             0 [4.557682  4.5531144 4.423448  4.4737287]
+DFTGRID  B 2.000000e-07  33    vanilla             0 [4.3343897 4.2019367 4.2678127 4.3256307]
+DFTGRID  B 2.000000e-07  36    vanilla             0 [4.2294993 4.489986  4.632779  4.672734 ]
+DFTGRID  B 2.000000e-07  42    vanilla             0 [4.4271474 4.3897724 4.357789  4.372239 ]
+DFTGRID  B 4.000000e-07   3    vanilla             0 [3.3927245 3.395887  3.3954284 3.3944557]
+DFTGRID  B 4.000000e-07   6    vanilla             0 [3.7840238 3.7882974 3.7898226 3.7955406]
+DFTGRID  B 4.000000e-07   9    vanilla             0 [3.6990294 3.7202528 3.7026048 3.6986682]
+DFTGRID  B 4.000000e-07  12    vanilla             0 [3.5499198 3.5707536 3.6012712 3.5889747]
+DFTGRID  B 4.000000e-07  15    vanilla             0 [3.566819  3.5648868 3.5912762 3.5889719]
+DFTGRID  B 4.000000e-07  18    vanilla             0 [3.7652967 3.772657  3.7621405 3.7705348]
+DFTGRID  B 4.000000e-07  21    vanilla             0 [3.5843248 3.6309528 3.6920006 3.7302456]
+DFTGRID  B 4.000000e-07  24    vanilla             0 [3.5202045 3.5229042 3.5488105 3.5854645]
+DFTGRID  B 4.000000e-07  27    vanilla             0 [3.7052495 3.7517762 3.7368243 3.6611161]
+DFTGRID  B 4.000000e-07  33    vanilla             0 [3.4962857 3.4831703 3.5498686 3.597316 ]
+DFTGRID  B 4.000000e-07  36    vanilla             0 [3.93678   3.8508236 3.8191233 3.701969 ]
+DFTGRID  B 4.000000e-07  42    vanilla             0 [3.9037693 3.9144974 3.9602747 3.8394506]
+DFTGRID  E 5.000000e-08   3    vanilla             0 [3.234558  3.2318594 3.2316597 3.2328384]
+DFTGRID  E 5.000000e-08   6    vanilla             0 [3.2230392 3.2197819 3.220123  3.2128   ]
+DFTGRID  E 5.000000e-08   9    vanilla             0 [3.3840199 3.3794227 3.3858454 3.3850923]
+DFTGRID  E 5.000000e-08  12    vanilla             0 [3.0060031 3.0163856 3.0245063 3.0332127]
+DFTGRID  E 5.000000e-08  15    vanilla             0     [3.223381 3.221103 3.214607 3.214786]
+DFTGRID  E 5.000000e-08  18    vanilla             0 [3.1709592 3.1619842 3.159584  3.1658554]
+DFTGRID  E 5.000000e-08  21    vanilla             0 [3.2083993 3.2257962 3.236138  3.2490082]
+DFTGRID  E 5.000000e-08  24    vanilla             0 [3.137508  3.1526914 3.1644354 3.1678216]
+DFTGRID  E 5.000000e-08  27    vanilla             0 [3.1275036 3.1179578 3.1064112 3.1010582]
+DFTGRID  E 5.000000e-08  33    vanilla             0 [3.1243    3.1186075 3.1188653 3.1137443]
+DFTGRID  E 5.000000e-08  36    vanilla             0 [2.9363525 2.930789  2.9189672 2.9024634]
+DFTGRID  E 5.000000e-08  42    vanilla             0 [3.190813  3.1925573 3.2137415 3.2099416]
+DFTGRID  E 2.000000e-07   3    vanilla             0 [2.886137  2.8880103 2.883874  2.8864539]
+DFTGRID  E 2.000000e-07   6    vanilla             0 [3.0480783 3.0529778 3.0509048 3.0492022]
+DFTGRID  E 2.000000e-07   9    vanilla             0     [3.190753 3.183472 3.183074 3.183463]
+DFTGRID  E 2.000000e-07  12    vanilla             0 [3.0387692 3.042066  3.0445826 3.0396018]
+DFTGRID  E 2.000000e-07  15    vanilla             0 [2.9568114 2.953563  2.9637194 2.9615262]
+DFTGRID  E 2.000000e-07  18    vanilla             0 [2.7569764 2.7611458 2.7598684 2.7586136]
+DFTGRID  E 2.000000e-07  21    vanilla             0 [3.0132225 3.0164886 3.0211475 3.0229485]
+DFTGRID  E 2.000000e-07  24    vanilla             0 [3.0947287 3.104704  3.1136127 3.1190097]
+DFTGRID  E 2.000000e-07  27    vanilla             0 [2.8578804 2.8626504 2.8530893 2.8522456]
+DFTGRID  E 2.000000e-07  33    vanilla             0 [2.9869523 2.9828296 2.9810514 2.9733748]
+DFTGRID  E 2.000000e-07  36    vanilla             0 [3.118995  3.1268356 3.1405597 3.1459577]
+DFTGRID  E 2.000000e-07  42    vanilla             0 [2.966133  2.9766235 2.9971137 3.0007277]
+DFTGRID  E 4.000000e-07   3    vanilla             0 [3.0197337 3.018993  3.023519  3.0200367]
+DFTGRID  E 4.000000e-07   6    vanilla             0 [3.3175187 3.3219843 3.3202188 3.3141766]
+DFTGRID  E 4.000000e-07   9    vanilla             0 [3.287977  3.2901688 3.286629  3.2911167]
+DFTGRID  E 4.000000e-07  12    vanilla             0 [2.9836175 2.9774358 2.979623  2.9766746]
+DFTGRID  E 4.000000e-07  15    vanilla             0 [3.1869478 3.1782823 3.1713576 3.1695566]
+DFTGRID  E 4.000000e-07  18    vanilla             0 [2.588833  2.5938292 2.5954418 2.6008108]
+DFTGRID  E 4.000000e-07  21    vanilla             0 [3.0508728 3.0476954 3.050887  3.0496   ]
+DFTGRID  E 4.000000e-07  24    vanilla             0 [3.1050103 3.1019068 3.0982718 3.0890906]
+DFTGRID  E 4.000000e-07  27    vanilla             0 [3.11225   3.105275  3.099922  3.0933409]
+DFTGRID  E 4.000000e-07  33    vanilla             0 [3.0100737 3.0093217 3.0196304 3.0191453]
+DFTGRID  E 4.000000e-07  36    vanilla             0 [2.943368  2.9517946 2.9641004 2.9664538]
+DFTGRID  E 4.000000e-07  42    vanilla             0 [3.0287337 3.042851  3.0479898 3.0669312]
+DFTGRID  B 5.000000e-08   3    vanilla             5 [3.3530374 3.3628387 3.415815  3.4334955]
+DFTGRID  B 5.000000e-08   6    vanilla             5 [4.152845  4.192228  4.0387893 3.985044 ]
+DFTGRID  B 5.000000e-08   9    vanilla             5 [3.9602966 3.9662836 4.034948  4.1019173]
+DFTGRID  B 5.000000e-08  12    vanilla             5 [4.244776  4.3694987 4.178253  4.0536046]
+DFTGRID  B 5.000000e-08  15    vanilla             5 [3.5820997 3.5402906 3.6123006 3.6609988]
+DFTGRID  B 5.000000e-08  18    vanilla             5     [4.608488 4.544853 4.235916 4.303403]
+DFTGRID  B 5.000000e-08  21    vanilla             5 [3.9054697 4.2011967 4.318799  4.1412215]
+DFTGRID  B 5.000000e-08  24    vanilla             5 [3.7429345 3.9006793 3.8389535 3.685408 ]
+DFTGRID  B 5.000000e-08  27    vanilla             5 [4.341735  4.517606  4.443     4.4329734]
+DFTGRID  B 5.000000e-08  33    vanilla             5 [4.0172005 4.2199464 3.9773226 4.0368867]
+DFTGRID  B 5.000000e-08  36    vanilla             5 [4.5195484 4.565572  4.325267  4.3300285]
+DFTGRID  B 5.000000e-08  42    vanilla             5 [4.514494  4.212813  4.1672196 4.180149 ]
+DFTGRID  B 2.000000e-07   3    vanilla             5 [2.442747  2.4418907 2.4388127 2.4349754]
+DFTGRID  B 2.000000e-07   6    vanilla             5 [3.2609234 3.2705176 3.2728748 3.2602353]
+DFTGRID  B 2.000000e-07   9    vanilla             5 [3.023709  3.024014  3.0138955 3.0295882]
+DFTGRID  B 2.000000e-07  12    vanilla             5 [3.2373688 3.2538815 3.2892814 3.3045678]
+DFTGRID  B 2.000000e-07  15    vanilla             5 [3.0800073 3.1033797 3.1695898 3.1706295]
+DFTGRID  B 2.000000e-07  18    vanilla             5 [3.1780443 3.2055545 3.2310333 3.2228262]
+DFTGRID  B 2.000000e-07  21    vanilla             5 [3.1475644 3.1611795 3.1629183 3.156113 ]
+DFTGRID  B 2.000000e-07  24    vanilla             5 [2.9849274 3.0464709 3.0613635 3.029799 ]
+DFTGRID  B 2.000000e-07  27    vanilla             5 [3.3821502 3.3523808 3.2410898 3.2706017]
+DFTGRID  B 2.000000e-07  33    vanilla             5 [3.1936533 3.082232  3.1253922 3.172511 ]
+DFTGRID  B 2.000000e-07  36    vanilla             5 [3.1245587 3.3169916 3.403457  3.417182 ]
+DFTGRID  B 2.000000e-07  42    vanilla             5 [3.288066  3.2555945 3.2304134 3.2398193]
+DFTGRID  B 4.000000e-07   3    vanilla             5 [2.5581028 2.5567467 2.5594778 2.5561125]
+DFTGRID  B 4.000000e-07   6    vanilla             5 [2.9334748 2.9295926 2.9255717 2.9314785]
+DFTGRID  B 4.000000e-07   9    vanilla             5 [2.8086822 2.81085   2.7955902 2.7925053]
+DFTGRID  B 4.000000e-07  12    vanilla             5 [2.669996  2.686117  2.7026076 2.7001612]
+DFTGRID  B 4.000000e-07  15    vanilla             5 [2.6736066 2.6682882 2.679158  2.6669805]
+DFTGRID  B 4.000000e-07  18    vanilla             5 [2.807507  2.8144224 2.8133864 2.821681 ]
+DFTGRID  B 4.000000e-07  21    vanilla             5 [2.6656256 2.7018557 2.7522647 2.781481 ]
+DFTGRID  B 4.000000e-07  24    vanilla             5 [2.631999  2.6245217 2.6428263 2.683002 ]
+DFTGRID  B 4.000000e-07  27    vanilla             5 [2.7979522 2.8192618 2.8012557 2.7416523]
+DFTGRID  B 4.000000e-07  33    vanilla             5 [2.628576  2.61737   2.6743166 2.7084265]
+DFTGRID  B 4.000000e-07  36    vanilla             5 [2.923329  2.8511288 2.8291328 2.7583742]
+DFTGRID  B 4.000000e-07  42    vanilla             5 [2.927841  2.93822   2.9796762 2.8920383]
+DFTGRID  E 5.000000e-08   3    vanilla             5 [2.5649748 2.5657706 2.5658119 2.5657864]
+DFTGRID  E 5.000000e-08   6    vanilla             5 [2.5396712 2.5366259 2.535939  2.5291302]
+DFTGRID  E 5.000000e-08   9    vanilla             5 [2.6982665 2.6954937 2.6981382 2.6996496]
+DFTGRID  E 5.000000e-08  12    vanilla             5 [2.292878  2.2976193 2.3039138 2.305699 ]
+DFTGRID  E 5.000000e-08  15    vanilla             5 [2.5053518 2.5031888 2.5007048 2.4964216]
+DFTGRID  E 5.000000e-08  18    vanilla             5 [2.4670436 2.4609516 2.4590461 2.4618032]
+DFTGRID  E 5.000000e-08  21    vanilla             5 [2.5107105 2.5244858 2.5355985 2.543192 ]
+DFTGRID  E 5.000000e-08  24    vanilla             5 [2.4409971 2.446261  2.452416  2.4525843]
+DFTGRID  E 5.000000e-08  27    vanilla             5 [2.4237714 2.4116902 2.4022143 2.399682 ]
+DFTGRID  E 5.000000e-08  33    vanilla             5 [2.4162776 2.414574  2.412005  2.4097214]
+DFTGRID  E 5.000000e-08  36    vanilla             5 [2.231347  2.2217429 2.208255  2.2010622]
+DFTGRID  E 5.000000e-08  42    vanilla             5 [2.4853866 2.483812  2.5000978 2.4960444]
+DFTGRID  E 2.000000e-07   3    vanilla             5 [2.2487206 2.2478044 2.2484345 2.2472925]
+DFTGRID  E 2.000000e-07   6    vanilla             5 [2.3831072 2.3856554 2.3872678 2.3894782]
+DFTGRID  E 2.000000e-07   9    vanilla             5 [2.5197954 2.51727   2.5176306 2.5157347]
+DFTGRID  E 2.000000e-07  12    vanilla             5 [2.3688898 2.3651392 2.3686433 2.368531 ]
+DFTGRID  E 2.000000e-07  15    vanilla             5 [2.272682  2.2745326 2.2759457 2.2774382]
+DFTGRID  E 2.000000e-07  18    vanilla             5 [2.072703  2.0703409 2.0702446 2.0693154]
+DFTGRID  E 2.000000e-07  21    vanilla             5 [2.3249466 2.3295026 2.3333423 2.3339698]
+DFTGRID  E 2.000000e-07  24    vanilla             5 [2.4005604 2.4046633 2.4130247 2.4186819]
+DFTGRID  E 2.000000e-07  27    vanilla             5 [2.1821935 2.1822226 2.1787791 2.1803892]
+DFTGRID  E 2.000000e-07  33    vanilla             5 [2.3000717 2.2994928 2.299368  2.2984602]
+DFTGRID  E 2.000000e-07  36    vanilla             5 [2.4117095 2.4200106 2.4285507 2.435996 ]
+DFTGRID  E 2.000000e-07  42    vanilla             5 [2.278198  2.2885275 2.2980735 2.3063622]
+DFTGRID  E 4.000000e-07   3    vanilla             5 [2.3763285 2.375542  2.3740797 2.3736079]
+DFTGRID  E 4.000000e-07   6    vanilla             5 [2.6473746 2.6477368 2.6470852 2.6465402]
+DFTGRID  E 4.000000e-07   9    vanilla             5 [2.6067777 2.6071274 2.6083283 2.6097348]
+DFTGRID  E 4.000000e-07  12    vanilla             5 [2.3025281 2.302103  2.2972038 2.2907686]
+DFTGRID  E 4.000000e-07  15    vanilla             5 [2.505034  2.4981027 2.4952974 2.4925127]
+DFTGRID  E 4.000000e-07  18    vanilla             5 [1.9008071 1.9012837 1.9022183 1.9026248]
+DFTGRID  E 4.000000e-07  21    vanilla             5 [2.361671  2.359573  2.359452  2.3587685]
+DFTGRID  E 4.000000e-07  24    vanilla             5 [2.4300506 2.4270391 2.4232187 2.4178553]
+DFTGRID  E 4.000000e-07  27    vanilla             5 [2.4225874 2.417983  2.4104416 2.4071631]
+DFTGRID  E 4.000000e-07  33    vanilla             5 [2.3133326 2.3179743 2.3232505 2.3235788]
+DFTGRID  E 4.000000e-07  36    vanilla             5 [2.2579954 2.2612658 2.2704067 2.2763324]
+DFTGRID  E 4.000000e-07  42    vanilla             5 [2.34055   2.3479967 2.357153  2.3701057]
+DFTGRID  B 5.000000e-08   3    vanilla            10 [2.9236948 2.9356203 2.9799116 2.9899967]
+DFTGRID  B 5.000000e-08   6    vanilla            10 [3.6746502 3.7122648 3.5643623 3.5056036]
+DFTGRID  B 5.000000e-08   9    vanilla            10 [3.50632   3.5141404 3.5647388 3.6374035]
+DFTGRID  B 5.000000e-08  12    vanilla            10 [3.7139883 3.8288062 3.657595  3.5502288]
+DFTGRID  B 5.000000e-08  15    vanilla            10 [3.139229  3.0986335 3.180181  3.2177625]
+DFTGRID  B 5.000000e-08  18    vanilla            10     [4.122379 4.046533 3.725888 3.791374]
+DFTGRID  B 5.000000e-08  21    vanilla            10 [3.4417374 3.7024124 3.7881205 3.6288745]
+DFTGRID  B 5.000000e-08  24    vanilla            10 [3.2826626 3.4206078 3.3535545 3.2152085]
+DFTGRID  B 5.000000e-08  27    vanilla            10 [3.8136272 3.9614823 3.8937747 3.8984687]
+DFTGRID  B 5.000000e-08  33    vanilla            10 [3.5263271 3.692313  3.440315  3.5159483]
+DFTGRID  B 5.000000e-08  36    vanilla            10 [3.9954994 4.024726  3.78201   3.7881124]
+DFTGRID  B 5.000000e-08  42    vanilla            10 [3.9753008 3.704769  3.6527896 3.6849983]
+DFTGRID  B 2.000000e-07   3    vanilla            10 [2.1388953 2.1401308 2.136158  2.1338916]
+DFTGRID  B 2.000000e-07   6    vanilla            10 [2.9480867 2.9562647 2.9558814 2.940881 ]
+DFTGRID  B 2.000000e-07   9    vanilla            10 [2.7170148 2.70948   2.7017574 2.7130497]
+DFTGRID  B 2.000000e-07  12    vanilla            10 [2.8863022 2.8963778 2.9231818 2.930969 ]
+DFTGRID  B 2.000000e-07  15    vanilla            10 [2.7324798 2.7583892 2.8183727 2.822594 ]
+DFTGRID  B 2.000000e-07  18    vanilla            10 [2.8238091 2.8567486 2.8793173 2.8716187]
+DFTGRID  B 2.000000e-07  21    vanilla            10     [2.817586 2.823459 2.818439 2.810895]
+DFTGRID  B 2.000000e-07  24    vanilla            10 [2.6497788 2.7006075 2.7184043 2.6934128]
+DFTGRID  B 2.000000e-07  27    vanilla            10 [3.011444  2.9724102 2.8686633 2.8936892]
+DFTGRID  B 2.000000e-07  33    vanilla            10 [2.8327096 2.724076  2.7645283 2.8063805]
+DFTGRID  B 2.000000e-07  36    vanilla            10 [2.7833166 2.9487002 3.0138633 3.023386 ]
+DFTGRID  B 2.000000e-07  42    vanilla            10 [2.9288874 2.9019244 2.8746727 2.8802521]
+DFTGRID  B 4.000000e-07   3    vanilla            10 [2.2909706 2.291354  2.2919495 2.2916849]
+DFTGRID  B 4.000000e-07   6    vanilla            10 [2.6611674 2.6569748 2.6554263 2.658176 ]
+DFTGRID  B 4.000000e-07   9    vanilla            10 [2.524666  2.5242481 2.5113022 2.5049653]
+DFTGRID  B 4.000000e-07  12    vanilla            10 [2.3875139 2.4055    2.423181  2.4257808]
+DFTGRID  B 4.000000e-07  15    vanilla            10 [2.3937075 2.3832784 2.3884346 2.374403 ]
+DFTGRID  B 4.000000e-07  18    vanilla            10 [2.5081043 2.5109308 2.5137093 2.524173 ]
+DFTGRID  B 4.000000e-07  21    vanilla            10 [2.3783278 2.4079905 2.4557805 2.4771163]
+DFTGRID  B 4.000000e-07  24    vanilla            10 [2.3504655 2.3437731 2.3632045 2.3973167]
+DFTGRID  B 4.000000e-07  27    vanilla            10 [2.5109565 2.5263505 2.5032012 2.449675 ]
+DFTGRID  B 4.000000e-07  33    vanilla            10 [2.35434   2.3472774 2.398282  2.4297822]
+DFTGRID  B 4.000000e-07  36    vanilla            10 [2.6032166 2.5402327 2.5164728 2.464221 ]
+DFTGRID  B 4.000000e-07  42    vanilla            10 [2.6208794 2.6241758 2.6704962 2.5900464]
+DFTGRID  E 5.000000e-08   3    vanilla            10 [2.3541715 2.355535  2.3557627 2.3565779]
+DFTGRID  E 5.000000e-08   6    vanilla            10 [2.3205624 2.3197663 2.3188803 2.315206 ]
+DFTGRID  E 5.000000e-08   9    vanilla            10 [2.479881  2.4773247 2.4782112 2.4835181]
+DFTGRID  E 5.000000e-08  12    vanilla            10 [2.0667257 2.0714936 2.0747695 2.0793548]
+DFTGRID  E 5.000000e-08  15    vanilla            10 [2.281605  2.278055  2.272974  2.2695725]
+DFTGRID  E 5.000000e-08  18    vanilla            10 [2.2448761 2.2392478 2.2367983 2.2376378]
+DFTGRID  E 5.000000e-08  21    vanilla            10 [2.291729  2.3039389 2.3142822 2.3187995]
+DFTGRID  E 5.000000e-08  24    vanilla            10 [2.2158203 2.2235723 2.228189  2.2272859]
+DFTGRID  E 5.000000e-08  27    vanilla            10 [2.1971462 2.186883  2.1778963 2.1763542]
+DFTGRID  E 5.000000e-08  33    vanilla            10 [2.1951256 2.1925275 2.188637  2.187171 ]
+DFTGRID  E 5.000000e-08  36    vanilla            10 [2.003764  1.9950728 1.9839929 1.9761832]
+DFTGRID  E 5.000000e-08  42    vanilla            10 [2.2601233 2.2613173 2.273644  2.2713714]
+DFTGRID  E 2.000000e-07   3    vanilla            10 [2.0445342 2.0460541 2.0458431 2.0445013]
+DFTGRID  E 2.000000e-07   6    vanilla            10 [2.174749  2.1753063 2.1777575 2.1786568]
+DFTGRID  E 2.000000e-07   9    vanilla            10 [2.307512  2.306597  2.3048806 2.3042266]
+DFTGRID  E 2.000000e-07  12    vanilla            10 [2.1531167 2.153734  2.1546571 2.1562014]
+DFTGRID  E 2.000000e-07  15    vanilla            10 [2.0552201 2.0556815 2.056625  2.0607498]
+DFTGRID  E 2.000000e-07  18    vanilla            10 [1.8548015 1.8521941 1.8519026 1.851053 ]
+DFTGRID  E 2.000000e-07  21    vanilla            10 [2.110241  2.1117532 2.1136813 2.1163743]
+DFTGRID  E 2.000000e-07  24    vanilla            10 [2.1815555 2.1872582 2.1936839 2.1974182]
+DFTGRID  E 2.000000e-07  27    vanilla            10 [1.9680269 1.9677471 1.9653153 1.9657264]
+DFTGRID  E 2.000000e-07  33    vanilla            10 [2.0807858 2.08099   2.08357   2.0860252]
+DFTGRID  E 2.000000e-07  36    vanilla            10 [2.185072  2.1958966 2.2035398 2.2140586]
+DFTGRID  E 2.000000e-07  42    vanilla            10 [2.058377  2.0681782 2.0773416 2.0852926]
+DFTGRID  E 4.000000e-07   3    vanilla            10 [2.1706727 2.1706917 2.1705809 2.1716027]
+DFTGRID  E 4.000000e-07   6    vanilla            10 [2.4353428 2.4353058 2.4354486 2.4360144]
+DFTGRID  E 4.000000e-07   9    vanilla            10 [2.391403  2.392498  2.3906536 2.3931382]
+DFTGRID  E 4.000000e-07  12    vanilla            10 [2.0880973 2.0849607 2.0810509 2.0775788]
+DFTGRID  E 4.000000e-07  15    vanilla            10 [2.2891417 2.2864997 2.2798688 2.275544 ]
+DFTGRID  E 4.000000e-07  18    vanilla            10 [1.6814227 1.6823577 1.684526  1.6851149]
+DFTGRID  E 4.000000e-07  21    vanilla            10 [2.142835  2.143227  2.1410086 2.1383114]
+DFTGRID  E 4.000000e-07  24    vanilla            10 [2.2118392 2.2106974 2.20845   2.205413 ]
+DFTGRID  E 4.000000e-07  27    vanilla            10 [2.202832  2.198198  2.194375  2.1902614]
+DFTGRID  E 4.000000e-07  33    vanilla            10 [2.0888631 2.0966763 2.1003034 2.0989082]
+DFTGRID  E 4.000000e-07  36    vanilla            10 [2.0384479 2.0436463 2.0500214 2.0546176]
+DFTGRID  E 4.000000e-07  42    vanilla            10 [2.1230094 2.1314216 2.1409132 2.1510744]
+DFTGRID  B 5.000000e-08   3    vanilla            15 [2.7898972 2.80188   2.8385663 2.852151 ]
+DFTGRID  B 5.000000e-08   6    vanilla            15 [3.522546  3.5538988 3.411273  3.353591 ]
+DFTGRID  B 5.000000e-08   9    vanilla            15 [3.3591592 3.3650992 3.4206336 3.4904275]
+DFTGRID  B 5.000000e-08  12    vanilla            15 [3.5484605 3.6515973 3.489002  3.388385 ]
+DFTGRID  B 5.000000e-08  15    vanilla            15 [2.9974754 2.9631126 3.042242  3.0788224]
+DFTGRID  B 5.000000e-08  18    vanilla            15 [3.9658542 3.8875973 3.5671682 3.6241674]
+DFTGRID  B 5.000000e-08  21    vanilla            15 [3.2936747 3.5466776 3.623935  3.4643695]
+DFTGRID  B 5.000000e-08  24    vanilla            15 [3.1370857 3.276607  3.2009635 3.0719068]
+DFTGRID  B 5.000000e-08  27    vanilla            15 [3.6363535 3.7847118 3.7231596 3.7282486]
+DFTGRID  B 5.000000e-08  33    vanilla            15 [3.374745  3.5201101 3.2730334 3.3490994]
+DFTGRID  B 5.000000e-08  36    vanilla            15 [3.8333404 3.8573577 3.6185474 3.619924 ]
+DFTGRID  B 5.000000e-08  42    vanilla            15 [3.8081176 3.5498383 3.4961145 3.5221326]
+DFTGRID  B 2.000000e-07   3    vanilla            15 [2.0432017 2.0432222 2.041257  2.0375683]
+DFTGRID  B 2.000000e-07   6    vanilla            15 [2.8487656 2.8568342 2.8556225 2.8388827]
+DFTGRID  B 2.000000e-07   9    vanilla            15 [2.6208227 2.6110609 2.6027727 2.611886 ]
+DFTGRID  B 2.000000e-07  12    vanilla            15 [2.7744904 2.7833784 2.8078384 2.8133984]
+DFTGRID  B 2.000000e-07  15    vanilla            15 [2.621003  2.647478  2.7077863 2.7130833]
+DFTGRID  B 2.000000e-07  18    vanilla            15 [2.7139475 2.7421305 2.767981  2.7608624]
+DFTGRID  B 2.000000e-07  21    vanilla            15 [2.7146811 2.7153878 2.705017  2.6970768]
+DFTGRID  B 2.000000e-07  24    vanilla            15 [2.5466888 2.5905235 2.6076887 2.584424 ]
+DFTGRID  B 2.000000e-07  27    vanilla            15 [2.894942  2.8539605 2.750809  2.7746563]
+DFTGRID  B 2.000000e-07  33    vanilla            15 [2.7192452 2.6131344 2.6502798 2.6904511]
+DFTGRID  B 2.000000e-07  36    vanilla            15 [2.6711304 2.8322463 2.8888876 2.895245 ]
+DFTGRID  B 2.000000e-07  42    vanilla            15 [2.8167787 2.7886548 2.7586102 2.7666733]
+DFTGRID  B 4.000000e-07   3    vanilla            15 [2.207796  2.2071977 2.2075338 2.2075074]
+DFTGRID  B 4.000000e-07   6    vanilla            15 [2.5758932 2.5688944 2.5688136 2.5714211]
+DFTGRID  B 4.000000e-07   9    vanilla            15 [2.4368334 2.4332414 2.4186323 2.4139636]
+DFTGRID  B 4.000000e-07  12    vanilla            15 [2.2982192 2.3163874 2.3343465 2.336891 ]
+DFTGRID  B 4.000000e-07  15    vanilla            15 [2.3036337 2.293775  2.2961712 2.2834868]
+DFTGRID  B 4.000000e-07  18    vanilla            15 [2.411887  2.4143767 2.4182305 2.4286857]
+DFTGRID  B 4.000000e-07  21    vanilla            15 [2.2873738 2.3148627 2.3633835 2.384345 ]
+DFTGRID  B 4.000000e-07  24    vanilla            15 [2.261775  2.2545242 2.2725706 2.3057978]
+DFTGRID  B 4.000000e-07  27    vanilla            15 [2.421837  2.4349954 2.4109952 2.356679 ]
+DFTGRID  B 4.000000e-07  33    vanilla            15 [2.2674415 2.259927  2.3106742 2.3409991]
+DFTGRID  B 4.000000e-07  36    vanilla            15 [2.5035279 2.4410086 2.4175215 2.3702886]
+DFTGRID  B 4.000000e-07  42    vanilla            15 [2.5216253 2.5260255 2.5741272 2.4970698]
+DFTGRID  E 5.000000e-08   3    vanilla            15 [2.288091  2.2888782 2.289594  2.2881806]
+DFTGRID  E 5.000000e-08   6    vanilla            15 [2.2519343 2.250415  2.2499297 2.247989 ]
+DFTGRID  E 5.000000e-08   9    vanilla            15 [2.4105947 2.4083972 2.4115124 2.4155223]
+DFTGRID  E 5.000000e-08  12    vanilla            15 [1.9948262 2.000082  2.0031464 2.005515 ]
+DFTGRID  E 5.000000e-08  15    vanilla            15 [2.2095065 2.2055275 2.201545  2.1970026]
+DFTGRID  E 5.000000e-08  18    vanilla            15 [2.1737542 2.168262  2.1674926 2.1676333]
+DFTGRID  E 5.000000e-08  21    vanilla            15 [2.2231326 2.2338378 2.2437406 2.2489097]
+DFTGRID  E 5.000000e-08  24    vanilla            15 [2.145823  2.152233  2.1560826 2.1552467]
+DFTGRID  E 5.000000e-08  27    vanilla            15 [2.127796  2.1141021 2.1071317 2.106719 ]
+DFTGRID  E 5.000000e-08  33    vanilla            15 [2.1237562 2.1208208 2.117559  2.1154854]
+DFTGRID  E 5.000000e-08  36    vanilla            15 [1.932596  1.925044  1.912116  1.9067851]
+DFTGRID  E 5.000000e-08  42    vanilla            15 [2.1900077 2.1894524 2.2025735 2.1989625]
+DFTGRID  E 2.000000e-07   3    vanilla            15 [1.9818268 1.9820654 1.9813381 1.9816327]
+DFTGRID  E 2.000000e-07   6    vanilla            15 [2.1077976 2.1094298 2.1114488 2.1123438]
+DFTGRID  E 2.000000e-07   9    vanilla            15 [2.2418814 2.2398496 2.2384286 2.2385783]
+DFTGRID  E 2.000000e-07  12    vanilla            15 [2.0864944 2.0861704 2.0880506 2.0880816]
+DFTGRID  E 2.000000e-07  15    vanilla            15 [1.987803  1.9880097 1.989225  1.9904953]
+DFTGRID  E 2.000000e-07  18    vanilla            15 [1.784342  1.7839085 1.7840695 1.7825911]
+DFTGRID  E 2.000000e-07  21    vanilla            15 [2.0406017 2.0433242 2.0454035 2.0492034]
+DFTGRID  E 2.000000e-07  24    vanilla            15 [2.111931  2.1172361 2.1224728 2.126207 ]
+DFTGRID  E 2.000000e-07  27    vanilla            15 [1.9005158 1.89833   1.8978497 1.8981085]
+DFTGRID  E 2.000000e-07  33    vanilla            15 [2.0120041 2.0139654 2.0173626 2.0178092]
+DFTGRID  E 2.000000e-07  36    vanilla            15 [2.1145043 2.1239634 2.1329813 2.1427271]
+DFTGRID  E 2.000000e-07  42    vanilla            15 [1.9892937 1.9993215 2.0079584 2.0148275]
+DFTGRID  E 4.000000e-07   3    vanilla            15 [2.1063972 2.1058798 2.1064355 2.106613 ]
+DFTGRID  E 4.000000e-07   6    vanilla            15 [2.3683689 2.3688636 2.3688805 2.3692589]
+DFTGRID  E 4.000000e-07   9    vanilla            15 [2.3226223 2.3243732 2.3247705 2.3248808]
+DFTGRID  E 4.000000e-07  12    vanilla            15 [2.01876   2.0156837 2.013377  2.010404 ]
+DFTGRID  E 4.000000e-07  15    vanilla            15 [2.2213943 2.2164469 2.212018  2.2073832]
+DFTGRID  E 4.000000e-07  18    vanilla            15 [1.6126381 1.6126492 1.6154618 1.6156747]
+DFTGRID  E 4.000000e-07  21    vanilla            15 [2.0742803 2.0734377 2.072066  2.0697668]
+DFTGRID  E 4.000000e-07  24    vanilla            15 [2.145144  2.143853  2.1414866 2.1381712]
+DFTGRID  E 4.000000e-07  27    vanilla            15 [2.134787  2.128991  2.1259131 2.121879 ]
+DFTGRID  E 4.000000e-07  33    vanilla            15 [2.0197716 2.0269828 2.0303113 2.0307333]
+DFTGRID  E 4.000000e-07  36    vanilla            15 [1.9706655 1.9745651 1.9794818 1.9845215]
+DFTGRID  E 4.000000e-07  42    vanilla            15 [2.0547588 2.061886  2.0705233 2.080138 ]
+DFTGRID  B 5.000000e-08   3    vanilla            20 [2.7485764 2.7595735 2.795635  2.8077304]
+DFTGRID  B 5.000000e-08   6    vanilla            20 [3.4760578 3.5051007 3.3650303 3.3060856]
+DFTGRID  B 5.000000e-08   9    vanilla            20 [3.3136861 3.3217359 3.374431  3.4408123]
+DFTGRID  B 5.000000e-08  12    vanilla            20 [3.4982767 3.5926416 3.4355805 3.3398428]
+DFTGRID  B 5.000000e-08  15    vanilla            20 [2.954824  2.9200087 2.9980543 3.0346463]
+DFTGRID  B 5.000000e-08  18    vanilla            20 [3.9183936 3.838464  3.5174809 3.5741873]
+DFTGRID  B 5.000000e-08  21    vanilla            20 [3.246156  3.4946551 3.5701315 3.4138834]
+DFTGRID  B 5.000000e-08  24    vanilla            20 [3.0944796 3.2282424 3.153436  3.0255506]
+DFTGRID  B 5.000000e-08  27    vanilla            20 [3.5827646 3.729451  3.667459  3.6778085]
+DFTGRID  B 5.000000e-08  33    vanilla            20 [3.3245182 3.468486  3.2198594 3.2944672]
+DFTGRID  B 5.000000e-08  36    vanilla            20 [3.7830694 3.8009918 3.5623426 3.5645828]
+DFTGRID  B 5.000000e-08  42    vanilla            20 [3.756354  3.4991727 3.443888  3.4743435]
+DFTGRID  B 2.000000e-07   3    vanilla            20 [2.0130994 2.0133228 2.0104852 2.0065644]
+DFTGRID  B 2.000000e-07   6    vanilla            20 [2.8180587 2.8257694 2.8230438 2.806495 ]
+DFTGRID  B 2.000000e-07   9    vanilla            20 [2.589568  2.5781672 2.569838  2.579458 ]
+DFTGRID  B 2.000000e-07  12    vanilla            20 [2.7387037 2.746352  2.7696002 2.7766845]
+DFTGRID  B 2.000000e-07  15    vanilla            20 [2.587152  2.6119702 2.6724164 2.6774216]
+DFTGRID  B 2.000000e-07  18    vanilla            20 [2.6789682 2.707768  2.7320862 2.7276642]
+DFTGRID  B 2.000000e-07  21    vanilla            20 [2.68168   2.6826239 2.6724002 2.6625564]
+DFTGRID  B 2.000000e-07  24    vanilla            20 [2.512391  2.5570421 2.572153  2.5502415]
+DFTGRID  B 2.000000e-07  27    vanilla            20 [2.8574243 2.8158174 2.7137322 2.73699  ]
+DFTGRID  B 2.000000e-07  33    vanilla            20 [2.6834903 2.5782394 2.6144965 2.654091 ]
+DFTGRID  B 2.000000e-07  36    vanilla            20     [2.637313 2.794378 2.850832 2.85517 ]
+DFTGRID  B 2.000000e-07  42    vanilla            20 [2.7810483 2.7525196 2.7227514 2.7308707]
+DFTGRID  B 4.000000e-07   3    vanilla            20 [2.1808267 2.180808  2.180575  2.180892 ]
+DFTGRID  B 4.000000e-07   6    vanilla            20 [2.5484855 2.5425282 2.5407267 2.5440712]
+DFTGRID  B 4.000000e-07   9    vanilla            20 [2.4080436 2.404276  2.390004  2.384348 ]
+DFTGRID  B 4.000000e-07  12    vanilla            20 [2.2707815 2.288238  2.3063347 2.3089592]
+DFTGRID  B 4.000000e-07  15    vanilla            20 [2.2753897 2.2653477 2.2687886 2.254146 ]
+DFTGRID  B 4.000000e-07  18    vanilla            20 [2.3817577 2.3848996 2.3880205 2.3989444]
+DFTGRID  B 4.000000e-07  21    vanilla            20 [2.2581701 2.2855995 2.3327522 2.3542721]
+DFTGRID  B 4.000000e-07  24    vanilla            20 [2.2332158 2.2263525 2.2459636 2.2781036]
+DFTGRID  B 4.000000e-07  27    vanilla            20 [2.3929837 2.4044917 2.3819487 2.3275926]
+DFTGRID  B 4.000000e-07  33    vanilla            20 [2.2392626 2.2335258 2.283624  2.3121672]
+DFTGRID  B 4.000000e-07  36    vanilla            20 [2.4715545 2.4095602 2.3872578 2.3402708]
+DFTGRID  B 4.000000e-07  42    vanilla            20 [2.490235  2.4956555 2.543698  2.466662 ]
+DFTGRID  E 5.000000e-08   3    vanilla            20 [2.2674124 2.2674036 2.268017  2.267539 ]
+DFTGRID  E 5.000000e-08   6    vanilla            20 [2.2299998 2.2293756 2.2276573 2.2257261]
+DFTGRID  E 5.000000e-08   9    vanilla            20 [2.389184  2.387385  2.3895347 2.393641 ]
+DFTGRID  E 5.000000e-08  12    vanilla            20 [1.9722272 1.9772972 1.980713  1.9835298]
+DFTGRID  E 5.000000e-08  15    vanilla            20 [2.1873562 2.1830137 2.1784785 2.1749918]
+DFTGRID  E 5.000000e-08  18    vanilla            20 [2.1524498 2.1466644 2.1445832 2.1464305]
+DFTGRID  E 5.000000e-08  21    vanilla            20 [2.2010765 2.2121584 2.2218807 2.2262793]
+DFTGRID  E 5.000000e-08  24    vanilla            20 [2.1239383 2.129868  2.1343272 2.1326108]
+DFTGRID  E 5.000000e-08  27    vanilla            20 [2.1046343 2.0926063 2.0854597 2.0843961]
+DFTGRID  E 5.000000e-08  33    vanilla            20 [2.1019819 2.0995111 2.095431  2.0934803]
+DFTGRID  E 5.000000e-08  36    vanilla            20 [1.909845  1.9027535 1.8894136 1.884821 ]
+DFTGRID  E 5.000000e-08  42    vanilla            20 [2.1681013 2.166758  2.1796649 2.1766112]
+DFTGRID  E 2.000000e-07   3    vanilla            20 [1.9616472 1.9612823 1.9612767 1.961136 ]
+DFTGRID  E 2.000000e-07   6    vanilla            20 [2.086846  2.0884461 2.090172  2.09144  ]
+DFTGRID  E 2.000000e-07   9    vanilla            20 [2.2206883 2.218848  2.2178547 2.2173398]
+DFTGRID  E 2.000000e-07  12    vanilla            20 [2.064847  2.0650218 2.0660315 2.067686 ]
+DFTGRID  E 2.000000e-07  15    vanilla            20 [1.9656286 1.9663057 1.9676481 1.9696951]
+DFTGRID  E 2.000000e-07  18    vanilla            20 [1.7629262 1.7624625 1.7614791 1.7601589]
+DFTGRID  E 2.000000e-07  21    vanilla            20 [2.0193465 2.0211084 2.0234933 2.0272672]
+DFTGRID  E 2.000000e-07  24    vanilla            20 [2.0894363 2.095609  2.1000154 2.1042109]
+DFTGRID  E 2.000000e-07  27    vanilla            20 [1.8786942 1.8769612 1.8764914 1.8776753]
+DFTGRID  E 2.000000e-07  33    vanilla            20 [1.9907727 1.9932512 1.9955691 1.9962484]
+DFTGRID  E 2.000000e-07  36    vanilla            20 [2.092641  2.1018782 2.110766  2.1199498]
+DFTGRID  E 2.000000e-07  42    vanilla            20 [1.9678823 1.9772664 1.9855607 1.9927635]
+DFTGRID  E 4.000000e-07   3    vanilla            20 [2.0854335 2.0856333 2.0856972 2.086563 ]
+DFTGRID  E 4.000000e-07   6    vanilla            20 [2.347433  2.3477497 2.3471682 2.3474226]
+DFTGRID  E 4.000000e-07   9    vanilla            20 [2.3020704 2.3023314 2.3026965 2.3026972]
+DFTGRID  E 4.000000e-07  12    vanilla            20 [1.997782  1.9940784 1.9913201 1.989056 ]
+DFTGRID  E 4.000000e-07  15    vanilla            20 [2.2008135 2.1952665 2.190497  2.1863842]
+DFTGRID  E 4.000000e-07  18    vanilla            20 [1.5908313 1.5917801 1.5933824 1.5936623]
+DFTGRID  E 4.000000e-07  21    vanilla            20 [2.0527358 2.0516517 2.050277  2.0482295]
+DFTGRID  E 4.000000e-07  24    vanilla            20 [2.123483  2.1224177 2.1199796 2.1170783]
+DFTGRID  E 4.000000e-07  27    vanilla            20 [2.113183  2.107472  2.1035655 2.1004667]
+DFTGRID  E 4.000000e-07  33    vanilla            20 [1.9980794 2.0043046 2.0078864 2.0081825]
+DFTGRID  E 4.000000e-07  36    vanilla            20 [1.9483217 1.952368  1.9580417 1.9626579]
+DFTGRID  E 4.000000e-07  42    vanilla            20 [2.0322533 2.0403397 2.048838  2.0584273]
+DFTGRID  B 5.000000e-08   3    vanilla            25 [2.7347684 2.7457845 2.782412  2.7936332]
+DFTGRID  B 5.000000e-08   6    vanilla            25 [3.4585018 3.488545  3.3493335 3.2916913]
+DFTGRID  B 5.000000e-08   9    vanilla            25 [3.2998612 3.3064017 3.3588598 3.4265783]
+DFTGRID  B 5.000000e-08  12    vanilla            25 [3.4812577 3.5765748 3.4199677 3.323838 ]
+DFTGRID  B 5.000000e-08  15    vanilla            25 [2.940571  2.906264  2.9857013 3.0196784]
+DFTGRID  B 5.000000e-08  18    vanilla            25 [3.902785  3.8224163 3.5010445 3.5581381]
+DFTGRID  B 5.000000e-08  21    vanilla            25 [3.2314634 3.4794703 3.5541358 3.3972585]
+DFTGRID  B 5.000000e-08  24    vanilla            25 [3.0792434 3.213331  3.1391268 3.011852 ]
+DFTGRID  B 5.000000e-08  27    vanilla            25 [3.5644233 3.7119644 3.650797  3.6615732]
+DFTGRID  B 5.000000e-08  33    vanilla            25 [3.3075974 3.450626  3.202982  3.2780316]
+DFTGRID  B 5.000000e-08  36    vanilla            25 [3.7653646 3.7848322 3.5453176 3.5459101]
+DFTGRID  B 5.000000e-08  42    vanilla            25 [3.7388875 3.4835446 3.427548  3.457753 ]
+DFTGRID  B 2.000000e-07   3    vanilla            25 [2.003619  2.0038407 2.0005798 1.9976997]
+DFTGRID  B 2.000000e-07   6    vanilla            25 [2.8087568 2.8152392 2.812423  2.7965808]
+DFTGRID  B 2.000000e-07   9    vanilla            25 [2.579891  2.5685172 2.5604348 2.5697603]
+DFTGRID  B 2.000000e-07  12    vanilla            25 [2.7277515 2.7352524 2.7586274 2.7646978]
+DFTGRID  B 2.000000e-07  15    vanilla            25 [2.5763888 2.6008947 2.6616726 2.6661584]
+DFTGRID  B 2.000000e-07  18    vanilla            25 [2.6674662 2.6957977 2.7202048 2.7168884]
+DFTGRID  B 2.000000e-07  21    vanilla            25 [2.672061  2.6716661 2.6611087 2.651295 ]
+DFTGRID  B 2.000000e-07  24    vanilla            25 [2.5011284 2.5456083 2.5611253 2.5396814]
+DFTGRID  B 2.000000e-07  27    vanilla            25 [2.846347  2.80412   2.7021756 2.7249148]
+DFTGRID  B 2.000000e-07  33    vanilla            25 [2.6717107 2.566826  2.6030607 2.642264 ]
+DFTGRID  B 2.000000e-07  36    vanilla            25 [2.626095  2.7831833 2.838313  2.8431432]
+DFTGRID  B 2.000000e-07  42    vanilla            25 [2.7701797 2.741657  2.711679  2.719201 ]
+DFTGRID  B 4.000000e-07   3    vanilla            25 [2.1726623 2.1723335 2.1723626 2.172552 ]
+DFTGRID  B 4.000000e-07   6    vanilla            25 [2.5393996 2.5339057 2.5323417 2.5347602]
+DFTGRID  B 4.000000e-07   9    vanilla            25 [2.3992827 2.3960009 2.3815036 2.3757725]
+DFTGRID  B 4.000000e-07  12    vanilla            25 [2.2618892 2.279338  2.2970388 2.300331 ]
+DFTGRID  B 4.000000e-07  15    vanilla            25 [2.2662299 2.2564247 2.2591584 2.2453132]
+DFTGRID  B 4.000000e-07  18    vanilla            25 [2.3720062 2.3747396 2.379035  2.3894632]
+DFTGRID  B 4.000000e-07  21    vanilla            25 [2.2488167 2.2765787 2.3234692 2.345254 ]
+DFTGRID  B 4.000000e-07  24    vanilla            25 [2.2248316 2.2175477 2.2365785 2.2690802]
+DFTGRID  B 4.000000e-07  27    vanilla            25 [2.3839326 2.395541  2.371924  2.3189077]
+DFTGRID  B 4.000000e-07  33    vanilla            25 [2.2304475 2.2246666 2.2744353 2.3029168]
+DFTGRID  B 4.000000e-07  36    vanilla            25 [2.4613848 2.4002466 2.376967  2.3309107]
+DFTGRID  B 4.000000e-07  42    vanilla            25 [2.4805257 2.485525  2.5342267 2.4569907]
+DFTGRID  E 5.000000e-08   3    vanilla            25 [2.2607062 2.260843  2.2608984 2.2607007]
+DFTGRID  E 5.000000e-08   6    vanilla            25 [2.2233884 2.2223566 2.221116  2.2185578]
+DFTGRID  E 5.000000e-08   9    vanilla            25 [2.3820503 2.3805087 2.3825536 2.3866918]
+DFTGRID  E 5.000000e-08  12    vanilla            25 [1.9648889 1.9700532 1.9735342 1.9759111]
+DFTGRID  E 5.000000e-08  15    vanilla            25 [2.1802802 2.1757164 2.1713762 2.167629 ]
+DFTGRID  E 5.000000e-08  18    vanilla            25 [2.1454577 2.1395328 2.1373723 2.1386688]
+DFTGRID  E 5.000000e-08  21    vanilla            25 [2.1941707 2.2049758 2.2147396 2.2194364]
+DFTGRID  E 5.000000e-08  24    vanilla            25 [2.1168106 2.122609  2.1274629 2.1259727]
+DFTGRID  E 5.000000e-08  27    vanilla            25 [2.0978038 2.085368  2.0782328 2.0770774]
+DFTGRID  E 5.000000e-08  33    vanilla            25 [2.095149  2.0923235 2.0886736 2.0859928]
+DFTGRID  E 5.000000e-08  36    vanilla            25 [1.9022772 1.8956308 1.882608  1.8776016]
+DFTGRID  E 5.000000e-08  42    vanilla            25 [2.1607382 2.1598012 2.1727395 2.1697817]
+DFTGRID  E 2.000000e-07   3    vanilla            25 [1.9552289 1.955035  1.955084  1.9549451]
+DFTGRID  E 2.000000e-07   6    vanilla            25 [2.0800202 2.081752  2.083356  2.084826 ]
+DFTGRID  E 2.000000e-07   9    vanilla            25 [2.2134752 2.2122524 2.211154  2.2105165]
+DFTGRID  E 2.000000e-07  12    vanilla            25 [2.0581846 2.058354  2.0593586 2.0604284]
+DFTGRID  E 2.000000e-07  15    vanilla            25 [1.9586029 1.9598442 1.9606253 1.9623698]
+DFTGRID  E 2.000000e-07  18    vanilla            25 [1.7559088 1.7554982 1.7545253 1.7535559]
+DFTGRID  E 2.000000e-07  21    vanilla            25 [2.0120924 2.0148525 2.016903  2.020586 ]
+DFTGRID  E 2.000000e-07  24    vanilla            25 [2.0829613 2.088703  2.093384  2.0973516]
+DFTGRID  E 2.000000e-07  27    vanilla            25 [1.871762  1.8703765 1.8695625 1.8706037]
+DFTGRID  E 2.000000e-07  33    vanilla            25 [1.9839667 1.9862424 1.9888593 1.9893538]
+DFTGRID  E 2.000000e-07  36    vanilla            25 [2.0850658 2.0949633 2.1036615 2.112787 ]
+DFTGRID  E 2.000000e-07  42    vanilla            25 [1.9609818 1.9702951 1.9790709 1.9859439]
+DFTGRID  E 4.000000e-07   3    vanilla            25 [2.0790162 2.0791025 2.0795515 2.079802 ]
+DFTGRID  E 4.000000e-07   6    vanilla            25 [2.3408062 2.3407207 2.3406103 2.3405762]
+DFTGRID  E 4.000000e-07   9    vanilla            25 [2.2948167 2.2955847 2.2962713 2.2960522]
+DFTGRID  E 4.000000e-07  12    vanilla            25 [1.9908621 1.987709  1.9847405 1.9821225]
+DFTGRID  E 4.000000e-07  15    vanilla            25 [2.1936512 2.1886783 2.184098  2.1795404]
+DFTGRID  E 4.000000e-07  18    vanilla            25 [1.584028  1.584621  1.5860521 1.5867919]
+DFTGRID  E 4.000000e-07  21    vanilla            25 [2.045661  2.0445478 2.0435557 2.0412436]
+DFTGRID  E 4.000000e-07  24    vanilla            25 [2.116466  2.1157973 2.1134717 2.1100903]
+DFTGRID  E 4.000000e-07  27    vanilla            25 [2.1064727 2.100317  2.0967467 2.093394 ]
+DFTGRID  E 4.000000e-07  33    vanilla            25 [1.9911275 1.9977286 2.0010016 2.0015478]
+DFTGRID  E 4.000000e-07  36    vanilla            25 [1.941472  1.9455854 1.951202  1.9556165]
+DFTGRID  E 4.000000e-07  42    vanilla            25 [2.0252457 2.0332367 2.0418563 2.0515013]

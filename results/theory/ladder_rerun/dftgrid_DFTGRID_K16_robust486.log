@@ -1,0 +1,981 @@
+/opt/conda/lib/python3.11/site-packages/torch/cuda/__init__.py:61: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml  # type: ignore[import]
+/opt/conda/lib/python3.11/site-packages/optuna/integration/pytorch_lightning.py:14: `optuna.integration.pytorch_lightning` has been deprecated in v4.9.0. This feature will be removed in v6.0.0. See https://github.com/optuna/optuna/releases/tag/v4.9.0. Use `optuna_integration.pytorch_lightning` instead.
+[repro] model=DFTGRID duplex=TDD split=robustness
+[repro] device=cpu batch_size=1 cwd=<harness-root>
+[repro] evaluating 486 combinations
+[repro] model loaded: name=DFTGRID separate_antennas=False
+[repro] 1/486 cm=A ds=3e-08 ms=1 noise=phase deg=10  13.6s
+[repro] 2/486 cm=A ds=3e-08 ms=10 noise=phase deg=10  12.2s
+[repro] 3/486 cm=A ds=3e-08 ms=30 noise=phase deg=10  12.0s
+[repro] 4/486 cm=A ds=1e-07 ms=1 noise=phase deg=10  12.0s
+[repro] 5/486 cm=A ds=1e-07 ms=10 noise=phase deg=10  10.8s
+[repro] 6/486 cm=A ds=1e-07 ms=30 noise=phase deg=10  11.0s
+[repro] 7/486 cm=A ds=3e-07 ms=1 noise=phase deg=10  10.8s
+[repro] 8/486 cm=A ds=3e-07 ms=10 noise=phase deg=10  10.8s
+[repro] 9/486 cm=A ds=3e-07 ms=30 noise=phase deg=10  11.0s
+[repro] 10/486 cm=C ds=3e-08 ms=1 noise=phase deg=10  11.2s
+[repro] 11/486 cm=C ds=3e-08 ms=10 noise=phase deg=10  11.1s
+[repro] 12/486 cm=C ds=3e-08 ms=30 noise=phase deg=10  10.1s
+[repro] 13/486 cm=C ds=1e-07 ms=1 noise=phase deg=10  10.5s
+[repro] 14/486 cm=C ds=1e-07 ms=10 noise=phase deg=10  11.0s
+[repro] 15/486 cm=C ds=1e-07 ms=30 noise=phase deg=10  11.2s
+[repro] 16/486 cm=C ds=3e-07 ms=1 noise=phase deg=10  11.3s
+[repro] 17/486 cm=C ds=3e-07 ms=10 noise=phase deg=10  11.4s
+[repro] 18/486 cm=C ds=3e-07 ms=30 noise=phase deg=10  11.3s
+[repro] 19/486 cm=D ds=3e-08 ms=1 noise=phase deg=10  10.6s
+[repro] 20/486 cm=D ds=3e-08 ms=10 noise=phase deg=10  10.8s
+[repro] 21/486 cm=D ds=3e-08 ms=30 noise=phase deg=10  11.8s
+[repro] 22/486 cm=D ds=1e-07 ms=1 noise=phase deg=10  11.2s
+[repro] 23/486 cm=D ds=1e-07 ms=10 noise=phase deg=10  11.8s
+[repro] 24/486 cm=D ds=1e-07 ms=30 noise=phase deg=10  11.4s
+[repro] 25/486 cm=D ds=3e-07 ms=1 noise=phase deg=10  10.9s
+[repro] 26/486 cm=D ds=3e-07 ms=10 noise=phase deg=10  10.8s
+[repro] 27/486 cm=D ds=3e-07 ms=30 noise=phase deg=10  12.6s
+[repro] 28/486 cm=A ds=3e-08 ms=1 noise=phase deg=15  12.5s
+[repro] 29/486 cm=A ds=3e-08 ms=10 noise=phase deg=15  11.3s
+[repro] 30/486 cm=A ds=3e-08 ms=30 noise=phase deg=15  11.5s
+[repro] 31/486 cm=A ds=1e-07 ms=1 noise=phase deg=15  11.9s
+[repro] 32/486 cm=A ds=1e-07 ms=10 noise=phase deg=15  11.7s
+[repro] 33/486 cm=A ds=1e-07 ms=30 noise=phase deg=15  11.8s
+[repro] 34/486 cm=A ds=3e-07 ms=1 noise=phase deg=15  11.6s
+[repro] 35/486 cm=A ds=3e-07 ms=10 noise=phase deg=15  11.9s
+[repro] 36/486 cm=A ds=3e-07 ms=30 noise=phase deg=15  11.7s
+[repro] 37/486 cm=C ds=3e-08 ms=1 noise=phase deg=15  10.9s
+[repro] 38/486 cm=C ds=3e-08 ms=10 noise=phase deg=15  11.3s
+[repro] 39/486 cm=C ds=3e-08 ms=30 noise=phase deg=15  12.0s
+[repro] 40/486 cm=C ds=1e-07 ms=1 noise=phase deg=15  11.6s
+[repro] 41/486 cm=C ds=1e-07 ms=10 noise=phase deg=15  11.9s
+[repro] 42/486 cm=C ds=1e-07 ms=30 noise=phase deg=15  11.2s
+[repro] 43/486 cm=C ds=3e-07 ms=1 noise=phase deg=15  11.1s
+[repro] 44/486 cm=C ds=3e-07 ms=10 noise=phase deg=15  10.6s
+[repro] 45/486 cm=C ds=3e-07 ms=30 noise=phase deg=15  10.8s
+[repro] 46/486 cm=D ds=3e-08 ms=1 noise=phase deg=15  10.3s
+[repro] 47/486 cm=D ds=3e-08 ms=10 noise=phase deg=15  11.9s
+[repro] 48/486 cm=D ds=3e-08 ms=30 noise=phase deg=15  11.0s
+[repro] 49/486 cm=D ds=1e-07 ms=1 noise=phase deg=15  10.5s
+[repro] 50/486 cm=D ds=1e-07 ms=10 noise=phase deg=15  11.4s
+[repro] 51/486 cm=D ds=1e-07 ms=30 noise=phase deg=15  12.8s
+[repro] 52/486 cm=D ds=3e-07 ms=1 noise=phase deg=15  11.6s
+[repro] 53/486 cm=D ds=3e-07 ms=10 noise=phase deg=15  10.4s
+[repro] 54/486 cm=D ds=3e-07 ms=30 noise=phase deg=15  10.6s
+[repro] 55/486 cm=A ds=3e-08 ms=1 noise=phase deg=20  12.4s
+[repro] 56/486 cm=A ds=3e-08 ms=10 noise=phase deg=20  13.2s
+[repro] 57/486 cm=A ds=3e-08 ms=30 noise=phase deg=20  15.1s
+[repro] 58/486 cm=A ds=1e-07 ms=1 noise=phase deg=20  12.5s
+[repro] 59/486 cm=A ds=1e-07 ms=10 noise=phase deg=20  14.1s
+[repro] 60/486 cm=A ds=1e-07 ms=30 noise=phase deg=20  11.3s
+[repro] 61/486 cm=A ds=3e-07 ms=1 noise=phase deg=20  12.8s
+[repro] 62/486 cm=A ds=3e-07 ms=10 noise=phase deg=20  13.4s
+[repro] 63/486 cm=A ds=3e-07 ms=30 noise=phase deg=20  11.1s
+[repro] 64/486 cm=C ds=3e-08 ms=1 noise=phase deg=20  10.7s
+[repro] 65/486 cm=C ds=3e-08 ms=10 noise=phase deg=20  12.9s
+[repro] 66/486 cm=C ds=3e-08 ms=30 noise=phase deg=20  10.8s
+[repro] 67/486 cm=C ds=1e-07 ms=1 noise=phase deg=20  12.5s
+[repro] 68/486 cm=C ds=1e-07 ms=10 noise=phase deg=20  14.1s
+[repro] 69/486 cm=C ds=1e-07 ms=30 noise=phase deg=20  12.3s
+[repro] 70/486 cm=C ds=3e-07 ms=1 noise=phase deg=20  11.0s
+[repro] 71/486 cm=C ds=3e-07 ms=10 noise=phase deg=20  12.5s
+[repro] 72/486 cm=C ds=3e-07 ms=30 noise=phase deg=20  10.2s
+[repro] 73/486 cm=D ds=3e-08 ms=1 noise=phase deg=20  11.3s
+[repro] 74/486 cm=D ds=3e-08 ms=10 noise=phase deg=20  11.6s
+[repro] 75/486 cm=D ds=3e-08 ms=30 noise=phase deg=20  12.8s
+[repro] 76/486 cm=D ds=1e-07 ms=1 noise=phase deg=20  11.7s
+[repro] 77/486 cm=D ds=1e-07 ms=10 noise=phase deg=20  12.8s
+[repro] 78/486 cm=D ds=1e-07 ms=30 noise=phase deg=20  11.0s
+[repro] 79/486 cm=D ds=3e-07 ms=1 noise=phase deg=20  12.9s
+[repro] 80/486 cm=D ds=3e-07 ms=10 noise=phase deg=20  12.5s
+[repro] 81/486 cm=D ds=3e-07 ms=30 noise=phase deg=20  12.9s
+[repro] 82/486 cm=A ds=3e-08 ms=1 noise=phase deg=25  12.1s
+[repro] 83/486 cm=A ds=3e-08 ms=10 noise=phase deg=25  13.6s
+[repro] 84/486 cm=A ds=3e-08 ms=30 noise=phase deg=25  12.3s
+[repro] 85/486 cm=A ds=1e-07 ms=1 noise=phase deg=25  10.5s
+[repro] 86/486 cm=A ds=1e-07 ms=10 noise=phase deg=25  10.9s
+[repro] 87/486 cm=A ds=1e-07 ms=30 noise=phase deg=25  11.8s
+[repro] 88/486 cm=A ds=3e-07 ms=1 noise=phase deg=25  12.5s
+[repro] 89/486 cm=A ds=3e-07 ms=10 noise=phase deg=25  13.0s
+[repro] 90/486 cm=A ds=3e-07 ms=30 noise=phase deg=25  12.4s
+[repro] 91/486 cm=C ds=3e-08 ms=1 noise=phase deg=25  13.6s
+[repro] 92/486 cm=C ds=3e-08 ms=10 noise=phase deg=25  12.9s
+[repro] 93/486 cm=C ds=3e-08 ms=30 noise=phase deg=25  12.1s
+[repro] 94/486 cm=C ds=1e-07 ms=1 noise=phase deg=25  12.9s
+[repro] 95/486 cm=C ds=1e-07 ms=10 noise=phase deg=25  12.0s
+[repro] 96/486 cm=C ds=1e-07 ms=30 noise=phase deg=25  12.7s
+[repro] 97/486 cm=C ds=3e-07 ms=1 noise=phase deg=25  12.8s
+[repro] 98/486 cm=C ds=3e-07 ms=10 noise=phase deg=25  12.4s
+[repro] 99/486 cm=C ds=3e-07 ms=30 noise=phase deg=25  11.6s
+[repro] 100/486 cm=D ds=3e-08 ms=1 noise=phase deg=25  11.4s
+[repro] 101/486 cm=D ds=3e-08 ms=10 noise=phase deg=25  12.0s
+[repro] 102/486 cm=D ds=3e-08 ms=30 noise=phase deg=25  11.2s
+[repro] 103/486 cm=D ds=1e-07 ms=1 noise=phase deg=25  12.4s
+[repro] 104/486 cm=D ds=1e-07 ms=10 noise=phase deg=25  11.1s
+[repro] 105/486 cm=D ds=1e-07 ms=30 noise=phase deg=25  11.6s
+[repro] 106/486 cm=D ds=3e-07 ms=1 noise=phase deg=25  10.9s
+[repro] 107/486 cm=D ds=3e-07 ms=10 noise=phase deg=25  12.5s
+[repro] 108/486 cm=D ds=3e-07 ms=30 noise=phase deg=25  10.8s
+[repro] 109/486 cm=A ds=3e-08 ms=1 noise=burst deg=10  6.6s
+[repro] 110/486 cm=A ds=3e-08 ms=10 noise=burst deg=10  6.5s
+[repro] 111/486 cm=A ds=3e-08 ms=30 noise=burst deg=10  6.5s
+[repro] 112/486 cm=A ds=1e-07 ms=1 noise=burst deg=10  6.9s
+[repro] 113/486 cm=A ds=1e-07 ms=10 noise=burst deg=10  6.8s
+[repro] 114/486 cm=A ds=1e-07 ms=30 noise=burst deg=10  7.5s
+[repro] 115/486 cm=A ds=3e-07 ms=1 noise=burst deg=10  7.2s
+[repro] 116/486 cm=A ds=3e-07 ms=10 noise=burst deg=10  8.7s
+[repro] 117/486 cm=A ds=3e-07 ms=30 noise=burst deg=10  9.0s
+[repro] 118/486 cm=C ds=3e-08 ms=1 noise=burst deg=10  7.6s
+[repro] 119/486 cm=C ds=3e-08 ms=10 noise=burst deg=10  8.5s
+[repro] 120/486 cm=C ds=3e-08 ms=30 noise=burst deg=10  7.1s
+[repro] 121/486 cm=C ds=1e-07 ms=1 noise=burst deg=10  5.5s
+[repro] 122/486 cm=C ds=1e-07 ms=10 noise=burst deg=10  6.3s
+[repro] 123/486 cm=C ds=1e-07 ms=30 noise=burst deg=10  6.0s
+[repro] 124/486 cm=C ds=3e-07 ms=1 noise=burst deg=10  4.6s
+[repro] 125/486 cm=C ds=3e-07 ms=10 noise=burst deg=10  4.7s
+[repro] 126/486 cm=C ds=3e-07 ms=30 noise=burst deg=10  4.6s
+[repro] 127/486 cm=D ds=3e-08 ms=1 noise=burst deg=10  5.9s
+[repro] 128/486 cm=D ds=3e-08 ms=10 noise=burst deg=10  4.6s
+[repro] 129/486 cm=D ds=3e-08 ms=30 noise=burst deg=10  4.7s
+[repro] 130/486 cm=D ds=1e-07 ms=1 noise=burst deg=10  4.4s
+[repro] 131/486 cm=D ds=1e-07 ms=10 noise=burst deg=10  4.6s
+[repro] 132/486 cm=D ds=1e-07 ms=30 noise=burst deg=10  4.5s
+[repro] 133/486 cm=D ds=3e-07 ms=1 noise=burst deg=10  4.3s
+[repro] 134/486 cm=D ds=3e-07 ms=10 noise=burst deg=10  5.5s
+[repro] 135/486 cm=D ds=3e-07 ms=30 noise=burst deg=10  5.6s
+[repro] 136/486 cm=A ds=3e-08 ms=1 noise=burst deg=15  5.3s
+[repro] 137/486 cm=A ds=3e-08 ms=10 noise=burst deg=15  4.3s
+[repro] 138/486 cm=A ds=3e-08 ms=30 noise=burst deg=15  5.3s
+[repro] 139/486 cm=A ds=1e-07 ms=1 noise=burst deg=15  4.4s
+[repro] 140/486 cm=A ds=1e-07 ms=10 noise=burst deg=15  4.3s
+[repro] 141/486 cm=A ds=1e-07 ms=30 noise=burst deg=15  4.6s
+[repro] 142/486 cm=A ds=3e-07 ms=1 noise=burst deg=15  4.5s
+[repro] 143/486 cm=A ds=3e-07 ms=10 noise=burst deg=15  6.2s
+[repro] 144/486 cm=A ds=3e-07 ms=30 noise=burst deg=15  4.3s
+[repro] 145/486 cm=C ds=3e-08 ms=1 noise=burst deg=15  4.4s
+[repro] 146/486 cm=C ds=3e-08 ms=10 noise=burst deg=15  5.8s
+[repro] 147/486 cm=C ds=3e-08 ms=30 noise=burst deg=15  5.6s
+[repro] 148/486 cm=C ds=1e-07 ms=1 noise=burst deg=15  5.7s
+[repro] 149/486 cm=C ds=1e-07 ms=10 noise=burst deg=15  5.5s
+[repro] 150/486 cm=C ds=1e-07 ms=30 noise=burst deg=15  4.6s
+[repro] 151/486 cm=C ds=3e-07 ms=1 noise=burst deg=15  5.1s
+[repro] 152/486 cm=C ds=3e-07 ms=10 noise=burst deg=15  5.6s
+[repro] 153/486 cm=C ds=3e-07 ms=30 noise=burst deg=15  5.6s
+[repro] 154/486 cm=D ds=3e-08 ms=1 noise=burst deg=15  5.1s
+[repro] 155/486 cm=D ds=3e-08 ms=10 noise=burst deg=15  4.5s
+[repro] 156/486 cm=D ds=3e-08 ms=30 noise=burst deg=15  4.2s
+[repro] 157/486 cm=D ds=1e-07 ms=1 noise=burst deg=15  4.3s
+[repro] 158/486 cm=D ds=1e-07 ms=10 noise=burst deg=15  4.4s
+[repro] 159/486 cm=D ds=1e-07 ms=30 noise=burst deg=15  4.3s
+[repro] 160/486 cm=D ds=3e-07 ms=1 noise=burst deg=15  4.1s
+[repro] 161/486 cm=D ds=3e-07 ms=10 noise=burst deg=15  4.4s
+[repro] 162/486 cm=D ds=3e-07 ms=30 noise=burst deg=15  4.3s
+[repro] 163/486 cm=A ds=3e-08 ms=1 noise=burst deg=20  4.7s
+[repro] 164/486 cm=A ds=3e-08 ms=10 noise=burst deg=20  4.6s
+[repro] 165/486 cm=A ds=3e-08 ms=30 noise=burst deg=20  4.4s
+[repro] 166/486 cm=A ds=1e-07 ms=1 noise=burst deg=20  4.2s
+[repro] 167/486 cm=A ds=1e-07 ms=10 noise=burst deg=20  4.3s
+[repro] 168/486 cm=A ds=1e-07 ms=30 noise=burst deg=20  4.1s
+[repro] 169/486 cm=A ds=3e-07 ms=1 noise=burst deg=20  4.3s
+[repro] 170/486 cm=A ds=3e-07 ms=10 noise=burst deg=20  4.3s
+[repro] 171/486 cm=A ds=3e-07 ms=30 noise=burst deg=20  4.9s
+[repro] 172/486 cm=C ds=3e-08 ms=1 noise=burst deg=20  4.9s
+[repro] 173/486 cm=C ds=3e-08 ms=10 noise=burst deg=20  5.3s
+[repro] 174/486 cm=C ds=3e-08 ms=30 noise=burst deg=20  5.4s
+[repro] 175/486 cm=C ds=1e-07 ms=1 noise=burst deg=20  4.8s
+[repro] 176/486 cm=C ds=1e-07 ms=10 noise=burst deg=20  4.6s
+[repro] 177/486 cm=C ds=1e-07 ms=30 noise=burst deg=20  4.6s
+[repro] 178/486 cm=C ds=3e-07 ms=1 noise=burst deg=20  4.3s
+[repro] 179/486 cm=C ds=3e-07 ms=10 noise=burst deg=20  4.8s
+[repro] 180/486 cm=C ds=3e-07 ms=30 noise=burst deg=20  4.6s
+[repro] 181/486 cm=D ds=3e-08 ms=1 noise=burst deg=20  4.5s
+[repro] 182/486 cm=D ds=3e-08 ms=10 noise=burst deg=20  4.8s
+[repro] 183/486 cm=D ds=3e-08 ms=30 noise=burst deg=20  5.5s
+[repro] 184/486 cm=D ds=1e-07 ms=1 noise=burst deg=20  5.5s
+[repro] 185/486 cm=D ds=1e-07 ms=10 noise=burst deg=20  5.1s
+[repro] 186/486 cm=D ds=1e-07 ms=30 noise=burst deg=20  4.3s
+[repro] 187/486 cm=D ds=3e-07 ms=1 noise=burst deg=20  4.9s
+[repro] 188/486 cm=D ds=3e-07 ms=10 noise=burst deg=20  5.1s
+[repro] 189/486 cm=D ds=3e-07 ms=30 noise=burst deg=20  4.8s
+[repro] 190/486 cm=A ds=3e-08 ms=1 noise=burst deg=25  4.4s
+[repro] 191/486 cm=A ds=3e-08 ms=10 noise=burst deg=25  4.9s
+[repro] 192/486 cm=A ds=3e-08 ms=30 noise=burst deg=25  5.0s
+[repro] 193/486 cm=A ds=1e-07 ms=1 noise=burst deg=25  4.8s
+[repro] 194/486 cm=A ds=1e-07 ms=10 noise=burst deg=25  4.5s
+[repro] 195/486 cm=A ds=1e-07 ms=30 noise=burst deg=25  4.6s
+[repro] 196/486 cm=A ds=3e-07 ms=1 noise=burst deg=25  4.4s
+[repro] 197/486 cm=A ds=3e-07 ms=10 noise=burst deg=25  4.8s
+[repro] 198/486 cm=A ds=3e-07 ms=30 noise=burst deg=25  5.8s
+[repro] 199/486 cm=C ds=3e-08 ms=1 noise=burst deg=25  4.2s
+[repro] 200/486 cm=C ds=3e-08 ms=10 noise=burst deg=25  4.5s
+[repro] 201/486 cm=C ds=3e-08 ms=30 noise=burst deg=25  4.6s
+[repro] 202/486 cm=C ds=1e-07 ms=1 noise=burst deg=25  4.8s
+[repro] 203/486 cm=C ds=1e-07 ms=10 noise=burst deg=25  5.3s
+[repro] 204/486 cm=C ds=1e-07 ms=30 noise=burst deg=25  4.7s
+[repro] 205/486 cm=C ds=3e-07 ms=1 noise=burst deg=25  4.2s
+[repro] 206/486 cm=C ds=3e-07 ms=10 noise=burst deg=25  4.2s
+[repro] 207/486 cm=C ds=3e-07 ms=30 noise=burst deg=25  4.2s
+[repro] 208/486 cm=D ds=3e-08 ms=1 noise=burst deg=25  4.2s
+[repro] 209/486 cm=D ds=3e-08 ms=10 noise=burst deg=25  4.1s
+[repro] 210/486 cm=D ds=3e-08 ms=30 noise=burst deg=25  4.8s
+[repro] 211/486 cm=D ds=1e-07 ms=1 noise=burst deg=25  4.3s
+[repro] 212/486 cm=D ds=1e-07 ms=10 noise=burst deg=25  4.7s
+[repro] 213/486 cm=D ds=1e-07 ms=30 noise=burst deg=25  4.3s
+[repro] 214/486 cm=D ds=3e-07 ms=1 noise=burst deg=25  4.7s
+[repro] 215/486 cm=D ds=3e-07 ms=10 noise=burst deg=25  5.0s
+[repro] 216/486 cm=D ds=3e-07 ms=30 noise=burst deg=25  4.6s
+[repro] 217/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.1  5.6s
+[repro] 218/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.1  4.8s
+[repro] 219/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.1  5.0s
+[repro] 220/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.1  4.9s
+[repro] 221/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.1  4.9s
+[repro] 222/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.1  4.7s
+[repro] 223/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.1  6.1s
+[repro] 224/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.1  4.9s
+[repro] 225/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.1  6.3s
+[repro] 226/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.1  6.1s
+[repro] 227/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.1  5.6s
+[repro] 228/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.1  5.1s
+[repro] 229/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.1  4.9s
+[repro] 230/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.1  4.8s
+[repro] 231/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.1  5.4s
+[repro] 232/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.1  5.9s
+[repro] 233/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.1  5.5s
+[repro] 234/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.1  4.6s
+[repro] 235/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.1  5.3s
+[repro] 236/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.1  4.9s
+[repro] 237/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.1  6.0s
+[repro] 238/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.1  5.2s
+[repro] 239/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.1  5.1s
+[repro] 240/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.1  5.6s
+[repro] 241/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.1  5.8s
+[repro] 242/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.1  5.5s
+[repro] 243/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.1  4.8s
+[repro] 244/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.09  5.6s
+[repro] 245/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.09  6.1s
+[repro] 246/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.09  5.1s
+[repro] 247/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.09  5.5s
+[repro] 248/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.09  6.2s
+[repro] 249/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.09  5.6s
+[repro] 250/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.09  4.9s
+[repro] 251/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.09  5.1s
+[repro] 252/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.09  5.2s
+[repro] 253/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.09  5.9s
+[repro] 254/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.09  5.4s
+[repro] 255/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.09  5.3s
+[repro] 256/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.09  5.0s
+[repro] 257/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.09  4.7s
+[repro] 258/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.09  5.7s
+[repro] 259/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.09  5.3s
+[repro] 260/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.09  5.1s
+[repro] 261/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.09  5.5s
+[repro] 262/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.09  4.6s
+[repro] 263/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.09  4.7s
+[repro] 264/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.09  4.6s
+[repro] 265/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.09  5.7s
+[repro] 266/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.09  6.2s
+[repro] 267/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.09  6.6s
+[repro] 268/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.09  5.6s
+[repro] 269/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.09  5.2s
+[repro] 270/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.09  4.9s
+[repro] 271/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.08  4.6s
+[repro] 272/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.08  4.9s
+[repro] 273/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.08  5.2s
+[repro] 274/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.08  5.1s
+[repro] 275/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.08  5.1s
+[repro] 276/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.08  5.2s
+[repro] 277/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.08  5.5s
+[repro] 278/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.08  5.1s
+[repro] 279/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.08  5.7s
+[repro] 280/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.08  6.6s
+[repro] 281/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.08  5.5s
+[repro] 282/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.08  5.8s
+[repro] 283/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.08  6.3s
+[repro] 284/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.08  5.6s
+[repro] 285/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.08  5.6s
+[repro] 286/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.08  6.4s
+[repro] 287/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.08  5.5s
+[repro] 288/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.08  5.5s
+[repro] 289/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.08  5.2s
+[repro] 290/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.08  4.8s
+[repro] 291/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.08  5.5s
+[repro] 292/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.08  5.2s
+[repro] 293/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.08  5.4s
+[repro] 294/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.08  5.4s
+[repro] 295/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.08  6.1s
+[repro] 296/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.08  5.8s
+[repro] 297/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.08  5.3s
+[repro] 298/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.07  4.9s
+[repro] 299/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.07  5.1s
+[repro] 300/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.07  5.9s
+[repro] 301/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.07  5.2s
+[repro] 302/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.07  6.1s
+[repro] 303/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.07  5.7s
+[repro] 304/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.07  5.3s
+[repro] 305/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.07  6.1s
+[repro] 306/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.07  5.7s
+[repro] 307/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.07  5.1s
+[repro] 308/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.07  5.1s
+[repro] 309/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.07  5.7s
+[repro] 310/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.07  4.8s
+[repro] 311/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.07  4.8s
+[repro] 312/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.07  4.8s
+[repro] 313/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.07  4.8s
+[repro] 314/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.07  5.5s
+[repro] 315/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.07  4.9s
+[repro] 316/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.07  5.8s
+[repro] 317/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.07  5.4s
+[repro] 318/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.07  4.7s
+[repro] 319/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.07  4.4s
+[repro] 320/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.07  4.7s
+[repro] 321/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.07  5.4s
+[repro] 322/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.07  5.3s
+[repro] 323/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.07  5.0s
+[repro] 324/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.07  5.5s
+[repro] 325/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.06  5.1s
+[repro] 326/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.06  5.3s
+[repro] 327/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.06  5.2s
+[repro] 328/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.06  5.0s
+[repro] 329/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.06  5.0s
+[repro] 330/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.06  5.4s
+[repro] 331/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.06  4.9s
+[repro] 332/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.06  6.3s
+[repro] 333/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.06  5.2s
+[repro] 334/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.06  5.7s
+[repro] 335/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.06  4.6s
+[repro] 336/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.06  4.6s
+[repro] 337/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.06  4.7s
+[repro] 338/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.06  4.9s
+[repro] 339/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.06  4.9s
+[repro] 340/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.06  4.9s
+[repro] 341/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.06  4.9s
+[repro] 342/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.06  5.0s
+[repro] 343/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.06  6.4s
+[repro] 344/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.06  6.1s
+[repro] 345/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.06  5.5s
+[repro] 346/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.06  6.6s
+[repro] 347/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.06  5.7s
+[repro] 348/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.06  6.7s
+[repro] 349/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.06  5.9s
+[repro] 350/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.06  5.8s
+[repro] 351/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.06  5.1s
+[repro] 352/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.05  5.5s
+[repro] 353/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.05  6.3s
+[repro] 354/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.05  5.8s
+[repro] 355/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.05  6.1s
+[repro] 356/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.05  5.6s
+[repro] 357/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.05  5.0s
+[repro] 358/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.05  5.1s
+[repro] 359/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.05  5.4s
+[repro] 360/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.05  4.8s
+[repro] 361/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.05  4.8s
+[repro] 362/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.05  4.9s
+[repro] 363/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.05  6.0s
+[repro] 364/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.05  5.6s
+[repro] 365/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.05  5.1s
+[repro] 366/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.05  4.8s
+[repro] 367/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.05  5.5s
+[repro] 368/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.05  5.6s
+[repro] 369/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.05  4.9s
+[repro] 370/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.05  7.4s
+[repro] 371/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.05  5.8s
+[repro] 372/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.05  5.2s
+[repro] 373/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.05  5.3s
+[repro] 374/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.05  5.1s
+[repro] 375/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.05  5.0s
+[repro] 376/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.05  5.0s
+[repro] 377/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.05  5.0s
+[repro] 378/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.05  4.9s
+[repro] 379/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.04  4.6s
+[repro] 380/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.04  5.1s
+[repro] 381/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.04  4.8s
+[repro] 382/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.04  5.1s
+[repro] 383/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.04  5.7s
+[repro] 384/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.04  5.8s
+[repro] 385/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.04  4.8s
+[repro] 386/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.04  4.8s
+[repro] 387/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.04  5.4s
+[repro] 388/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.04  4.9s
+[repro] 389/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.04  5.5s
+[repro] 390/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.04  5.4s
+[repro] 391/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.04  6.0s
+[repro] 392/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.04  5.4s
+[repro] 393/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.04  3.0s
+[repro] 394/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.04  2.4s
+[repro] 395/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.04  2.4s
+[repro] 396/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.04  2.4s
+[repro] 397/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.04  2.5s
+[repro] 398/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.04  2.5s
+[repro] 399/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.04  2.4s
+[repro] 400/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.04  2.5s
+[repro] 401/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.04  2.4s
+[repro] 402/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.04  2.5s
+[repro] 403/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.04  2.5s
+[repro] 404/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.04  2.5s
+[repro] 405/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.04  2.6s
+[repro] 406/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.03  2.3s
+[repro] 407/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.03  2.4s
+[repro] 408/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.03  2.4s
+[repro] 409/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.03  2.5s
+[repro] 410/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.03  2.6s
+[repro] 411/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.03  2.7s
+[repro] 412/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.03  2.4s
+[repro] 413/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.03  3.0s
+[repro] 414/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.03  2.4s
+[repro] 415/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.03  2.4s
+[repro] 416/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.03  2.4s
+[repro] 417/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.03  2.4s
+[repro] 418/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.03  2.4s
+[repro] 419/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.03  2.3s
+[repro] 420/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.03  2.3s
+[repro] 421/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.03  2.9s
+[repro] 422/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.03  2.5s
+[repro] 423/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.03  2.4s
+[repro] 424/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.03  2.4s
+[repro] 425/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.03  2.5s
+[repro] 426/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.03  2.6s
+[repro] 427/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.03  2.6s
+[repro] 428/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.03  2.5s
+[repro] 429/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.03  2.7s
+[repro] 430/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.03  2.4s
+[repro] 431/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.03  2.4s
+[repro] 432/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.03  2.4s
+[repro] 433/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 434/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.02  2.3s
+[repro] 435/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.02  2.4s
+[repro] 436/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 437/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.02  2.4s
+[repro] 438/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.02  2.4s
+[repro] 439/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.02  2.9s
+[repro] 440/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.02  3.0s
+[repro] 441/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.02  2.8s
+[repro] 442/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 443/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.02  2.4s
+[repro] 444/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.02  2.4s
+[repro] 445/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 446/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.02  3.0s
+[repro] 447/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.02  2.5s
+[repro] 448/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 449/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.02  2.5s
+[repro] 450/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.02  2.5s
+[repro] 451/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.02  2.5s
+[repro] 452/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.02  2.4s
+[repro] 453/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.02  2.4s
+[repro] 454/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 455/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.02  2.5s
+[repro] 456/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.02  2.4s
+[repro] 457/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.02  2.4s
+[repro] 458/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.02  2.4s
+[repro] 459/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.02  2.5s
+[repro] 460/486 cm=A ds=3e-08 ms=1 noise=packagedrop deg=0.01  2.4s
+[repro] 461/486 cm=A ds=3e-08 ms=10 noise=packagedrop deg=0.01  2.4s
+[repro] 462/486 cm=A ds=3e-08 ms=30 noise=packagedrop deg=0.01  2.4s
+[repro] 463/486 cm=A ds=1e-07 ms=1 noise=packagedrop deg=0.01  2.4s
+[repro] 464/486 cm=A ds=1e-07 ms=10 noise=packagedrop deg=0.01  2.5s
+[repro] 465/486 cm=A ds=1e-07 ms=30 noise=packagedrop deg=0.01  2.5s
+[repro] 466/486 cm=A ds=3e-07 ms=1 noise=packagedrop deg=0.01  3.0s
+[repro] 467/486 cm=A ds=3e-07 ms=10 noise=packagedrop deg=0.01  3.0s
+[repro] 468/486 cm=A ds=3e-07 ms=30 noise=packagedrop deg=0.01  3.1s
+[repro] 469/486 cm=C ds=3e-08 ms=1 noise=packagedrop deg=0.01  2.9s
+[repro] 470/486 cm=C ds=3e-08 ms=10 noise=packagedrop deg=0.01  2.5s
+[repro] 471/486 cm=C ds=3e-08 ms=30 noise=packagedrop deg=0.01  2.6s
+[repro] 472/486 cm=C ds=1e-07 ms=1 noise=packagedrop deg=0.01  2.4s
+[repro] 473/486 cm=C ds=1e-07 ms=10 noise=packagedrop deg=0.01  2.5s
+[repro] 474/486 cm=C ds=1e-07 ms=30 noise=packagedrop deg=0.01  2.5s
+[repro] 475/486 cm=C ds=3e-07 ms=1 noise=packagedrop deg=0.01  2.4s
+[repro] 476/486 cm=C ds=3e-07 ms=10 noise=packagedrop deg=0.01  2.4s
+[repro] 477/486 cm=C ds=3e-07 ms=30 noise=packagedrop deg=0.01  3.1s
+[repro] 478/486 cm=D ds=3e-08 ms=1 noise=packagedrop deg=0.01  2.4s
+[repro] 479/486 cm=D ds=3e-08 ms=10 noise=packagedrop deg=0.01  2.4s
+[repro] 480/486 cm=D ds=3e-08 ms=30 noise=packagedrop deg=0.01  2.4s
+[repro] 481/486 cm=D ds=1e-07 ms=1 noise=packagedrop deg=0.01  2.5s
+[repro] 482/486 cm=D ds=1e-07 ms=10 noise=packagedrop deg=0.01  2.4s
+[repro] 483/486 cm=D ds=1e-07 ms=30 noise=packagedrop deg=0.01  2.4s
+[repro] 484/486 cm=D ds=3e-07 ms=1 noise=packagedrop deg=0.01  2.4s
+[repro] 485/486 cm=D ds=3e-07 ms=10 noise=packagedrop deg=0.01  2.4s
+[repro] 486/486 cm=D ds=3e-07 ms=30 noise=packagedrop deg=0.01  2.5s
+[repro] wrote 486 rows to <ladder-out>/out/DFTGRID_K16_robust486.csv in 2999.4s
+  model cm           ds  ms  noise_type  noise_degree                                     nmse_mean
+DFTGRID  A 3.000000e-08   1       phase         10.00     [0.9515138 0.9509959 0.9500095 0.9486969]
+DFTGRID  A 3.000000e-08  10       phase         10.00     [5.875602  5.75266   5.5326633 4.529951 ]
+DFTGRID  A 3.000000e-08  30       phase         10.00 [12.55787    9.889997   7.8029957  7.1818614]
+DFTGRID  A 1.000000e-07   1       phase         10.00 [0.8037537  0.8023878  0.8016641  0.80120337]
+DFTGRID  A 1.000000e-07  10       phase         10.00     [4.3022237 4.384613  4.41458   4.1057177]
+DFTGRID  A 1.000000e-07  30       phase         10.00     [8.900064  6.7507057 9.259409  6.9573755]
+DFTGRID  A 3.000000e-07   1       phase         10.00 [0.88862664 0.8883708  0.88827705 0.889607  ]
+DFTGRID  A 3.000000e-07  10       phase         10.00     [3.045872  3.1433172 3.0742028 3.103129 ]
+DFTGRID  A 3.000000e-07  30       phase         10.00     [3.4862766 3.5793955 3.7619123 3.8041298]
+DFTGRID  C 3.000000e-08   1       phase         10.00     [1.2002175 1.1935192 1.1888038 1.1915715]
+DFTGRID  C 3.000000e-08  10       phase         10.00     [4.981193  5.500656  5.206676  4.8799553]
+DFTGRID  C 3.000000e-08  30       phase         10.00     [4.207279  4.00034   4.2610826 4.7153664]
+DFTGRID  C 1.000000e-07   1       phase         10.00 [0.86199623 0.8625293  0.8634159  0.8622864 ]
+DFTGRID  C 1.000000e-07  10       phase         10.00     [3.013665  2.9908297 2.9939654 3.0086029]
+DFTGRID  C 1.000000e-07  30       phase         10.00     [3.182564  3.222992  3.3030305 3.1745648]
+DFTGRID  C 3.000000e-07   1       phase         10.00     [0.8099787 0.8107486 0.8098208 0.810309 ]
+DFTGRID  C 3.000000e-07  10       phase         10.00     [2.2555845 2.2582796 2.264143  2.2799006]
+DFTGRID  C 3.000000e-07  30       phase         10.00     [2.7977967 2.7775793 2.7736316 2.7961516]
+DFTGRID  D 3.000000e-08   1       phase         10.00 [0.8285713  0.82723826 0.8280593  0.82942426]
+DFTGRID  D 3.000000e-08  10       phase         10.00     [2.0491934 2.0529933 2.0570517 2.0575461]
+DFTGRID  D 3.000000e-08  30       phase         10.00     [2.1835792 2.2263622 2.2568483 2.2776027]
+DFTGRID  D 1.000000e-07   1       phase         10.00 [0.8829841  0.88302207 0.8831551  0.883972  ]
+DFTGRID  D 1.000000e-07  10       phase         10.00     [2.256444  2.258905  2.2649527 2.267123 ]
+DFTGRID  D 1.000000e-07  30       phase         10.00     [2.090403  2.0957146 2.0968344 2.0957212]
+DFTGRID  D 3.000000e-07   1       phase         10.00 [0.78078324 0.78175104 0.7815522  0.7824135 ]
+DFTGRID  D 3.000000e-07  10       phase         10.00     [2.0347555 2.0407495 2.0479133 2.0544734]
+DFTGRID  D 3.000000e-07  30       phase         10.00     [1.8545642 1.8762108 1.8869568 1.8983414]
+DFTGRID  A 3.000000e-08   1       phase         15.00     [0.9116326 0.9100372 0.9089321 0.9085152]
+DFTGRID  A 3.000000e-08  10       phase         15.00     [5.8757877 5.749344  5.5322437 4.525522 ]
+DFTGRID  A 3.000000e-08  30       phase         15.00 [12.549768   9.859803   7.7831287  7.170179 ]
+DFTGRID  A 1.000000e-07   1       phase         15.00 [0.75782895 0.7564695  0.7562355  0.75574636]
+DFTGRID  A 1.000000e-07  10       phase         15.00     [4.302233  4.384302  4.4150176 4.104362 ]
+DFTGRID  A 1.000000e-07  30       phase         15.00         [8.894695 6.749438 9.254108 6.942581]
+DFTGRID  A 3.000000e-07   1       phase         15.00 [0.8480051  0.8477982  0.84879386 0.8485617 ]
+DFTGRID  A 3.000000e-07  10       phase         15.00     [3.0377023 3.137316  3.0681853 3.0974293]
+DFTGRID  A 3.000000e-07  30       phase         15.00     [3.4827955 3.5747535 3.757165  3.7987998]
+DFTGRID  C 3.000000e-08   1       phase         15.00     [1.1585147 1.1521139 1.1474952 1.1492054]
+DFTGRID  C 3.000000e-08  10       phase         15.00     [4.989763  5.5109906 5.2183375 4.8880587]
+DFTGRID  C 3.000000e-08  30       phase         15.00     [4.2048726 3.9914124 4.2544613 4.7111225]
+DFTGRID  C 1.000000e-07   1       phase         15.00 [0.81845015 0.8187624  0.8177784  0.8181345 ]
+DFTGRID  C 1.000000e-07  10       phase         15.00     [3.0206738 2.9970703 2.998911  3.0140553]
+DFTGRID  C 1.000000e-07  30       phase         15.00     [3.1826677 3.2258832 3.3046174 3.176733 ]
+DFTGRID  C 3.000000e-07   1       phase         15.00 [0.76717645 0.76696426 0.7666553  0.7666037 ]
+DFTGRID  C 3.000000e-07  10       phase         15.00     [2.249704  2.2539322 2.261035  2.2762933]
+DFTGRID  C 3.000000e-07  30       phase         15.00     [2.7978148 2.7779615 2.774283  2.7955105]
+DFTGRID  D 3.000000e-08   1       phase         15.00 [0.79681516 0.797108   0.79714537 0.797363  ]
+DFTGRID  D 3.000000e-08  10       phase         15.00     [2.055406  2.057903  2.0585167 2.057191 ]
+DFTGRID  D 3.000000e-08  30       phase         15.00     [2.192689  2.2293878 2.259002  2.278613 ]
+DFTGRID  D 1.000000e-07   1       phase         15.00 [0.85321164 0.8538987  0.85365415 0.8537281 ]
+DFTGRID  D 1.000000e-07  10       phase         15.00     [2.2699375 2.27241   2.2741587 2.2741156]
+DFTGRID  D 1.000000e-07  30       phase         15.00     [2.0985003 2.0973294 2.0953639 2.097032 ]
+DFTGRID  D 3.000000e-07   1       phase         15.00 [0.74836326 0.74863875 0.7484665  0.7492796 ]
+DFTGRID  D 3.000000e-07  10       phase         15.00     [2.0410376 2.0451615 2.049894  2.0539837]
+DFTGRID  D 3.000000e-07  30       phase         15.00     [1.8563303 1.8696392 1.8809276 1.8912619]
+DFTGRID  A 3.000000e-08   1       phase         20.00     [0.8982993 0.8964511 0.8951494 0.8949705]
+DFTGRID  A 3.000000e-08  10       phase         20.00     [5.8769593 5.747253  5.5324535 4.526482 ]
+DFTGRID  A 3.000000e-08  30       phase         20.00 [12.547346   9.84977    7.7750263  7.166449 ]
+DFTGRID  A 1.000000e-07   1       phase         20.00 [0.7432433  0.74198556 0.7414371  0.74083686]
+DFTGRID  A 1.000000e-07  10       phase         20.00     [4.303181  4.3845444 4.4146643 4.103172 ]
+DFTGRID  A 1.000000e-07  30       phase         20.00         [8.893939 6.74837  9.246909 6.937069]
+DFTGRID  A 3.000000e-07   1       phase         20.00 [0.8342604  0.83470976 0.83507216 0.8354658 ]
+DFTGRID  A 3.000000e-07  10       phase         20.00     [3.0349622 3.135046  3.067253  3.0962393]
+DFTGRID  A 3.000000e-07  30       phase         20.00     [3.481192  3.5737426 3.7561038 3.7975075]
+DFTGRID  C 3.000000e-08   1       phase         20.00     [1.1449132 1.1387258 1.1339409 1.1357318]
+DFTGRID  C 3.000000e-08  10       phase         20.00     [4.9913473 5.5147443 5.2214704 4.88911  ]
+DFTGRID  C 3.000000e-08  30       phase         20.00     [4.2033653 3.989891  4.2542973 4.7098618]
+DFTGRID  C 1.000000e-07   1       phase         20.00 [0.80379266 0.8041639  0.80380493 0.80386597]
+DFTGRID  C 1.000000e-07  10       phase         20.00     [3.02184   2.9984348 3.0011826 3.014809 ]
+DFTGRID  C 1.000000e-07  30       phase         20.00     [3.1833286 3.2269797 3.3060174 3.1770284]
+DFTGRID  C 3.000000e-07   1       phase         20.00 [0.7525695  0.75250655 0.75235534 0.75233185]
+DFTGRID  C 3.000000e-07  10       phase         20.00     [2.2487845 2.2524521 2.2596192 2.2751904]
+DFTGRID  C 3.000000e-07  30       phase         20.00     [2.798357  2.778385  2.7745085 2.795799 ]
+DFTGRID  D 3.000000e-08   1       phase         20.00     [0.7865563 0.7865576 0.7868459 0.7867633]
+DFTGRID  D 3.000000e-08  10       phase         20.00     [2.0576243 2.0588684 2.058669  2.0568333]
+DFTGRID  D 3.000000e-08  30       phase         20.00     [2.196054  2.229835  2.2589622 2.2786734]
+DFTGRID  D 1.000000e-07   1       phase         20.00 [0.8437195  0.8436322  0.84410775 0.84377307]
+DFTGRID  D 1.000000e-07  10       phase         20.00     [2.2747617 2.276122  2.2771194 2.276579 ]
+DFTGRID  D 1.000000e-07  30       phase         20.00     [2.1009734 2.0977097 2.0957944 2.096591 ]
+DFTGRID  D 3.000000e-07   1       phase         20.00 [0.73740554 0.7373696  0.7376041  0.73784864]
+DFTGRID  D 3.000000e-07  10       phase         20.00     [2.042935  2.0471334 2.050699  2.0538528]
+DFTGRID  D 3.000000e-07  30       phase         20.00     [1.8566027 1.8683969 1.87884   1.8890747]
+DFTGRID  A 3.000000e-08   1       phase         25.00 [0.89405584 0.89250684 0.891368   0.8903999 ]
+DFTGRID  A 3.000000e-08  10       phase         25.00     [5.876251  5.748382  5.5332975 4.5258446]
+DFTGRID  A 3.000000e-08  30       phase         25.00 [12.546207   9.848979   7.7741604  7.1652837]
+DFTGRID  A 1.000000e-07   1       phase         25.00 [0.73856705 0.7375131  0.7367128  0.73616165]
+DFTGRID  A 1.000000e-07  10       phase         25.00     [4.3028736 4.38504   4.4138737 4.1028385]
+DFTGRID  A 1.000000e-07  30       phase         25.00     [8.892959  6.7482843 9.246298  6.935281 ]
+DFTGRID  A 3.000000e-07   1       phase         25.00 [0.83019453 0.8306719  0.8310793  0.8311088 ]
+DFTGRID  A 3.000000e-07  10       phase         25.00     [3.03455   3.1345444 3.066776  3.0955656]
+DFTGRID  A 3.000000e-07  30       phase         25.00     [3.4812155 3.5731459 3.7555895 3.7968569]
+DFTGRID  C 3.000000e-08   1       phase         25.00     [1.1406157 1.1347301 1.1295696 1.1317729]
+DFTGRID  C 3.000000e-08  10       phase         25.00     [4.9925404 5.515882  5.2230587 4.889589 ]
+DFTGRID  C 3.000000e-08  30       phase         25.00     [4.2032757 3.9889832 4.2539277 4.709607 ]
+DFTGRID  C 1.000000e-07   1       phase         25.00 [0.7993681  0.7997459  0.79972106 0.79940766]
+DFTGRID  C 1.000000e-07  10       phase         25.00     [3.0224607 2.9991043 3.0014787 3.0154648]
+DFTGRID  C 1.000000e-07  30       phase         25.00     [3.1835177 3.2271645 3.3054113 3.1773553]
+DFTGRID  C 3.000000e-07   1       phase         25.00     [0.7480457 0.7480268 0.7480743 0.7480751]
+DFTGRID  C 3.000000e-07  10       phase         25.00     [2.2486746 2.2521605 2.2589893 2.2745712]
+DFTGRID  C 3.000000e-07  30       phase         25.00     [2.7986975 2.7783096 2.7746274 2.795615 ]
+DFTGRID  D 3.000000e-08   1       phase         25.00 [0.7834126  0.7836355  0.7835769  0.78359693]
+DFTGRID  D 3.000000e-08  10       phase         25.00     [2.0581672 2.0591896 2.0587032 2.0567548]
+DFTGRID  D 3.000000e-08  30       phase         25.00     [2.196872  2.230029  2.2591789 2.278633 ]
+DFTGRID  D 1.000000e-07   1       phase         25.00 [0.8407367  0.84059066 0.8407983  0.8407562 ]
+DFTGRID  D 1.000000e-07  10       phase         25.00     [2.2763247 2.2774346 2.2779171 2.2772126]
+DFTGRID  D 1.000000e-07  30       phase         25.00     [2.1016119 2.0979612 2.0955002 2.0967371]
+DFTGRID  D 3.000000e-07   1       phase         25.00 [0.73414534 0.7341731  0.7343888  0.73441505]
+DFTGRID  D 3.000000e-07  10       phase         25.00     [2.0438476 2.0474873 2.0510354 2.0535264]
+DFTGRID  D 3.000000e-07  30       phase         25.00     [1.8567557 1.8678448 1.8783183 1.8883361]
+DFTGRID  A 3.000000e-08   1       burst         10.00 [0.90083456 0.9155101  0.94834447 0.990869  ]
+DFTGRID  A 3.000000e-08  10       burst         10.00     [5.9042025 5.80594   5.6741776 4.7496552]
+DFTGRID  A 3.000000e-08  30       burst         10.00 [12.600964   9.955979   7.9548073  7.3883924]
+DFTGRID  A 1.000000e-07   1       burst         10.00 [0.76854384 0.80331045 0.8365336  0.87667876]
+DFTGRID  A 1.000000e-07  10       burst         10.00     [4.369272  4.5219994 4.612771  4.427952 ]
+DFTGRID  A 1.000000e-07  30       burst         10.00     [8.907584  6.795282  9.3492    7.0837927]
+DFTGRID  A 3.000000e-07   1       burst         10.00 [0.8407666  0.85139763 0.8716761  0.9012106 ]
+DFTGRID  A 3.000000e-07  10       burst         10.00     [3.0534415 3.1753898 3.1384368 3.2015028]
+DFTGRID  A 3.000000e-07  30       burst         10.00     [3.5008738 3.6381345 3.8691955 3.9500165]
+DFTGRID  C 3.000000e-08   1       burst         10.00     [1.1620321 1.1807809 1.2325997 1.283571 ]
+DFTGRID  C 3.000000e-08  10       burst         10.00     [5.0147796 5.601382  5.394659  5.1328497]
+DFTGRID  C 3.000000e-08  30       burst         10.00     [4.232943  4.0621476 4.3805304 4.9617796]
+DFTGRID  C 1.000000e-07   1       burst         10.00 [0.810409   0.82052153 0.84145576 0.8656549 ]
+DFTGRID  C 1.000000e-07  10       burst         10.00     [3.037522  3.0440087 3.0732062 3.1139185]
+DFTGRID  C 1.000000e-07  30       burst         10.00     [3.2006052 3.2784412 3.401386  3.2880676]
+DFTGRID  C 3.000000e-07   1       burst         10.00 [0.75330675 0.7730259  0.7948912  0.8200746 ]
+DFTGRID  C 3.000000e-07  10       burst         10.00     [2.2539659 2.2705245 2.2973468 2.3313699]
+DFTGRID  C 3.000000e-07  30       burst         10.00     [2.80753   2.799067  2.8058105 2.8525598]
+DFTGRID  D 3.000000e-08   1       burst         10.00 [0.78986657 0.80356634 0.8235007  0.8384562 ]
+DFTGRID  D 3.000000e-08  10       burst         10.00     [2.0666783 2.0751572 2.084528  2.0972369]
+DFTGRID  D 3.000000e-08  30       burst         10.00     [2.2049124 2.2576332 2.3102734 2.3586802]
+DFTGRID  D 1.000000e-07   1       burst         10.00 [0.8454295  0.85591406 0.866393   0.8864994 ]
+DFTGRID  D 1.000000e-07  10       burst         10.00     [2.2831972 2.298308  2.3131459 2.33245  ]
+DFTGRID  D 1.000000e-07  30       burst         10.00     [2.1052613 2.1072893 2.1167498 2.1333363]
+DFTGRID  D 3.000000e-07   1       burst         10.00 [0.7389139  0.75068176 0.76316404 0.78001815]
+DFTGRID  D 3.000000e-07  10       burst         10.00     [2.053231  2.0722234 2.095311  2.1245906]
+DFTGRID  D 3.000000e-07  30       burst         10.00     [1.8645931 1.8850114 1.9164869 1.9490082]
+DFTGRID  A 3.000000e-08   1       burst         15.00     [0.898464  0.9041532 0.9153106 0.9278685]
+DFTGRID  A 3.000000e-08  10       burst         15.00     [5.8913727 5.792753  5.584969  4.609644 ]
+DFTGRID  A 3.000000e-08  30       burst         15.00 [12.561368   9.890047   7.8418183  7.2544146]
+DFTGRID  A 1.000000e-07   1       burst         15.00 [0.7401133  0.7438722  0.75522834 0.76590455]
+DFTGRID  A 1.000000e-07  10       burst         15.00     [4.3123283 4.4081635 4.450156  4.165755 ]
+DFTGRID  A 1.000000e-07  30       burst         15.00     [8.894335  6.7643437 9.27714   6.9781604]
+DFTGRID  A 3.000000e-07   1       burst         15.00 [0.8310808  0.8352772  0.83976847 0.84717786]
+DFTGRID  A 3.000000e-07  10       burst         15.00     [3.0393162 3.1448421 3.0847821 3.1229115]
+DFTGRID  A 3.000000e-07  30       burst         15.00     [3.4884129 3.593385  3.7909656 3.8501706]
+DFTGRID  C 3.000000e-08   1       burst         15.00     [1.154305  1.1620678 1.1721544 1.1915799]
+DFTGRID  C 3.000000e-08  10       burst         15.00     [5.0022736 5.542657  5.267294  4.948992 ]
+DFTGRID  C 3.000000e-08  30       burst         15.00     [4.2066584 3.998056  4.2721043 4.7459855]
+DFTGRID  C 1.000000e-07   1       burst         15.00 [0.8025243  0.81052977 0.8211558  0.83204466]
+DFTGRID  C 1.000000e-07  10       burst         15.00     [3.0269997 3.0076425 3.0174952 3.0439608]
+DFTGRID  C 1.000000e-07  30       burst         15.00     [3.193329  3.2461157 3.337967  3.230176 ]
+DFTGRID  C 3.000000e-07   1       burst         15.00 [0.7487719  0.7531172  0.75792474 0.76407206]
+DFTGRID  C 3.000000e-07  10       burst         15.00     [2.251117  2.2584944 2.271807  2.295939 ]
+DFTGRID  C 3.000000e-07  30       burst         15.00     [2.8026679 2.7888381 2.7917602 2.822198 ]
+DFTGRID  D 3.000000e-08   1       burst         15.00 [0.78447425 0.78871655 0.7941673  0.80058175]
+DFTGRID  D 3.000000e-08  10       burst         15.00     [2.0598657 2.06353   2.0671685 2.069697 ]
+DFTGRID  D 3.000000e-08  30       burst         15.00     [2.2016907 2.239271  2.2734084 2.2996917]
+DFTGRID  D 1.000000e-07   1       burst         15.00 [0.8417382  0.8451883  0.849005   0.85450965]
+DFTGRID  D 1.000000e-07  10       burst         15.00     [2.278996  2.2837605 2.2873275 2.2925608]
+DFTGRID  D 1.000000e-07  30       burst         15.00     [2.1043487 2.104484  2.108668  2.1170304]
+DFTGRID  D 3.000000e-07   1       burst         15.00 [0.7338009  0.7371106  0.74081767 0.746979  ]
+DFTGRID  D 3.000000e-07  10       burst         15.00     [2.0453744 2.0531623 2.0618584 2.0708253]
+DFTGRID  D 3.000000e-07  30       burst         15.00     [1.8594416 1.8740422 1.8879503 1.903312 ]
+DFTGRID  A 3.000000e-08   1       burst         20.00 [0.8938477  0.89586586 0.8978888  0.9009508 ]
+DFTGRID  A 3.000000e-08  10       burst         20.00     [5.8783283 5.75221   5.54312   4.539713 ]
+DFTGRID  A 3.000000e-08  30       burst         20.00     [12.549936  9.855307  7.785174  7.185739]
+DFTGRID  A 1.000000e-07   1       burst         20.00 [0.737706   0.74012065 0.7432776  0.74864084]
+DFTGRID  A 1.000000e-07  10       burst         20.00     [4.3068    4.392922  4.4269753 4.124549 ]
+DFTGRID  A 1.000000e-07  30       burst         20.00     [8.893459  6.749727  9.2504    6.9463634]
+DFTGRID  A 3.000000e-07   1       burst         20.00 [0.8295417  0.8308102  0.83268404 0.83647186]
+DFTGRID  A 3.000000e-07  10       burst         20.00     [3.0351944 3.1384263 3.0716352 3.107091 ]
+DFTGRID  A 3.000000e-07  30       burst         20.00     [3.4832659 3.5778985 3.76433   3.8097413]
+DFTGRID  C 3.000000e-08   1       burst         20.00     [1.1425872 1.1386467 1.1359161 1.1426395]
+DFTGRID  C 3.000000e-08  10       burst         20.00     [4.9958696 5.5223274 5.235234  4.90629  ]
+DFTGRID  C 3.000000e-08  30       burst         20.00     [4.2050753 3.993553  4.2649674 4.7269025]
+DFTGRID  C 1.000000e-07   1       burst         20.00 [0.7981363  0.79947776 0.80182725 0.8041829 ]
+DFTGRID  C 1.000000e-07  10       burst         20.00     [3.0244498 3.0034122 3.0085022 3.0263228]
+DFTGRID  C 1.000000e-07  30       burst         20.00     [3.1850228 3.2302918 3.3113527 3.1859536]
+DFTGRID  C 3.000000e-07   1       burst         20.00 [0.7474147  0.74910164 0.75075835 0.75330687]
+DFTGRID  C 3.000000e-07  10       burst         20.00     [2.24889   2.2539203 2.2624562 2.2805011]
+DFTGRID  C 3.000000e-07  30       burst         20.00     [2.7993765 2.780398  2.77776   2.800395 ]
+DFTGRID  D 3.000000e-08   1       burst         20.00 [0.78307474 0.7841507  0.7854481  0.7879173 ]
+DFTGRID  D 3.000000e-08  10       burst         20.00     [2.0594583 2.0614617 2.062128  2.0621214]
+DFTGRID  D 3.000000e-08  30       burst         20.00     [2.19844   2.2323523 2.2630963 2.2841902]
+DFTGRID  D 1.000000e-07   1       burst         20.00 [0.8398578  0.8409372  0.84229296 0.8437437 ]
+DFTGRID  D 1.000000e-07  10       burst         20.00     [2.277669  2.2798636 2.2814834 2.2829232]
+DFTGRID  D 1.000000e-07  30       burst         20.00     [2.1025846 2.0996094 2.0991802 2.1020815]
+DFTGRID  D 3.000000e-07   1       burst         20.00 [0.7335058  0.73472846 0.73579544 0.7376186 ]
+DFTGRID  D 3.000000e-07  10       burst         20.00     [2.044658  2.049016  2.0538206 2.0579047]
+DFTGRID  D 3.000000e-07  30       burst         20.00     [1.8573934 1.8692893 1.881433  1.8937156]
+DFTGRID  A 3.000000e-08   1       burst         25.00 [0.8923801  0.8912784  0.89184535 0.89281553]
+DFTGRID  A 3.000000e-08  10       burst         25.00     [5.877737  5.7494164 5.5373054 4.5304484]
+DFTGRID  A 3.000000e-08  30       burst         25.00 [12.548031   9.851442   7.778277   7.1724854]
+DFTGRID  A 1.000000e-07   1       burst         25.00 [0.7370197  0.73669547 0.73699385 0.7374482 ]
+DFTGRID  A 1.000000e-07  10       burst         25.00     [4.3032465 4.385628  4.4152083 4.1050477]
+DFTGRID  A 1.000000e-07  30       burst         25.00     [8.893455  6.7505245 9.251759  6.9416595]
+DFTGRID  A 3.000000e-07   1       burst         25.00 [0.82913816 0.83006006 0.8310498  0.8324948 ]
+DFTGRID  A 3.000000e-07  10       burst         25.00     [3.0351036 3.1350014 3.068708  3.0989068]
+DFTGRID  A 3.000000e-07  30       burst         25.00     [3.4810538 3.5733366 3.7568247 3.7990482]
+DFTGRID  C 3.000000e-08   1       burst         25.00     [1.1399783 1.1342772 1.1301851 1.1335012]
+DFTGRID  C 3.000000e-08  10       burst         25.00     [4.9933925 5.518908  5.229773  4.8990054]
+DFTGRID  C 3.000000e-08  30       burst         25.00     [4.2045336 3.9920995 4.2579255 4.716322 ]
+DFTGRID  C 1.000000e-07   1       burst         25.00 [0.7978918  0.7986891  0.8006283  0.80198586]
+DFTGRID  C 1.000000e-07  10       burst         25.00     [3.02297   3.0004072 3.004016  3.018813 ]
+DFTGRID  C 1.000000e-07  30       burst         25.00     [3.1844318 3.2287111 3.3077118 3.1805987]
+DFTGRID  C 3.000000e-07   1       burst         25.00     [0.7462911 0.7466964 0.7474459 0.7482555]
+DFTGRID  C 3.000000e-07  10       burst         25.00     [2.248517  2.2525847 2.260438  2.2770116]
+DFTGRID  C 3.000000e-07  30       burst         25.00     [2.7990828 2.7795305 2.7768936 2.798291 ]
+DFTGRID  D 3.000000e-08   1       burst         25.00 [0.78211856 0.78229034 0.7828042  0.78333306]
+DFTGRID  D 3.000000e-08  10       burst         25.00     [2.0588076 2.060157  2.0599444 2.0583797]
+DFTGRID  D 3.000000e-08  30       burst         25.00     [2.1977575 2.2311742 2.2608275 2.2810197]
+DFTGRID  D 1.000000e-07   1       burst         25.00 [0.83970904 0.83975255 0.8403329  0.8409134 ]
+DFTGRID  D 1.000000e-07  10       burst         25.00     [2.2770464 2.2784677 2.2793686 2.2790713]
+DFTGRID  D 1.000000e-07  30       burst         25.00     [2.102167  2.0983758 2.0963109 2.0980408]
+DFTGRID  D 3.000000e-07   1       burst         25.00 [0.73279333 0.73332405 0.73402756 0.7347779 ]
+DFTGRID  D 3.000000e-07  10       burst         25.00     [2.044365  2.0485198 2.0522933 2.05551  ]
+DFTGRID  D 3.000000e-07  30       burst         25.00     [1.8570883 1.8680011 1.8791122 1.8899177]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.10 [0.92609304 0.89995164 0.8984594  0.89810354]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.10     [5.603249  5.718747  5.511954  4.5236955]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.10 [12.020311   9.887436   7.8463354  7.135103 ]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.10 [0.767477   0.7407366  0.74463934 0.74744254]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.10     [4.172984  4.3331013 4.419302  4.1027327]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.10     [8.505123  6.5862694 9.248728  6.940087 ]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.10 [0.81282306 0.83442044 0.8420915  0.83496696]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.10     [2.6588373 3.079484  3.039781  3.107323 ]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.10     [3.1320398 3.4855304 3.8053668 3.8335052]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.10     [1.1098026 1.1576872 1.1438503 1.1411949]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.10     [4.7038426 5.462138  5.2157273 4.877613 ]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.10     [3.864531  3.8581915 4.2616234 4.6721964]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.10 [0.8352385  0.8100444  0.812899   0.80284554]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.10     [2.5678926 2.9824996 2.979772  2.9685333]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.10     [2.8088074 3.2305088 3.3100202 3.1632373]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.10 [0.80090225 0.74181557 0.763629   0.7595507 ]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.10     [2.052328  2.2497869 2.2666547 2.2380908]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.10     [2.5054352 2.7296493 2.7635467 2.754157 ]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.10 [0.82099205 0.7958118  0.7890072  0.78919035]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.10     [1.9826344 2.0205383 2.0642295 2.0645297]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.10     [2.0741892 2.2641497 2.2216873 2.2843359]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.10 [0.8656072  0.85950524 0.8501299  0.8589022 ]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.10     [2.2046075 2.2592793 2.2853937 2.2540693]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.10     [1.9553428 2.071923  2.0692139 2.0507636]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.10 [0.75786585 0.7434519  0.74055314 0.7440866 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.10     [1.884643  2.0519319 2.0902565 2.0336764]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.10     [1.7287549 1.9193519 1.7782433 1.9472983]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.09     [0.9090657 0.9040401 0.8918982 0.9055363]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.09     [5.2264934 5.6859717 5.5367775 4.5286064]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.09     [11.999635 10.11817   7.700815  7.250909]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.09 [0.7718102  0.74517554 0.74516606 0.74450094]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.09     [4.1647625 4.3622932 4.463313  4.183942 ]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.09         [8.448174 6.738063 9.274906 6.986291]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.09 [0.8119537  0.82070845 0.8306986  0.8336201 ]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.09     [2.883677  3.1126719 3.058231  3.0564857]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.09     [3.195781  3.5747678 3.7627687 3.7707431]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.09     [1.1314483 1.140578  1.1506238 1.139899 ]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.09     [4.518258  5.4483504 5.143679  4.8963804]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.09     [4.0697994 4.017372  4.26867   4.67545  ]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.09 [0.8255837  0.80963737 0.8061488  0.80536044]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.09     [2.780408  2.958709  2.9925647 2.9840565]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.09     [3.0058188 3.13493   3.2105715 3.1765652]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.09 [0.7137177  0.75313926 0.7565429  0.7515852 ]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.09     [2.1771884 2.2582161 2.2422166 2.2841337]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.09     [2.6830328 2.776481  2.7617311 2.7388744]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.09 [0.7925175  0.7865649  0.7865458  0.79192233]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.09     [1.9388785 2.0455337 2.0263593 2.0697436]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.09     [2.1301122 2.260786  2.26957   2.2594683]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.09     [0.8421428 0.846265  0.8467228 0.8488345]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.09     [2.1914153 2.2811396 2.2406752 2.2093797]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.09     [2.0198312 2.0312448 2.0685072 2.0915632]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.09 [0.76373184 0.7387374  0.736499   0.7355232 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.09     [1.9024197 2.0487838 2.0425863 2.0339324]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.09     [1.8309045 1.9000435 1.883239  1.8213636]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.08 [0.88044935 0.9131149  0.89144707 0.89264494]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.08     [5.689242  5.682767  5.522062  4.5148005]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.08 [12.398804  10.03888    7.7523584  7.2794814]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.08 [0.75321114 0.74835336 0.7417281  0.73633784]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.08     [3.879853  4.382182  4.4043107 4.1957197]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.08     [8.368802  6.7013903 9.295196  7.0809755]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.08 [0.85462165 0.8325794  0.83614755 0.8384405 ]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.08     [2.853003  3.134434  3.0386496 3.1019773]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.08     [3.3939285 3.5348878 3.67582   3.8319585]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.08     [1.1131649 1.1390456 1.13665   1.1378785]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.08     [4.7451487 5.5010943 5.2261157 4.8870897]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.08     [3.9184682 3.9321635 4.340802  4.7067485]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.08 [0.83415765 0.8102957  0.8072951  0.8043422 ]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.08     [2.781419  2.964135  2.9422622 3.0210693]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.08     [3.0787475 3.169229  3.2468426 3.195762 ]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.08 [0.7662196  0.75905275 0.75191045 0.75003934]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.08     [2.1877706 2.2678118 2.2429328 2.2478979]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.08     [2.6229026 2.7445269 2.7120087 2.8104453]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.08 [0.79569936 0.78840125 0.78580785 0.7859971 ]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.08     [2.0276344 2.0615833 2.0798857 2.0193615]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.08     [2.0451813 2.179863  2.295474  2.3164663]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.08 [0.87759554 0.8436914  0.845765   0.8452811 ]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.08     [2.2000644 2.27923   2.2785597 2.252661 ]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.08     [1.9595944 2.0973268 2.1104736 2.0606372]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.08     [0.7194795 0.7383486 0.7388589 0.7354561]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.08     [1.8770878 2.0037925 2.0551941 2.0660992]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.08     [1.8152483 1.8208922 1.9604001 1.9467154]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.07 [0.89142036 0.89684486 0.8945266  0.8955005 ]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.07     [5.649342  5.784755  5.5439825 4.5453935]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.07     [12.283095  9.919625  7.82441   7.121526]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.07 [0.74550486 0.75937325 0.7449405  0.73665893]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.07     [4.194195  4.3669114 4.41724   4.078611 ]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.07     [8.73449   6.412398  9.383915  6.9923077]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.07 [0.866542   0.8225988  0.8250599  0.83850724]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.07     [2.9269388 3.152738  3.088017  3.08742  ]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.07     [3.4524336 3.5865555 3.7756314 3.8452976]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.07     [1.103541  1.1326817 1.1430397 1.1348121]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.07     [4.7209487 5.488674  5.2517924 4.8774066]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.07     [4.091984  3.9613912 4.1601143 4.8130245]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.07 [0.80546033 0.7985911  0.8107298  0.80697626]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.07     [2.8670962 2.8778236 2.9483588 2.9481308]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.07     [3.082387  3.289677  3.3015943 3.1261666]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.07 [0.76027036 0.7506473  0.75394875 0.7481801 ]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.07     [2.1957693 2.2655404 2.2640188 2.266615 ]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.07     [2.7226222 2.7591727 2.790315  2.760157 ]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.07 [0.7771084  0.79546714 0.78403765 0.7842381 ]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.07     [2.0012178 2.0580866 2.0662763 2.0710948]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.07     [2.0389488 2.2304177 2.2731133 2.3299336]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.07 [0.8486886  0.83955663 0.84213275 0.8465965 ]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.07     [2.1517248 2.23775   2.2531416 2.2715585]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.07     [2.0430589 2.081839  2.0010047 2.0388746]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.07 [0.77332306 0.7240148  0.735593   0.7392109 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.07     [1.9480442 2.033507  2.0449421 2.0541434]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.07     [1.8076493 1.9370952 1.810305  1.8953317]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.06 [0.90358526 0.8989036  0.8956597  0.9046546 ]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.06     [5.5939136 5.7697964 5.528102  4.539341 ]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.06 [12.311401  10.039621   7.763632   7.3403554]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.06 [0.7563253  0.73734075 0.73483115 0.7376201 ]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.06     [4.183113  4.3977947 4.436884  4.105466 ]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.06     [8.677774  6.729316  9.249508  7.0705748]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.06 [0.8598529  0.8358226  0.83384514 0.83345383]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.06     [2.9665833 3.1395843 3.0651426 3.1018286]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.06     [3.3698783 3.5900629 3.7857745 3.8832197]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.06     [1.1519483 1.1467336 1.1344478 1.1405613]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.06     [4.297085  5.5091567 5.217409  4.860934 ]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.06     [4.1545367 4.0023904 4.3599286 4.700622 ]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.06 [0.79699737 0.80846953 0.80167776 0.8044024 ]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.06     [2.9230485 2.9926734 3.0068598 3.0197003]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.06     [3.0182924 3.1983109 3.3491962 3.1287372]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.06 [0.74175924 0.7412519  0.75079274 0.75386816]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.06     [2.171636  2.219823  2.2677734 2.2614007]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.06     [2.694284  2.78998   2.7773492 2.835491 ]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.06 [0.8002465  0.7831405  0.7884483  0.79174393]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.06     [1.9537772 2.0412815 2.0725024 2.091461 ]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.06     [2.1609735 2.2003615 2.254032  2.2791362]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.06 [0.8309748  0.84115547 0.8448074  0.84515625]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.06     [2.1058443 2.2483463 2.2472079 2.2687306]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.06     [2.0508745 2.076964  2.0517292 2.1091201]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.06 [0.6849754  0.73711234 0.73969954 0.7331865 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.06     [1.9819229 2.0619636 2.0386543 2.0538085]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.06     [1.8054345 1.8646443 1.8692032 1.9437325]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.05 [0.9042606  0.89683455 0.9014317  0.8931264 ]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.05     [5.509219  5.7080407 5.532532  4.532178 ]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.05 [12.264949   9.830986   7.758006   7.1863766]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.05 [0.7298553  0.72389865 0.7351658  0.73828787]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.05     [4.162037  4.392752  4.4001083 4.0744762]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.05     [8.6295395 6.7714143 9.072071  6.91018  ]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.05 [0.82621896 0.8296015  0.8329964  0.83159274]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.05     [2.937811  3.1357584 3.0528467 3.0882227]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.05     [3.3364723 3.5607986 3.7538433 3.8306537]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.05     [1.1450912 1.1366428 1.1313059 1.1401124]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.05     [4.8020816 5.5116596 5.2187614 4.889538 ]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.05     [4.1741447 3.9773648 4.286613  4.7176085]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.05 [0.8173067  0.8013813  0.8064248  0.80010206]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.05     [2.9594204 2.9765832 2.9895008 3.005513 ]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.05     [3.134536  3.2045746 3.2528307 3.1629846]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.05 [0.77920073 0.7481012  0.7464245  0.74712515]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.05     [2.1841407 2.2368257 2.2647872 2.255288 ]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.05     [2.632769  2.7097197 2.7515779 2.7894232]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.05 [0.78425866 0.7822611  0.78415716 0.7875461 ]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.05     [1.9904258 2.014405  2.0486655 2.0302355]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.05     [2.1540353 2.2129955 2.267943  2.2730165]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.05 [0.8331472  0.845377   0.84569955 0.8406746 ]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.05     [2.2153335 2.2341516 2.3138633 2.249406 ]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.05     [2.0772789 2.0807095 2.0931747 2.070178 ]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.05 [0.7129955  0.73914087 0.7440181  0.7409249 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.05     [2.018337  2.0133986 2.0345647 2.0594225]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.05     [1.8603354 1.8700707 1.9067428 1.8504012]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.04 [0.85306937 0.89287454 0.89752924 0.8921925 ]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.04     [5.5085893 5.748369  5.5340633 4.4996157]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.04 [12.289129   9.716707   7.7841434  7.2903633]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.04 [0.7320186  0.73784494 0.73692054 0.74006075]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.04     [4.221831  4.396148  4.4493284 4.097199 ]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.04     [8.892566  6.7416825 9.22368   6.9389124]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.04     [0.8163926 0.834085  0.8329394 0.835077 ]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.04     [3.0142012 3.13716   3.0782506 3.097088 ]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.04     [3.4589255 3.538828  3.7860117 3.8093073]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.04     [1.1222024 1.1353335 1.1318216 1.1318969]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.04     [4.815437  5.5254903 5.227977  4.88038  ]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.04     [4.0583315 4.003274  4.2751646 4.6900845]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.04 [0.79678977 0.8059795  0.8018156  0.7988958 ]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.04     [2.9158163 3.005915  3.0022626 3.015089 ]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.04     [3.1607597 3.1990807 3.2785406 3.179877 ]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.04 [0.7605288  0.74761695 0.7489523  0.75097245]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.04     [2.1887538 2.2582362 2.2765257 2.290078 ]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.04     [2.7513502 2.7679365 2.7283595 2.818708 ]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.04     [0.7820331 0.7829599 0.7838398 0.7829878]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.04     [1.9851861 2.0888097 2.0770872 2.042061 ]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.04     [2.18217   2.2233799 2.2425005 2.2309175]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.04     [0.8654728 0.8427584 0.8428211 0.8416391]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.04     [2.2025018 2.2850313 2.2618062 2.2764907]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.04     [2.0759327 2.092257  2.1175842 2.1276922]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.04 [0.7441624  0.735554   0.73528725 0.7333121 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.04     [2.0588653 2.047945  2.0300913 2.0591326]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.04     [1.7745022 1.8866884 1.9110621 1.8401188]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.03 [0.87508756 0.8921054  0.89193916 0.89085853]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.03     [4.9436626 5.769119  5.546016  4.498986 ]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.03     [12.534787  9.864347  7.793878  7.163907]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.03     [0.7103454 0.7354004 0.7354341 0.7373461]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.03     [4.237     4.38481   4.4807916 4.1263704]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.03     [8.863225  6.7015796 9.312597  6.879946 ]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.03 [0.80764216 0.83222127 0.8327506  0.83171684]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.03     [2.979706  3.1214728 3.0466    3.0745962]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.03     [3.4758866 3.5775626 3.760604  3.822894 ]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.03     [1.1413974 1.1342586 1.1298534 1.1329266]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.03     [4.812456  5.517594  5.2402368 4.8817544]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.03     [4.200838  3.9985352 4.2285175 4.7233653]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.03     [0.8261766 0.7999554 0.8018133 0.7987586]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.03     [2.952784  3.0137239 3.0055006 3.0143695]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.03     [3.0848637 3.2250814 3.303429  3.1778092]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.03 [0.75886655 0.74679995 0.7478248  0.7531062 ]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.03     [2.2060957 2.2787333 2.257712  2.2796066]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.03     [2.7985163 2.7502723 2.7970283 2.7761085]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.03 [0.78259873 0.78321296 0.7841022  0.7831694 ]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.03     [2.059412  2.0566473 2.0666804 2.051689 ]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.03     [2.0773852 2.2131197 2.287087  2.305366 ]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.03     [0.8472587 0.8393801 0.839484  0.8438112]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.03     [2.2768383 2.2567492 2.2823675 2.2828326]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.03     [2.0752625 2.1055198 2.0531623 2.069335 ]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.03     [0.7181728 0.7344549 0.7373213 0.733255 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.03     [1.989061  2.0399015 2.0443242 2.0397768]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.03     [1.8699056 1.8536018 1.88557   1.8850952]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.02 [0.89223635 0.8905986  0.8944595  0.88872916]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.02     [5.852619  5.7370844 5.652803  4.525746 ]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.02 [12.406111   9.859189   7.7451873  7.09908  ]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.02 [0.75101036 0.7378802  0.7348077  0.73734045]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.02     [4.296414  4.363197  4.3949933 4.109721 ]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.02         [8.848455 6.743544 9.238899 6.916936]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.02     [0.8468619 0.8300576 0.8289774 0.8309782]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.02     [2.9954205 3.1122022 3.0579746 3.0823953]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.02     [3.468172  3.5881875 3.6903353 3.7967203]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.02     [1.1468685 1.1389718 1.1293578 1.1347102]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.02     [4.9356813 5.5158143 5.222626  4.8813667]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.02     [4.1898637 4.0164223 4.337602  4.798213 ]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.02 [0.79730135 0.7999392  0.7996252  0.79934907]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.02     [3.018421  2.9972029 3.0016882 3.002639 ]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.02     [3.1765783 3.2484255 3.3057058 3.1775641]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.02     [0.749867  0.7462146 0.7460569 0.7465408]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.02     [2.2069733 2.2567725 2.2628489 2.2766333]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.02     [2.7832556 2.748978  2.7683752 2.7956457]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.02 [0.7820331  0.78414375 0.7841037  0.7825758 ]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.02     [2.0648835 2.0756052 2.0622778 2.0516732]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.02     [2.1973646 2.234626  2.2926733 2.2474384]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.02 [0.8383802  0.83966154 0.8455511  0.842611  ]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.02     [2.2363424 2.2940977 2.2782907 2.2854104]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.02     [2.0769389 2.0979795 2.1209507 2.098178 ]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.02 [0.7267527  0.73460096 0.7327734  0.7328195 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.02     [2.0534043 2.0455625 2.0510244 2.044709 ]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.02     [1.7940412 1.7875072 1.8593042 1.8881264]
+DFTGRID  A 3.000000e-08   1 packagedrop          0.01 [0.9077096  0.89060515 0.88944346 0.8889689 ]
+DFTGRID  A 3.000000e-08  10 packagedrop          0.01     [5.765546  5.7273326 5.5301495 4.526195 ]
+DFTGRID  A 3.000000e-08  30 packagedrop          0.01 [12.546734   9.868455   7.8023653  7.1648564]
+DFTGRID  A 1.000000e-07   1 packagedrop          0.01 [0.73649985 0.7353696  0.73668814 0.73412925]
+DFTGRID  A 1.000000e-07  10 packagedrop          0.01     [4.3030906 4.36273   4.418273  4.094364 ]
+DFTGRID  A 1.000000e-07  30 packagedrop          0.01     [8.892566  6.7324357 9.223878  6.9348903]
+DFTGRID  A 3.000000e-07   1 packagedrop          0.01 [0.8284052  0.8289974  0.8289774  0.82929945]
+DFTGRID  A 3.000000e-07  10 packagedrop          0.01     [2.9949722 3.1334367 3.0632138 3.0856805]
+DFTGRID  A 3.000000e-07  30 packagedrop          0.01     [3.4557443 3.5725543 3.7469504 3.7967203]
+DFTGRID  C 3.000000e-08   1 packagedrop          0.01     [1.1118588 1.1366014 1.1285958 1.1301056]
+DFTGRID  C 3.000000e-08  10 packagedrop          0.01     [4.8657613 5.496793  5.223311  4.877987 ]
+DFTGRID  C 3.000000e-08  30 packagedrop          0.01     [4.1854544 3.9793818 4.2534223 4.738676 ]
+DFTGRID  C 1.000000e-07   1 packagedrop          0.01 [0.80034477 0.7982335  0.797642   0.7995216 ]
+DFTGRID  C 1.000000e-07  10 packagedrop          0.01     [3.0227048 2.9919305 3.0118482 3.0054681]
+DFTGRID  C 1.000000e-07  30 packagedrop          0.01     [3.1717072 3.2201605 3.3057055 3.1775641]
+DFTGRID  C 3.000000e-07   1 packagedrop          0.01 [0.7366281  0.74972934 0.7497321  0.74608773]
+DFTGRID  C 3.000000e-07  10 packagedrop          0.01     [2.2482123 2.2526615 2.258903  2.2771428]
+DFTGRID  C 3.000000e-07  30 packagedrop          0.01     [2.7456884 2.7896109 2.7911634 2.7956457]
+DFTGRID  D 3.000000e-08   1 packagedrop          0.01 [0.7820331  0.78403056 0.78271437 0.7820927 ]
+DFTGRID  D 3.000000e-08  10 packagedrop          0.01     [2.0296214 2.0594714 2.0588686 2.0614152]
+DFTGRID  D 3.000000e-08  30 packagedrop          0.01     [2.1923797 2.1692998 2.2534494 2.2710857]
+DFTGRID  D 1.000000e-07   1 packagedrop          0.01 [0.82503927 0.840652   0.8393473  0.8393155 ]
+DFTGRID  D 1.000000e-07  10 packagedrop          0.01     [2.2551377 2.2779865 2.258395  2.2775388]
+DFTGRID  D 1.000000e-07  30 packagedrop          0.01     [2.1019602 2.1264684 2.1106615 2.0965028]
+DFTGRID  D 3.000000e-07   1 packagedrop          0.01 [0.73267907 0.73272675 0.7336063  0.7328195 ]
+DFTGRID  D 3.000000e-07  10 packagedrop          0.01     [2.0440001 2.0476983 2.0510244 2.0547128]
+DFTGRID  D 3.000000e-07  30 packagedrop          0.01     [1.8621144 1.8736669 1.8780714 1.9238046]
