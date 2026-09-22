@@ -195,7 +195,7 @@ error if the layout is missing.
 | `dftgrid.py`, `ladder_lsgains.py` | the two model sources; they are the `--source` inputs of the installers |
 | `ladder_lsgains_fit.py` | ridge fit of the 4x16 complex gain matrix. `native` = the first 256 packed training samples (with the training AWGN) -- the model's own warm-start recipe; `full` = all 24,300 packed training samples. Ridge 1e-6, fp64 fit |
 | `ladder_sanity.py` | data-independent synthetic checks: with a full 16-bin support the DFTGRID output is the periodic continuation of the delay history (max error ~1.7e-6), and the analytic periodic-extension gains reproduce the harness output (~1.1e-6) |
-| `ladder_run_dftgrid.sh`, `ladder_run_lsgains.sh` | evaluation drivers over the three splits. The generalization runs carry the B/E x delay-spread x speed filters that define the paper's 432-setting slice, child failures propagate (per-PID wait, nonzero exit), and the drivers assert the 162/486/432 output rows. Env-driven: `LADDER_HARNESS`, `LADDER_OUT`, `LADDER_GAINS` |
+| `ladder_run_dftgrid.sh`, `ladder_run_lsgains.sh` | evaluation drivers over the three splits. The generalization runs carry the B/E x delay-spread x speed filters that define the paper's 432-setting slice, child failures propagate (per-PID wait, nonzero exit), and the drivers assert the 162/486/432 output rows. Env-driven: `LADDER_HARNESS`, `LADDER_OUT`, `LADDER_GAINS`. On a 1-core CPU quota set `OMP_NUM_THREADS=1` (the as-run verification used it; ~50 min wall clock) |
 
 All commands run from THIS repository's root; the drivers `cd` into the
 harness themselves (which is why `LADDER_GAINS` must be absolute):
