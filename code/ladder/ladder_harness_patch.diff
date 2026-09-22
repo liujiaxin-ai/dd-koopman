@@ -1,0 +1,69 @@
+# harness patch for the exactness ladder
+# harness: <harness-root>
+# new file: src/cp/models/baseline/statistical/dftgrid.py (copied verbatim from dftgrid.py)
+
+--- <harness-root>/src/cp/models/__init__.py
++++ <harness-root>/src/cp/models/__init__.py
+@@ -29,6 +29,7 @@
+ from src.cp.models.baseline.learning.stemgnn import STEMGNN_pl
+ from src.cp.models.baseline.np import NOPREDICTMODEL
+ from src.cp.models.baseline.statistical.ar import ARMODEL
++from src.cp.models.baseline.statistical.dftgrid import DFTGRIDMODEL
+ from src.cp.models.baseline.statistical.pad import PADMODEL
+ from src.cp.models.baseline.statistical.wiener import WIENERMODEL
+ from src.cp.models.proposed.model_fdd import MODEL_FDD
+--- <harness-root>/src/cp/models/__init__.py
++++ <harness-root>/src/cp/models/__init__.py
+@@ -56,6 +56,7 @@
+     # Statistical baselines
+     PAD_TDD = PADMODEL
+     AR_TDD = ARMODEL
++    DFTGRID_TDD = DFTGRIDMODEL
+     WIENER_FDD = WIENERMODEL
+     WIENER_TDD = WIENERMODEL
+ 
+--- <harness-root>/src/testing/get_models.py
++++ <harness-root>/src/testing/get_models.py
+@@ -34,7 +34,7 @@
+ logger = logging.getLogger(__name__)
+ 
+ # Models that do not use Lightning checkpoints.
+-MODELS_NO_CHECKPOINT = {"NP", "AR", "PAD", "WIENER"}
++MODELS_NO_CHECKPOINT = {"NP", "AR", "PAD", "WIENER", "DFTGRID"}
+ 
+ # Models that require pre-estimated statistical parameter files.
+ MODELS_WITH_PARAM_FILE = {"AR", "WIENER"}
+
+# new file: src/cp/models/baseline/statistical/lsgains.py (copied verbatim from ladder_lsgains.py)
+
+--- <harness-root>/src/cp/models/__init__.py
++++ <harness-root>/src/cp/models/__init__.py
+@@ -30,6 +30,7 @@
+ from src.cp.models.baseline.np import NOPREDICTMODEL
+ from src.cp.models.baseline.statistical.ar import ARMODEL
+ from src.cp.models.baseline.statistical.dftgrid import DFTGRIDMODEL
++from src.cp.models.baseline.statistical.lsgains import LSGAINSMODEL
+ from src.cp.models.baseline.statistical.pad import PADMODEL
+ from src.cp.models.baseline.statistical.wiener import WIENERMODEL
+ from src.cp.models.proposed.model_fdd import MODEL_FDD
+--- <harness-root>/src/cp/models/__init__.py
++++ <harness-root>/src/cp/models/__init__.py
+@@ -58,6 +58,7 @@
+     PAD_TDD = PADMODEL
+     AR_TDD = ARMODEL
+     DFTGRID_TDD = DFTGRIDMODEL
++    LSGAINS_TDD = LSGAINSMODEL
+     WIENER_FDD = WIENERMODEL
+     WIENER_TDD = WIENERMODEL
+ 
+--- <harness-root>/src/testing/get_models.py
++++ <harness-root>/src/testing/get_models.py
+@@ -34,7 +34,7 @@
+ logger = logging.getLogger(__name__)
+ 
+ # Models that do not use Lightning checkpoints.
+-MODELS_NO_CHECKPOINT = {"NP", "AR", "PAD", "WIENER", "DFTGRID"}
++MODELS_NO_CHECKPOINT = {"NP", "AR", "PAD", "WIENER", "DFTGRID", "LSGAINS"}
+ 
+ # Models that require pre-estimated statistical parameter files.
+ MODELS_WITH_PARAM_FILE = {"AR", "WIENER"}

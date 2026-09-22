@@ -1,0 +1,45 @@
+{
+ "config": "tdd_caplong.yaml",
+ "seed": 42,
+ "taps": 300,
+ "slots": 16,
+ "horizon": 4,
+ "coordinates": "warm-start coordinates: delay = ifft_unnormalised(x), spectrum = fft_unnormalised(delay, time), target = ifft_unnormalised(future)",
+ "fits": {
+  "native": {
+   "path": "W_native.npz",
+   "sha256": "40855a5bebbc27bb4f02589e9b503579f803b8621ffff2bab00ac3472dad3c7b",
+   "samples": 256,
+   "ridge": 1e-06,
+   "dtype": "fp64_fit_stored_fp64_and_fp32",
+   "seconds": 1.8
+  },
+  "full": {
+   "path": "W_full.npz",
+   "sha256": "4e394bae7ee31197ced6e5291345bc685ecc8972e38d1f615487b498709633b1",
+   "samples": 24300,
+   "ridge": 1e-06,
+   "dtype": "fp64_fit_stored_fp64_and_fp32",
+   "seconds": 168.6
+  },
+  "full_lambda1e-07": {
+   "path": "W_full_lambda1e-07.npz",
+   "sha256": "7299d7ee3640f7e3765582ff58f2ec0b4490ab7916e1d2b4d3c058ef684ae916",
+   "ridge": 1e-07,
+   "samples": 24300
+  },
+  "full_lambda1e-06": {
+   "path": "W_full_lambda1e-06.npz",
+   "sha256": "0537dd1c82714b1d9bc6462e4370fda4b828f71831263f6ac116a6226dd35827",
+   "ridge": 1e-06,
+   "samples": 24300
+  },
+  "full_lambda1e-05": {
+   "path": "W_full_lambda1e-05.npz",
+   "sha256": "54407f87ba59283dd1162b48b4c81884ea7c691f123794757aef21d73c4f02db",
+   "ridge": 1e-05,
+   "samples": 24300
+  }
+ },
+ "total_seconds": 1025.2
+}

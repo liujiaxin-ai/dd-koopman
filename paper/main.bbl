@@ -5,15 +5,13 @@ S.~Cheng, R.~Zandehshahvar, H.~Zhao, et~al.,
 \newblock ``{CSI-4CAST}: A hybrid deep learning model for {CSI} prediction with
   comprehensive robustness and generalization testing,''
 \newblock {\em IEEE Transactions on Machine Learning in Communications and
-  Networking}, vol. 4, pp. 882--912, 2026,
-\newblock {\href{https://arxiv.org/abs/2510.12996}{arXiv:2510.12996}}.
+  Networking}, vol. 4, pp. 882--912, 2026.
 
 \bibitem{llm4cp_2024}
 B.~Liu, X.~Liu, S.~Gao, X.~Cheng, and L.~Yang,
 \newblock ``{LLM4CP}: Adapting large language models for channel prediction,''
 \newblock {\em Journal of Communications and Information Networks}, vol. 9, no.
-  2, pp. 113--125, 2024,
-\newblock {\href{https://arxiv.org/abs/2406.14440}{arXiv:2406.14440}}.
+  2, pp. 113--125, 2024.
 
 \bibitem{oshea2017physical}
 T.~J. O'Shea and J.~Hoydis,
@@ -31,8 +29,7 @@ C.-K. Wen, W.-T. Shih, and S.~Jin,
 Z.~Lu, J.~Wang, and J.~Song,
 \newblock ``Multi-resolution {CSI} feedback with deep learning in massive
   {MIMO} system,''
-\newblock in {\em Proc. IEEE International Conference on Communications (ICC)},
-  2020, pp. 1--6,
+\newblock in {\em Proc. IEEE ICC}, 2020, pp. 1--6,
 \newblock {\href{https://arxiv.org/abs/1910.14322}{arXiv:1910.14322}}.
 
 \bibitem{hadani2017otfs}
@@ -50,9 +47,7 @@ N.~Jiang, Z.~Song, T.~Guo, X.~Zhao, and Y.~Xu,
 A.~Djuhera, H.~Gacanin, and H.~Boche,
 \newblock ``{MambaCSP}: Hybrid-attention state space models for
   hardware-efficient channel state prediction,''
-\newblock in {\em Proc. IEEE Global Communications Conference (GLOBECOM)},
-  2026,
-\newblock {\href{https://arxiv.org/abs/2604.21957}{arXiv:2604.21957}}.
+\newblock in {\em Proc. IEEE GLOBECOM}, 2026.
 
 \bibitem{pcgae_2026}
 U.~K. Godavarti, K.~Giridhar, V.~P. Dharmendrabhai, A.~Panday, and M.~R.
@@ -62,12 +57,11 @@ U.~K. Godavarti, K.~Giridhar, V.~P. Dharmendrabhai, A.~Panday, and M.~R.
 \newblock {\href{https://arxiv.org/abs/2606.25401}{arXiv:2606.25401}}.
 
 \bibitem{csibert2_2024}
-Z.~Zhao, F.~Meng, Z.~Lyu, H.~Li, X.~Li, and G.~Zhu,
+Z.~Zhao et~al.,
 \newblock ``{CSI-BERT2}: A {BERT}-inspired framework for efficient {CSI}
   prediction and classification in wireless communication and sensing,''
 \newblock {\em IEEE Transactions on Mobile Computing}, vol. 25, no. 5, pp.
-  7241--7257, 2026,
-\newblock {\href{https://arxiv.org/abs/2412.06861}{arXiv:2412.06861}}.
+  7241--7257, 2026.
 
 \bibitem{koopman1931}
 B.~O. Koopman,
@@ -128,8 +122,7 @@ A.~Gu and T.~Dao,
 \newblock {\href{https://arxiv.org/abs/2312.00752}{arXiv:2312.00752}}.
 
 \bibitem{orvieto2023lru}
-A.~Orvieto, S.~L. Smith, A.~Gu, A.~Fernando, C.~Gulcehre, R.~Pascanu, and
-  S.~De,
+A.~Orvieto et~al.,
 \newblock ``Resurrecting recurrent neural networks for long sequences,''
 \newblock in {\em Proc. ICML}, 2023, pp. 26670--26698.
 
@@ -138,8 +131,7 @@ S.~Luo, J.~Xie, Y.~Che, et~al.,
 \newblock ``{CPMamba}: Selective state space models for {MIMO} channel
   prediction in high-mobility environments,''
 \newblock {\em IEEE Transactions on Mobile Computing}, pp. 1--14, 2026,
-\newblock early access;
-  {\href{https://arxiv.org/abs/2512.16315}{arXiv:2512.16315}}.
+\newblock early access.
 
 \bibitem{patchtst_2023}
 Y.~Nie, N.~H. Nguyen, P.~Sinthong, and J.~Kalagnanam,
@@ -162,20 +154,7 @@ S.~Wang, H.~Wu, X.~Shi, et~al.,
 \bibitem{tsmixer_2023}
 S.-A. Chen, C.-L. Li, N.~Yoder, S.~O. Arik, and T.~Pfister,
 \newblock ``{TSMixer}: An all-{MLP} architecture for time series forecasting,''
-\newblock {\em Transactions on Machine Learning Research}, 2023,
-\newblock {\href{https://arxiv.org/abs/2303.06053}{arXiv:2303.06053}}.
-
-\bibitem{zhou2021informer}
-H.~Zhou, S.~Zhang, J.~Peng, et~al.,
-\newblock ``{Informer}: Beyond efficient transformer for long sequence
-  time-series forecasting,''
-\newblock in {\em Proc. AAAI}, 2021, vol.~35, pp. 11106--11115.
-
-\bibitem{oreshkin2020nbeats}
-B.~N. Oreshkin, D.~Carpov, N.~Chapados, and Y.~Bengio,
-\newblock ``{N-BEATS}: Neural basis expansion analysis for interpretable time
-  series forecasting,''
-\newblock in {\em Proc. ICLR}, 2020.
+\newblock {\em Transactions on Machine Learning Research}, 2023.
 
 \bibitem{vaswani2017attention}
 A.~Vaswani, N.~Shazeer, N.~Parmar, et~al.,
@@ -202,7 +181,12 @@ A.~Zeng, M.~Chen, L.~Zhang, and Q.~Xu,
 H.~Wu, J.~Xu, J.~Wang, and M.~Long,
 \newblock ``{Autoformer}: Decomposition transformers with auto-correlation for
   long-term series forecasting,''
-\newblock in {\em Proc. NeurIPS}, 2021, vol.~34, pp. 22419--22430.
+\newblock in {\em Proc. NeurIPS}, 2021, pp. 22419--22430.
+
+\bibitem{golub2013matrix}
+Gene~H. Golub and Charles~F. Van~Loan,
+\newblock {\em Matrix Computations},
+\newblock Johns Hopkins University Press, Baltimore, MD, 4th edition, 2013.
 
 \bibitem{kingma2015adam}
 D.~P. Kingma and J.~Ba,

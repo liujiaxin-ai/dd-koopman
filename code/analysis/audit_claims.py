@@ -31,23 +31,16 @@ def norm(s):
 
 
 def read_csv(name):
-    """Read a derived table, falling back to the working repository.
+    """Read a derived table from this package's results/analysis/.
 
-    The anonymous package carries its own copy of results/analysis/, but the
-    tables added on 2026-09-17 (three-seed shift, loss-off ablation, A/C/D
-    seeds, pole intervention, mobility bands, classical ladder) only exist in
-    the working repository until the writer syncs them. Falling back keeps this
-    audit runnable in both places; a genuinely missing file yields no checks
-    instead of a crash, and the summary line makes that visible.
+    The package is self-contained: a missing evidence file is a hard
+    failure, never a silent skip or a fallback to a parent repository
+    (GPT final review P0-4).
     """
     path = ANA / name
     if not path.exists():
-        fallback = ROOT.parent / "results" / "analysis" / name
-        if fallback.exists():
-            path = fallback
-        else:
-            print("  note: %s not found in this package (skipped)" % name)
-            return []
+        raise SystemExit("audit: required evidence file missing from this "
+                         "package: results/analysis/%s" % name)
     with open(path, newline="", encoding="utf-8") as fh:
         return list(csv.DictReader(fh))
 
@@ -69,9 +62,9 @@ def main():
         else:
             path = ANA / source
             if not path.exists():
-                fallback = ROOT.parent / "results" / "analysis" / source
-                path = fallback if fallback.exists() else None
-            ok = v in norm(path.read_text(encoding="utf-8") if path else source)
+                raise SystemExit("audit: required evidence file missing from "
+                                 "this package: results/analysis/%s" % source)
+            ok = v in norm(path.read_text(encoding="utf-8"))
         checks.append({"id": cid, "claim": claim, "value": str(value),
                        "source": source, "checked_against": where, "ok": bool(ok)})
 
@@ -86,19 +79,19 @@ def main():
         # 2026-09-18: these rows moved out of Table 1 into a prose sentence that
         # quotes their NMSE only; params/MACs remain repo evidence.
         prose = label in {"mamba-lite-L", "gru-baseline", "itransformer-L-iclr24",
-                          "timemixer-L-iclr24", "dlinear-baseline", "tcn-baseline"}
+                          "transformer-262k",
+                          "timemixer-L-iclr24", "dlinear-baseline", "tcn-baseline",
+                          "mlp-baseline"}
         # 2026-09-19 round 2: the rejected-objective paragraph no longer quotes
         # the with-loss NMSEs; the rows stay regenerable evidence.
         withloss = label.startswith("ours-with-loss")
         w = "evidence" if (cap or prose or withloss) else "paper"
-        wn = "evidence" if (cap or withloss) else "paper"
+        wn = "evidence" if (cap or withloss or prose) else "paper"
         check("T1-%d-nmse" % i, "Table 1 %s NMSE" % label, r["nmse"], "main_table.csv", where=wn)
         if r.get("params") and r["params"] not in ("", "None"):
             check("T1-%d-params" % i, "Table 1 %s params" % label, r["params"], "main_table.csv", where=w)
-        if (r.get("macs_per_sample") and r["macs_per_sample"] not in ("", "None")
-                and w == "paper"):  # fmt_macs string only exists in the paper
-            check("T1-%d-macs" % i, "Table 1 %s MACs" % label,
-                  fmt_macs(r["macs_per_sample"]), "main_table.csv", where=w)
+        # R22 review P1-10: the per-model MAC caption list left the paper;
+        # ours/reference MACs remain covered by the EFF checks below.
 
     # ---- Table 2: ablation rows -------------------------------------------
     # The loss-on factorial was retired from the paper (superseded by the
@@ -150,8 +143,10 @@ def main():
                                 ("published", 21913750, 804901376),
                                 ("mambacsp", 881604, 2856963584),
                                 ("capacity-matched", 149560, 480000)):
-        check("EFF-%s-params" % label, "profile %s params" % label, params, prof, where="evidence")
-        check("EFF-%s-macs" % label, "profile %s MACs" % label, macs, prof, where="evidence")
+        check("EFF-%s-params" % label, "profile %s params" % label, params,
+              "profiles_4090.txt", where="evidence")
+        check("EFF-%s-macs" % label, "profile %s MACs" % label, macs,
+              "profiles_4090.txt", where="evidence")
     # Documented convention (R13, 2026-09-21): the parameter and MAC ratios
     # are quoted at one decimal (126.53 -> 126.5, 123.56 -> 123.6). Raw ratios
     # are printed for the record.
@@ -235,11 +230,61 @@ def main():
                    "ok": not dupes and "missing" not in acd_digests.values()})
 
     QUOTED_LADDER = {"1.3771", "1.2465", "1.2790", "0.8236", "0.7874",
-                     "0.2300"}  # 1.8081 (no prediction) retired from Table 1
+                     "0.2300",  # 1.8081 (no prediction) retired from Table 1
+                     # R19 exactness-ladder rungs quoted in ssec:price:
+                     # E0 full-grid exact, E1 LS-fitted gains (native, full).
+                     "3.2883", "2.7558", "2.7518",
+                     "1.2504", "1.1366", "1.4767",
+                     "0.8173"}  # 0.7625/1.0545 (E1b shifted) stay evidence-only
     for i, r in enumerate(read_csv("classical_ladder.csv"), 1):
         where = "paper" if r["cell_mean_nmse"] in QUOTED_LADDER else "evidence"
         check("LADDER-%d" % i, "classical ladder %s/%s" % (r["split"], r["model"]),
               r["cell_mean_nmse"], "classical_ladder.csv", where=where)
+
+    # ---- 2026-09-22 R19: K-support monotonicity + gain-conditioning arms ---
+    # ssec:price quotes the K=2/4/8 trend between the two ladder endpoints;
+    # the run_csv cells are the evidence, and the trend must ascend.
+    def run_cell_mean(name):
+        path = RUNS / name
+        if not path.exists():
+            raise SystemExit("audit: required evidence file missing from this "
+                             "package: results/run_csv/%s" % name)
+        vals = []
+        for r in csv.DictReader(open(path, newline="", encoding="utf-8")):
+            parts = r["nmse_mean"].strip("[]").split()
+            vals.append(sum(float(x) for x in parts) / len(parts))
+        return sum(vals) / len(vals)
+
+    kprev = 1.3771
+    for k, quoted in (("2", "1.7825"), ("4", "2.5235"), ("8", "3.0204")):
+        name = "DFTGRID_K%s_full162.csv" % k
+        cm = run_cell_mean(name)
+        checks.append({"id": "LADDERK-%s" % k,
+                       "claim": "K=%s full-grid cell mean (ssec:price trend, "
+                                "quoted as monotone)" % k,
+                       "value": quoted, "source": "results/run_csv/%s" % name,
+                       "checked_against": "evidence",
+                       "ok": abs(cm - float(quoted)) < 5e-5})
+        checks.append({"id": "LADDERK-%s-asc" % k,
+                       "claim": "raising the K support degrades monotonically",
+                       "value": "%.4f -> %.4f" % (kprev, cm),
+                       "source": "results/run_csv", "checked_against": "evidence",
+                       "ok": cm > kprev})
+        kprev = cm
+    checks.append({"id": "LADDERK-16-asc",
+                   "claim": "K=16 closes the monotone trend at the full grid",
+                   "value": "%.4f -> 3.2883" % kprev,
+                   "source": "classical_ladder.csv", "checked_against": "evidence",
+                   "ok": 3.2883 > kprev})
+
+    for name, quoted in (("GAINOFF_full162.csv", "0.1584"),
+                         ("GAINOFFREF_full162.csv", "0.1386")):
+        cm = run_cell_mean(name)
+        checks.append({"id": "GAINOFF-%s" % name.split("_")[0],
+                       "claim": "gain-conditioning arm cell mean (ssec:ablations)",
+                       "value": quoted, "source": "results/run_csv/%s" % name,
+                       "checked_against": "paper+evidence",
+                       "ok": abs(cm - float(quoted)) < 5e-5 and quoted in tex})
 
     QUOTED_CTRL = {"0.3039", "0.3427", "0.1807", "0.2106"}
     for i, r in enumerate(read_csv("generalization_432_summary.csv"), 1):
@@ -265,6 +310,19 @@ def main():
                   "band %s seed %s %s" % (r["band"], r["seed"], tag), r[col],
                   "generalization_by_band.csv", where=where)
 
+    # ---- 2026-09-21 R14: B/E delay-spread decomposition (V8.2 axis) --------
+    # Provenance: results/analysis/generalization_be_by_delay_spread.csv
+    # (72 cells x ds50/ds200/ds400, paired bootstrap, three seeds).
+    QUOTED_BE = {"-0.0367", "-0.0549", "-0.0189"}
+    for i, r in enumerate(read_csv("generalization_be_by_delay_spread.csv"), 1):
+        for col, tag in (("paired_mean_diff", "diff"), ("ci_low", "ci_low"),
+                         ("ci_high", "ci_high")):
+            if not r.get(col):
+                continue
+            where = "paper" if r[col] in QUOTED_BE else "evidence"
+            check("BE-%d-%s" % (i, tag), "B/E by delay spread %s %s" % (r.get("slice", i), tag),
+                  r[col], "generalization_be_by_delay_spread.csv", where=where)
+
     # ---- 2026-09-19 wave: paired CIs, extended slices, capacity persistence
     # 2026-09-19 round 2: per-seed regular paired diffs quoted (seeds 42/43/44);
     # the seed-42 CI endpoints stay regenerable evidence only.
@@ -289,7 +347,7 @@ def main():
                   r["paired_diff"], fn, where=where)
 
     for i, r in enumerate(read_csv("pole_snap_capacity.csv"), 1):
-        where = "paper" if r.get("pct_vs_stock", r.get("pct")) in ("37.0", "38.8") else "evidence"
+        where = "paper" if r.get("pct_vs_stock", r.get("pct")) in ("38.8",) else "evidence"
         col = "pct_vs_stock" if "pct_vs_stock" in r else "pct"
         check("SNAPCAP-%d" % i, "intervention vs capacity %s" % r.get("checkpoint", r.get("label", i)),
               r[col], "pole_snap_capacity.csv", where=where)
@@ -330,169 +388,193 @@ def main():
     # Theorem 1 closure: per-horizon grid-snap penalty grows monotonically.
     for r in read_csv("pole_snap_horizon.csv"):
         if r.get("group") == "horizon":
-            check("TH-h%s" % r["value"], "grid-snap penalty at horizon %s (Theorem 1 closure)" % r["value"],
-                  r["pct"], "pole_snap_horizon.csv")
+            check("TH-h%s" % r["value"], "grid-snap penalty at horizon %s (measured series, evidence-only in R14)" % r["value"],
+                  r["pct"], "pole_snap_horizon.csv", where="evidence")
     # Offset quantisation curve: 1/8 / 1/4 / 1/2-bin penalties.
     for r in read_csv("pole_intervention_curve.csv"):
         if r.get("family") == "quant":
-            check("TH-quant-%s" % r["tag"], "offset quantisation penalty (%s bin)" % r["tag"],
-                  r["pct_vs_stock"], "pole_intervention_curve.csv")
-    # Concept words the reframing depends on.
-    for word, claim in [("semigroup", "local semigroup statement present"),
-                        ("canonical", "canonical readout statement present"),
-                        ("Theorem~1", "Theorem 1 referenced"),
+            check("TH-quant-%s" % r["tag"], "offset quantisation penalty (%s bin, evidence-only in R14)" % r["tag"],
+                  r["pct_vs_stock"], "pole_intervention_curve.csv", where="evidence")
+    # Concept words the R14 exactness-budget chain depends on.
+    for word, claim in [("semigroup", "local semigroup law present"),
+                        ("Theorem 1", "Theorem 1 (spectral-defect bound) present"),
+                        ("Corollary 1", "Corollary 1 (finite-scan certificate) present"),
                         ("varepsilon", "total offset notation present")]:
-        check("TH-word-%s" % word, claim, word, "paper/main.tex")
+        check("TH-word-%s" % word.replace(" ", "-"), claim, word, "paper/main.tex")
     flat_tex = " ".join(raw_tex.split())  # line-wrapping-insensitive phrase matching
-    # 2026-09-19 round 2: scoped-theory and warm-start provenance language.
-    invariants_r2 = [("R2-phase", "h-dependent phase language present (scoped theorem claim)",
-                      "dependent phase" in raw_tex),
-                     ("R2-ridge", "ridge least-squares spectral warm start stated (R4 wording)",
-                      "ridge least-squares spectral warm start" in flat_tex),
-                     ("R2-frozen", "frozen-predictor causal scoping present",
-                      "relies on its learned off-grid placement" in raw_tex),
-                     ("R2-limit", "grid predictor framed as limit, not initialization",
-                      "unit-radius, zero-offset limit" in raw_tex)]
-    for cid, claim, ok in invariants_r2:
-        checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
-                       "checked_against": "paper", "ok": bool(ok)})
-    # 2026-09-19 round 3: implementation-spec accuracy and artifact compliance.
-    invariants_r3 = [("R3-mlp32", "pole head dims 16->64->32 stated (R3 P0-2)",
-                      "16{\\to}64{\\to}32" in flat_tex),
-                     ("R3-mlp128", "gain head dims 16->64->128 stated (R3 P0-2)",
-                      "16{\\to}64{\\to}128" in flat_tex),
-                     ("R3-radius", "snap narrative acknowledges learned radius attenuation (R3 P0-3)",
-                      "despite radius attenuation" in flat_tex),
-                     ("R3-phase-mono", "phase-factor monotonicity scoped to |deps|<1, h<=4 (R3 P0-3)",
-                      "phase factor of Corollary~1 is monotone in $h$" in flat_tex and "near-unit-radius" not in flat_tex),
-                     ("R3-abstract-split", "38.8% per-setting scope carried by sec 4.4 (R3 P0-4; R12 abstract slim-down)",
-                      "with all 162 settings worse" in flat_tex),
-                     ("R3-den", "denoiser included in parameter attribution (R3 P1-3)",
-                      "the operator, the residual denoiser" in flat_tex),
-                     ("R3-kc", "K_c framed as poles-only core, gains in readout (R3 P1-2)",
-                      "whose poles and per-mode readout gains are generated from the CSI history" in flat_tex),
-                     ("R3-caption", "pareto caption states the three-seed-validated operating point (R3 P1-6; R12 scan-claim fix)",
-                      "the reported model is the three-seed-validated operating" in flat_tex),
-                     ("R3-artifact", "figure shipped as Inkscape vector PDF, no raster (Type 3 compliance, R3 P0-1 + R5 vector swap)",
-                      (ROOT / "paper" / "fig1_final.pdf").exists()
-                      and not (ROOT / "paper" / "fig1_final.png").exists())]
-    for cid, claim, ok in invariants_r3:
-        checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
-                       "checked_against": "paper", "ok": bool(ok)})
-    # 2026-09-19 round 4: M1 bound removal + measured/consistent abstract + warm-start precision.
-    invariants_r4 = [("R4-abstract-measured", "horizon growth of the snap penalty stated as a measured series in sec 4.4 (R4; R12 moved out of abstract)",
-                      "the aggregate penalty rises monotonically despite radius attenuation" in flat_tex),
-                     ("R4-warmstart-precise", "warm start described as ridge spectral fit on the grid (R4 P1-2)",
-                      "ridge least-squares spectral warm start on the grid" in flat_tex
-                      and "ridge-warm-started from a spectral fit on the grid" in flat_tex)]
-    for cid, claim, ok in invariants_r4:
-        checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
-                       "checked_against": "paper", "ok": bool(ok)})
-    # 2026-09-20 grid-retrain consumption: pre-registered outcome (c), GRID_RETRAIN_BRIEF_2026-09-18 sec.3.
-    # Provenance: results/analysis/grid_retrain_summary.csv, results/analysis/abloff_shift_attribution.csv,
-    # results/run_csv/GRIDFIX_S{42,43,44}_{full162,gen_gen}.csv, results/run_csv/ABLOFF_*_gen_gen.csv.
-    invariants_r6 = [("R6-gridfix-numbers", "grid-pinned retrain control: both slices + paired CI + three seeds",
-                      "0.1401 against 0.1402" in flat_tex
-                      and "0.2688 against 0.2716 unseen, paired CI $[-0.0037,-0.0020]$, three seeds)" in flat_tex),
-                     ("R6-punchline", "solution-level reliance distinguished from architectural need (Astra sec.9 adoption)",
-                      "the calibrated transfer carries the performance; frozen snapping measures how strongly the fitted parameterization leans on the off-grid freedom" in flat_tex),
-                     ("R6-conclusion-scoped", "reliance statement stays in sec 4.4; conclusion ends on the positive frame (Astra sec.7.6)",
-                      "The frozen predictor's shift advantage therefore relies on its learned off-grid placement" in flat_tex),
-                     ("R6-attrib-denoiser", "unseen-slice shift advantage attributed to denoiser with CI",
-                      "$+20.9\\%$ without it, 95\\% CI $[+0.0431,+0.0713]$" in flat_tex),
-                     ("R6-attrib-decomp-pole", "decomposition secondary; pole removal slightly helps on unseen slice",
-                      "to the delay decomposition ($+4.0\\%$); removing the pole conditioning slightly helps ($-0.9\\%$)" in flat_tex)]
-    for cid, claim, ok in invariants_r6:
-        checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
-                       "checked_against": "paper", "ok": bool(ok)})
-    # 2026-09-20 Astra round consumption: retitle + fused abstract + error-chain theory +
-    # Table-1 regroup + fixed-grid row. Provenance: results/analysis/ablation_table_off.csv
-    # (R01 closure: full 162-row ABLOFF_NOPOLE), results/analysis/abloff_shift_attribution.csv,
-    # DERIVATION_PACKAGE.md (A2/A5, hand-re-derived), make_fig_pareto.py frontier().
-    invariants_r7 = [("R7-title", "title reframed to compact spectral transfer (Astra R03/R04)",
-                      "DD-Koopman: Compact Spectral Transfer for Multi-Step CSI Prediction" in flat_tex),
-                     ("R7-abstract-opener", "abstract opens on the accuracy-cost tradeoff, not a generic-field claim",
-                      "must balance forecasting accuracy against inference cost" in flat_tex),
-                     ("R7-abstract-theory", "abstract carries the error-chain sentence",
-                      "separates input cleaning, spectral propagation and readout calibration" in flat_tex),
-                     ("R7-abstract-closer", "abstract closer: structured spectral parameterization (R7; R12 reviewer adoption)",
-                      "with a structured spectral parameterization" in flat_tex),
-                     ("R7-prop2", "fixed-grid expressivity proposition grounds the retrain control",
-                      "spans every shared linear multi-step predictor" in flat_tex
-                      and "Proposition 2 (fixed-grid expressivity)" in flat_tex),
-                     ("R7-errchain", "error-chain theorem names the three design roles",
-                      "input cleaning controls $e_Z$, pole placement controls $e_K$, and readout calibration controls $e_G$" in flat_tex),
-                     ("R7-corollary", "sensitivity identity demoted to Corollary 1",
-                      "Corollary 1 (single-mode phase law)" in flat_tex
-                      and "phase factor of Corollary~1" in flat_tex),
-                     ("R7-factorial-pole", "factorial pole cell at corrected full-grid value (R01 closure; R10 matrix form)",
-                      "0.1408 & $+0.0011$" in flat_tex),
-                     ("R7-notap", "inert tap-encoding clause removed per C04",
-                      "One implementation choice is not load-bearing" in flat_tex),
-                     ("R7-table-retrained", "fixed-grid retrained row visible in Table 1 (Astra R04)",
-                      "ours, fixed-grid retrained (3 seeds)" in flat_tex),
-                     ("R7-caption-macs", "MACs per row moved to caption footnote",
-                      "804.9M (reference), 6.51M" in flat_tex),
-                     ("R7-pareto-caption", "pareto caption documents non-dominated marking",
-                      "The step line connects the non-dominated points" in flat_tex),
-                     ("R7-fig1-caption", "fig 1 caption names the specific reference, not the field (Astra sec.8)",
-                      "The 21.9M-parameter CSI-4CAST reference attaches the delay domain" in flat_tex),
-                     ("R7-conclusion-chain", "conclusion: analysis/ablation roles separated, no claim that ablations validate the bound (R7; R12 reviewer adoption)",
-                      "The error analysis separates input, propagation and readout contributions" in flat_tex),
-                     ("R7-intro-cleans-first", "intro states the denoiser-first design",
-                      "DD-Koopman cleans the observation first and learns all three from it" in flat_tex)]
-    for cid, claim, ok in invariants_r7:
-        checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
-                       "checked_against": "paper", "ok": bool(ok)})
-    # 2026-09-20 R9: Table 2 (tab:factorial) restores the ablation table as a
-    # complete 2^3 under one protocol (240 ep, seed 42); numbers move from
-    # prose to cells, interpretation sentences stay in the text.
-    invariants_r9 = [("R9-tab2-complete", "Table 2 shows the full 2^3 incl. the decomp+pole pair row",
-                      "0.1458 & $+0.0061$" in flat_tex),
-                     ("R9-tab2-protocol", "Table 2 caption discloses the factorial protocol",
-                      "spectral loss off, 240 epochs, seed 42" in flat_tex),
-                     ("R9-tab2-pointer", "prose references Table 2 for the factorial",
-                      "Table~\\ref{tab:factorial} runs the full $2^3$" in flat_tex),
-                     ("R9-tab2-interpretation", "superadditivity interpretation survives the tabulation",
-                      "costs more than the sum of the parts" in flat_tex),
-                     ("R9-tab2-warmstart-prose", "warm start stays an implementation choice in prose",
-                      "removing the least-squares warm start costs $0.9\\%$" in flat_tex)]
-    for cid, claim, ok in invariants_r9:
-        checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
-                       "checked_against": "paper", "ok": bool(ok)})
-    # 2026-09-20 R12: external-review adoption + zero-tolerance arithmetic sweep
-    # (audit_arithmetic.py). Table 2 delta +0.0708 -> +0.0464 (ablation_table_off.csv
-    # delta_vs_reference), Table 1 gridfix x 1.13 -> 1.12 (0.1401/0.1246, both
-    # rounding conventions), denoiser main effect +30.5% -> +31.7% (mean of the
-    # four flip-pair deltas 0.0382/0.0543/0.0445/0.0404 over ref 0.1397; no CSV
-    # carried 30.5), unprovable noise floor 0.0004 removed, capacity-scan claim
-    # corrected (77k scan point 0.1367 < 0.1402; variant_family_comparison.csv
-    # 77k-vs-173k CI spans zero), off-grid narrative rebalanced out of the
-    # abstract/conclusion (fixed-grid retrain 0.1401 vs 0.1402 is in Table 1),
-    # OOD "majority of cells" sentence removed (all-seedmean favour_cells 40/72,
-    # generalization_seeds.csv), Corollary 1 common-radius hypothesis added,
-    # Proposition 1 exact-recovery/stability split.
-    invariants_r12 = [("R12-tab2-delta", "Table 2 all-three-off delta equals table-precision arithmetic (0.1862-0.1397)",
-                       "0.1862 & $+0.0465$" in flat_tex),
-                      ("R12-tab1-gridfix-x", "Table 1 gridfix ratio recomputed from displayed NMSEs",
-                       "0.1401 & 1.12" in flat_tex),
-                      ("R12-main-effect", "denoiser main effect recomputed from the factorial",
-                       "$+31.7\\%$ average main effect across the four flip pairs" in flat_tex),
-                      ("R12-capacity-claim", "capacity scan stated as competitive, not non-reproducing (reviewer R02)",
-                       "the width scan holds competitive accuracy from 58k to 327k parameters" in flat_tex),
-                      ("R12-alt-arch-range", "alternative architectures scoped to the accuracy range",
-                       "do not reach this range" in flat_tex
-                       and "do not reach its accuracy" in flat_tex),
-                      ("R12-corollary-radius", "Corollary 1 states the common-radius hypothesis (reviewer R04a)",
-                       "share the radius $r$" in flat_tex),
-                      ("R12-prop1-stability", "Prop 1 separates stability from exact recovery (reviewer R04b)",
-                       "stability, not the exact recovery" in flat_tex),
-                      ("R12-structured-param", "off-grid sentence states parameterization + active use (reviewer R04c)",
-                       "structured parameterization of\nthe finite-window spectral transfer" in tex
-                       or "structured parameterization of the finite-window spectral transfer" in flat_tex),
-                      ("R12-conclusion-sensitivity", "conclusion carries the sensitivity statement",
-                       "reveal the strong sensitivity of the fitted off-grid parameterization" in flat_tex)]
-    for cid, claim, ok in invariants_r12:
+
+    # ---- 2026-09-21 R14: the exactness-budget rewrite --------------------
+    # New theorem chain (Prop 1 exactness budget / Thm 1 spectral-defect
+    # bound / Cor 1 finite-scan certificate), new title, rebuilt abstract,
+    # parameter-inventory section, wrap-column defect figure. Replaces the
+    # retired R2-R12 wording blocks; arithmetic stays in audit_arithmetic.
+    invariants_r14 = [
+        # title + abstract
+        ("R14-title", "exactness-on-a-budget title",
+         "DD-Koopman: Exactness on a Budget for Compact Multi-Step CSI Prediction" in flat_tex),
+        ("R14-abs-tension", "abstract carries the zero-DOF endpoint",
+         "the exact transfer is unique with zero degrees of freedom" in flat_tex
+         and "reduces to periodic continuation" in flat_tex),
+        ("R14-abs-budget", "abstract carries 2T(N-K) DOF and the KT/N price",
+         "buys $2T(N{-}K)$ degrees of freedom at a minimum white-noise gain of $KT/N$" in flat_tex),
+        ("R14-abs-certificate", "abstract states the finite-scan certificate",
+         "certified from a finite scan" in flat_tex),
+        ("R14-abs-endpoints", "grid-pinned retrain finding carried in ssec:price",
+         "Pinning the poles to the grid and retraining recovers the reported"
+         in flat_tex),
+        ("R14-abs-allocation", "abstract carries the allocation split "
+         "(R22 review P1-10: numbers dieted, split phrasing kept)",
+         "input-side estimation with a conditional spectral readout" in flat_tex
+         and "173{,}190" in flat_tex),
+        # theory block
+        ("R14-expansion", "branch expansion P_j = W_j F_N with gated mixture",
+         "$P_j=W_jF_N$" in flat_tex
+         and "gates $\\alpha=(1{-}g_1{-}g_2,\\,g_1,\\,g_2)$" in flat_tex),
+        ("R14-semigroup", "conditioned transfer is a semigroup in h",
+         "semigroup law $K_c^{\,h+k}=K_c^{\,h}K_c^{\,k}$" in flat_tex),
+        ("R14-warmstart", "ridge least-squares warm start kept as init choice",
+         "applies the ridge least-squares warm start" in flat_tex),
+        ("R14-prop1", "Prop 1 named, selector explicit, gain normalized",
+         "Proposition 1 (exactness and its price)" in flat_tex
+         and "$P_0=[I_T\\;0]$" in flat_tex
+         and "$G(P_0)=KT/N$" in flat_tex),
+        ("R14-thm1", "Thm 1 states the defect bound and its three-term diagnostic",
+         "Theorem 1 (spectral-defect bound)" in flat_tex
+         and "attained at a single atom" in flat_tex
+         and "model-class defect, input perturbation, and correction" in flat_tex),
+        ("R14-cor1", "Cor 1 states the finite-scan certificate",
+         "Corollary 1 (finite-scan certificate)" in flat_tex
+         and "a finite scan certifies the continuous defect" in flat_tex),
+        ("R14-corr-fp64", "correspondence: double-precision identity + float32 attribution",
+         "3\\times10^{-15}" in flat_tex and "1.97\\times10^{-6}" in flat_tex),
+        ("R14-corr-scan", "correspondence: scan certificate + synthetic coverage",
+         "311{,}040" in flat_tex and "10{,}800" in flat_tex
+         and "3.84" in flat_tex and "2.37--6.24" in flat_tex),
+        ("R14-bib-golub", "Golub & Van Loan cited for the min-norm budget",
+         "golub2013matrix" in raw_tex),
+        ("R14-estimator-split", "estimator/transfer split stated in Method",
+         "Input processing (the estimator)" in flat_tex),
+        # 4.2 parameter inventory
+        ("R14-inventory", "module inventory quoted with shares",
+         "12{,}768 parameters (7.4\%)" in flat_tex
+         and "154{,}328 (89.1\%)" in flat_tex
+         and "1{,}590" in flat_tex and "four scalar gates" in flat_tex
+         and "173{,}190 in total" in flat_tex),
+        ("R14-endpoints", "inventory bridges to the trade-off table",
+         "places this split on the accuracy--efficiency plane" in flat_tex),
+        # 4.3 price of exactness
+        ("R14-pin", "pin-and-retrain control on both slices",
+         "0.1401 against 0.1402" in flat_tex and "0.2688 against 0.2716" in flat_tex),
+        ("R14-pin-rob", "pin control holds on the robustness split",
+         "0.1775 against 0.1761" in flat_tex),
+        ("R14-poles-off", "fitted poles use the freedom",
+         "89\% of trained poles" in flat_tex and "0.05 bins" in flat_tex),
+        ("R14-snap", "frozen snap intervention with mean/per-setting scope",
+         "0.1385 to 0.1923" in flat_tex and "with all 162 settings worse" in flat_tex
+         and "per-mode, per-sample placement" in flat_tex),
+        ("R14-snap-shift", "snap degradation across the four splits",
+         "1{,}728 settings across the four splits" in flat_tex
+         and "$+17.7\%$ to $+38.8\%$" in flat_tex
+         and "$+0.0288$ to $+0.0691$" in flat_tex),
+        ("R14-defect-fig", "wrap-column defect figure wired with readings",
+         "Figure~\\ref{fig:defect} measures the learned transfer's off-grid response" in flat_tex
+         and "falls to 2.10 at $z{=}1$" in flat_tex
+         and "peaks at 7.1 in the mid-band" in flat_tex
+         and "between 4.1 and 8.3" in flat_tex),
+        ("R14-defect-artifact", "defect figure + generator shipped",
+         (ROOT / "paper" / "fig_defect.pdf").exists()
+         and (ROOT / "paper" / "figures" / "make_fig_defect.py").exists()
+         and "fig_defect.pdf" in raw_tex),
+        # 4.4 ablations
+        ("R14-factorial-pole", "factorial pole cell at corrected value",
+         "0.1408 & $+0.0011$" in flat_tex),
+        ("R14-factorial-pair", "factorial pair row present",
+         "0.1458 & $+0.0061$" in flat_tex),
+        ("R14-main-effect", "denoiser main effect recomputed from the factorial",
+         "$+31.7\%$ average main effect across the four flip pairs" in flat_tex),
+        ("R14-attrib-denoiser", "unseen-slice attribution to the denoiser with CI",
+         "$+20.9\%$ without it, 95\% CI $[+0.0431,+0.0713]$" in flat_tex),
+        ("R14-attrib-rest", "decomposition secondary; pole removal helps",
+         "to the delay decomposition ($+4.0\%$); removing the pole conditioning slightly helps ($-0.9\%$)" in flat_tex),
+        ("R14-fredf", "FreDF negative result kept as matched-comparison wording",
+         "every matched comparison trains worse with it (two seeds at 600 epochs, one at 240); we drop it" in flat_tex),
+        ("R14-capacity", "width-insensitivity + data-sensitivity statements",
+         "0.1367--0.1423 across a $5.6\\times$, 58k--327k parameter scan" in flat_tex
+         and "performance is more sensitive to data than to width" in flat_tex),
+        # 4.5 operating point
+        ("R14-tradeoff", "three-seed operating point against the published model",
+         "0.1402 against the published model's 0.1246" in flat_tex
+         and "0.1385, 0.1442 and 0.1378" in flat_tex),
+        ("R14-macs", "MAC counts and ratios at one decimal",
+         "6{,}514{,}464" in flat_tex and "804{,}901,376" in flat_tex
+         and "126.5$\\times$ and 123.6$\\times$" in flat_tex),
+        ("R14-latency", "measured latency pair and speedup",
+         "$2.24\pm0.05$\,ms against $11.15\pm0.02$\,ms" in flat_tex
+         and "4.98$\\times$ faster" in flat_tex),
+        ("R14-mrt", "MRT beamforming comparison kept scoped",
+         "2.06\% vs.\ 2.70\% loss, paired $+0.64$\,pp" in flat_tex),
+        # 4.6 shift
+        ("R14-shift-be", "B/E axis with the delay-spread concentration reading",
+         "Consistent with the estimator-based interpretation" in flat_tex
+         and "$-0.0367$ at 400\,ns" in flat_tex),
+        ("R14-shift-closing", "three-seed unseen advantage stated with per-seed CIs",
+         "0.2685, 0.2767 and 0.2695" in flat_tex
+         and "($-0.0187$, $-0.0105$, $-0.0177$)" in flat_tex),
+        # conclusion
+        ("R14-conclusion", "conclusion carries the chain and the three anchors",
+         "estimator followed by a small linear transfer" in flat_tex
+         and "removal costs rank" in flat_tex
+         and "holds a three-seed unseen-propagation advantage" in flat_tex),
+        ("R14-abstract-split", "38.8% per-setting scope carried by sec 4.3 (kept from R3)",
+         "with all 162 settings worse" in flat_tex),
+        ("R3-caption", "pareto caption states the three-seed-validated operating point",
+         "the reported model is the three-seed-validated operating" in flat_tex),
+        ("R3-artifact", "figure shipped as vector PDF, no raster (Type 3 compliance)",
+         (ROOT / "paper" / "fig1_final.pdf").exists()
+         and not (ROOT / "paper" / "fig1_final.png").exists()),
+        # factorial table protocol (kept from R9)
+        ("R9-tab2-protocol", "Table 2 caption discloses the factorial protocol",
+         "spectral loss off, 240 epochs, seed 42" in flat_tex),
+        ("R9-tab2-pointer", "prose references Table 2 for the factorial",
+         "Table~\\ref{tab:factorial} runs the full $2^3$" in flat_tex),
+        ("R9-tab2-interpretation", "superadditivity interpretation survives the tabulation",
+         "costs more than the sum of the parts" in flat_tex),
+        # ---- R19 exactness ladder + gain conditioning (2026-09-22) ----
+        ("R19-ladder-e0", "full-grid exact transfer scored, worst row, three splits",
+         "3.2883" in flat_tex and "the worst row in" in flat_tex
+         and "2.7558 and 2.7518" in flat_tex),
+        ("R19-ladder-trend", "K-support raise is monotonically worse "
+         "(trend values verified from run_csv, not quoted)",
+         "degrades" in flat_tex and "monotonically" in flat_tex
+         and "suppressing noisy modes" in flat_tex),
+        ("R19-ladder-e1", "release exactness on the same support: LS-fitted gains",
+         "1.2504" in flat_tex and "1.1366 and 1.4767" in flat_tex
+         and "0.8173" in flat_tex
+         and "the model's own warm start" in flat_tex),
+        ("R19-ladder-correspondence", "analytic continuation vs harness correspondence",
+         "1.7\\times10^{-6}" in flat_tex
+         and "analytic continuation" in flat_tex),
+        ("R19-gainoff", "gain-conditioning ablation, both arms, control-anchored",
+         "0.1584 against 0.1386" in flat_tex and "+14.3" in flat_tex
+         and "0.1397" in flat_tex),
+        ("R19-abs-ladder", "abstract opens the measurements with the E0 endpoint",
+         "scores 3.2883 against the learned model's 0.1402" in flat_tex),
+        ("R19-contrib-costs", "contribution 2 ranks the three removal costs",
+         "0.8\\% for pole conditioning, 14.3\\% for the readout gains' observation"
+         in flat_tex and "27.3\\% for the input denoiser" in flat_tex),
+        ("R19-price-title", "ssec:price owns the ladder under its own name",
+         "\\subsection{The price of exactness}" in flat_tex),
+        # ---- R22 pre-submission review integration (2026-09-22) ----
+        ("R22-256", "native LS sample budget disclosed (fit_summary.json: 256 packed samples)",
+         "256-sample fit" in flat_tex and "24{,}300" in flat_tex),
+        ("R22-domain", "certificate scan domain disclosed (diag_lib.py: unit circle, 257 angles, eta = pi/256)",
+         "257" in flat_tex and "pi/256" in flat_tex and "rho{=}1" in flat_tex),
+        ("R22-branch", "branch histories and conditioned operators defined (review P0-3)",
+         "A_0,A_1,A_2" in flat_tex and "P(A_j)" in flat_tex),
+        ("R22-median", "synthetic tightness stated as the measured median, not a blanket range",
+         "median" in flat_tex and "3.84" in flat_tex and "2.37--6.24" in flat_tex),
+    ]
+    for cid, claim, ok in invariants_r14:
         checks.append({"id": cid, "claim": claim, "value": "-", "source": "paper/main.tex",
                        "checked_against": "paper", "ok": bool(ok)})
     # Removed claims must stay removed (negative checks).
@@ -538,7 +620,32 @@ def main():
                         ("+0.0027", "Table 2 delta at table precision (0.1425-0.1397=0.0028) (R12b)"),
                         ("+0.0060", "Table 2 delta at table precision (0.1458-0.1397=0.0061) (R12b)"),
                         ("+0.0464", "Table 2 delta at table precision (0.1862-0.1397=0.0465) (R12b)"),
-                        ("+0.0570", "Table 2 delta at table precision (0.1968-0.1397=0.0571) (R12b)")]:
+                        ("+0.0570", "Table 2 delta at table precision (0.1968-0.1397=0.0571) (R12b)"),
+                        ("11times", "9.8x endpoint gap, never 11x (R14 audit: 11.05 is the ratio-to-published)"),
+                        ("1596", "denoiser params are 1,590, not GPT's 1,596 (V0 inventory)"),
+                        ("220.67", "V6 seed-43 gate junk kept out of the paper"),
+                        ("2.4091", "V6 seed-43 gate value kept out of the paper"),
+                        ("0.2174", "equal-wall-clock control not yet in the paper (P3 pending)"),
+                        ("257point", "PV=Q never scoped to a 257-point grid; 257 appears only as the defect-scan angle count (R22 P1-07)"),
+                        ("mathcalZ_1", "P0V=Q never scoped to the 257-point Z1 grid (V2 red line)"),
+                        ("Informer", "Informer citation removed in the R14 related work"),
+                        ("N-BEATS", "N-BEATS citation removed in the R14 related work"),
+                        ("istight", "the bound is conservative (3-4x), never described as tight (V4 red line)"),
+                        ("DFTGRID (K=1, fixed grid)", "K=1 is adaptive top-1, never a fixed grid (R19)"),
+                        ("What the grid constraint changes", "ssec:price renamed to the price of exactness (R19)"),
+                        ("K=12", "the K=12 counterexample was a construction bug, corrected 09-22 (R19)"),
+                        ("scores 1.3771", "1.3771 is the adaptive top-1 baseline, never the unique exact transfer (GPT final review P5)"),
+                        ("exactness released", "causal exactness-release claim removed; honest contrast only (GPT final review P5)"),
+                        ("released exactness", "same removal, noun form (GPT final review P5)"),
+                        ("the gap measures", "no causal gap claim without a matched control (GPT final review P5)"),
+                        ("bit for bit", "float64 residual is 3e-15, not bit-exact (GPT final review P2)"),
+                        ("cannot help", "capacity necessity inference removed; empirical localization only (GPT final review P0-2)"),
+                        ("P_0A=", "undefined selector A replaced by explicit [I_T 0] (GPT final review P1-1)"),
+                        ("13.4", "gain conditioning is 14.3 under the matched control; 13.4 used the factorial denominator (R22 P0-1)"),
+                        ("doesnotpredict", "aphorism removed; K trend stated as a monotone fact (R22 P0-2)"),
+                        ("Nonecharacterizes", "universal negative replaced by an affirmative contribution (R22 P1-08)"),
+                        ("conservative", "blanket 3-4x range replaced by the measured median 3.84x (R22 P1-06)"),
+                        ("farmorethanany", "overbroad multiplier replaced by largest-measured-degradation (R22 P0-1)")]:
         v = norm(gone)
         checks.append({"id": "NEG-%s" % v.replace(".", "p").replace(" ", "-"),
                        "claim": claim, "value": gone, "source": "paper/main.tex",

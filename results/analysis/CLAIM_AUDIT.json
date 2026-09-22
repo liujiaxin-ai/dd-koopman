@@ -1,0 +1,4657 @@
+{
+ "checks": 580,
+ "passed": 579,
+ "failed": 1,
+ "failures": [
+  {
+   "id": "R14-defect-artifact",
+   "claim": "defect figure + generator shipped",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": false
+  }
+ ],
+ "all": [
+  {
+   "id": "T1-1-nmse",
+   "claim": "Table 1 CSI-4CAST-published NMSE",
+   "value": "0.1246",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-1-params",
+   "claim": "Table 1 CSI-4CAST-published params",
+   "value": "21913750",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-2-nmse",
+   "claim": "Table 1 capacity-XS-77k NMSE",
+   "value": "0.1367",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-2-params",
+   "claim": "Table 1 capacity-XS-77k params",
+   "value": "77110",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-3-nmse",
+   "claim": "Table 1 ours-reported-seed44 NMSE",
+   "value": "0.1378",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-3-params",
+   "claim": "Table 1 ours-reported-seed44 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-4-nmse",
+   "claim": "Table 1 capacity-S-96k NMSE",
+   "value": "0.1383",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-4-params",
+   "claim": "Table 1 capacity-S-96k params",
+   "value": "96326",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-5-nmse",
+   "claim": "Table 1 ours-reported-seed42 NMSE",
+   "value": "0.1385",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-5-params",
+   "claim": "Table 1 ours-reported-seed42 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-6-nmse",
+   "claim": "Table 1 capacity-TINY-58k NMSE",
+   "value": "0.1393",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-6-params",
+   "claim": "Table 1 capacity-TINY-58k params",
+   "value": "57894",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-7-nmse",
+   "claim": "Table 1 capacity-M-250k NMSE",
+   "value": "0.1408",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-7-params",
+   "claim": "Table 1 capacity-M-250k params",
+   "value": "250054",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-8-nmse",
+   "claim": "Table 1 capacity-L-327k NMSE",
+   "value": "0.1423",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-8-params",
+   "claim": "Table 1 capacity-L-327k params",
+   "value": "326918",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-9-nmse",
+   "claim": "Table 1 ours-reported-seed43 NMSE",
+   "value": "0.1442",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-9-params",
+   "claim": "Table 1 ours-reported-seed43 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-10-nmse",
+   "claim": "Table 1 mambacsp-plateau NMSE",
+   "value": "0.1468",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-10-params",
+   "claim": "Table 1 mambacsp-plateau params",
+   "value": "881604",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-11-nmse",
+   "claim": "Table 1 ours-with-loss-seed42 NMSE",
+   "value": "0.1478",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-11-params",
+   "claim": "Table 1 ours-with-loss-seed42 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-12-nmse",
+   "claim": "Table 1 ours-with-loss-240ep-seed43 NMSE",
+   "value": "0.1489",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-12-params",
+   "claim": "Table 1 ours-with-loss-240ep-seed43 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-13-nmse",
+   "claim": "Table 1 ours-with-loss-seed43 NMSE",
+   "value": "0.1528",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-13-params",
+   "claim": "Table 1 ours-with-loss-seed43 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-14-nmse",
+   "claim": "Table 1 ours-with-loss-240ep-seed42 NMSE",
+   "value": "0.156",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-14-params",
+   "claim": "Table 1 ours-with-loss-240ep-seed42 params",
+   "value": "173190",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-15-nmse",
+   "claim": "Table 1 published-architecture-91k NMSE",
+   "value": "0.1807",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-15-params",
+   "claim": "Table 1 published-architecture-91k params",
+   "value": "91410",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-16-nmse",
+   "claim": "Table 1 transformer-262k NMSE",
+   "value": "0.1891",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-16-params",
+   "claim": "Table 1 transformer-262k params",
+   "value": "262432",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-17-nmse",
+   "claim": "Table 1 capacity-matched-transformer NMSE",
+   "value": "0.2106",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-17-params",
+   "claim": "Table 1 capacity-matched-transformer params",
+   "value": "149560",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-18-nmse",
+   "claim": "Table 1 tsmixer-L-2023 NMSE",
+   "value": "0.2177",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-18-params",
+   "claim": "Table 1 tsmixer-L-2023 params",
+   "value": "124337",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-19-nmse",
+   "claim": "Table 1 patchtst-617k NMSE",
+   "value": "0.219",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-19-params",
+   "claim": "Table 1 patchtst-617k params",
+   "value": "616560",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "T1-20-nmse",
+   "claim": "Table 1 mamba-lite-L NMSE",
+   "value": "0.3011",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-20-params",
+   "claim": "Table 1 mamba-lite-L params",
+   "value": "180898",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-21-nmse",
+   "claim": "Table 1 mlp-baseline NMSE",
+   "value": "0.3143",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-21-params",
+   "claim": "Table 1 mlp-baseline params",
+   "value": "580800",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-22-nmse",
+   "claim": "Table 1 gru-baseline NMSE",
+   "value": "0.3239",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-22-params",
+   "claim": "Table 1 gru-baseline params",
+   "value": "283872",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-23-nmse",
+   "claim": "Table 1 itransformer-L-iclr24 NMSE",
+   "value": "0.3877",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-23-params",
+   "claim": "Table 1 itransformer-L-iclr24 params",
+   "value": "302900",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-24-nmse",
+   "claim": "Table 1 timemixer-L-iclr24 NMSE",
+   "value": "0.5814",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-24-params",
+   "claim": "Table 1 timemixer-L-iclr24 params",
+   "value": "157841",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-25-nmse",
+   "claim": "Table 1 dlinear-baseline NMSE",
+   "value": "0.7941",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-25-params",
+   "claim": "Table 1 dlinear-baseline params",
+   "value": "68",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-26-nmse",
+   "claim": "Table 1 tcn-baseline NMSE",
+   "value": "0.8353",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T1-26-params",
+   "claim": "Table 1 tcn-baseline params",
+   "value": "295968",
+   "source": "main_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-1-nmse",
+   "claim": "Table 2 ABLREF NMSE",
+   "value": "0.1496",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-2-nmse",
+   "claim": "Table 2 no-denoiser NMSE",
+   "value": "0.195",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-2-rel",
+   "claim": "Table 2 no-denoiser delta",
+   "value": "30.3",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-3-nmse",
+   "claim": "Table 2 no-decomposition NMSE",
+   "value": "0.1517",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-3-rel",
+   "claim": "Table 2 no-decomposition delta",
+   "value": "1.3",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-4-nmse",
+   "claim": "Table 2 no-conditioned-poles NMSE",
+   "value": "0.1532",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-4-rel",
+   "claim": "Table 2 no-conditioned-poles delta",
+   "value": "2.4",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-5-nmse",
+   "claim": "Table 2 no-denoiser-decomposition NMSE",
+   "value": "0.1992",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-5-rel",
+   "claim": "Table 2 no-denoiser-decomposition delta",
+   "value": "33.1",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-6-nmse",
+   "claim": "Table 2 no-denoiser-poles NMSE",
+   "value": "0.2075",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-6-rel",
+   "claim": "Table 2 no-denoiser-poles delta",
+   "value": "38.6",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-7-nmse",
+   "claim": "Table 2 no-decomposition-poles NMSE",
+   "value": "0.1505",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-7-rel",
+   "claim": "Table 2 no-decomposition-poles delta",
+   "value": "0.6",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-8-nmse",
+   "claim": "Table 2 no-denoiser-decomposition-poles NMSE",
+   "value": "0.2205",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-8-rel",
+   "claim": "Table 2 no-denoiser-decomposition-poles delta",
+   "value": "47.3",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-9-nmse",
+   "claim": "Table 2 no-spectral-loss NMSE",
+   "value": "0.1401",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-9-rel",
+   "claim": "Table 2 no-spectral-loss delta",
+   "value": "6.4",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-10-nmse",
+   "claim": "Table 2 no-spectral-loss-no-poles NMSE",
+   "value": "0.1484",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "T2-10-rel",
+   "claim": "Table 2 no-spectral-loss-no-poles delta",
+   "value": "0.8",
+   "source": "ablation_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEED-1",
+   "claim": "seed study ours-reported/42 ep 600",
+   "value": "0.1385",
+   "source": "seeds_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEED-2",
+   "claim": "seed study ours-reported/43 ep 600",
+   "value": "0.1442",
+   "source": "seeds_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEED-3",
+   "claim": "seed study ours-reported/44 ep 600",
+   "value": "0.1378",
+   "source": "seeds_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEED-4",
+   "claim": "seed study ours-reported/42 ep 240",
+   "value": "0.1401",
+   "source": "seeds_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEED-5",
+   "claim": "seed study ours-with-loss/42 ep 600",
+   "value": "0.1478",
+   "source": "seeds_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEED-6",
+   "claim": "seed study ours-with-loss/43 ep 600",
+   "value": "0.1528",
+   "source": "seeds_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEED-7",
+   "claim": "seed study ours-with-loss/42 ep 240",
+   "value": "0.156",
+   "source": "seeds_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEED-8",
+   "claim": "seed study ours-with-loss/43 ep 240",
+   "value": "0.1489",
+   "source": "seeds_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ROB-1",
+   "claim": "robustness ours-reported-seed42",
+   "value": "0.1772",
+   "source": "robustness_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ROB-2",
+   "claim": "robustness ours-reported-seed43",
+   "value": "0.1735",
+   "source": "robustness_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ROB-3",
+   "claim": "robustness ours-reported-seed44",
+   "value": "0.1777",
+   "source": "robustness_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ROB-4",
+   "claim": "robustness ours-with-loss-seed43",
+   "value": "0.1962",
+   "source": "robustness_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ROB-5",
+   "claim": "robustness ours-with-loss-240ep-seed43",
+   "value": "0.1954",
+   "source": "robustness_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ROB-6",
+   "claim": "robustness ours-T300C64",
+   "value": "0.1943",
+   "source": "robustness_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ROB-7",
+   "claim": "robustness capacity-matched-transformer",
+   "value": "0.2272",
+   "source": "robustness_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ROB-8",
+   "claim": "robustness patchtst-617k",
+   "value": "0.2349",
+   "source": "robustness_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ROB-9",
+   "claim": "robustness mambacsp-plateau",
+   "value": "0.1805",
+   "source": "robustness_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ROB-10",
+   "claim": "robustness CSI-4CAST-published",
+   "value": "0.1623",
+   "source": "robustness_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "GEN-1-ours",
+   "claim": "generalization ours-reported-seed42 ours",
+   "value": "0.2685",
+   "source": "generalization_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "GEN-1-published",
+   "claim": "generalization ours-reported-seed42 published",
+   "value": "0.2872",
+   "source": "generalization_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "GEN-2-ours",
+   "claim": "generalization ours-with-loss-seed42 ours",
+   "value": "0.2951",
+   "source": "generalization_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "GEN-2-published",
+   "claim": "generalization ours-with-loss-seed42 published",
+   "value": "0.2872",
+   "source": "generalization_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "GEN-3-ours",
+   "claim": "generalization ours-with-loss-36combo-slice ours",
+   "value": "0.2582",
+   "source": "generalization_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN-3-published",
+   "claim": "generalization ours-with-loss-36combo-slice published",
+   "value": "0.2603",
+   "source": "generalization_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN-4-ours",
+   "claim": "generalization mambacsp-2026-882k ours",
+   "value": "0.3018",
+   "source": "generalization_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN-4-published",
+   "claim": "generalization mambacsp-2026-882k published",
+   "value": "0.2603",
+   "source": "generalization_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN-5-ours",
+   "claim": "generalization capacity-matched-transformer ours",
+   "value": "0.3203",
+   "source": "generalization_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN-5-published",
+   "claim": "generalization capacity-matched-transformer published",
+   "value": "0.2603",
+   "source": "generalization_table.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-1-ours",
+   "claim": "by-CM all ours",
+   "value": "0.2685",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-1-published",
+   "claim": "by-CM all published",
+   "value": "0.2872",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-2-ours",
+   "claim": "by-CM cmB ours",
+   "value": "0.483",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-2-published",
+   "claim": "by-CM cmB published",
+   "value": "0.5291",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-3-ours",
+   "claim": "by-CM cmE ours",
+   "value": "0.054",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-3-published",
+   "claim": "by-CM cmE published",
+   "value": "0.0453",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-4-ours",
+   "claim": "by-CM le10ms ours",
+   "value": "0.0601",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-4-published",
+   "claim": "by-CM le10ms published",
+   "value": "0.0832",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-5-ours",
+   "claim": "by-CM gt30ms ours",
+   "value": "0.4818",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GENCM-5-published",
+   "claim": "by-CM gt30ms published",
+   "value": "0.4877",
+   "source": "generalization_by_cm.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-ours-params",
+   "claim": "profile ours params",
+   "value": "173190",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-ours-macs",
+   "claim": "profile ours MACs",
+   "value": "6514464",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-published-params",
+   "claim": "profile published params",
+   "value": "21913750",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-published-macs",
+   "claim": "profile published MACs",
+   "value": "804901376",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-mambacsp-params",
+   "claim": "profile mambacsp params",
+   "value": "881604",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-mambacsp-macs",
+   "claim": "profile mambacsp MACs",
+   "value": "2856963584",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-capacity-matched-params",
+   "claim": "profile capacity-matched params",
+   "value": "149560",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-capacity-matched-macs",
+   "claim": "profile capacity-matched MACs",
+   "value": "480000",
+   "source": "profiles_4090.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EFF-param-ratio",
+   "claim": "126.5x parameter ratio",
+   "value": "126.5",
+   "source": "profiles_4090.txt",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "EFF-mac-ratio",
+   "claim": "MAC ratio (paper quotes one decimal, 123.6x)",
+   "value": "123.6",
+   "source": "profiles_4090.txt",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "EFF-latency-ratio",
+   "claim": "4.98x latency ratio",
+   "value": "4.98",
+   "source": "profiles_4090.txt",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "EFF-control-ratio",
+   "claim": "1.29x vs shrunk published architecture",
+   "value": "1.29",
+   "source": "main_table.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "REPRO",
+   "claim": "harness reproduction deviation",
+   "value": "0.105",
+   "source": "harness_reproduction.txt",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-1-ours",
+   "claim": "seeds all-seed42 ours",
+   "value": "0.2685",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-1-diff",
+   "claim": "seeds all-seed42 diff",
+   "value": "-0.0187",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-1-ci_low",
+   "claim": "seeds all-seed42 ci_low",
+   "value": "-0.0283",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-1-ci_high",
+   "claim": "seeds all-seed42 ci_high",
+   "value": "-0.0095",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-2-ours",
+   "claim": "seeds all-seed43 ours",
+   "value": "0.2767",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-2-diff",
+   "claim": "seeds all-seed43 diff",
+   "value": "-0.0105",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-2-ci_low",
+   "claim": "seeds all-seed43 ci_low",
+   "value": "-0.0194",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-2-ci_high",
+   "claim": "seeds all-seed43 ci_high",
+   "value": "-0.0022",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-3-ours",
+   "claim": "seeds all-seed44 ours",
+   "value": "0.2695",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-3-diff",
+   "claim": "seeds all-seed44 diff",
+   "value": "-0.0177",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-3-ci_low",
+   "claim": "seeds all-seed44 ci_low",
+   "value": "-0.0273",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-3-ci_high",
+   "claim": "seeds all-seed44 ci_high",
+   "value": "-0.0086",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-4-ours",
+   "claim": "seeds cmB-seed42 ours",
+   "value": "0.483",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-4-diff",
+   "claim": "seeds cmB-seed42 diff",
+   "value": "-0.046",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-4-ci_low",
+   "claim": "seeds cmB-seed42 ci_low",
+   "value": "-0.0589",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-4-ci_high",
+   "claim": "seeds cmB-seed42 ci_high",
+   "value": "-0.0332",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-5-ours",
+   "claim": "seeds cmB-seed43 ours",
+   "value": "0.4971",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-5-diff",
+   "claim": "seeds cmB-seed43 diff",
+   "value": "-0.032",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-5-ci_low",
+   "claim": "seeds cmB-seed43 ci_low",
+   "value": "-0.0452",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-5-ci_high",
+   "claim": "seeds cmB-seed43 ci_high",
+   "value": "-0.0191",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-6-ours",
+   "claim": "seeds cmB-seed44 ours",
+   "value": "0.487",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-6-diff",
+   "claim": "seeds cmB-seed44 diff",
+   "value": "-0.042",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-6-ci_low",
+   "claim": "seeds cmB-seed44 ci_low",
+   "value": "-0.0557",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-6-ci_high",
+   "claim": "seeds cmB-seed44 ci_high",
+   "value": "-0.0277",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-7-ours",
+   "claim": "seeds cmE-seed42 ours",
+   "value": "0.054",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-7-diff",
+   "claim": "seeds cmE-seed42 diff",
+   "value": "0.0087",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-7-ci_low",
+   "claim": "seeds cmE-seed42 ci_low",
+   "value": "0.0043",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-7-ci_high",
+   "claim": "seeds cmE-seed42 ci_high",
+   "value": "0.0133",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-8-ours",
+   "claim": "seeds cmE-seed43 ours",
+   "value": "0.0564",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-8-diff",
+   "claim": "seeds cmE-seed43 diff",
+   "value": "0.0111",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-8-ci_low",
+   "claim": "seeds cmE-seed43 ci_low",
+   "value": "0.0068",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-8-ci_high",
+   "claim": "seeds cmE-seed43 ci_high",
+   "value": "0.0154",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-9-ours",
+   "claim": "seeds cmE-seed44 ours",
+   "value": "0.0519",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-9-diff",
+   "claim": "seeds cmE-seed44 diff",
+   "value": "0.0067",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-9-ci_low",
+   "claim": "seeds cmE-seed44 ci_low",
+   "value": "0.0025",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-9-ci_high",
+   "claim": "seeds cmE-seed44 ci_high",
+   "value": "0.011",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-10-ours",
+   "claim": "seeds all-seedmean ours",
+   "value": "0.2716",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-10-diff",
+   "claim": "seeds all-seedmean diff",
+   "value": "-0.0156",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-10-ci_low",
+   "claim": "seeds all-seedmean ci_low",
+   "value": "-0.025",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-10-ci_high",
+   "claim": "seeds all-seedmean ci_high",
+   "value": "-0.007",
+   "source": "generalization_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-11-ours",
+   "claim": "seeds cmB-seedmean ours",
+   "value": "0.489",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-11-diff",
+   "claim": "seeds cmB-seedmean diff",
+   "value": "-0.04",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-11-ci_low",
+   "claim": "seeds cmB-seedmean ci_low",
+   "value": "-0.0531",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-11-ci_high",
+   "claim": "seeds cmB-seedmean ci_high",
+   "value": "-0.0271",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-12-ours",
+   "claim": "seeds cmE-seedmean ours",
+   "value": "0.0541",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-12-diff",
+   "claim": "seeds cmE-seedmean diff",
+   "value": "0.0088",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-12-ci_low",
+   "claim": "seeds cmE-seedmean ci_low",
+   "value": "0.0046",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SEEDS-12-ci_high",
+   "claim": "seeds cmE-seedmean ci_high",
+   "value": "0.0132",
+   "source": "generalization_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-1-nmse",
+   "claim": "loss-off ablation ABLOFF_REF",
+   "value": "0.1397",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-2-nmse",
+   "claim": "loss-off ablation ABLOFF_NODENO",
+   "value": "0.1779",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-3-nmse",
+   "claim": "loss-off ablation ABLOFF_NODECOMP",
+   "value": "0.1425",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-4-nmse",
+   "claim": "loss-off ablation ABLOFF_NOPOLE",
+   "value": "0.1408",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-5-nmse",
+   "claim": "loss-off ablation ABLOFF_NODENO_DECOMP",
+   "value": "0.1968",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-6-nmse",
+   "claim": "loss-off ablation ABLOFF_NODENO_POLE",
+   "value": "0.1853",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-7-nmse",
+   "claim": "loss-off ablation ABLOFF_NODECOMP_POLE",
+   "value": "0.1458",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ABLOFF-8-nmse",
+   "claim": "loss-off ablation ABLOFF_NODENO_DECOMP_POLE",
+   "value": "0.1862",
+   "source": "ablation_table_off.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ACD-1-ours",
+   "claim": "A/C/D all ours",
+   "value": "0.2031",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ACD-1-published",
+   "claim": "A/C/D all published",
+   "value": "0.2182",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ACD-1-diff",
+   "claim": "A/C/D all diff",
+   "value": "-0.0151",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ACD-1-ci_low",
+   "claim": "A/C/D all ci_low",
+   "value": "-0.0256",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ACD-1-ci_high",
+   "claim": "A/C/D all ci_high",
+   "value": "-0.0054",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "ACD-2-ours",
+   "claim": "A/C/D cmA ours",
+   "value": "0.2257",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-2-published",
+   "claim": "A/C/D cmA published",
+   "value": "0.2405",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-2-diff",
+   "claim": "A/C/D cmA diff",
+   "value": "-0.0148",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-2-ci_low",
+   "claim": "A/C/D cmA ci_low",
+   "value": "-0.0259",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-2-ci_high",
+   "claim": "A/C/D cmA ci_high",
+   "value": "-0.0043",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-3-ours",
+   "claim": "A/C/D cmC ours",
+   "value": "0.339",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-3-published",
+   "claim": "A/C/D cmC published",
+   "value": "0.3747",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-3-diff",
+   "claim": "A/C/D cmC diff",
+   "value": "-0.0358",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-3-ci_low",
+   "claim": "A/C/D cmC ci_low",
+   "value": "-0.0635",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-3-ci_high",
+   "claim": "A/C/D cmC ci_high",
+   "value": "-0.0092",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-4-ours",
+   "claim": "A/C/D cmD ours",
+   "value": "0.0446",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-4-published",
+   "claim": "A/C/D cmD published",
+   "value": "0.0393",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-4-diff",
+   "claim": "A/C/D cmD diff",
+   "value": "0.0053",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-4-ci_low",
+   "claim": "A/C/D cmD ci_low",
+   "value": "0.0011",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-4-ci_high",
+   "claim": "A/C/D cmD ci_high",
+   "value": "0.0097",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-5-ours",
+   "claim": "A/C/D ds50 ours",
+   "value": "0.2513",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-5-published",
+   "claim": "A/C/D ds50 published",
+   "value": "0.2299",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-5-diff",
+   "claim": "A/C/D ds50 diff",
+   "value": "0.0214",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-5-ci_low",
+   "claim": "A/C/D ds50 ci_low",
+   "value": "0.0142",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-5-ci_high",
+   "claim": "A/C/D ds50 ci_high",
+   "value": "0.0297",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-6-ours",
+   "claim": "A/C/D ds200 ours",
+   "value": "0.1873",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-6-published",
+   "claim": "A/C/D ds200 published",
+   "value": "0.19",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-6-diff",
+   "claim": "A/C/D ds200 diff",
+   "value": "-0.0027",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-6-ci_low",
+   "claim": "A/C/D ds200 ci_low",
+   "value": "-0.0093",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-6-ci_high",
+   "claim": "A/C/D ds200 ci_high",
+   "value": "0.0028",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-7-ours",
+   "claim": "A/C/D ds400 ours",
+   "value": "0.1706",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-7-published",
+   "claim": "A/C/D ds400 published",
+   "value": "0.2346",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-7-diff",
+   "claim": "A/C/D ds400 diff",
+   "value": "-0.064",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-7-ci_low",
+   "claim": "A/C/D ds400 ci_low",
+   "value": "-0.0854",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-7-ci_high",
+   "claim": "A/C/D ds400 ci_high",
+   "value": "-0.0434",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-8-ours",
+   "claim": "A/C/D bandle10 ours",
+   "value": "0.0471",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-8-published",
+   "claim": "A/C/D bandle10 published",
+   "value": "0.0669",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-8-diff",
+   "claim": "A/C/D bandle10 diff",
+   "value": "-0.0198",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-8-ci_low",
+   "claim": "A/C/D bandle10 ci_low",
+   "value": "-0.0397",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-8-ci_high",
+   "claim": "A/C/D bandle10 ci_high",
+   "value": "-0.0035",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-9-ours",
+   "claim": "A/C/D band10to30 ours",
+   "value": "0.1856",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-9-published",
+   "claim": "A/C/D band10to30 published",
+   "value": "0.1995",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-9-diff",
+   "claim": "A/C/D band10to30 diff",
+   "value": "-0.0139",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-9-ci_low",
+   "claim": "A/C/D band10to30 ci_low",
+   "value": "-0.0285",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-9-ci_high",
+   "claim": "A/C/D band10to30 ci_high",
+   "value": "-0.0014",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-10-ours",
+   "claim": "A/C/D bandgt30 ours",
+   "value": "0.3941",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-10-published",
+   "claim": "A/C/D bandgt30 published",
+   "value": "0.4068",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-10-diff",
+   "claim": "A/C/D bandgt30 diff",
+   "value": "-0.0127",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-10-ci_low",
+   "claim": "A/C/D bandgt30 ci_low",
+   "value": "-0.0381",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "ACD-10-ci_high",
+   "claim": "A/C/D bandgt30 ci_high",
+   "value": "0.0108",
+   "source": "generalization_acd_seeds.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "INT-acd-seed-hashes",
+   "claim": "three per-seed A/C/D CSVs pairwise distinct (R13 duplicate-seed guard)",
+   "value": "distinct",
+   "source": "results/run_csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-1",
+   "claim": "classical ladder regular/MODEL",
+   "value": "0.1246",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-2",
+   "claim": "classical ladder regular/WIENER",
+   "value": "0.8236",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-3",
+   "claim": "classical ladder regular/AR",
+   "value": "0.7874",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-4",
+   "claim": "classical ladder regular/PAD",
+   "value": "0.23",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-5",
+   "claim": "classical ladder regular/NP",
+   "value": "1.8081",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-6",
+   "claim": "classical ladder regular/ours-seed42",
+   "value": "0.1385",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-7",
+   "claim": "classical ladder robustness/MODEL",
+   "value": "0.1623",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-8",
+   "claim": "classical ladder robustness/WIENER",
+   "value": "0.7734",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-9",
+   "claim": "classical ladder robustness/AR",
+   "value": "0.7692",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-10",
+   "claim": "classical ladder robustness/PAD",
+   "value": "0.6052",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-11",
+   "claim": "classical ladder robustness/NP",
+   "value": "1.3076",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-12",
+   "claim": "classical ladder robustness/ours-seed42",
+   "value": "0.1772",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-13",
+   "claim": "classical ladder generalization-432/MODEL",
+   "value": "0.2872",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-14",
+   "claim": "classical ladder generalization-432/WIENER",
+   "value": "1.0862",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-15",
+   "claim": "classical ladder generalization-432/AR",
+   "value": "1.0469",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-16",
+   "claim": "classical ladder generalization-432/PAD",
+   "value": "0.3231",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-17",
+   "claim": "classical ladder generalization-432/NP",
+   "value": "2.0492",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-18",
+   "claim": "classical ladder generalization-432/ours-seed42",
+   "value": "0.2685",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-19",
+   "claim": "classical ladder regular/DFTGRID (K=1, adaptive top-1)",
+   "value": "1.3771",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-20",
+   "claim": "classical ladder robustness/DFTGRID (K=1, adaptive top-1)",
+   "value": "1.2465",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-21",
+   "claim": "classical ladder generalization-432/DFTGRID (K=1, adaptive top-1)",
+   "value": "1.279",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-22",
+   "claim": "classical ladder regular/DFTGRID (K=16, full grid)",
+   "value": "3.2883",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-23",
+   "claim": "classical ladder robustness/DFTGRID (K=16, full grid)",
+   "value": "2.7558",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-24",
+   "claim": "classical ladder generalization-432/DFTGRID (K=16, full grid)",
+   "value": "2.7518",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-25",
+   "claim": "classical ladder regular/LS-fitted grid gains (K=16)",
+   "value": "1.2504",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-26",
+   "claim": "classical ladder robustness/LS-fitted grid gains (K=16)",
+   "value": "1.1366",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-27",
+   "claim": "classical ladder generalization-432/LS-fitted grid gains (K=16)",
+   "value": "1.4767",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-28",
+   "claim": "classical ladder regular/LS-fitted grid gains (K=16, full-training fit)",
+   "value": "0.8173",
+   "source": "classical_ladder.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "LADDER-29",
+   "claim": "classical ladder robustness/LS-fitted grid gains (K=16, full-training fit)",
+   "value": "0.7625",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDER-30",
+   "claim": "classical ladder generalization-432/LS-fitted grid gains (K=16, full-training fit)",
+   "value": "1.0545",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-2",
+   "claim": "K=2 full-grid cell mean (ssec:price trend, quoted as monotone)",
+   "value": "1.7825",
+   "source": "results/run_csv/DFTGRID_K2_full162.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-2-asc",
+   "claim": "raising the K support degrades monotonically",
+   "value": "1.3771 -> 1.7825",
+   "source": "results/run_csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-4",
+   "claim": "K=4 full-grid cell mean (ssec:price trend, quoted as monotone)",
+   "value": "2.5235",
+   "source": "results/run_csv/DFTGRID_K4_full162.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-4-asc",
+   "claim": "raising the K support degrades monotonically",
+   "value": "1.7825 -> 2.5235",
+   "source": "results/run_csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-8",
+   "claim": "K=8 full-grid cell mean (ssec:price trend, quoted as monotone)",
+   "value": "3.0204",
+   "source": "results/run_csv/DFTGRID_K8_full162.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-8-asc",
+   "claim": "raising the K support degrades monotonically",
+   "value": "2.5235 -> 3.0204",
+   "source": "results/run_csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "LADDERK-16-asc",
+   "claim": "K=16 closes the monotone trend at the full grid",
+   "value": "3.0204 -> 3.2883",
+   "source": "classical_ladder.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GAINOFF-GAINOFF",
+   "claim": "gain-conditioning arm cell mean (ssec:ablations)",
+   "value": "0.1584",
+   "source": "results/run_csv/GAINOFF_full162.csv",
+   "checked_against": "paper+evidence",
+   "ok": true
+  },
+  {
+   "id": "GAINOFF-GAINOFFREF",
+   "claim": "gain-conditioning arm cell mean (ssec:ablations)",
+   "value": "0.1386",
+   "source": "results/run_csv/GAINOFFREF_full162.csv",
+   "checked_against": "paper+evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN432-1-ours",
+   "claim": "432 control ours, seed 42 (reported)",
+   "value": "0.2685",
+   "source": "generalization_432_summary.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN432-2-ours",
+   "claim": "432 control ours, seed 43",
+   "value": "0.2767",
+   "source": "generalization_432_summary.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN432-3-ours",
+   "claim": "432 control ours, seed 44",
+   "value": "0.2695",
+   "source": "generalization_432_summary.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN432-4-ours",
+   "claim": "432 control CSI-4CAST shrunk (91k, converged)",
+   "value": "0.3039",
+   "source": "generalization_432_summary.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "GEN432-5-ours",
+   "claim": "432 control MambaCSP port (8 ep)",
+   "value": "0.3246",
+   "source": "generalization_432_summary.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "GEN432-6-ours",
+   "claim": "432 control capacity-matched Transformer",
+   "value": "0.3427",
+   "source": "generalization_432_summary.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "POLE-1",
+   "claim": "pole offset stock",
+   "value": "0.1385",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "POLE-2",
+   "claim": "pole offset off000",
+   "value": "0.1923",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "POLE-3",
+   "claim": "pole offset off015",
+   "value": "0.1994",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "POLE-4",
+   "claim": "pole offset off025",
+   "value": "0.2257",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "POLE-5",
+   "claim": "pole offset off050",
+   "value": "0.3626",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-1-diff",
+   "claim": "band le10 seed 42 diff",
+   "value": "-0.023",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-1-ci_low",
+   "claim": "band le10 seed 42 ci_low",
+   "value": "-0.0406",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-1-ci_high",
+   "claim": "band le10 seed 42 ci_high",
+   "value": "-0.0078",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-2-diff",
+   "claim": "band le10 seed 43 diff",
+   "value": "-0.0143",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-2-ci_low",
+   "claim": "band le10 seed 43 ci_low",
+   "value": "-0.0311",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-2-ci_high",
+   "claim": "band le10 seed 43 ci_high",
+   "value": "-0.0005",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-3-diff",
+   "claim": "band le10 seed 44 diff",
+   "value": "-0.0238",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-3-ci_low",
+   "claim": "band le10 seed 44 ci_low",
+   "value": "-0.0415",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-3-ci_high",
+   "claim": "band le10 seed 44 ci_high",
+   "value": "-0.0084",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-4-diff",
+   "claim": "band le10 seed mean diff",
+   "value": "-0.0204",
+   "source": "generalization_by_band.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BAND-4-ci_low",
+   "claim": "band le10 seed mean ci_low",
+   "value": "-0.0378",
+   "source": "generalization_by_band.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BAND-4-ci_high",
+   "claim": "band le10 seed mean ci_high",
+   "value": "-0.0057",
+   "source": "generalization_by_band.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BAND-5-diff",
+   "claim": "band 10to30 seed 42 diff",
+   "value": "-0.0229",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-5-ci_low",
+   "claim": "band 10to30 seed 42 ci_low",
+   "value": "-0.0363",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-5-ci_high",
+   "claim": "band 10to30 seed 42 ci_high",
+   "value": "-0.0104",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-6-diff",
+   "claim": "band 10to30 seed 43 diff",
+   "value": "-0.0167",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-6-ci_low",
+   "claim": "band 10to30 seed 43 ci_low",
+   "value": "-0.0293",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-6-ci_high",
+   "claim": "band 10to30 seed 43 ci_high",
+   "value": "-0.0053",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-7-diff",
+   "claim": "band 10to30 seed 44 diff",
+   "value": "-0.0236",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-7-ci_low",
+   "claim": "band 10to30 seed 44 ci_low",
+   "value": "-0.0366",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-7-ci_high",
+   "claim": "band 10to30 seed 44 ci_high",
+   "value": "-0.0116",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-8-diff",
+   "claim": "band 10to30 seed mean diff",
+   "value": "-0.0211",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-8-ci_low",
+   "claim": "band 10to30 seed mean ci_low",
+   "value": "-0.0339",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-8-ci_high",
+   "claim": "band 10to30 seed mean ci_high",
+   "value": "-0.0092",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-9-diff",
+   "claim": "band gt30 seed 42 diff",
+   "value": "-0.0059",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-9-ci_low",
+   "claim": "band gt30 seed 42 ci_low",
+   "value": "-0.0259",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-9-ci_high",
+   "claim": "band gt30 seed 42 ci_high",
+   "value": "0.0133",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-10-diff",
+   "claim": "band gt30 seed 43 diff",
+   "value": "0.0059",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-10-ci_low",
+   "claim": "band gt30 seed 43 ci_low",
+   "value": "-0.0099",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-10-ci_high",
+   "claim": "band gt30 seed 43 ci_high",
+   "value": "0.0202",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-11-diff",
+   "claim": "band gt30 seed 44 diff",
+   "value": "0.0002",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-11-ci_low",
+   "claim": "band gt30 seed 44 ci_low",
+   "value": "-0.0192",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-11-ci_high",
+   "claim": "band gt30 seed 44 ci_high",
+   "value": "0.0187",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-12-diff",
+   "claim": "band gt30 seed mean diff",
+   "value": "0.0001",
+   "source": "generalization_by_band.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BAND-12-ci_low",
+   "claim": "band gt30 seed mean ci_low",
+   "value": "-0.018",
+   "source": "generalization_by_band.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BAND-12-ci_high",
+   "claim": "band gt30 seed mean ci_high",
+   "value": "0.0169",
+   "source": "generalization_by_band.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BE-1-diff",
+   "claim": "B/E by delay spread all diff",
+   "value": "-0.0156",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-1-ci_low",
+   "claim": "B/E by delay spread all ci_low",
+   "value": "-0.025",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-1-ci_high",
+   "claim": "B/E by delay spread all ci_high",
+   "value": "-0.007",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-2-diff",
+   "claim": "B/E by delay spread ds50 diff",
+   "value": "-0.0017",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-2-ci_low",
+   "claim": "B/E by delay spread ds50 ci_low",
+   "value": "-0.0168",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-2-ci_high",
+   "claim": "B/E by delay spread ds50 ci_high",
+   "value": "0.0118",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-3-diff",
+   "claim": "B/E by delay spread ds200 diff",
+   "value": "-0.0084",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-3-ci_low",
+   "claim": "B/E by delay spread ds200 ci_low",
+   "value": "-0.017",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-3-ci_high",
+   "claim": "B/E by delay spread ds200 ci_high",
+   "value": "-0.0003",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-4-diff",
+   "claim": "B/E by delay spread ds400 diff",
+   "value": "-0.0367",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BE-4-ci_low",
+   "claim": "B/E by delay spread ds400 ci_low",
+   "value": "-0.0549",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BE-4-ci_high",
+   "claim": "B/E by delay spread ds400 ci_high",
+   "value": "-0.0189",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "BE-5-diff",
+   "claim": "B/E by delay spread all diff",
+   "value": "-0.0187",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-5-ci_low",
+   "claim": "B/E by delay spread all ci_low",
+   "value": "-0.0283",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-5-ci_high",
+   "claim": "B/E by delay spread all ci_high",
+   "value": "-0.0095",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-6-diff",
+   "claim": "B/E by delay spread ds50 diff",
+   "value": "-0.0031",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-6-ci_low",
+   "claim": "B/E by delay spread ds50 ci_low",
+   "value": "-0.0175",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-6-ci_high",
+   "claim": "B/E by delay spread ds50 ci_high",
+   "value": "0.0099",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-7-diff",
+   "claim": "B/E by delay spread ds200 diff",
+   "value": "-0.0113",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-7-ci_low",
+   "claim": "B/E by delay spread ds200 ci_low",
+   "value": "-0.0209",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-7-ci_high",
+   "claim": "B/E by delay spread ds200 ci_high",
+   "value": "-0.0022",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-8-diff",
+   "claim": "B/E by delay spread ds400 diff",
+   "value": "-0.0417",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-8-ci_low",
+   "claim": "B/E by delay spread ds400 ci_low",
+   "value": "-0.0608",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-8-ci_high",
+   "claim": "B/E by delay spread ds400 ci_high",
+   "value": "-0.0225",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-9-diff",
+   "claim": "B/E by delay spread all diff",
+   "value": "-0.0105",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-9-ci_low",
+   "claim": "B/E by delay spread all ci_low",
+   "value": "-0.0194",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-9-ci_high",
+   "claim": "B/E by delay spread all ci_high",
+   "value": "-0.0022",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-10-diff",
+   "claim": "B/E by delay spread ds50 diff",
+   "value": "-0.0014",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-10-ci_low",
+   "claim": "B/E by delay spread ds50 ci_low",
+   "value": "-0.018",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-10-ci_high",
+   "claim": "B/E by delay spread ds50 ci_high",
+   "value": "0.0128",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-11-diff",
+   "claim": "B/E by delay spread ds200 diff",
+   "value": "-0.0031",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-11-ci_low",
+   "claim": "B/E by delay spread ds200 ci_low",
+   "value": "-0.0115",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-11-ci_high",
+   "claim": "B/E by delay spread ds200 ci_high",
+   "value": "0.0046",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-12-diff",
+   "claim": "B/E by delay spread ds400 diff",
+   "value": "-0.027",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-12-ci_low",
+   "claim": "B/E by delay spread ds400 ci_low",
+   "value": "-0.0434",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-12-ci_high",
+   "claim": "B/E by delay spread ds400 ci_high",
+   "value": "-0.0108",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-13-diff",
+   "claim": "B/E by delay spread all diff",
+   "value": "-0.0177",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-13-ci_low",
+   "claim": "B/E by delay spread all ci_low",
+   "value": "-0.0273",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-13-ci_high",
+   "claim": "B/E by delay spread all ci_high",
+   "value": "-0.0086",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-14-diff",
+   "claim": "B/E by delay spread ds50 diff",
+   "value": "-0.0006",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-14-ci_low",
+   "claim": "B/E by delay spread ds50 ci_low",
+   "value": "-0.0154",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-14-ci_high",
+   "claim": "B/E by delay spread ds50 ci_high",
+   "value": "0.0133",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-15-diff",
+   "claim": "B/E by delay spread ds200 diff",
+   "value": "-0.0109",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-15-ci_low",
+   "claim": "B/E by delay spread ds200 ci_low",
+   "value": "-0.0193",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-15-ci_high",
+   "claim": "B/E by delay spread ds200 ci_high",
+   "value": "-0.0029",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-16-diff",
+   "claim": "B/E by delay spread ds400 diff",
+   "value": "-0.0416",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-16-ci_low",
+   "claim": "B/E by delay spread ds400 ci_low",
+   "value": "-0.0604",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "BE-16-ci_high",
+   "claim": "B/E by delay spread ds400 ci_high",
+   "value": "-0.023",
+   "source": "generalization_be_by_delay_spread.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-1-mean_diff",
+   "claim": "stats hardening regular-162 seed42 mean_diff",
+   "value": "0.0139",
+   "source": "stats_hardening.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "STATS-1-ci_low",
+   "claim": "stats hardening regular-162 seed42 ci_low",
+   "value": "0.0038",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-1-ci_high",
+   "claim": "stats hardening regular-162 seed42 ci_high",
+   "value": "0.0251",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-2-mean_diff",
+   "claim": "stats hardening regular-162 seed43 mean_diff",
+   "value": "0.0196",
+   "source": "stats_hardening.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "STATS-2-ci_low",
+   "claim": "stats hardening regular-162 seed43 ci_low",
+   "value": "0.0101",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-2-ci_high",
+   "claim": "stats hardening regular-162 seed43 ci_high",
+   "value": "0.0302",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-3-mean_diff",
+   "claim": "stats hardening regular-162 seed44 mean_diff",
+   "value": "0.0132",
+   "source": "stats_hardening.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "STATS-3-ci_low",
+   "claim": "stats hardening regular-162 seed44 ci_low",
+   "value": "0.0029",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-3-ci_high",
+   "claim": "stats hardening regular-162 seed44 ci_high",
+   "value": "0.0245",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-4-mean_diff",
+   "claim": "stats hardening unseen-cm 432 seed42 mean_diff",
+   "value": "-0.0187",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-4-ci_low",
+   "claim": "stats hardening unseen-cm 432 seed42 ci_low",
+   "value": "-0.0283",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-4-ci_high",
+   "claim": "stats hardening unseen-cm 432 seed42 ci_high",
+   "value": "-0.0095",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-5-mean_diff",
+   "claim": "stats hardening unseen-cm 432 seed43 mean_diff",
+   "value": "-0.0105",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-5-ci_low",
+   "claim": "stats hardening unseen-cm 432 seed43 ci_low",
+   "value": "-0.0194",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-5-ci_high",
+   "claim": "stats hardening unseen-cm 432 seed43 ci_high",
+   "value": "-0.0022",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-6-mean_diff",
+   "claim": "stats hardening unseen-cm 432 seed44 mean_diff",
+   "value": "-0.0177",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-6-ci_low",
+   "claim": "stats hardening unseen-cm 432 seed44 ci_low",
+   "value": "-0.0273",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-6-ci_high",
+   "claim": "stats hardening unseen-cm 432 seed44 ci_high",
+   "value": "-0.0086",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-7-mean_diff",
+   "claim": "stats hardening interpolation 108 (3 seeds) mean_diff",
+   "value": "-0.0162",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-7-ci_low",
+   "claim": "stats hardening interpolation 108 (3 seeds) ci_low",
+   "value": "-0.0267",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-7-ci_high",
+   "claim": "stats hardening interpolation 108 (3 seeds) ci_high",
+   "value": "-0.0064",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-8-mean_diff",
+   "claim": "stats hardening robustness-486 seed42 (per setting) mean_diff",
+   "value": "0.015",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-8-ci_low",
+   "claim": "stats hardening robustness-486 seed42 (per setting) ci_low",
+   "value": "0.0105",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-8-ci_high",
+   "claim": "stats hardening robustness-486 seed42 (per setting) ci_high",
+   "value": "0.0194",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-9-mean_diff",
+   "claim": "stats hardening robustness-486 seed43 (per setting) mean_diff",
+   "value": "0.0112",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-9-ci_low",
+   "claim": "stats hardening robustness-486 seed43 (per setting) ci_low",
+   "value": "0.0073",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-9-ci_high",
+   "claim": "stats hardening robustness-486 seed43 (per setting) ci_high",
+   "value": "0.0153",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-10-mean_diff",
+   "claim": "stats hardening robustness-486 seed44 (per setting) mean_diff",
+   "value": "0.0154",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-10-ci_low",
+   "claim": "stats hardening robustness-486 seed44 (per setting) ci_low",
+   "value": "0.0109",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "STATS-10-ci_high",
+   "claim": "stats hardening robustness-486 seed44 (per setting) ci_high",
+   "value": "0.0199",
+   "source": "stats_hardening.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-1",
+   "claim": "intervention on shift slice BE grid-constrained retrain seed 43",
+   "value": "-0.0194",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-2",
+   "claim": "intervention on shift slice BE grid-constrained retrain seed 42",
+   "value": "-0.0192",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-3",
+   "claim": "intervention on shift slice BE ours seed 42 (reported)",
+   "value": "-0.0187",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-4",
+   "claim": "intervention on shift slice BE ours seed 44",
+   "value": "-0.0177",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-5",
+   "claim": "intervention on shift slice BE grid-constrained retrain seed 44",
+   "value": "-0.0166",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-6",
+   "claim": "intervention on shift slice BE ours 75% data",
+   "value": "-0.0143",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-7",
+   "claim": "intervention on shift slice BE 77k variant seed 44",
+   "value": "-0.013",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-8",
+   "claim": "intervention on shift slice BE 77k variant seed 43",
+   "value": "-0.0119",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-9",
+   "claim": "intervention on shift slice BE 77k variant seed 42",
+   "value": "-0.0119",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-10",
+   "claim": "intervention on shift slice BE ours seed 43",
+   "value": "-0.0105",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-11",
+   "claim": "intervention on shift slice BE MambaCSP trained to plateau",
+   "value": "-0.0076",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-12",
+   "claim": "intervention on shift slice BE ours 50% data",
+   "value": "-0.0009",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-13",
+   "claim": "intervention on shift slice BE ours 25% data",
+   "value": "0.0068",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-14",
+   "claim": "intervention on shift slice BE published-architecture 91k",
+   "value": "0.0167",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-15",
+   "claim": "intervention on shift slice BE intervention: reported model, delta=0",
+   "value": "0.0288",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-16",
+   "claim": "intervention on shift slice BE MambaCSP port (8 epochs)",
+   "value": "0.0374",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-17",
+   "claim": "intervention on shift slice BE capacity-matched transformer",
+   "value": "0.0555",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-BE-18",
+   "claim": "intervention on shift slice BE intervention: 77k variant, delta=0",
+   "value": "0.0567",
+   "source": "generalization_432_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ACD-1",
+   "claim": "intervention on shift slice ACD ours seed 44",
+   "value": "-0.0198",
+   "source": "generalization_acd_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ACD-2",
+   "claim": "intervention on shift slice ACD ours seed 42 (reported)",
+   "value": "-0.0166",
+   "source": "generalization_acd_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ACD-3",
+   "claim": "intervention on shift slice ACD ours seed 43",
+   "value": "-0.0089",
+   "source": "generalization_acd_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ACD-4",
+   "claim": "intervention on shift slice ACD intervention: reported model, delta=0",
+   "value": "0.0439",
+   "source": "generalization_acd_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ROB-1",
+   "claim": "intervention on shift slice ROB ours seed 43",
+   "value": "0.0112",
+   "source": "robustness_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ROB-2",
+   "claim": "intervention on shift slice ROB ours seed 42 (reported)",
+   "value": "0.015",
+   "source": "robustness_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ROB-3",
+   "claim": "intervention on shift slice ROB ours seed 44",
+   "value": "0.0154",
+   "source": "robustness_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ROB-4",
+   "claim": "intervention on shift slice ROB MambaCSP trained to plateau",
+   "value": "0.0182",
+   "source": "robustness_extended.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "EXT-ROB-5",
+   "claim": "intervention on shift slice ROB intervention: reported model, delta=0",
+   "value": "0.0691",
+   "source": "robustness_extended.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SNAPCAP-1",
+   "claim": "intervention vs capacity reported-173k",
+   "value": "38.8",
+   "source": "pole_snap_capacity.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "SNAPCAP-2",
+   "claim": "intervention vs capacity capacity-XS-77k",
+   "value": "60.4",
+   "source": "pole_snap_capacity.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "SNAPCAP-3",
+   "claim": "intervention vs capacity capacity-TINY-58k",
+   "value": "37.0",
+   "source": "pole_snap_capacity.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "OFFPCT-1",
+   "claim": "pole offset pct stock",
+   "value": "0.0",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "OFFPCT-2",
+   "claim": "pole offset pct off000",
+   "value": "38.8",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "OFFPCT-3",
+   "claim": "pole offset pct off015",
+   "value": "44.0",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "OFFPCT-4",
+   "claim": "pole offset pct off025",
+   "value": "63.0",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "OFFPCT-5",
+   "claim": "pole offset pct off050",
+   "value": "161.8",
+   "source": "pole_offset_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "MECH-1",
+   "claim": "mechanism ablation ABLOFF_NOWARM",
+   "value": "0.9",
+   "source": "ablation_table_mech.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "MECH-2",
+   "claim": "mechanism ablation ABLOFF_NOTAP",
+   "value": "0.1",
+   "source": "ablation_table_mech.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "DATAFRAC-1",
+   "claim": "data fraction 0.25",
+   "value": "19.0",
+   "source": "data_frac_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "DATAFRAC-2",
+   "claim": "data fraction 0.5",
+   "value": "16.7",
+   "source": "data_frac_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "DATAFRAC-3",
+   "claim": "data fraction 0.75",
+   "value": "3.5",
+   "source": "data_frac_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "DATAFRAC-4",
+   "claim": "data fraction 1.0",
+   "value": "0.0",
+   "source": "data_frac_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "CAPWALK-1",
+   "claim": "capacity scan capacity-TINY",
+   "value": "0.1393",
+   "source": "capacity_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "CAPWALK-2",
+   "claim": "capacity scan capacity-XS",
+   "value": "0.1367",
+   "source": "capacity_curve.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "CAPWALK-3",
+   "claim": "capacity scan capacity-S",
+   "value": "0.1383",
+   "source": "capacity_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "CAPWALK-4",
+   "claim": "capacity scan reported-173k",
+   "value": "0.1385",
+   "source": "capacity_curve.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "CAPWALK-5",
+   "claim": "capacity scan capacity-M",
+   "value": "0.1408",
+   "source": "capacity_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "CAPWALK-6",
+   "claim": "capacity scan capacity-L",
+   "value": "0.1423",
+   "source": "capacity_curve.csv",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "INV-tcn",
+   "claim": "TCN row present (D1 closed)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "INV-natbib",
+   "claim": "no natbib",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "INV-data-needed",
+   "claim": "no DATA_NEEDED marker",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "INV-bib",
+   "claim": "bibliography is references only",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "TH-hh1",
+   "claim": "grid-snap penalty at horizon h1 (measured series, evidence-only in R14)",
+   "value": "23.0",
+   "source": "pole_snap_horizon.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-hh2",
+   "claim": "grid-snap penalty at horizon h2 (measured series, evidence-only in R14)",
+   "value": "31.1",
+   "source": "pole_snap_horizon.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-hh3",
+   "claim": "grid-snap penalty at horizon h3 (measured series, evidence-only in R14)",
+   "value": "40.5",
+   "source": "pole_snap_horizon.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-hh4",
+   "claim": "grid-snap penalty at horizon h4 (measured series, evidence-only in R14)",
+   "value": "45.2",
+   "source": "pole_snap_horizon.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-quant-quant0500",
+   "claim": "offset quantisation penalty (quant0500 bin, evidence-only in R14)",
+   "value": "12.0",
+   "source": "pole_intervention_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-quant-quant0250",
+   "claim": "offset quantisation penalty (quant0250 bin, evidence-only in R14)",
+   "value": "5.5",
+   "source": "pole_intervention_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-quant-quant0125",
+   "claim": "offset quantisation penalty (quant0125 bin, evidence-only in R14)",
+   "value": "0.9",
+   "source": "pole_intervention_curve.csv",
+   "checked_against": "evidence",
+   "ok": true
+  },
+  {
+   "id": "TH-word-semigroup",
+   "claim": "local semigroup law present",
+   "value": "semigroup",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "TH-word-Theorem-1",
+   "claim": "Theorem 1 (spectral-defect bound) present",
+   "value": "Theorem 1",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "TH-word-Corollary-1",
+   "claim": "Corollary 1 (finite-scan certificate) present",
+   "value": "Corollary 1",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "TH-word-varepsilon",
+   "claim": "total offset notation present",
+   "value": "varepsilon",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-title",
+   "claim": "exactness-on-a-budget title",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-abs-tension",
+   "claim": "abstract carries the zero-DOF endpoint",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-abs-budget",
+   "claim": "abstract carries 2T(N-K) DOF and the KT/N price",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-abs-certificate",
+   "claim": "abstract states the finite-scan certificate",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-abs-endpoints",
+   "claim": "grid-pinned retrain finding carried in ssec:price",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-abs-allocation",
+   "claim": "abstract carries the allocation split (R22 review P1-10: numbers dieted, split phrasing kept)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-expansion",
+   "claim": "branch expansion P_j = W_j F_N with gated mixture",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-semigroup",
+   "claim": "conditioned transfer is a semigroup in h",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-warmstart",
+   "claim": "ridge least-squares warm start kept as init choice",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-prop1",
+   "claim": "Prop 1 named, selector explicit, gain normalized",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-thm1",
+   "claim": "Thm 1 states the defect bound and its three-term diagnostic",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-cor1",
+   "claim": "Cor 1 states the finite-scan certificate",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-corr-fp64",
+   "claim": "correspondence: double-precision identity + float32 attribution",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-corr-scan",
+   "claim": "correspondence: scan certificate + synthetic coverage",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-bib-golub",
+   "claim": "Golub & Van Loan cited for the min-norm budget",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-estimator-split",
+   "claim": "estimator/transfer split stated in Method",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-inventory",
+   "claim": "module inventory quoted with shares",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-endpoints",
+   "claim": "inventory bridges to the trade-off table",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-pin",
+   "claim": "pin-and-retrain control on both slices",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-pin-rob",
+   "claim": "pin control holds on the robustness split",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-poles-off",
+   "claim": "fitted poles use the freedom",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-snap",
+   "claim": "frozen snap intervention with mean/per-setting scope",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-snap-shift",
+   "claim": "snap degradation across the four splits",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-defect-fig",
+   "claim": "wrap-column defect figure wired with readings",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-defect-artifact",
+   "claim": "defect figure + generator shipped",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": false
+  },
+  {
+   "id": "R14-factorial-pole",
+   "claim": "factorial pole cell at corrected value",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-factorial-pair",
+   "claim": "factorial pair row present",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-main-effect",
+   "claim": "denoiser main effect recomputed from the factorial",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-attrib-denoiser",
+   "claim": "unseen-slice attribution to the denoiser with CI",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-attrib-rest",
+   "claim": "decomposition secondary; pole removal helps",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-fredf",
+   "claim": "FreDF negative result kept as matched-comparison wording",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-capacity",
+   "claim": "width-insensitivity + data-sensitivity statements",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-tradeoff",
+   "claim": "three-seed operating point against the published model",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-macs",
+   "claim": "MAC counts and ratios at one decimal",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-latency",
+   "claim": "measured latency pair and speedup",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-mrt",
+   "claim": "MRT beamforming comparison kept scoped",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-shift-be",
+   "claim": "B/E axis with the delay-spread concentration reading",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-shift-closing",
+   "claim": "three-seed unseen advantage stated with per-seed CIs",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-conclusion",
+   "claim": "conclusion carries the chain and the three anchors",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R14-abstract-split",
+   "claim": "38.8% per-setting scope carried by sec 4.3 (kept from R3)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R3-caption",
+   "claim": "pareto caption states the three-seed-validated operating point",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R3-artifact",
+   "claim": "figure shipped as vector PDF, no raster (Type 3 compliance)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R9-tab2-protocol",
+   "claim": "Table 2 caption discloses the factorial protocol",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R9-tab2-pointer",
+   "claim": "prose references Table 2 for the factorial",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R9-tab2-interpretation",
+   "claim": "superadditivity interpretation survives the tabulation",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-ladder-e0",
+   "claim": "full-grid exact transfer scored, worst row, three splits",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-ladder-trend",
+   "claim": "K-support raise is monotonically worse (trend values verified from run_csv, not quoted)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-ladder-e1",
+   "claim": "release exactness on the same support: LS-fitted gains",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-ladder-correspondence",
+   "claim": "analytic continuation vs harness correspondence",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-gainoff",
+   "claim": "gain-conditioning ablation, both arms, control-anchored",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-abs-ladder",
+   "claim": "abstract opens the measurements with the E0 endpoint",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-contrib-costs",
+   "claim": "contribution 2 ranks the three removal costs",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R19-price-title",
+   "claim": "ssec:price owns the ladder under its own name",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R22-256",
+   "claim": "native LS sample budget disclosed (fit_summary.json: 256 packed samples)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R22-domain",
+   "claim": "certificate scan domain disclosed (diag_lib.py: unit circle, 257 angles, eta = pi/256)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R22-branch",
+   "claim": "branch histories and conditioned operators defined (review P0-3)",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "R22-median",
+   "claim": "synthetic tightness stated as the measured median, not a blanket range",
+   "value": "-",
+   "source": "paper/main.tex",
+   "checked_against": "paper",
+   "ok": true
+  },
+  {
+   "id": "NEG-0p1383",
+   "claim": "stale capacity lower bound removed",
+   "value": "0.1383",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-126times",
+   "claim": "integer parameter ratio replaced by 126.5x (R13)",
+   "value": "126times",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-124times",
+   "claim": "integer MAC ratio replaced by 123.6x (R13)",
+   "value": "124times",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-1/126",
+   "claim": "fractional parameter ratio replaced by 126.5x (R13)",
+   "value": "1/126",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-onlythereportedmodel'spaireddifferences",
+   "claim": "false exclusivity sentence removed (R13 audit)",
+   "value": "only the reported model's paired differences",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-everyseedtrainsworse",
+   "claim": "unmatched loss claim replaced by matched-comparison wording (R13 audit)",
+   "value": "every seed trains worse",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-nocomparedconfiguration",
+   "claim": "false CI-uniqueness sentence removed",
+   "value": "no compared configuration",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-isolatesthemodules",
+   "claim": "single-seed factorial wording replaced",
+   "value": "isolates the modules",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-givesup",
+   "claim": "defensive tradeoff wording removed",
+   "value": "gives up",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-mustgrowwiththehorizon",
+   "claim": "unconditional horizon-monotonicity claim removed (R2 P0-1)",
+   "value": "must grow with the horizon",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-preciselythemodel'sinitialization",
+   "claim": "false initialization claim removed (R2 P0-2)",
+   "value": "precisely the model's initialization",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-initializedtothegridpredictor",
+   "claim": "false initialization claim removed (R2 P0-2)",
+   "value": "initialized to the grid predictor",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-theaccuracylivesin",
+   "claim": "pre-retrain causal claim scoped (R2 P0-4)",
+   "value": "the accuracy lives in",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-strongestpublished",
+   "claim": "unverifiable superlative opener removed (R2 P0-5)",
+   "value": "strongest published",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-horizon-growthpattern",
+   "claim": "abstract monotonicity phrasing scoped (R2 P0-1)",
+   "value": "horizon-growth pattern",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-onebenchmarkfamily",
+   "claim": "self-weakening closer removed (R2 P0-5)",
+   "value": "one benchmark family",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-near-unit-radius",
+   "claim": "init-radius regime framing removed from full-model claims (R3 P0-3)",
+   "value": "near-unit-radius",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-16to64to64",
+   "claim": "wrong MLP head dims removed (R3 P0-2)",
+   "value": "16to64to64",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-modestNMSEmargin",
+   "claim": "self-weakening conclusion phrase removed (R3 P1-5)",
+   "value": "modest NMSE margin",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-Arejectedobjective",
+   "claim": "bold negative-result anchor removed (R3 P1-4)",
+   "value": "A rejected objective",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-favoursthereportedmodel",
+   "claim": "caption naming made explicit (R3 P1-6)",
+   "value": "favours the reported model",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-degradesall162officialsettingsby",
+   "claim": "38.8% semantics fixed: mean vs per-setting (R3 P0-4)",
+   "value": "degrades all 162 official settings by",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-oneveryofficialsetting",
+   "claim": "ambiguous 38.8% phrasing removed from abstract (R3 P0-4)",
+   "value": "on every official setting",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-thegainconcentratedinchannelmodelB",
+   "claim": "abstract over-detail delegated to Fig.3 (R3 P1-1)",
+   "value": "the gain concentrated in channel model B",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-costsatmost",
+   "claim": "M1: unconditional quantization amplitude bound removed (R4)",
+   "value": "costs at most",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-Deltavarepsilon|<1",
+   "claim": "undefined notation replaced by |eps-epst|<1 (R5)",
+   "value": "Delta\\varepsilon|<1",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-structuralnecessity",
+   "claim": "pre-registered (c): mechanism claim not upgraded (grid-retrain)",
+   "value": "structural necessity",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-structurallynecessary",
+   "claim": "pre-registered (c): mechanism claim not upgraded (grid-retrain)",
+   "value": "structurally necessary",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-mechanism-checked",
+   "claim": "abstract closer de-hedged (Astra R03 adoption)",
+   "value": "mechanism-checked",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-0p1437",
+   "claim": "truncation-artifact NOPOLE value removed (R01 closure)",
+   "value": "0.1437",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-and2p8alone",
+   "claim": "truncation-inflated pole cost removed (R01 closure)",
+   "value": "and $2.8\\%$ alone",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-tapencoding",
+   "claim": "inert tap-encoding ablation clause removed (C04)",
+   "value": "tap encoding",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-same-protocolnoisefloor",
+   "claim": "unprovable 0.0004 noise floor removed (R12 arithmetic sweep)",
+   "value": "same-protocol noise floor",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-ratherthanamajorityofcells",
+   "claim": "OOD sentence contradicted 40/72 seed-mean wins (R12; generalization_seeds.csv)",
+   "value": "rather than a majority of cells",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-Snappingthelearnedoffsetsontothegrid",
+   "claim": "abstract no longer carries the snap numbers; sec 4.4 keeps them (R12)",
+   "value": "Snapping the learned offsets onto the grid",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-donotreproducethetradeoff",
+   "claim": "capacity-scan claim contradicted Fig 2 non-dominated 77k point (R12)",
+   "value": "do not reproduce the tradeoff",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-+0p0708",
+   "claim": "Table 2 arithmetic error removed (R12)",
+   "value": "+0.0708",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-30p5maineffect",
+   "claim": "unprovenanced main-effect value replaced by recomputed 31.7% (R12)",
+   "value": "30.5\\%$ main effect",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-expressexactlywhatthegrid",
+   "claim": "grid-expressivity overclaim removed, conflicts with Prop 2 (R12)",
+   "value": "express exactly what the grid",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-+0p0027",
+   "claim": "Table 2 delta at table precision (0.1425-0.1397=0.0028) (R12b)",
+   "value": "+0.0027",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-+0p0060",
+   "claim": "Table 2 delta at table precision (0.1458-0.1397=0.0061) (R12b)",
+   "value": "+0.0060",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-+0p0464",
+   "claim": "Table 2 delta at table precision (0.1862-0.1397=0.0465) (R12b)",
+   "value": "+0.0464",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-+0p0570",
+   "claim": "Table 2 delta at table precision (0.1968-0.1397=0.0571) (R12b)",
+   "value": "+0.0570",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-11times",
+   "claim": "9.8x endpoint gap, never 11x (R14 audit: 11.05 is the ratio-to-published)",
+   "value": "11times",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-1596",
+   "claim": "denoiser params are 1,590, not GPT's 1,596 (V0 inventory)",
+   "value": "1596",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-220p67",
+   "claim": "V6 seed-43 gate junk kept out of the paper",
+   "value": "220.67",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-2p4091",
+   "claim": "V6 seed-43 gate value kept out of the paper",
+   "value": "2.4091",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-0p2174",
+   "claim": "equal-wall-clock control not yet in the paper (P3 pending)",
+   "value": "0.2174",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-257point",
+   "claim": "PV=Q never scoped to a 257-point grid; 257 appears only as the defect-scan angle count (R22 P1-07)",
+   "value": "257point",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-mathcalZ_1",
+   "claim": "P0V=Q never scoped to the 257-point Z1 grid (V2 red line)",
+   "value": "mathcalZ_1",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-Informer",
+   "claim": "Informer citation removed in the R14 related work",
+   "value": "Informer",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-N-BEATS",
+   "claim": "N-BEATS citation removed in the R14 related work",
+   "value": "N-BEATS",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-istight",
+   "claim": "the bound is conservative (3-4x), never described as tight (V4 red line)",
+   "value": "istight",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-DFTGRID(K=1fixedgrid)",
+   "claim": "K=1 is adaptive top-1, never a fixed grid (R19)",
+   "value": "DFTGRID (K=1, fixed grid)",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-Whatthegridconstraintchanges",
+   "claim": "ssec:price renamed to the price of exactness (R19)",
+   "value": "What the grid constraint changes",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-K=12",
+   "claim": "the K=12 counterexample was a construction bug, corrected 09-22 (R19)",
+   "value": "K=12",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-scores1p3771",
+   "claim": "1.3771 is the adaptive top-1 baseline, never the unique exact transfer (GPT final review P5)",
+   "value": "scores 1.3771",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-exactnessreleased",
+   "claim": "causal exactness-release claim removed; honest contrast only (GPT final review P5)",
+   "value": "exactness released",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-releasedexactness",
+   "claim": "same removal, noun form (GPT final review P5)",
+   "value": "released exactness",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-thegapmeasures",
+   "claim": "no causal gap claim without a matched control (GPT final review P5)",
+   "value": "the gap measures",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-bitforbit",
+   "claim": "float64 residual is 3e-15, not bit-exact (GPT final review P2)",
+   "value": "bit for bit",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-cannothelp",
+   "claim": "capacity necessity inference removed; empirical localization only (GPT final review P0-2)",
+   "value": "cannot help",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-P_0A=",
+   "claim": "undefined selector A replaced by explicit [I_T 0] (GPT final review P1-1)",
+   "value": "P_0A=",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-13p4",
+   "claim": "gain conditioning is 14.3 under the matched control; 13.4 used the factorial denominator (R22 P0-1)",
+   "value": "13.4",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-doesnotpredict",
+   "claim": "aphorism removed; K trend stated as a monotone fact (R22 P0-2)",
+   "value": "doesnotpredict",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-Nonecharacterizes",
+   "claim": "universal negative replaced by an affirmative contribution (R22 P1-08)",
+   "value": "Nonecharacterizes",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-conservative",
+   "claim": "blanket 3-4x range replaced by the measured median 3.84x (R22 P1-06)",
+   "value": "conservative",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  },
+  {
+   "id": "NEG-farmorethanany",
+   "claim": "overbroad multiplier replaced by largest-measured-degradation (R22 P0-1)",
+   "value": "farmorethanany",
+   "source": "paper/main.tex",
+   "checked_against": "paper-absent",
+   "ok": true
+  }
+ ]
+}

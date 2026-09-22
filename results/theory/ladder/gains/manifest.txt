@@ -1,0 +1,32 @@
+## gains directory listing (manifest.txt itself excluded)
+$ ls -la <ladder-out>/gains/
+total 36
+drwxr-xr-x 2 root root 4096 Sep 22 06:47 .
+drwxr-xr-x 4 root root 4096 Sep 21 17:50 ..
+-rw-r--r-- 1 root root 2788 Sep 21 17:39 W_full.npz
+-rw-r--r-- 1 root root 2286 Sep 21 17:50 W_full_lambda1e-05.npz
+-rw-r--r-- 1 root root 2286 Sep 21 17:46 W_full_lambda1e-06.npz
+-rw-r--r-- 1 root root 2286 Sep 21 17:43 W_full_lambda1e-07.npz
+-rw-r--r-- 1 root root 2788 Sep 21 17:37 W_native.npz
+-rw-r--r-- 1 root root 2710 Sep 21 17:41 W_periodic.npz
+-rw-r--r-- 1 root root 1574 Sep 21 17:50 fit_summary.json
+
+## sha256sum W_*.npz
+$ sha256sum W_*.npz
+4e394bae7ee31197ced6e5291345bc685ecc8972e38d1f615487b498709633b1  W_full.npz
+54407f87ba59283dd1162b48b4c81884ea7c691f123794757aef21d73c4f02db  W_full_lambda1e-05.npz
+0537dd1c82714b1d9bc6462e4370fda4b828f71831263f6ac116a6226dd35827  W_full_lambda1e-06.npz
+7299d7ee3640f7e3765582ff58f2ec0b4490ab7916e1d2b4d3c058ef684ae916  W_full_lambda1e-07.npz
+40855a5bebbc27bb4f02589e9b503579f803b8621ffff2bab00ac3472dad3c7b  W_native.npz
+b2742e805556215f61e7395852f9cff9c3f8206206d267dc27ad01fac87c6229  W_periodic.npz
+
+## evaluated-code version
+$ sha256sum src/cp/models/baseline/statistical/dftgrid.py src/cp/models/baseline/statistical/lsgains.py src/cp/models/__init__.py src/testing/get_models.py
+394ddbe12af97c7332341dba97b0ec5535d38d4e149df22db2d17437463aaa73  src/cp/models/baseline/statistical/dftgrid.py
+805681f3c535b3078d00887bd1e1024f7f10e2f342b05ccc39328d8491528096  src/cp/models/baseline/statistical/lsgains.py
+327d2ec10ea00543a14a8b022e72fc784e89c880669aa49ed354feaa7857dcee  src/cp/models/__init__.py
+6d09aaa483f61dbf9aceed741f5802b079c0814027dd55e67bf9255e58c57ed5  src/testing/get_models.py
+
+## host and time
+<eval-host>
+Tue Sep 22 06:47:18 UTC 2026

@@ -1,0 +1,13 @@
+## Model sources and patched harness files delivered for the ladder
+# 取件：2026-09-22，来自评测机 <eval-host> 的 harness 实际安装文件（无卡启动）
+# 交付路径 / delivered path: results/theory/ladder/harness_src/
+# 用途：作为 ladder_install.py / ladder_install_lsgains.py 的 --source 输入，或直接拷回 harness
+
+394ddbe12af97c7332341dba97b0ec5535d38d4e149df22db2d17437463aaa73  src\cp\models\baseline\statistical\dftgrid.py
+805681f3c535b3078d00887bd1e1024f7f10e2f342b05ccc39328d8491528096  src\cp\models\baseline\statistical\lsgains.py
+327d2ec10ea00543a14a8b022e72fc784e89c880669aa49ed354feaa7857dcee  modified_harness_files\__init__.py
+6d09aaa483f61dbf9aceed741f5802b079c0814027dd55e67bf9255e58c57ed5  modified_harness_files\get_models.py
+
+## 与 workspace 已有副本的对照（逐字节相同）
+394ddbe12af97c7332341dba97b0ec5535d38d4e149df22db2d17437463aaa73  (workspace) <workspace-checkout>/.../dftgrid.py
+805681f3c535b3078d00887bd1e1024f7f10e2f342b05ccc39328d8491528096  (workspace) <repo>/code/ladder_lsgains.py

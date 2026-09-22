@@ -1,0 +1,31 @@
+{
+  "num_modes": 16,
+  "hist_len": 16,
+  "pred_len": 4,
+  "topk_of_hist_len_is_identity": true,
+  "periodic_extension_max_abs_err": 1.719260808386025e-06,
+  "analytic_vs_harness_max_abs_err": 1.0662403155947686e-06,
+  "analytic_predicts_periodic_extension_max_abs_err": 1.2894456631329376e-06,
+  "scale_of_prediction": 0.8852443695068359,
+  "w_per_row0": [
+    [
+      0.0625,
+      0.0
+    ],
+    [
+      0.0625,
+      0.0
+    ],
+    [
+      0.0625,
+      0.0
+    ],
+    [
+      0.0625,
+      0.0
+    ]
+  ],
+  "dtype": "torch.complex64",
+  "device": "cuda",
+  "passed": true
+}

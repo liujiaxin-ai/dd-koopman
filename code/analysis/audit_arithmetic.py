@@ -116,7 +116,8 @@ SPECIAL = {
     "CSI-4CAST (published)": ("CSI-4CAST-published", None),
     "LLM4CP (published)": (None, 0.1413),
     "no prediction (published)": (None, 1.8081),
-    "DFT-grid extrap.\\ (zero-train)": (None, 1.3771),
+    "Adaptive top-1 DFT-grid extrap.": (None, 1.3771),
+    "Full-grid exact extrap.": (None, 3.2883),
     "\\textbf{ours, mean of 3 seeds}": ("@OURSMEAN", None),
     "ours, fixed-grid retrained (3 seeds)": ("@GRIDFIX", None),
     "MambaCSP (port, plateau)": ("mambacsp-plateau", None),
@@ -159,7 +160,9 @@ for cells in paper_tab1:
         want_x = f"{float(want_nmse) / PUB_NMSE:.2f}"
         rec(f"TAB1-x[{label_key[:18]}]", cells[4], want_x, cells[4] == want_x)
 
-# MAC census: every csv row's MACs in millions, to match the caption list
+# MAC census: every csv row's MACs in millions. The per-model caption list was
+# moved out of Table 2 in R22 (review P1-10); the census stays as an
+# evidence-side sanity check of main_table.csv against the profiled values.
 mac_census = {l: float(r["macs_per_sample"]) / 1e6 for l, r in mt.items()
               if r.get("macs_per_sample") not in ("", "None", None)}
 for l, v in sorted(mac_census.items(), key=lambda kv: kv[1]):
@@ -194,6 +197,26 @@ rec("INLINE-latency-ours", "2.24", f"{lat['CAPLONG']:.2f}")
 rec("INLINE-params-ratio", "126.5", f"{21913750 / 173190:.1f}")
 rec("INLINE-macs-ratio", "123.6", f"{804901376 / 6514464:.1f}")
 rec("INLINE-capwidth-ratio", "5.6", f"{327000 / 58000:.1f}", )
+RUNS = ROOT / "results" / "run_csv"
+
+def arm_cell_mean(name: str) -> float:
+    """Cell mean of a run_csv arm: per-row mean of the 4-horizon NMSE array,
+    then the mean over rows (same aggregation as audit_claims.run_cell_mean).
+    R22 P0-1: the gain-off percentage must be recomputed from the two raw
+    arms, never from a hardcoded denominator."""
+    vals = []
+    for r in csv.DictReader(open(RUNS / name, newline="", encoding="utf-8")):
+        parts = r["nmse_mean"].strip("[]").split()
+        vals.append(sum(float(x) for x in parts) / len(parts))
+    if not vals:
+        raise SystemExit("audit: no rows in results/run_csv/%s" % name)
+    return sum(vals) / len(vals)
+
+_gainoff = arm_cell_mean("GAINOFF_full162.csv")
+_gainref = arm_cell_mean("GAINOFFREF_full162.csv")
+rec("INLINE-gainoff-delta", "+14.3", f"{(_gainoff - _gainref) / _gainref * 100:+.1f}",
+    abs(_gainoff - 0.15841683) < 5e-5 and abs(_gainref - 0.13856775) < 5e-5)
+rec("INLINE-ladder-e0-x", "26.39", f"{3.2883 / 0.1246:.2f}")
 
 # robustness per-setting paired-diff range "+0.0112 to +0.0154"
 rob = [float(r["paired_diff"]) for r in rows("robustness_extended.csv")
@@ -263,16 +286,27 @@ rec("INLINE-mrt-gap", "0.64", f"{lo - lp:.2f}", f"{lo - lp:.2f}" == "0.64")
 
 # classical ladder strings quoted in prose
 lad = {(r["split"], r["model"]): float(r["cell_mean_nmse"]) for r in rows("classical_ladder.csv")}
-DFT = "DFTGRID (K=1, fixed grid)"
+DFT = "DFTGRID (K=1, adaptive top-1)"
+FGX = "DFTGRID (K=16, full grid)"
+LSG = "LS-fitted grid gains (K=16)"
+LSGF = "LS-fitted grid gains (K=16, full-training fit)"
 for want, key in (("0.2300", ("regular", "PAD")),
                   ("0.7874", ("regular", "AR")),
                   ("0.8236", ("regular", "WIENER")),
                   ("1.3771", ("regular", DFT)),
+                  ("3.2883", ("regular", FGX)),
+                  ("1.2504", ("regular", LSG)),
+                  ("0.8173", ("regular", LSGF)),
                   ("0.3231", ("generalization-432", "PAD")),
                   ("1.0469", ("generalization-432", "AR")),
                   ("1.0862", ("generalization-432", "WIENER")),
+                  ("2.7518", ("generalization-432", FGX)),
+                  ("1.4767", ("generalization-432", LSG)),
+                  ("1.0545", ("generalization-432", LSGF)),
                   ("1.2465", ("robustness", DFT)),
-                  ("1.2790", ("generalization-432", DFT))):
+                  ("2.7558", ("robustness", FGX)),
+                  ("1.1366", ("robustness", LSG)),
+                  ("0.7625", ("robustness", LSGF))):
     got = lad.get(key)
     rec(f"INLINE-ladder-{key[1]}-{key[0]}", want,
         got, got is not None and f"{got:.4f}" == want)

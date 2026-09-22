@@ -17,6 +17,15 @@ generalization-432,AR,432,1.0469,results/reference/official_per_setting.csv
 generalization-432,PAD,432,0.3231,results/reference/official_per_setting.csv
 generalization-432,NP,432,2.0492,results/reference/official_per_setting.csv
 generalization-432,ours-seed42,432,0.2685,results/run_csv/CAPNOAUX600_gen_gen.csv
-regular,"DFTGRID (K=1, fixed grid)",162,1.3771,results/run_csv/DFTGRID_K1_full162.csv
-robustness,"DFTGRID (K=1, fixed grid)",486,1.2465,results/run_csv/DFTGRID_K1_robust486.csv
-generalization-432,"DFTGRID (K=1, fixed grid)",432,1.279,results/run_csv/DFTGRID_K1_gen432.csv
+regular,"DFTGRID (K=1, adaptive top-1)",162,1.3771,results/run_csv/DFTGRID_K1_full162.csv
+robustness,"DFTGRID (K=1, adaptive top-1)",486,1.2465,results/run_csv/DFTGRID_K1_robust486.csv
+generalization-432,"DFTGRID (K=1, adaptive top-1)",432,1.279,results/run_csv/DFTGRID_K1_gen432.csv
+regular,"DFTGRID (K=16, full grid)",162,3.2883,results/run_csv/DFTGRID_K16_full162.csv
+robustness,"DFTGRID (K=16, full grid)",486,2.7558,results/run_csv/DFTGRID_K16_robust486.csv
+generalization-432,"DFTGRID (K=16, full grid)",432,2.7518,results/run_csv/DFTGRID_K16_gen432.csv
+regular,LS-fitted grid gains (K=16),162,1.2504,results/run_csv/LSGAINS_K16_full162.csv
+robustness,LS-fitted grid gains (K=16),486,1.1366,results/run_csv/LSGAINS_K16_robust486.csv
+generalization-432,LS-fitted grid gains (K=16),432,1.4767,results/run_csv/LSGAINS_K16_gen432.csv
+regular,"LS-fitted grid gains (K=16, full-training fit)",162,0.8173,results/run_csv/LSGAINSFULL_K16_full162.csv
+robustness,"LS-fitted grid gains (K=16, full-training fit)",486,0.7625,results/run_csv/LSGAINSFULL_K16_robust486.csv
+generalization-432,"LS-fitted grid gains (K=16, full-training fit)",432,1.0545,results/run_csv/LSGAINSFULL_K16_gen432.csv

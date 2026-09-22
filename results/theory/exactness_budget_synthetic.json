@@ -1,0 +1,63 @@
+{
+  "seed": 20260921,
+  "dtype": "complex128",
+  "construction": "S_K = {omega^0, ..., omega^{K-1}} with omega = exp(2 pi i / N), N = 16, i.e. K distinct N-th roots of unity, nested in K",
+  "correction": "2026-09-21: the first draft selected the K-th roots of unity (theta = 2 pi k / K). For K = 12 those nodes are not N-th roots of unity, the Vandermonde orthogonality V^H V = N I fails, and ||P0||_F^2 = 4.0 instead of K T / N = 3.0. The construction was wrong, not the formula; this file records the corrected run.",
+  "K16_full": {
+    "V_invertible_cond": 1.0000000000000016,
+    "P0V_minus_Q_2": 2.976069933294784e-15,
+    "P0A_minus_periodic_2": 7.252965013409717e-15
+  },
+  "K4": {
+    "mode_set_size": 4,
+    "max_abs_zN_minus_1": 1.2134894847643834e-15,
+    "rank": 32,
+    "expected_rank": 32,
+    "nullity": 96,
+    "expected_nullity": 96,
+    "P0V_minus_Q_2": 2.0428518844447895e-15,
+    "norm_P0_F2": 1.0000000000000004,
+    "KT_over_N": 1.0,
+    "budget_abs_error": 4.440892098500626e-16,
+    "budget_rel_error": 4.440892098500626e-16
+  },
+  "K8": {
+    "mode_set_size": 8,
+    "max_abs_zN_minus_1": 1.771085655840083e-15,
+    "rank": 64,
+    "expected_rank": 64,
+    "nullity": 64,
+    "expected_nullity": 64,
+    "P0V_minus_Q_2": 3.4545560767055206e-15,
+    "norm_P0_F2": 2.0000000000000013,
+    "KT_over_N": 2.0,
+    "budget_abs_error": 1.3322676295501878e-15,
+    "budget_rel_error": 6.661338147750939e-16
+  },
+  "K12": {
+    "mode_set_size": 12,
+    "max_abs_zN_minus_1": 9.43349423725415e-15,
+    "rank": 96,
+    "expected_rank": 96,
+    "nullity": 32,
+    "expected_nullity": 32,
+    "P0V_minus_Q_2": 5.803988447037001e-15,
+    "norm_P0_F2": 3.0000000000000027,
+    "KT_over_N": 3.0,
+    "budget_abs_error": 2.6645352591003757e-15,
+    "budget_rel_error": 8.881784197001252e-16
+  },
+  "K16": {
+    "mode_set_size": 16,
+    "max_abs_zN_minus_1": 1.0415578775453262e-14,
+    "rank": 128,
+    "expected_rank": 128,
+    "nullity": 0,
+    "expected_nullity": 0,
+    "P0V_minus_Q_2": 8.24353258792435e-15,
+    "norm_P0_F2": 4.0000000000000036,
+    "KT_over_N": 4.0,
+    "budget_abs_error": 3.552713678800501e-15,
+    "budget_rel_error": 8.881784197001252e-16
+  }
+}

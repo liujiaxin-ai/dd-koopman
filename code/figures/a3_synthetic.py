@@ -32,7 +32,7 @@ from pathlib import Path
 os.environ.setdefault("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", "1")
 
 # machine-local default; set CSI4CAST_ROOT (or pass --out) on another host
-HARNESS = Path(os.environ.get("CSI4CAST_ROOT", "/root/rivermind-data/csi4cast/code/CSI-4CAST-main"))
+HARNESS = Path(os.environ.get("CSI4CAST_ROOT", "<harness-root>"))
 sys.path.insert(0, str(HARNESS))
 os.chdir(HARNESS)
 
@@ -95,8 +95,8 @@ def resolve_ours(ckpt: str | None):
 def resolve_published():
     """Prefer the path whose parameter count is the published 21,913,750."""
     candidates = [HARNESS / "z_artifacts/weights/tdd/model/model.ckpt"]
-    candidates.append(Path("/root/rivermind-data/csi4cast/registry_backup_model_102238.ckpt"))
-    candidates += [Path(p) for p in glob.glob("/root/rivermind-data/csi4cast/**/registry_backup_model_*.ckpt", recursive=True)]
+    candidates.append(Path("<eval-out>/registry_backup_model_102238.ckpt"))
+    candidates += [Path(p) for p in glob.glob("<eval-out>/**/registry_backup_model_*.ckpt", recursive=True)]
     for path in candidates:
         if not path.exists():
             continue

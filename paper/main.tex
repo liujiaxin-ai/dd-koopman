@@ -2,9 +2,10 @@
 % preamble: article + spconf.sty + IEEEbib.bst. Do not regenerate the class.
 \documentclass{article}
 \usepackage{spconf,amsmath,amssymb,graphicx,url}
+\usepackage{wrapfig}
 \usepackage{booktabs}
 \usepackage{microtype}
-\usepackage[hidelinks, pdftitle={DD-Koopman: Compact Spectral Transfer for Multi-Step CSI Prediction}, pdfauthor={Jiaxin Liu}]{hyperref}
+\usepackage[hidelinks, pdftitle={DD-Koopman: Exactness on a Budget for Compact Multi-Step CSI Prediction}, pdfauthor={Jiaxin Liu}]{hyperref}
 
 % --- notation shortcuts -----------------------------------------------------
 \newcommand{\Hm}{\mathbf{H}}
@@ -12,9 +13,35 @@
 \newcommand{\cc}{\mathbf{c}}
 
 % tight float separation: keeps the added ablation table inside 4 body pages
-\setlength{\textfloatsep}{6pt plus 2pt minus 3pt}
+\setlength{\textfloatsep}{2pt}
+\setlength{\dbltextfloatsep}{2pt}
+\setlength{\floatsep}{2pt plus 1.5pt minus 1pt}
+\setlength{\dblfloatsep}{2pt plus 1.5pt minus 1pt}
+\setlength{\abovecaptionskip}{2pt}
+% wrapfigure breathing room: text beside the wrapped figure
+\setlength{\intextsep}{4pt}
 
-\title{DD-Koopman: Compact Spectral Transfer for Multi-Step CSI Prediction}
+% tighter heading spacing than the article defaults (spconf restyles only the fonts)
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-2pt}{1.5ex}%
+  {\normalfont\Large\bfseries}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+  {-2pt}{1.0ex}%
+  {\normalfont\large\bfseries}}
+\makeatother
+
+% spconf.sty hardcodes \vskip 10pt above every caption; match paragraph rhythm
+\makeatletter
+\long\def\@makecaption#1#2{%
+ \vskip 3pt%
+ \setbox\@tempboxa\hbox{#1. #2}%
+ \ifdim \wd\@tempboxa >\hsize #1. #2\par \else \hbox
+to\hsize{\hfil\box\@tempboxa\hfil}%
+ \fi}
+\makeatother
+
+\title{DD-Koopman: Exactness on a Budget for Compact Multi-Step CSI Prediction}
 
 \name{Jiaxin Liu}
 \address{Nanjing University}
@@ -24,21 +51,25 @@
 \maketitle
 
 \begin{abstract}
-Multi-step channel state information (CSI) prediction must balance
-forecasting accuracy against inference cost. We propose DD-Koopman, a
-compact predictor that cleans the observed history, lifts it into the
-delay--Doppler plane, and evolves it there: its poles and per-mode gains
-are generated from the observation; the diagonal core is fixed across
-horizons and satisfies an exact semigroup law. A calibrated
-finite-window readout with zero-gated corrections completes the model. A
-closed-form analysis separates input cleaning, spectral propagation and
-readout calibration. On the official TDD grid it reaches 0.1402 mean NMSE
-against the 21.9M-parameter reference's 0.1246, with 126.5$\times$ fewer
-parameters and 4.98$\times$ lower latency. Across three seeds it improves
-mean NMSE on unseen propagation, each paired 95\% CI below zero.
-DD-Koopman is a compact
-alternative to generic CSI backbones with a structured spectral
-parameterization.
+Multi-step channel state information (CSI) prediction is usually cast as
+sequence-to-sequence learning, yet a specular channel's future is fixed by
+a few parameters: state estimation followed by a small linear
+extrapolation, and the budget belongs in the estimator. DD-Koopman builds
+that split -- input-side estimation with a conditional spectral readout
+over a parameter-free delay--Doppler lift -- in 173{,}190 parameters,
+reaches 0.1402 mean NMSE against the 21.9M-parameter reference's 0.1246 at
+126.5$\times$ fewer parameters and 4.98$\times$ lower latency, and improves
+on a 432-setting unseen-propagation slice across three seeds. Exact
+prediction of a $K$-mode exponential support requires $PV=Q$: at full grid
+support the exact transfer is unique with zero degrees of freedom and
+reduces to periodic continuation, while covering $K$ grid modes buys
+$2T(N{-}K)$ degrees of freedom at a minimum white-noise gain of $KT/N$; off
+grid, the worst-case mixture error is the budget times the spectral
+defect, certified from a finite scan. The measurements close the loop: the
+zero-parameter exact transfer scores 3.2883 against the learned model's
+0.1402, a fitted readout on the same 16 grid bins removes most of that
+error, and the largest measured degradation is estimator-side, not
+transfer-side.
 \end{abstract}
 
 \begin{keywords}
@@ -50,8 +81,7 @@ Channel prediction, CSI, operator learning, delay--Doppler, parameter efficiency
 
 The CSI prediction task is to forecast the next four channel states from
 sixteen historical observations on a
-$4{\times}4{\times}2$ MIMO array over 300 subcarriers; adaptive
-modulation, handover and beam management consume its output. The
+$4{\times}4{\times}2$ MIMO array over 300 subcarriers. The
 CSI-4CAST benchmark~\cite{csi4cast_2025} standardises the
 splits and the metric and publishes a reference model that reaches a mean
 normalised mean square error (NMSE) of 0.1246 on its official 162-setting
@@ -60,44 +90,43 @@ reproduces the published
 number within $0.105\%$ (the benchmark does not seed its RNG), so every
 comparison below runs on the same protocol.
 
-Prior work treats the delay domain as an input feature for a generic
-backbone: the delay-domain view enters as features or a side branch,
-while the multi-step evolution on top remains a generic sequence model.
-
-DD-Koopman instead places the evolution operator itself in the
-delay--Doppler plane. A specular
-channel is a finite sum of complex exponentials; when each component has constant
-Doppler over the observation window, its one-slot evolution is
-multiplication by a complex exponential, so the exact predictor is diagonal
-in that plane. The classical zero-training DFT-grid extrapolator cannot
-express off-grid Doppler, decaying components or the scene-dependent
-scattering that sets each mode's radius; DD-Koopman cleans the
-observation first and learns all three from it.
+Per-path frequency, radius and delay amplitude fix a specular
+channel's future, so the task is short-window identification and
+extrapolation rather than sequence modelling. The
+analysis below characterizes which transfers are exact, what full-grid
+periodic exactness costs on this benchmark, and how badly a transfer
+degrades off its support; the
+experiments locate the practical bottleneck: the exact transfer itself scores 3.2883 against the learned model's 0.1402, and removing the input-side denoiser costs 27.3\% NMSE.
 
 Our contributions are:
 \begin{enumerate}\itemsep1pt
-\item \textbf{Compact observation-conditioned spectral transfer.} We place
-the evolution operator in the delay--Doppler plane: a diagonal core
-$K_c$ whose poles and per-mode readout gains are generated from the CSI
-history, preceded by a residual denoiser and delay-aware input processing
-(173{,}190 parameters). Held fixed across horizons, the core satisfies an
-exact local semigroup with non-expansive powers; the classical DFT-grid
-extrapolator appears as its unit-radius, zero-offset limit, and training
-starts from a ridge least-squares spectral warm start on the grid.
-\item \textbf{An analysis that separates the three error sources.} For the
-diagonal operator we derive a closed-form bound that splits multi-step
-prediction error into input-cleaning, propagation and readout-calibration
-terms, with the single-mode phase law as a special case; a representation
-proposition shows why a grid-pinned retrain can recover the reported
-accuracy (\S\ref{ssec:ablations}).
-\item \textbf{A validated accuracy--efficiency operating point.} DD-Koopman
-reaches 0.1402 mean NMSE against the published reference's 0.1246 while
-using 126.5$\times$ fewer parameters and running 4.98$\times$ faster; the width
-scan holds competitive accuracy from 58k to 327k parameters, while
-shrunk and parameter-matched alternative architectures do not reach this
-range. Across three seeds the model
-improves mean NMSE on a 432-setting unseen-propagation slice, each paired
-CI entirely below zero (\S\ref{ssec:main}, \S\ref{ssec:shift}).
+\item \textbf{Exactness as a budget.} We characterize finite-window
+spectral extrapolation as a constrained problem: exact prediction of a
+$K$-mode exponential support requires $PV=Q$ -- unique with zero
+degrees of freedom at full grid support, $2T(N{-}K)$ real degrees of
+freedom at $K$ modes with the minimum white-noise gain $KT/N$ attained
+by the minimum-norm member $P_0=QV^{\dagger}$ -- and over a compact
+off-grid class the worst-case noiseless error is the amplitude budget
+times the spectral defect, certifiable from a finite scan.
+\item \textbf{A predictor built to the split.} DD-Koopman separates
+estimation from extrapolation: a 12{,}768-parameter
+conditioned spectral operator carries 7.4\% of the 173{,}190 parameters,
+the rest in input processing. The split is testable, and the tests
+agree: a grid-pinned retrain matches the reported model, so off-grid
+pole placement is not necessary once the estimator and readout are
+re-optimized; removal costs under matched 240-epoch controls rank the
+roles -- 0.8\% for pole conditioning, 14.3\% for the readout gains'
+observation conditioning, 27.3\% for the input denoiser.
+\item \textbf{Design dominates capacity, and the analysis is checkable.}
+Accuracy stays within 0.1367--0.1423 across a $5.6\times$ parameter scan
+(58k--327k) while comparable-capacity architectures remain above 0.18; on
+the frozen checkpoints the transfer expansion reproduces the network
+output exactly and the finite-scan defect certificate holds on every
+evaluated instance. DD-Koopman reaches 0.1402 against the published 0.1246
+with 126.5$\times$ fewer parameters and 4.98$\times$ lower measured
+latency, and improves mean NMSE on a 432-setting unseen-propagation
+slice, each paired CI entirely below zero
+(\S\ref{ssec:main}, \S\ref{ssec:shift}).
 \end{enumerate}
 
 \section{Related Work}
@@ -106,57 +135,62 @@ CI entirely below zero (\S\ref{ssec:main}, \S\ref{ssec:shift}).
 \textbf{Benchmark and published baselines.}
 CSI-4CAST~\cite{csi4cast_2025} provides the training grid, the three test
 splits, the harness, and the published reference rows we compare against,
-including the language-model-based predictor LLM4CP~\cite{llm4cp_2024}. Neural channel
-prediction and feedback predate the
-benchmark~\cite{oshea2017physical,wen2018csinet,lu2020crnet}. Cross-paper NMSE is not comparable, so we use the benchmark's published reference rows and re-implement the Table~\ref{tab:main} models through its harness.
+including the language-model predictor LLM4CP~\cite{llm4cp_2024}; neural
+channel prediction predates the
+benchmark~\cite{oshea2017physical,wen2018csinet,lu2020crnet}. Cross-paper
+NMSE is not comparable, so we use the benchmark's published reference rows
+and re-implement the Table~\ref{tab:main} models through its harness.
 
-\textbf{Delay-domain representations and conditioned spectral evolution.}
+\textbf{Delay-domain representations.}
 OTFS~\cite{hadani2017otfs} made the delay--Doppler plane the modulation
-domain, exploiting the same sparsity.
-Prior work uses the delay domain as an input representation or a
-side branch: ChannelKAN~\cite{channelkan_2026} expands dual-domain features
-via IDFT, MambaCSP~\cite{mambacsp_2026} embeds a delay-domain
-representation next to the frequency view,
-PCGAE-Net~\cite{pcgae_2026} crops to the strongest delay taps, and
-CSI-BERT2~\cite{csibert2_2024} operates on standard representations of
-the same history. We instead make the plane the space where the
-operator is diagonal.
+domain on the same sparsity. ChannelKAN~\cite{channelkan_2026},
+MambaCSP~\cite{mambacsp_2026}, PCGAE-Net~\cite{pcgae_2026} and
+CSI-BERT2~\cite{csibert2_2024} embed delay features next to a generic
+model. We instead study the extrapolation map itself: its exact
+solution set, its noise amplification, and its off-support spectral
+defect, with the plane as the space where the operator is diagonal.
 
 \textbf{Dynamics-based and state-space prediction.}
 The Koopman programme lifts nonlinear dynamics to linear evolution of
 observables~\cite{koopman1931,mezic2005,brunton2017havok}, approximated
-from data by extended dynamic mode
-decomposition~\cite{williams2015koopman}, deep
+by EDMD~\cite{williams2015koopman}, deep
 embeddings~\cite{lusch2018koopman} and neural
-operators~\cite{lu2021deeponet,li2021fno}.
-Structured state-space
-models~\cite{gu2022s4,smith2023s5}, selective
-variants~\cite{mamba_2023} and gated
-recurrences~\cite{orvieto2023lru}, with CSI
-adaptations~\cite{mambacsp_2026,cpmamba_2025}, learn input-dependent recurrences
-in latent coordinates. Our operator is diagonal in an explicit
-delay--Doppler basis, and we measure what one frozen model retains under
-shift.
+operators~\cite{lu2021deeponet,li2021fno}. Structured, selective and
+gated recurrences~\cite{gu2022s4,smith2023s5,mamba_2023,orvieto2023lru},
+with CSI adaptations~\cite{mambacsp_2026,cpmamba_2025}, learn
+input-dependent recurrences in latent coordinates. Our operator is
+diagonal in an explicit delay--Doppler basis with a closed-form
+transfer, and we measure what one frozen model retains under shift.
 
 \textbf{Efficient forecasting backbones.}
 PatchTST~\cite{patchtst_2023}, iTransformer~\cite{itransformer_2024},
-TimeMixer~\cite{timemixer_2024}, TSMixer~\cite{tsmixer_2023},
-Informer~\cite{zhou2021informer}, N-BEATS~\cite{oreshkin2020nbeats} and
-Mamba~\cite{mamba_2023} provide generic forecasting baselines; we
-port, retrain and score them under the budgets stated in
-Table~\ref{tab:main}, alongside the attention~\cite{vaswani2017attention},
-recurrent~\cite{hochreiter1997lstm,cho2014gru} and
-linear~\cite{zeng2023dlinear} families
-they grew from.
+TimeMixer~\cite{timemixer_2024}, TSMixer~\cite{tsmixer_2023} and
+Mamba~\cite{mamba_2023} compactify generic sequence modelling; we port,
+retrain and score them under the budgets stated in Table~\ref{tab:main},
+alongside the attention, recurrent and linear families they grew
+from~\cite{vaswani2017attention,hochreiter1997lstm,cho2014gru,zeng2023dlinear}.
 
 \section{Method}
 \label{sec:method}
 
-Per antenna, the history is $\Hm \in \mathbb{C}^{16\times 300}$ (16
-slots, 300 subcarriers); the target is the next four slots;
-Fig.~\ref{fig:arch} gives the signal path.
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fig1_final}
+  \caption{The 21.9M-parameter CSI-4CAST reference attaches the
+  delay domain to a generic backbone; this work puts the evolution operator
+  in that plane (173,190 parameters): (1) residual denoiser on the observed
+  history; (2)
+  parameter-free IDFT/DFT lift to the delay--Doppler plane;
+  (3) pooled context generating the poles $\zeta_m(\cc)$ and gains
+  $G_h[m](\cc)$, two residual paths gated from zero re-entering it;
+  (4) four-slot prediction.}
+  \label{fig:arch}
+\end{figure*}
 
-\textbf{Lift.} Two parameter-free transforms map the observation into the
+\textbf{Lift.} Per antenna, the history is
+$\Hm \in \mathbb{C}^{16\times 300}$ (16 slots, 300 subcarriers) and the
+target is the next four slots; Fig.~\ref{fig:arch} gives the signal
+path. Two parameter-free transforms map the observation into the
 working basis:
 $a = \mathrm{IDFT}_{\mathrm{sub}}(\Hm)$ converts each slot to its delay
 profile (300 taps), and $\Dd = \mathrm{DFT}_{\mathrm{time}}(a)$ converts
@@ -164,13 +198,25 @@ along time, giving the delay--Doppler plane. A specular channel concentrates
 in a few delay taps and few Doppler modes, so the dynamics live in a
 sparse, physically derived coordinate system; the lift has no parameters,
 and all 173{,}190 parameters belong to the operator, the residual
-denoiser, and the gated correction paths. Concretely: a layer-normalised
-log-power context feeds two MLP heads ($16{\to}64{\to}32$ for the 16
-pole offsets and radius shifts, $16{\to}64{\to}128$ for the $4{\times}16$
-complex gain corrections); a three-filter residual denoiser plus
-the two gated paths carry the remainder.
+denoiser, and the gated correction paths.
 
-\textbf{Diagonal operator with conditioned eigenvalues.}
+\textbf{Input processing (the estimator).}
+A small convolutional \emph{residual denoiser} acts on the input history
+before the lift through a zero-initialised head, starting as the
+identity. Two residual paths then re-enter the \emph{same}
+operator, each contributing a gated difference of two operator
+evaluations, $\hat y=\mathrm{base}+g_1(\mathrm{op}(\mathrm{mix}(x))-
+\mathrm{base})+g_2(\mathrm{op}(\mathrm{res}(x))-\mathrm{base})$:
+$\mathrm{mix}$ applies per-tap adaptive reweighting (initialised to one)
+and a temporal convolution (initialised to zero); $\mathrm{res}$ is the
+unexplained part of a learned delay-profile split, a delay-domain
+analogue of series decomposition~\cite{wu2021autoformer}. Their
+scalar gates start at zero, so the sum initialises to exactly the base;
+each antenna is processed independently with shared weights.
+The parameter inventory in
+\S\ref{ssec:alloc} confirms the estimator split.
+
+\textbf{Conditioned spectral transfer.}
 For horizon $h \in \{1,\dots,4\}$ (target slot $15{+}h$), the base
 prediction extrapolates each mode exponentially:
 \begin{equation}
@@ -191,106 +237,97 @@ $K_c = \mathrm{diag}(\zeta_m(\cc))$ is held fixed across the four
 horizons. The gains $G_h[m](\cc)$ are complex, indexed by horizon and
 mode, shared across delay taps, and modulated per observation from the
 same context; they calibrate the finite-window readout, while the
-semigroup property belongs to $K_c$ alone.
+semigroup law $K_c^{\,h+k}=K_c^{\,h}K_c^{\,k}$, non-expansive in every
+power ($\|K_c^{\,h}\|_2\le 1$), belongs to $K_c$ alone. The reported
+model initializes its offsets on the grid ($\delta_m$, $\Delta_m(\cc)$
+start at zero) and applies the ridge least-squares warm start.
 
-\textbf{Proposition 1 (grid limit and stability).} If every component's
-Doppler lies on the 16-point grid and stays constant over the window, the
-canonical readout $g_m = \tfrac{1}{16}\,e^{j2\pi\cdot 15m/16}$ with
-unit-modulus poles reproduces the channel exactly at every horizon
-through \eqref{eq:operator}: the grid predictor is the architecture's
-unit-radius, zero-offset limit. The reported model initializes its
-angular offsets on this grid ($\delta_m$ and $\Delta_m(\cc)$ both start
-at zero) and then applies the ridge spectral warm start described below.
-For the learned core, $0 <
-r_m(\cc) < 1$: the semigroup law $K_c^{\,h+k} = K_c^{\,h}K_c^{\,k}$ holds
-exactly and every power is non-expansive, $\|K_c^{\,h}\|_2 \le 1$ ---
-stability, not the exact recovery of the unit-radius grid limit.
-
-\textbf{Proposition 2 (fixed-grid expressivity).} Pin the poles to any
-nonzero values and disable the gain conditioning: setting
-$G_{hm} = (PF_N^{-1})_{hm}\,\zeta_m^{-h}$ makes \eqref{eq:operator}
-realise any time map $P \in \mathbb{C}^{H\times N}$ shared across delay
-taps, so a grid-pinned model with free per-horizon gains spans every
-shared linear multi-step predictor.
-
-\textbf{Theorem 1 (error chain).} Fix the context and compare the
-operator's $h$-step action $\widehat A_h = G_h \widehat K^{\,h} \widehat Z$
-against a reference decomposition
-$A_h^{*} = G_h^{*} K_*^{\,h} Z_*$ of the same coordinates, where
-$\widehat Z$ is the lifted, denoised history the operator is fed,
-$Z_*$ its ideal counterpart, and
-$\|\widehat K\|_2, \|K_*\|_2 \le \rho \le 1$. Then
+\textbf{Effective transfer and notation.} $N{=}16$ history slots,
+$T{=}4$ horizons, $L{=}300$ delay taps; $X\in\mathbb{C}^{N\times L}$ and
+$Y,\widehat Y\in\mathbb{C}^{T\times L}$ in delay coordinates;
+$P\in\mathbb{C}^{T\times N}$ an effective temporal transfer; $z$ an
+exponential factor with atoms
+$v_N(z)=(1,z,\ldots,z^{N-1})^{\mathrm T}$,
+$u_T(z)=(z^{N},\ldots,z^{N+T-1})^{\mathrm T}$; $\mathcal Z$ a designated
+factor set; $\dagger$ the pseudoinverse, $\mathrm{H}$ the conjugate
+transpose. All branches re-enter one operator, so each
+forward pass acts on its branch input through the same conditional
+form: $P_j=W_jF_N$ with $(W_j)_{hm}=G_{hm}(\cc)\,\zeta_m(\cc)^h$, and with
+gates $\alpha=(1{-}g_1{-}g_2,\,g_1,\,g_2)$,
 \begin{equation}
-\begin{split}
-\|\widehat A_h - A_h^{*}\|_F \;\le\;
-\|G_h\|_2 \rho^h e_Z
-+ \|G_h\|_2\, h\rho^{h-1} e_K \|Z_*\|_F \\
-+ e_G\, \rho^h \|Z_*\|_F,
-\end{split}
-\label{eq:errchain}
+\widehat Y=P_XX+R_X,\quad
+P_X=\textstyle\sum_j\alpha_jP_j,\;\;
+R_X=\sum_j\alpha_jP_j(A_j{-}X),
+\label{eq:expansion}
 \end{equation}
-where $e_Z = \|\widehat Z - Z_*\|_F$, $e_K = \|\widehat K - K_*\|_2$ and
-$e_G = \|G_h - G_h^{*}\|_2$: add and subtract $G_h \widehat K^{\,h} Z_*$
-and $G_h K_*^{\,h} Z_*$, then expand
-$\widehat K^{\,h} - K_*^{\,h} = \sum_{j=0}^{h-1}
-\widehat K^{\,h-1-j} (\widehat K - K_*) K_*^{\,j}$, which requires no
-commutativity. The three terms are the three design roles: input
-cleaning controls $e_Z$, pole placement controls $e_K$, and readout
-calibration controls $e_G$. The conditioned heads add a
-context-variation term on top of \eqref{eq:errchain} when the context
-itself is input-dependent (measured net in \S\ref{ssec:ablations}).
+holds exactly, both objects computed from the same pass. Here
+$A_0,A_1,A_2$ are the delay-domain histories reaching the base,
+reweighting/mixer, and decomposition-residual branches, and each
+$P_j$ is recomputed from its branch context, $P_j=P(A_j)$: the
+denoiser, reweighting and decomposition shape both $P_X$ and
+$R_X$. $P_X$ carries $T{\times}N$ complex coefficients, independent
+of the parameter count.
 
-\textbf{Corollary 1 (single-mode phase law).} For one mode where
-$\widehat K = \zeta$ and $K_* = \widetilde{\zeta}$ share the radius $r$,
-the propagation
-difference in \eqref{eq:errchain} is exactly
+\textbf{Proposition 1 (exactness and its price).} For $K\le N$ distinct
+factors, let $V=[v_N(z_k)]$, $Q=[u_T(z_k)]$. A fixed $P$ predicts every
+pair $VB\mapsto QB$ exactly iff $PV=Q$; the solution set has real
+dimension $2T(N{-}K)$, and $P_0=QV^{\dagger}$ is its unique
+minimum-Frobenius-norm member. At full grid support ($K{=}N$ unit roots)
+$Q=[I_T\;0]V$, so the solution is unique with zero degrees of freedom
+and $P_0=[I_T\;0]$: periodic continuation, $\widehat Y=X[0{:}T]$. On a
+grid support the output-noise gain
+$G(P)=\mathbb{E}\|Pe\|_2^2/\sigma^2=\|P\|_F^2$ for
+$e\sim\mathcal{CN}(0,\sigma^2I_N)$ is minimized among exact transfers by
+$P_0$, with $G(P_0)=KT/N$; off grid
+$\operatorname{tr}[Q(V^{\mathrm H}V)^{-1}Q^{\mathrm H}]$ replaces it
+\cite{golub2013matrix}.
+
+\textbf{Theorem 1 (spectral-defect bound).} Let
+$d_P(z)=Pv_N(z)-u_T(z)$ and
+$\delta_{\mathcal Z}(P)=\max_{z\in\mathcal Z}\|d_P(z)\|_2$ over compact
+$\mathcal Z$. Over finite mixtures
+$S=\sum_kv_N(z_k)b_k^{\mathrm T}$,
+$Y=\sum_ku_T(z_k)b_k^{\mathrm T}$ with $z_k\in\mathcal Z$ and
+$\sum_k\|b_k\|_2\le M$, the worst
+noiseless error of a fixed $P$ is exactly $M\,\delta_{\mathcal Z}(P)$,
+attained at a single atom; and the implemented predictor, with $P_X$ and
+$R_X$ fixed by the observed $X$, obeys
 \begin{equation}
-\bigl|\zeta^h - \widetilde{\zeta}^{\,h}\bigr|^2 \;=\; 4\,r^{2h}
-\sin^2\!\Big(\frac{\pi h\,(\varepsilon-\widetilde{\varepsilon})}{16}\Big),
-\label{eq:sensitivity}
+\|\widehat Y-Y\|_F\;\le\;M\,\delta_{\mathcal Z}(P_X)
++\epsilon\|P_X\|_2+\|R_X\|_F
+\label{eq:bound}
 \end{equation}
-(substitute $\zeta = r\,e^{j2\pi(m+\varepsilon)/16}$,
-$\widetilde{\zeta} = r\,e^{j2\pi(m+\widetilde{\varepsilon})/16}$ and use
-$|e^{jx}-e^{jy}| = 2|\sin\frac{x-y}{2}|$): an $h$-dependent phase factor
-weighted by the radius factor $r^{2h}$, whose leading term for small
-offset mismatch is $4r^{2h}\bigl(\pi h(\varepsilon-\widetilde{\varepsilon})/16\bigr)^2$.
-The conditioned poles and gains give a structured parameterization of
-the finite-window spectral transfer, and the frozen checkpoints make
-active use of its off-grid degrees of freedom: 89\% of trained poles sit
-more than 0.05 bins off
-grid, and all 16 modes move across scenes (\S\ref{ssec:ablations}).
+whenever $\|X-S\|_F\le\epsilon$: a per-input diagnostic separating
+model-class defect, input perturbation, and correction magnitude;
+which modules help is established by the matched ablations of
+\S\ref{ssec:ablations}.
 
-\textbf{Gated corrections.}
-A small convolutional \emph{residual denoiser} acts on the input history
-before the lift, through a zero-initialised output head, and therefore
-starts as the identity. Two residual paths then re-enter the \emph{same}
-operator, each contributing a gated difference of two operator evaluations
-\begin{equation}
-\hat y \;=\; \mathrm{base} \;+\; g_1\!\left(\mathrm{op}(\mathrm{mix}(x)) - \mathrm{base}\right)
-\;+\; g_2\!\left(\mathrm{op}(\mathrm{res}(x)) - \mathrm{base}\right),
-\label{eq:forecast}
-\end{equation}
-Here $\mathrm{mix}$ applies per-tap adaptive reweighting (initialised to
-one) and a temporal convolution (initialised to zero); $\mathrm{res}$ is
-the unexplained part of a learned delay-profile split, a delay-domain
-analogue of series decomposition~\cite{wu2021autoformer}. Both paths pass
-through the operator $\mathrm{op}$ of \eqref{eq:operator}, and their
-scalar gates start at zero, so \eqref{eq:forecast} initialises to exactly
-the base; each antenna is processed independently with shared weights.
-Gains initialise from a ridge least-squares spectral transfer.
+\textbf{Corollary 1 (finite-scan certificate).} Let
+$\mathcal G$ be finite with
+$\mathcal Z\cup\mathcal G\subset\{z:|z|\le\rho\}$ and every
+$z\in\mathcal Z$ lie within $\eta$ of some $g\in\mathcal G$. With
+$L_v(\rho)=\big(\sum_{p=1}^{N-1}p^2\rho^{2p-2}\big)^{1/2}$ and
+$L_u(\rho)=\big(\sum_{p=N}^{N+T-1}p^2\rho^{2p-2}\big)^{1/2}$,
+$\delta_{\mathcal Z}(P)\le\widehat\delta_{\mathcal G}(P)
++\eta(\|P\|_2L_v(\rho) + L_u(\rho))$, where $\widehat\delta_{\mathcal G}$
+is the grid maximum: a finite scan certifies the continuous defect.
 
-\begin{figure*}[t]
-  \centering
-  \includegraphics[width=0.91\textwidth]{fig1_final}
-  \caption{Overview. The 21.9M-parameter CSI-4CAST reference attaches the
-  delay domain to a generic backbone; this work puts the evolution operator
-  in that plane (173,190 parameters). (1) A residual denoiser, starting as
-  the identity, cleans each antenna's history. (2) A parameter-free
-  IDFT/DFT lift exposes the sparse delay--Doppler spectrum. (3) A pooled
-  context generates the poles $\zeta_m(\cc)$ and gains $G_h[m](\cc)$; two
-  residual paths, gated from zero, re-enter the same operator. (4) The model predicts the next four slots.}
-  \label{fig:arch}
-\end{figure*}
+\emph{Proof sketch.} \eqref{eq:expansion} adds and subtracts $X$
+branchwise; $V$ has full column rank (Vandermonde), so every exact $P$
+is $P_0+Z(I{-}VV^{\dagger})$, orthogonal to $P_0$
+($P_0(I{-}VV^{\dagger})=0$) with arbitrary $Z$; the bound expands
+the mixture into outer products and attains it at one atom; the
+certificate uses $|z^p-g^p|\le p\rho^{p-1}|z-g|$.~$\blacksquare$
+
+On the frozen checkpoints these objects are measurable: the expansion
+reproduces the network's delay output to floating-point precision
+(relative residual $3\times10^{-15}$ in float64; the float32 residual
+$1.97\times10^{-6}$ is the model's own forward arithmetic). The
+implementation satisfies the finite-scan inequality in all 311{,}040
+evaluated instances -- 257 unit-circle angles, $\rho{=}1$,
+$\eta{=}\pi/256$; the mixture bound \eqref{eq:bound} holds with zero
+violations in 10{,}800 synthetic trials, with median bound-to-true
+ratio 3.84$\times$ (5th--95th percentile 2.37--6.24$\times$).
 
 \section{Experiments}
 \label{sec:exp}
@@ -300,152 +337,100 @@ Gains initialise from a ridge least-squares spectral transfer.
 
 The training grid has 27 subsets (3 channel models $\times$ 3 delay spreads
 $\times$ 3 speeds), 24{,}300 training and 2{,}700 validation samples. The
-test splits are the \emph{regular} split of 162 settings (channel model
-$\times$ delay spread $\times$ speed $\times$ six signal-to-noise ratios
-(SNRs)) and the \emph{robustness} split of 486 settings (phase/burst
-noise and packet drops crossed with the 27 regular combinations). The
+test splits are the \emph{regular} split (162 settings: channel model $\times$
+delay spread $\times$ speed $\times$ six SNRs) and the \emph{robustness}
+split (486 settings: phase/burst noise and packet drops over the 27
+regular combinations). The
 \emph{generalization} slice has 432 settings over 72 combinations drawn
 from channel models B and E, with delay spreads 50/200/400\,ns and speeds
 3--42\,m/s, all absent from training; the metric is the benchmark's mean
-NMSE over the four horizons. For paired
-statistics we
-first average NMSE over the six SNR settings within each
-channel-model--delay--speed cell, then bootstrap the paired cell
-differences (5{,}000 resamples, 95\% CI); the intervals describe variation
-across channel cells for fixed checkpoints. We train with batch 32, Adam~\cite{kingma2015adam}
-at $5{\cdot}10^{-4}$ with a plateau scheduler and early stopping (600
-epochs for the reported configuration, 240 for the ablation table), three
-seeds.
+NMSE over the four horizons. For paired statistics we average NMSE over the six SNRs in each
+channel--delay--speed cell and bootstrap paired cell differences
+(5{,}000 resamples, 95\% CI); intervals describe variation across
+cells. Training uses batch 32, Adam~\cite{kingma2015adam} at
+$5{\cdot}10^{-4}$ with a plateau scheduler and early stopping (600 epochs reported, 240 for the ablation table), three seeds.
 
-\begin{table}[!t]
+
+
+\subsection{Where the parameters go}
+\label{ssec:alloc}
+
+The implementation follows the split: the conditioned spectral operator
+holds 12{,}768 parameters (7.4\%), per-tap reweighting 154{,}328 (89.1\%),
+the temporal mixer 4{,}200, the residual denoiser 1{,}590, the delay
+decomposition 300, and four scalar gates, for 173{,}190 in total.
+Table~\ref{tab:main} places this split on the accuracy--efficiency plane.
+
+\subsection{The price of exactness}
+\label{ssec:price}
+\begin{wrapfigure}{r}{0.5\columnwidth}
 \centering
-\scriptsize
-\renewcommand{\arraystretch}{1.05}
-\setlength{\tabcolsep}{2.8pt}
-\caption{Mean NMSE on the official 162-setting grid. Published rows
-(including the classical predictors) come from the benchmark's reference
-table; all other rows were trained, or for the DFT-grid extrapolator
-fitted without training, and scored through the same harness. $\times$ is
-the ratio to the published row; Budget is the training-epoch cap. MACs
-per antenna history of size $16{\times}300$: 804.9M (reference), 6.51M
-(ours), 2857.0M (MambaCSP port), 15.48M (shrunk), 0.48M, 0.77M and 0.92M
-(transformer rows), 73.77M (TSMixer-L), 0.58M (MLP); the DFT-grid row
-counts learned MACs only, excluding its analytical FFT cost.}
-\label{tab:main}
-\begin{tabular}{lrrrr}
-\toprule
-Model & Params & Budget & NMSE & $\times$ \\
-\midrule
-CSI-4CAST (published)~\cite{csi4cast_2025} & 21{,}913{,}750 & --- & \textbf{0.1246} & 1.00 \\
-LLM4CP (published)~\cite{llm4cp_2024} & --- & --- & 0.1413 & 1.13 \\
-no prediction (published) & --- & --- & 1.8081 & 14.51 \\
-DFT-grid extrap.\ (zero-train) & 0 & --- & 1.3771 & 11.05 \\
-\midrule
-\textbf{ours, mean of 3 seeds} & 173{,}190 & 600 ep & \textbf{0.1402} & 1.13 \\
-ours, fixed-grid retrained (3 seeds) & 173{,}190 & 600 ep & 0.1401 & 1.12 \\
-\midrule
-MambaCSP (port, plateau) & 881{,}604 & 100 ep & 0.1468 & 1.18 \\
-CSI-4CAST shrunk (91k) & 91{,}410 & 240 ep & 0.1807 & 1.45 \\
-Transformer (262k) & 262{,}432 & 240 ep & 0.1891 & 1.52 \\
-capacity-matched TF & 149{,}560 & 240 ep & 0.2106 & 1.69 \\
-TSMixer-L~\cite{tsmixer_2023} & 124{,}337 & 240 ep & 0.2177 & 1.75 \\
-PatchTST~\cite{patchtst_2023} & 616{,}560 & 240 ep & 0.2190 & 1.76 \\
-MLP & 580{,}800 & 240 ep & 0.3143 & 2.52 \\
-\bottomrule
-\multicolumn{5}{@{}p{\columnwidth}@{}}{\rule{0pt}{1.6ex}
-Re-implemented rows are single seed and early-stopped inside their budgets
-under the shared validation rule; the fixed-grid retrained row retrains
-the reported architecture with its offsets pinned to the DFT grid (three
-seeds, \S\ref{ssec:ablations}); the MambaCSP port stopped at its
-validation plateau (last improvement at epoch 93 of 100). The remaining
-ports appear in the text.}
-\end{tabular}
-\end{table}
+\includegraphics[width=\linewidth]{fig_defect.pdf}
+\caption{Off-grid response of the learned transfer (seed 42,
+validation split): radius shows the per-angle median defect
+$\|d_P(z)\|_2$, grey per-cell medians, blue 5th--95th percentile
+bands, dots the 16 DFT bin phases -- reference phases, not
+zero-defect constraints.}
+\label{fig:defect}
+\end{wrapfigure}
+Proposition~1's full-grid exact transfer scores end to end without a
+fitted parameter: it is periodic continuation, reaching 3.2883 on the
+regular split -- the worst row in Table~\ref{tab:main} -- and 2.7558
+and 2.7518 on the shifted splits. Raising the support from the
+adaptive top-1 bin (1.3771) to the full grid degrades monotonically
+across $K\in\{1,2,4,8,16\}$, consistent with truncation suppressing noisy
+modes. Staying inside the same 16-bin representation but replacing
+periodic exactness by a ridge least-squares fit of the same
+$4{\times}16$ gains -- the model's own warm start, a 256-sample fit --
+reaches 1.2504 (1.1366 and 1.4767 shifted), and fitting on all
+24{,}300 training samples reaches 0.8173: within this fixed-grid
+comparison, the exactness constraint accounts for most of the gap
+to the fitted readout; the ablations below assess the rest. The harness's $K{=}16$ transfer matches the
+analytic continuation to float32 precision ($1.7\times10^{-6}$).
 
-\subsection{Main comparison and capacity controls}
-\label{ssec:main}
+Pinning the poles to the grid and retraining recovers the reported
+model: 0.1401 against 0.1402 on the regular split and 0.2688 against
+0.2716 on the generalization slice (three seeds), and the fix holds
+on the 486-setting robustness split (0.1775 against 0.1761). Off-grid
+placement is thus not necessary after re-optimization; the fitted
+checkpoints still use the freedom, with 89\%
+of trained poles more than 0.05 bins off grid and all 16 modes moving
+across scenes. Figure~\ref{fig:defect} measures the learned
+transfer's off-grid response over the unit circle: the defect falls
+to 2.10 at $z{=}1$, peaks at 7.1 in the mid-band, and its per-cell
+peak lies between 4.1 and 8.3 in every one of the 27 propagation
+cells: the median defect stays elevated over a broad mid-band rather
+than being driven by a single angle.
 
-Table~\ref{tab:main} and Fig.~\ref{fig:pareto} give the trade-off. Our
-three-seed mean NMSE is 0.1402 against the published model's 0.1246 (the
-seeds score 0.1385, 0.1442 and 0.1378); the per-seed paired differences
-over the 27 channel cells are $+0.0139$, $+0.0196$ and $+0.0132$, each
-paired 95\% CI entirely above zero.
+Snapping the offsets of an already-fitted checkpoint, every weight
+frozen, moves the fitted transfer outside its calibrated region. Setting $\varepsilon_m(\cc) = 0$ degrades the
+official grid from 0.1385 to 0.1923 ($+38.8\%$) with all 162 settings
+worse, every constant global offset is worse still, so the gain is
+per-mode, per-sample placement, and the penalty rises monotonically over
+horizons. The same
+intervention degrades all 1{,}728 settings across the four splits
+($+17.7\%$ to $+38.8\%$), and on every shifted slice it pushes the
+operator below the published model ($+0.0288$ to $+0.0691$, all CIs
+entirely above zero).
 
-The benchmark's
-classical predictors bound what fixed assumptions deliver: path-delay
-(0.2300 in distribution) collapses to 0.3231 under shift;
-autoregressive (0.7874) and Wiener (0.8236) degrade to 1.0469 and
-1.0862 against the released checkpoint's 0.2872; and the fixed
-16-point DFT-grid extrapolator the operator replaces reaches only
-1.3771, 1.2465 and 1.2790.
-
-We train two compact controls to test whether shrinking the published architecture or a small transformer reproduces this accuracy (Table~\ref{tab:main}, bottom). Shrinking the published architecture to
-91{,}410 parameters and training it to convergence yields 0.1807, still
-1.29$\times$ our three-seed mean; a transformer sized to match our
-parameters reaches 0.2106. The MambaCSP port, trained for 100 epochs to
-its validation plateau, remains behind the reported model on all three
-splits (0.1468, 0.2796 and 0.1805) with 5.1$\times$ our parameters, so
-the shift comparison does not rest on an under-trained baseline. The
-remaining re-implemented ports trail further: GRU 0.3239, TCN 0.8353 and
-DLinear 0.7941 among the generic families, Mamba 0.3011, iTransformer
-0.3877 and TimeMixer 0.5814 among the forecasting ports. Within
-our own architecture, accuracy is width-insensitive (0.1367--0.1423 across a $5.6\times$, 58k--327k parameter scan), while halving
-the training windows costs about 17\% NMSE: over the tested range,
-performance is more sensitive to data than to width. Both controls match our parameter scale, not our architecture.
+\subsection{Ablations: the estimator dominates}
+\label{ssec:ablations}
 
 \begin{figure}[t]
   \centering
   \includegraphics[width=\columnwidth]{fig_pareto}
-  \caption{The accuracy--efficiency plane on the 162-setting grid (log
-  scales): the reported model is the three-seed-validated operating
-  point; the alternative architectures do not reach its accuracy.
-  Star: published model; dots: the three reported seeds; squares: capacity
-  controls (91k shrunk architecture, parameter-matched transformer, 58k--327k capacity scan); triangles: re-implemented baselines. The step
-  line connects the non-dominated points; the 77k square is a single
-  seed, the reported point three-seed-validated.
-  Panel b: the same trade in MACs and latency.}
+  \caption{The accuracy--efficiency plane; the reported model is
+  the three-seed-validated operating point. The star marks the
+  published model, dots the three seeds, squares the capacity
+  controls, triangles the baselines, and the step line the
+  non-dominated points.}
   \label{fig:pareto}
 \end{figure}
-
-\subsection{Behaviour under distribution shift}
-\label{ssec:shift}
-
-We evaluate three frozen checkpoints of the reported configuration on the
-two shifted splits: on the 432-setting generalization slice the three
-seeds score 0.2685, 0.2767 and 0.2695 against the released checkpoint's 0.2872. Each paired
-difference has a 95\% CI entirely below zero ($-0.0187$, $-0.0105$,
-$-0.0177$), and the three-seed mean difference is $-0.0156$
-$[-0.0250,-0.0070]$ over 72 channel cells (5{,}000-resample bootstrap).
-On model B the operator leads on all three seeds
-(three-seed paired difference $-0.0400$, 95\% CI $[-0.0531,-0.0271]$). On
-model E the released checkpoint stays ahead ($+0.0088$ $[+0.0046,+0.0132]$), though its NMSE is an order of magnitude smaller. The advantage that holds on both unseen models
-is mobility: below 10\,m/s the three-seed difference is $-0.0204$
-$[-0.0378,-0.0057]$; above 30\,m/s the two are indistinguishable
-($+0.0001$, CI $[-0.0180,+0.0169]$).
-
-On the same slice the shrunk architecture scores 0.3039 and the
-capacity-matched transformer 0.3427, both paired CIs entirely above
-zero; the plateau-trained MambaCSP port scores 0.2796 ($-0.0076$, CI
-$[-0.0178,+0.0019]$) and the with-loss variant 0.2951, neither
-significant.
-
-On the benchmark's 486-setting robustness split the released checkpoint leads
-consistently: 0.1623 against 0.1772, 0.1735 and 0.1777 across the three
-seeds, with per-setting paired differences of $+0.0112$ to $+0.0154$.
-
-On a second shift axis (channel models A, C and D evaluated outside
-their training delay-spread and speed ranges; TDD only) the operator
-stays ahead on the mean, 0.2031 against the published 0.2182
-($-0.0151$, 95\% CI $[-0.0256,-0.0054]$), with the gain concentrated at
-400\,ns and heterogeneous across conditions.
-
-\subsection{Ablations and the off-grid mechanism}
-\label{ssec:ablations}
 
 \begin{table}[!t]
 \centering
 \scriptsize
-\renewcommand{\arraystretch}{1.0}
+\renewcommand{\arraystretch}{1.15}
 \setlength{\tabcolsep}{7pt}
 \caption{Loss-off factorial on the official grid (spectral loss off, 240
 epochs, seed 42; \checkmark\ = active, off = removed). Deltas are
@@ -466,79 +451,160 @@ off & off & \checkmark & 0.1968 & $+0.0571$ & $+40.9\%$ \\
 \bottomrule
 \end{tabular}
 \end{table}
-
 \textbf{Module factorial.} Table~\ref{tab:factorial} runs the full $2^3$
 loss factorial. The residual denoiser is the dominant single effect
 ($+31.7\%$ average main effect across the four flip pairs), and removing
 the denoiser together with either other module costs more than the sum
-of the parts: the components complement rather than duplicate. One
-implementation choice is not load-bearing (removing the least-squares
-warm start costs $0.9\%$). An auxiliary squared spectral
-error on the DFT of the four-horizon prediction (a squared variant of
-FreDF's frequency-domain supervision~\cite{fredf_2025}) reweights the
-same regression by Parseval's identity, yet every matched comparison
-trains worse with it than without it (two seeds at 600 epochs, one at
-240 epochs); we drop the objective.
+of the parts: the components complement rather than duplicate. A squared FreDF-style spectral term~\cite{fredf_2025} reweights the same
+regression by Parseval's identity, yet every matched comparison trains worse with it (two seeds
+at 600 epochs, one at 240); we drop it.
 
-\textbf{What the off-grid freedom is worth.} A zero-training intervention
-replaces the frozen model's total learned offsets $\varepsilon_m(\cc)$ by
-constants, every weight unchanged. Setting $\varepsilon_m(\cc) = 0$ snaps every pole exactly onto
-the classical 16-point grid and degrades the official grid from 0.1385 to
-0.1923 ($+38.8\%$) with all 162 settings worse, and every constant
-global offset is worse still: the gain is per-mode, per-sample
-placement.
-For $|\varepsilon-\widetilde{\varepsilon}|<1$ and $h\le4$ the phase factor
-of Corollary~1 is monotone in $h$, and the aggregate penalty rises
-monotonically despite radius attenuation:
-$+23.0/+31.1/+40.5/+45.2\%$ at h1--h4. The offsets must also be resolved finely and jointly
-($1/8$-bin quantisation costs $0.9\%$, quarter-bin $5.5\%$, half-bin
-$12.0\%$, keeping only the eight largest modes $17.1\%$), tracking
-\eqref{eq:sensitivity}. The
-same intervention degrades all 1{,}728 settings across the four splits ($+17.7\%$ to $+38.8\%$), and a 57{,}894-parameter variant loses $37.0\%$; on every shifted slice it pushes the operator below the published model ($+0.0288$ to $+0.0691$, all CIs entirely above zero). The frozen predictor's shift advantage therefore relies on its learned off-grid placement, and the placement matters at every capacity we tested (the intervention costs $37$--$60\%$ from 58k to 173k parameters).
-Retraining the same architecture with the offsets pinned to the DFT
-grid recovers the reported configuration (0.1401 against 0.1402
-regular; 0.2688 against 0.2716 unseen, paired CI $[-0.0037,-0.0020]$,
-three seeds): the calibrated transfer carries the performance; frozen
-snapping measures how strongly the fitted parameterization leans on the
-off-grid freedom. On the unseen slice the same
+On the generalization slice the same
 factorial attributes the shift advantage to the residual denoiser
 ($+20.9\%$ without it, 95\% CI $[+0.0431,+0.0713]$) and secondarily
 to the delay decomposition ($+4.0\%$); removing the pole conditioning
 slightly helps ($-0.9\%$).
 
-\subsection{Efficiency}
-\label{ssec:efficiency}
+\textbf{Gain conditioning.} Freezing the readout gains' per-observation modulation to per-mode
+constants, under the factorial protocol (240 epochs, seed 42), costs
+0.1584 against
+0.1386 for a same-environment control arm -- $+14.3\%$, an order of
+magnitude above pole conditioning ($+0.8\%$); the control lands next
+to the factorial reference 0.1397, so the gap is the intervention.
+Under these matched controls, gain conditioning carries the larger
+marginal effect; the frozen-checkpoint snap above shows the trained
+poles still matter to their jointly fitted configuration.
+
+The transfer applied at each pass is only $T{\times}N$; the hard part is
+inferring it from a noisy finite history. The tested bottleneck sits
+there: input processing costs 27.3\% when removed, gain conditioning
+14.3\%, pole conditioning 0.8\%, and a $5.6\times$ parameter scan
+moves accuracy by less than 0.006.
+
+\subsection{Accuracy--efficiency operating point}
+\label{ssec:main}
+
+\begin{table}[!t]
+\centering
+\footnotesize
+
+\renewcommand{\arraystretch}{1.15}
+\setlength{\tabcolsep}{3.2pt}
+\caption{Mean NMSE on the official 162-setting grid. Published rows
+(including the classical predictors) come from the benchmark's reference
+table; all other rows were trained, or for the DFT-grid extrapolators
+fitted without training, and scored through the same harness. $\times$ is
+the ratio to the published row; Budget is the training-epoch cap.}
+\label{tab:main}
+\begin{tabular}{lrrrr}
+\toprule
+Model & Params & Budget & NMSE & $\times$ \\
+\midrule
+CSI-4CAST (published)~\cite{csi4cast_2025} & 21{,}913{,}750 & --- & \textbf{0.1246} & 1.00 \\
+LLM4CP (published)~\cite{llm4cp_2024} & --- & --- & 0.1413 & 1.13 \\
+Adaptive top-1 DFT-grid extrap.\ & 0 & --- & 1.3771 & 11.05 \\
+Full-grid exact extrap.\ & 0 & --- & 3.2883 & 26.39 \\
+\midrule
+\textbf{ours, mean of 3 seeds} & 173{,}190 & 600 ep & \textbf{0.1402} & 1.13 \\
+ours, fixed-grid retrained (3 seeds) & 173{,}190 & 600 ep & 0.1401 & 1.12 \\
+\midrule
+MambaCSP (port, plateau) & 881{,}604 & 100 ep & 0.1468 & 1.18 \\
+CSI-4CAST shrunk (91k) & 91{,}410 & 240 ep & 0.1807 & 1.45 \\
+capacity-matched TF & 149{,}560 & 240 ep & 0.2106 & 1.69 \\
+TSMixer-L & 124{,}337 & 240 ep & 0.2177 & 1.75 \\
+PatchTST & 616{,}560 & 240 ep & 0.2190 & 1.76 \\
+\bottomrule
+\multicolumn{5}{@{}p{\columnwidth}@{}}{
+\rule{0pt}{1.6ex}
+Re-implemented rows are single seed, early-stopped under the shared
+validation rule; the fixed-grid retrained row pins its offsets to the
+DFT grid (three seeds, \S
+\ref{ssec:price}); the DFT-grid rows are fitted without
+training -- top-1 continues the strongest grid bin periodically, and
+the full-grid row is Proposition~1's exact transfer at $K{=}N$
+(\S
+\ref{ssec:price}).}
+\end{tabular}
+\end{table}
+
+Shrinking the published architecture to 91{,}410 parameters yields 0.1807
+at convergence, still 1.29$\times$ our mean; a transformer sized to match
+our parameters reaches 0.2106. The MambaCSP port (100 epochs, validation
+plateau) remains behind the reported model on all three splits (0.1468,
+0.2796 and 0.1805) at 5.1$\times$ our parameters; the remaining ports trail
+further (GRU 0.3239, TCN 0.8353, DLinear 0.7941, MLP 0.3143, Mamba 0.3011).
+Within our own architecture, accuracy is width-insensitive (0.1367--0.1423
+across a $5.6\times$, 58k--327k parameter scan), while halving the
+training windows costs about 17\% NMSE: over the tested range,
+performance is more sensitive to data than to width.
+
+Table~
+\ref{tab:main} and Fig.~
+\ref{fig:pareto} give the trade-off: our
+three-seed mean NMSE is 0.1402 against the published model's 0.1246 (the
+seeds score 0.1385, 0.1442 and 0.1378); the per-seed paired differences
+over the 27 channel cells are $+0.0139$, $+0.0196$ and $+0.0132$, each CI
+entirely above zero.
+
+The classical predictors bound what fixed assumptions deliver: path-delay
+collapses from 0.2300 to 0.3231 under shift, autoregressive (0.7874) and
+Wiener (0.8236) degrade to 1.0469 and 1.0862 against the released
+checkpoint's 0.2872, and the adaptive top-1 DFT-grid extrapolator reaches
+1.3771, 1.2465 and 1.2790.
 
 The reported model carries 173{,}190 parameters and 6{,}514{,}464 MACs per
-antenna sample against the published
-21{,}913,750 and 804{,}901,376: 126.5$\times$ and 123.6$\times$
-ours. MACs are counted over matmul and convolution only; the
-parameter-free DFT/IDFT lift and elementwise products are excluded. Forward latency (RTX 4090 D, batch 32, fp32; 3 warm-ups, 12
-synchronised repeats, $\pm$ = s.d.\ over repeats) is
-$2.24\pm0.05$\,ms against
-$11.15\pm0.02$\,ms per scene, a measured scene-level speedup of
-4.98$\times$; the MAC count is architectural and does not
-measure wall-clock time. On the same protocol the MambaCSP port costs
-9.88\,ms per scene and the capacity-matched transformer 0.40\,ms, with
-NMSE 0.2106 against our 0.1402 seed mean. With
-MRT beamforming the released checkpoint retains more of the perfect-CSI
-rate than ours (2.06\% vs.\ 2.70\% loss, paired $+0.64$\,pp); system-level
-rate remains a complementary endpoint.
+antenna sample against the published 21{,}913,750 and 804{,}901,376:
+126.5$\times$ and 123.6$\times$ ours, counted over matmul and convolution
+only; the parameter-free DFT/IDFT lift and elementwise products are
+excluded. Forward latency (RTX 4090 D, batch 32, fp32, 12 repeats) is
+$2.24\pm0.05$\,ms against $11.15\pm0.02$\,ms per scene: 4.98$\times$
+faster. With MRT beamforming the released checkpoint keeps more of the
+perfect-CSI rate (2.06\% vs.\ 2.70\% loss, paired $+0.64$\,pp).
+
+\subsection{Behaviour under distribution shift}
+\label{ssec:shift}
+
+On the two shifted splits the three frozen checkpoints hold: the
+432-setting generalization slice gives 0.2685, 0.2767 and 0.2695 against
+the released checkpoint's 0.2872. Each paired difference has a 95\% CI
+entirely below zero ($-0.0187$, $-0.0105$, $-0.0177$), and the three-seed
+mean difference is $-0.0156$ $[-0.0250,-0.0070]$ over 72 channel cells
+(5{,}000-resample bootstrap). The operator leads on model B
+($-0.0400$, 95\% CI $[-0.0531,-0.0271]$) while on model E the released
+checkpoint stays ahead ($+0.0088$ $[+0.0046,+0.0132]$) at an order of
+magnitude smaller NMSE. Mobility holds: below 10\,m/s the three-seed
+difference is $-0.0204$ $[-0.0378,-0.0057]$; above 30\,m/s they are
+indistinguishable ($+0.0001$, CI $[-0.0180,+0.0169]$).
+
+The shrunk architecture (0.3039), capacity-matched transformer (0.3427)
+and with-loss variant (0.2951) all trail on this slice; the MambaCSP
+port (0.2796) is not separated (CI $[-0.0178,+0.0019]$).
+
+Across the 486-setting robustness split the released checkpoint leads:
+0.1623 against 0.1772, 0.1735 and 0.1777.
+
+On a second shift axis (A, C and D outside their training delay-spread
+and speed ranges; TDD only) the operator stays ahead on the mean (0.2031
+against 0.2182, $-0.0151$, 95\% CI $[-0.0256,-0.0054]$), with the gain
+concentrated at 400\,ns. Consistent with the estimator-based
+interpretation, the advantage is largest where the pooled Doppler
+context averages over many taps rather than few; the same
+holds on the independent B/E
+axis ($-0.0367$ at 400\,ns, CI $[-0.0549,-0.0189]$; absent at 50\,ns).
 
 \section{Conclusion}
-\enlargethispage{2\baselineskip}
 \label{sec:conc}
 
-DD-Koopman replaces a generic 21.9M-parameter backbone with explicit
-delay--Doppler evolution: a 173{,}190-parameter predictor with a diagonal
-core, ridge-warm-started from a spectral fit
-on the grid. The error analysis separates input, propagation and readout
-contributions, while the ablations identify input denoising as the
-dominant empirical component and reveal the strong sensitivity of the
-fitted off-grid parameterization. The result: 126.5$\times$ fewer
-parameters, 4.98$\times$ lower latency, and the three-seed
-unseen-propagation advantage.
+A multi-step CSI predictor is an estimator followed by a small linear
+transfer, and exactness in that transfer is a constrained resource. On this benchmark,
+full-grid periodic exactness scores 3.2883 against the learned model's
+0.1402 and a fitted readout on the same 16 bins removes most of that
+error; removal costs rank 27.3\% (input denoiser), 14.3\% (gains) and
+0.8\% (poles) under matched controls. DD-Koopman holds a three-seed
+unseen-propagation advantage at
+126.5$\times$ fewer parameters and 4.98$\times$ lower latency.
 
+% ICASSP: page 5 carries references only
 \clearpage
 
 \bibliographystyle{IEEEbib}

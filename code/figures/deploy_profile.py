@@ -14,7 +14,7 @@ Every latency is measured on one 32-antenna scene (batch 32), matching
 results/analysis/profiles_*.txt.
 
 Usage (repo root, GPU host):
-    python deploy_profile.py --out /root/rivermind-data/csi4cast/deploy_3090.txt
+    python deploy_profile.py --out <eval-out>/deploy_3090.txt
 """
 
 from __future__ import annotations
@@ -28,7 +28,7 @@ from pathlib import Path
 os.environ.setdefault("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", "1")
 
 # machine-local default; set CSI4CAST_ROOT (or pass --out) on another host
-HARNESS = Path(os.environ.get("CSI4CAST_ROOT", "/root/rivermind-data/csi4cast/code/CSI-4CAST-main"))
+HARNESS = Path(os.environ.get("CSI4CAST_ROOT", "<harness-root>"))
 sys.path.insert(0, str(HARNESS))
 os.chdir(HARNESS)
 
@@ -64,7 +64,7 @@ def timed(model, x: torch.Tensor, warmup: int = 3, repeats: int = 12,
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--out", default="/root/rivermind-data/csi4cast/deploy_profile.txt")
+    ap.add_argument("--out", default="<eval-out>/deploy_profile.txt")
     ap.add_argument("--batch", type=int, default=32)
     args = ap.parse_args()
 

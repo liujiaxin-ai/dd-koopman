@@ -1,0 +1,35 @@
+{
+ "reference_factorial_nmse": 0.1397,
+ "slot": "model.ckpt",
+ "slot_backup": "slot_backup_before_v7eval.ckpt",
+ "arms": {
+  "GAINOFF": {
+   "summary": "summary_gainoff.json",
+   "checkpoint": "epoch=190-step=145160-val_loss=0.156817.ckpt",
+   "checkpoint_sha256": "900eb5d928724532ba8b00cc17c54bcd75fdb109dd664300f9a23f34dbd36d50",
+   "slot_sha256_before": "900eb5d928724532ba8b00cc17c54bcd75fdb109dd664300f9a23f34dbd36d50",
+   "csv": "GAINOFF_full162.csv",
+   "rows": 162,
+   "nmse_flat_mean": 0.15841683233024692,
+   "nmse_cell_mean": 0.15841683233024692,
+   "cells": 27,
+   "delta_vs_reference": 0.01871683233024693,
+   "relative_vs_reference": 0.133978756837845,
+   "status": "ok"
+  },
+  "GAINOFFREF": {
+   "summary": "summary_control.json",
+   "checkpoint": "epoch=171-step=130720-val_loss=0.139550.ckpt",
+   "checkpoint_sha256": "4e1d1719eba75f245acafc72b01710db85cef326d7c53f5ebf5452d3b13b5070",
+   "slot_sha256_before": "4e1d1719eba75f245acafc72b01710db85cef326d7c53f5ebf5452d3b13b5070",
+   "csv": "GAINOFFREF_full162.csv",
+   "rows": 162,
+   "nmse_flat_mean": 0.1385677537808642,
+   "nmse_cell_mean": 0.1385677537808642,
+   "cells": 27,
+   "delta_vs_reference": -0.0011322462191357963,
+   "relative_vs_reference": -0.008104840509204014,
+   "status": "ok"
+  }
+ }
+}

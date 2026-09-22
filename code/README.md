@@ -13,6 +13,7 @@ project's Hugging Face organisation.
 | `models_baseline/` | `baselines_suite.py` (DLinear, MLP, GRU, TCN, Transformer, PatchTST), `new_baselines.py` (TimeMixer, TSMixer, iTransformer, Mamba-lite), `mambacsp.py` (2026 competitor) |
 | `config/sweep/` | the 60 training configs used by the reported runs |
 | `analysis/` | `regenerate_all.py` (one entry point: every derived table in `results/analysis/`, dependency order), `audit_claims.py` (number-to-source audit) and the individual table/figure drivers |
+| `ladder/` | the exactness-ladder implementation: `dftgrid.py` / `ladder_lsgains.py` model sources (installed into the harness by `ladder_install*.py`), the ridge fit `ladder_lsgains_fit.py`, the sanity checks `ladder_sanity.py`, the as-run drivers `ladder_run_*.sh`, and the recorded harness diff |
 | `figures/` | the intervention evaluator `eval_pole_offset.py` (grid snap / quantisation / top-k) and the figure scripts |
 
 ## Install into a working copy of the harness
@@ -185,3 +186,46 @@ pdfinfo paper/main.pdf | grep Pages               # 5 pages (4 + references)
 `audit_claims.py` must run from the repository root (it reads
 `paper/main.tex` next to `code/` and `results/`); it exits with a clear
 error if the layout is missing.
+
+## Exactness ladder (E0/E1, Section 4.3 of the paper)
+
+| file | role |
+|---|---|
+| `ladder_install.py`, `ladder_install_lsgains.py` | install the `DFTGRID` / `LSGAINS` models into the harness (three-line patch each, recorded verbatim in `ladder_harness_patch.diff`) |
+| `dftgrid.py`, `ladder_lsgains.py` | the two model sources; they are the `--source` inputs of the installers |
+| `ladder_lsgains_fit.py` | ridge fit of the 4x16 complex gain matrix. `native` = the first 256 packed training samples (with the training AWGN) -- the model's own warm-start recipe; `full` = all 24,300 packed training samples. Ridge 1e-6, fp64 fit |
+| `ladder_sanity.py` | data-independent synthetic checks: with a full 16-bin support the DFTGRID output is the periodic continuation of the delay history (max error ~1.7e-6), and the analytic periodic-extension gains reproduce the harness output (~1.1e-6) |
+| `ladder_run_dftgrid.sh`, `ladder_run_lsgains.sh` | evaluation drivers over the three splits. The generalization runs carry the B/E x delay-spread x speed filters that define the paper's 432-setting slice, child failures propagate (per-PID wait, nonzero exit), and the drivers assert the 162/486/432 output rows. Env-driven: `LADDER_HARNESS`, `LADDER_OUT`, `LADDER_GAINS` |
+
+All commands run from THIS repository's root; the drivers `cd` into the
+harness themselves (which is why `LADDER_GAINS` must be absolute):
+
+```bash
+ANON=$(pwd)
+HARNESS=${LADDER_HARNESS:?set LADDER_HARNESS to your CSI-4CAST checkout}
+test -f "$HARNESS/eval_ours.py"                    || { echo "eval_ours.py not found in harness"; exit 1; }
+test -f results/theory/ladder/gains/W_native.npz   || { echo "weights missing"; exit 1; }
+
+# 0) install the two ladder baselines into the harness
+python code/ladder/ladder_install.py         --harness "$HARNESS" --source code/ladder/dftgrid.py        --diff code/ladder/ladder_harness_patch.diff
+python code/ladder/ladder_install_lsgains.py --harness "$HARNESS" --source code/ladder/ladder_lsgains.py --diff code/ladder/ladder_harness_patch.diff
+
+# 1) sanity (no data needed), executed from the harness root
+(cd "$HARNESS" && DFTGRID_MODES=16 python "$ANON/code/ladder/ladder_sanity.py" --out sanity_k16_rebuilt.json)
+
+# 2) E0: DFTGRID K=16 on the three splits (row counts asserted: 162/486/432)
+LADDER_HARNESS="$HARNESS" LADDER_OUT=/tmp/ladder_out bash code/ladder/ladder_run_dftgrid.sh
+
+# 3) E1 fit: deterministic ridge fit; a rebuilt npz must match the sha256 in
+#    results/theory/ladder/gains/fit_summary.json
+(cd "$HARNESS" && python "$ANON/code/ladder/ladder_lsgains_fit.py" --out-dir /tmp/ladder_gains)
+
+# 4) E1 eval with the shipped weights (or point LADDER_GAINS at the rebuild)
+LADDER_HARNESS="$HARNESS" LADDER_OUT=/tmp/ladder_out LADDER_GAINS="$ANON/results/theory/ladder/gains" bash code/ladder/ladder_run_lsgains.sh
+```
+
+`results/theory/ladder/fit_summary.json` records the sha256 of every shipped
+gain matrix; a rebuilt matrix must match it, otherwise the run is not the
+reported one. The per-K evaluation CSVs live in `results/run_csv/DFTGRID_K*.csv`
+and `results/run_csv/LSGAINS*.csv`; the delivery summary is
+`results/theory/exactness_ladder_evals.md`.
