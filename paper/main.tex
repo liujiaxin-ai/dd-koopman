@@ -43,7 +43,7 @@ to\hsize{\hfil\box\@tempboxa\hfil}%
 
 \title{DD-Koopman: Exactness on a Budget for Compact Multi-Step CSI Prediction}
 
-\name{Jiaxin Liu, Ting Wu\thanks{Corresponding authors: Ting Wu (first), Jiaxin Liu (second).}}
+\name{Jiaxin Liu, Ting Wu}
 \address{Nanjing University}
 
 \begin{document}
@@ -96,7 +96,7 @@ extrapolation rather than sequence modelling. The
 analysis below characterizes which transfers are exact, what full-grid
 periodic exactness costs on this benchmark, and how badly a transfer
 degrades off its support; the
-experiments locate the practical bottleneck: the exact transfer itself scores 3.2883 against the learned model's 0.1402, and removing the input-side denoiser costs 27.3\% NMSE.
+experiments locate the practical bottleneck in the estimator: removing the input-side denoiser costs 27.3\% NMSE.
 
 Our contributions are:
 \begin{enumerate}\itemsep1pt
@@ -123,7 +123,7 @@ Accuracy stays within 0.1367--0.1423 across a $5.6\times$ parameter scan
 the frozen checkpoints the transfer expansion reproduces the network
 output exactly and the finite-scan defect certificate holds on every
 evaluated instance. DD-Koopman reaches 0.1402 against the published 0.1246
-with 126.5$\times$ fewer parameters and 4.98$\times$ lower measured
+with 126.5$\times$ fewer parameters and 4.98$\times$ lower
 latency, and improves mean NMSE on a 432-setting unseen-propagation
 slice, each paired CI entirely below zero
 (\S\ref{ssec:main}, \S\ref{ssec:shift}).
@@ -358,7 +358,7 @@ $5{\cdot}10^{-4}$ with a plateau scheduler and early stopping (600 epochs report
 The implementation follows the split: the conditioned spectral operator
 holds 12{,}768 parameters (7.4\%), per-tap reweighting 154{,}328 (89.1\%),
 the temporal mixer 4{,}200, the residual denoiser 1{,}590, the delay
-decomposition 300, and four scalar gates, for 173{,}190 in total.
+decomposition 300, and four scalar gates, for 173{,}190 in total;
 Table~\ref{tab:main} places this split on the accuracy--efficiency plane.
 
 \subsection{The price of exactness}
@@ -473,13 +473,12 @@ magnitude above pole conditioning ($+0.8\%$); the control lands next
 to the factorial reference 0.1397, so the gap is the intervention.
 Under these matched controls, gain conditioning carries the larger
 marginal effect; the frozen-checkpoint snap above shows the trained
-poles still matter to their jointly fitted configuration.
+poles still matter.
 
 The transfer applied at each pass is only $T{\times}N$; the hard part is
-inferring it from a noisy finite history. The tested bottleneck sits
-there: input processing costs 27.3\% when removed, gain conditioning
-14.3\%, pole conditioning 0.8\%, and a $5.6\times$ parameter scan
-moves accuracy by less than 0.006.
+inferring it from a noisy finite history: input processing costs 27.3\%
+when removed, gain conditioning 14.3\%, pole conditioning 0.8\%, and a
+$5.6\times$ parameter scan moves accuracy by less than 0.006.
 
 \subsection{Accuracy--efficiency operating point}
 \label{ssec:main}
@@ -543,8 +542,8 @@ Table~
 \ref{fig:pareto} give the trade-off: our
 three-seed mean NMSE is 0.1402 against the published model's 0.1246 (the
 seeds score 0.1385, 0.1442 and 0.1378); the per-seed paired differences
-over the 27 channel cells are $+0.0139$, $+0.0196$ and $+0.0132$, each CI
-entirely above zero.
+over the 27 channel cells ($+0.0139$, $+0.0196$, $+0.0132$) each have a
+CI entirely above zero.
 
 The classical predictors bound what fixed assumptions deliver: path-delay
 collapses from 0.2300 to 0.3231 under shift, autoregressive (0.7874) and
@@ -596,11 +595,11 @@ axis ($-0.0367$ at 400\,ns, CI $[-0.0549,-0.0189]$; absent at 50\,ns).
 \label{sec:conc}
 
 A multi-step CSI predictor is an estimator followed by a small linear
-transfer, and exactness in that transfer is a constrained resource. On this benchmark,
+transfer; exactness there is a constrained resource. On this benchmark,
 full-grid periodic exactness scores 3.2883 against the learned model's
-0.1402 and a fitted readout on the same 16 bins removes most of that
-error; removal costs rank 27.3\% (input denoiser), 14.3\% (gains) and
-0.8\% (poles) under matched controls. DD-Koopman holds a three-seed
+0.1402, a fitted readout on the same 16 bins removes most of that
+error, and removal costs rank 27.3\% (input denoiser), 14.3\% (gains)
+and 0.8\% (poles) under matched controls. DD-Koopman holds a three-seed
 unseen-propagation advantage at
 126.5$\times$ fewer parameters and 4.98$\times$ lower latency.
 
