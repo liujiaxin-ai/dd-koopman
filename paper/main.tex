@@ -94,9 +94,10 @@ Per-path frequency, radius and delay amplitude fix a specular
 channel's future, so the task is short-window identification and
 extrapolation rather than sequence modelling. The
 analysis below characterizes which transfers are exact, what full-grid
-periodic exactness costs on this benchmark, and how badly a transfer
+periodic exactness costs, and how badly a transfer
 degrades off its support; the
-experiments locate the practical bottleneck in the estimator: removing the input-side denoiser costs 27.3\% NMSE.
+experiments locate the bottleneck in the estimator: removing the
+input-side denoiser costs 27.3\% NMSE.
 
 Our contributions are:
 \begin{enumerate}\itemsep1pt
@@ -230,12 +231,12 @@ $\zeta_m(\cc) = r_m(\cc)\,e^{j2\pi(m+\varepsilon_m(\cc))/16}$ with total
 offset $\varepsilon_m(\cc) = \delta_m + \Delta_m(\cc)$: a learned static
 offset $\delta_m$ plus an observation-conditioned shift $\Delta_m(\cc)$,
 each in $(-\tfrac12,\tfrac12)$, so $\varepsilon_m(\cc)$ places every pole
-continuously between the DFT bins. Both the radii $r_m(\cc) \in (0,1)$
-and the offsets depend on the observation through a context $\cc$ that
-summarises the observed Doppler power averaged over delay taps; the core
-$K_c = \mathrm{diag}(\zeta_m(\cc))$ is held fixed across the four
-horizons. The gains $G_h[m](\cc)$ are complex, indexed by horizon and
-mode, shared across delay taps, and modulated per observation from the
+within one bin of its nominal DFT frequency. Both the radii $r_m(\cc)\in(0,1)$
+and the offsets depend on a context $\cc$ summarising the observed
+Doppler power averaged over delay taps; the core
+$K_c = \mathrm{diag}(\zeta_m(\cc))$ is fixed across the four
+horizons. The gains $G_h[m](\cc)$ are complex, shared across delay
+taps, and modulated per observation from the
 same context; they calibrate the finite-window readout, while the
 semigroup law $K_c^{\,h+k}=K_c^{\,h}K_c^{\,k}$, non-expansive in every
 power ($\|K_c^{\,h}\|_2\le 1$), belongs to $K_c$ alone. The reported
@@ -272,22 +273,26 @@ of the parameter count.
 factors, let $V=[v_N(z_k)]$, $Q=[u_T(z_k)]$. A fixed $P$ predicts every
 pair $VB\mapsto QB$ exactly iff $PV=Q$; the solution set has real
 dimension $2T(N{-}K)$, and $P_0=QV^{\dagger}$ is its unique
-minimum-Frobenius-norm member. At full grid support ($K{=}N$ unit roots)
-$Q=[I_T\;0]V$, so the solution is unique with zero degrees of freedom
+minimum-Frobenius-norm member. At full grid support ($K{=}N$ unit roots,
+$T\le N$) $Q=[I_T\;0]V$, so the solution is unique with zero degrees of freedom
 and $P_0=[I_T\;0]$: periodic continuation, $\widehat Y=X[0{:}T]$. On a
 grid support the output-noise gain
 $G(P)=\mathbb{E}\|Pe\|_2^2/\sigma^2=\|P\|_F^2$ for
-$e\sim\mathcal{CN}(0,\sigma^2I_N)$ is minimized among exact transfers by
+$e\sim\mathcal{CN}(0,\sigma^2I_N)$, $\sigma^2>0$, is minimized among exact transfers by
 $P_0$, with $G(P_0)=KT/N$; off grid
 $\operatorname{tr}[Q(V^{\mathrm H}V)^{-1}Q^{\mathrm H}]$ replaces it
-\cite{golub2013matrix}.
+\cite{golub2013matrix}. Off the grid this periodic continuation has
+closed-form defect
+$[I_T\;0]v_N(z)-u_T(z)=(1{-}z^{N})(1,z,\ldots,z^{T-1})^{\mathrm T}$, of
+norm $2\sqrt{T}\,|\sin(N\omega/2)|$ on the unit circle -- zero at the
+bins, $2\sqrt{T}{=}4$ at their midpoints.
 
 \textbf{Theorem 1 (spectral-defect bound).} Let
 $d_P(z)=Pv_N(z)-u_T(z)$ and
 $\delta_{\mathcal Z}(P)=\max_{z\in\mathcal Z}\|d_P(z)\|_2$ over compact
 $\mathcal Z$. Over finite mixtures
 $S=\sum_kv_N(z_k)b_k^{\mathrm T}$,
-$Y=\sum_ku_T(z_k)b_k^{\mathrm T}$ with $z_k\in\mathcal Z$ and
+$Y=\sum_ku_T(z_k)b_k^{\mathrm T}$ with $z_k\in\mathcal Z$, $M\ge0$, and
 $\sum_k\|b_k\|_2\le M$, the worst
 noiseless error of a fixed $P$ is exactly $M\,\delta_{\mathcal Z}(P)$,
 attained at a single atom; and the implemented predictor, with $P_X$ and
@@ -381,8 +386,8 @@ adaptive top-1 bin (1.3771) to the full grid degrades monotonically
 across $K\in\{1,2,4,8,16\}$, consistent with truncation suppressing noisy
 modes. Staying inside the same 16-bin representation but replacing
 periodic exactness by a ridge least-squares fit of the same
-$4{\times}16$ gains -- the model's own warm start, a 256-sample fit --
-reaches 1.2504 (1.1366 and 1.4767 shifted), and fitting on all
+$4{\times}16$ gains -- its own warm start -- reaches 1.2504 (1.1366
+and 1.4767 shifted), and fitting on all
 24{,}300 training samples reaches 0.8173: within this fixed-grid
 comparison, the exactness constraint accounts for most of the gap
 to the fitted readout; the ablations below assess the rest. The harness's $K{=}16$ transfer matches the
@@ -537,9 +542,7 @@ across a $5.6\times$, 58k--327k parameter scan), while halving the
 training windows costs about 17\% NMSE: over the tested range,
 performance is more sensitive to data than to width.
 
-Table~
-\ref{tab:main} and Fig.~
-\ref{fig:pareto} give the trade-off: our
+Table~\ref{tab:main} and Fig.~\ref{fig:pareto} give the trade-off: our
 three-seed mean NMSE is 0.1402 against the published model's 0.1246 (the
 seeds score 0.1385, 0.1442 and 0.1378); the per-seed paired differences
 over the 27 channel cells ($+0.0139$, $+0.0196$, $+0.0132$) each have a

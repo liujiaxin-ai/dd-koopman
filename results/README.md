@@ -11,6 +11,16 @@ derived table byte-identically (run logs are rewritten from scratch each run).
 | `run_csv/` | one CSV per evaluation run — one row per test setting, per-horizon NMSE values in the `nmse_mean` array column. These 144 files plus `reference/` are the only inputs of the analysis scripts |
 | `reference/` | `official_per_setting.csv`: the published benchmark's own per-setting results (the source of every "published" number, including the classical WIENER/AR/PAD/NP rows); `repro_MODEL_TDD_regular.csv`: our reproduction of the released checkpoint (0.124480 vs 0.124611 official, −0.105%) |
 | `analysis/` | the derived tables behind the paper: `main_table.csv`, `ablation_table_off.csv` (the loss-off 2³ factorial), `ablation_table.csv` and `ablation_table_mech.csv` (earlier protocols, kept for provenance), `seeds_table.csv`, `robustness_table.csv`, `generalization_seeds.csv`, `generalization_by_band.csv`, `generalization_by_cm*.csv`, `generalization_432_summary.csv`, `generalization_acd_seeds.csv`, the `*_extended.csv` intervention rows, `classical_ladder.csv`, `capacity_curve.csv`, `pole_export.csv`, `pole_intervention_curve.csv`, `pole_offset_curve.csv`, `pole_snap_*.csv`, `shift_snap.csv`, `stats_hardening.csv`, `per_horizon.csv`, `snr_profile.csv`, `rate_comparison.csv`, `data_frac_curve.csv`, `baseline_zoo.csv`, `paired_stats.txt`, `harness_reproduction.txt`, latency profiles, and the protocol notes (`split_definitions.md`, `macs_counting_convention.md`) |
+| `theory/` | operator-identity, response-curve and certificate diagnostics behind Section 2–3 (`run_diag.py` with `--task v1v3|v2|v4`), plus `theory/ladder/` and the verified rerun `theory/ladder_rerun/` |
+
+Column note for `theory/noise_gain.csv`: `KT_over_N_K257` and
+`excess_K257` are bookkeeping against the 257-point angle-scan grid and are
+**not applicable to Proposition 1** — on that over-determined grid `PV=Q`
+has no exact solution (the file's own `ls_residual_K257` column shows the
+least-squares residual), so `KT/N` is not a minimum noise gain there. The
+meaningful excess is `excess_K16`, measured against the full-grid exact
+support where `KT/N = T = 4`. The exactness self-check is the
+`selfcheck_P0V_minus_Q` column, computed on the 16 unit roots.
 
 Statistics convention (used by every paired comparison): cell =
 (channel model, delay spread, speed); NMSE is averaged over the six SNR
